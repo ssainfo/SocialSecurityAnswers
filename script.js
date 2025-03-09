@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Pages to search
     const pages = [
         { url: "index.html", title: "Home" },
         { url: "retirement.html", title: "Retirement Planning" },
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "faq.html", title: "FAQ" }
     ];
 
-    // FAQ Collapsible
     const questions = document.querySelectorAll(".faq-question");
     questions.forEach(question => {
         question.addEventListener("click", function () {
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // FAQ Search
     const faqSearch = document.getElementById("faq-search");
     if (faqSearch) {
         const faqItems = document.querySelectorAll(".faq-item");
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Site-wide Search
     const siteSearch = document.getElementById("site-search");
     if (siteSearch) {
         siteSearch.addEventListener("keypress", function (e) {
@@ -52,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-             // Chatbot section (replace this in your script.js)
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbotContainer = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -134,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function getBotResponse(message) {
-            // Retirement Benefits (expanded)
             if (message.includes("when can i start") || message.includes("collecting")) return "Start at 62 (reduced, e.g., 70% if FRA is 67), full at FRA (66-67), or delay to 70 (8% more/year). Ex: $2,000 at 67 becomes $1,400 at 62 or $2,480 at 70. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Learn more</a>.";
             if (message.includes("work and collect") || message.includes("working")) return "Before FRA, 2025 limit is $22,320—$1 cut per $2 over. No limit after FRA. Ex: Earning $30,000 at 63 cuts $320/month until FRA. <a href='https://www.ssa.gov/benefits/retirement/planner/whileworking.html' target='_blank'>Details</a>.";
             if (message.includes("how do i apply") || message.includes("application")) return "Apply online 4 months early at My SSA, call 1-800-772-1213, or visit an office. Takes time, so start 3 months ahead! <a href='https://www.ssa.gov/benefits/retirement/apply.html' target='_blank'>Apply now</a>.";
@@ -148,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (message.includes("early retirement") || message.includes("62")) return "At 62, benefits drop (e.g., $2,000 at 67 becomes $1,400). Earnings limit until FRA. <a href='https://www.ssa.gov/benefits/retirement/planner/1943.html' target='_blank'>Early retirement</a>.";
             if (message.includes("benefit estimate") || message.includes("how much will i get")) return "Based on 35 top years. Ex: $50,000/year avg might get $1,800 at FRA. Use My SSA. <a href='https://www.ssa.gov/estimator/' target='_blank'>Estimate tool</a>.";
 
-            // Disability Benefits (expanded)
             if (message.includes("ssdi") || message.includes("disability insurance")) return "SSDI for workers with credits (e.g., 40 total, 20 in last 10 years) unable to work 12+ months. Avg $1,500/month, 5-month wait. Ex: John gets $1,700 after a crash. <a href='https://www.ssa.gov/benefits/disability/qualify.html' target='_blank'>Qualify info</a>.";
             if (message.includes("ssi") || message.includes("supplemental security")) return "SSI for low-income (under $2,000 resources) with disability, blind, or 65+. Up to $943/month in 2025. Ex: Maria gets $943 with no work history. <a href='https://www.ssa.gov/ssi/text-eligibility-ussi.htm' target='_blank'>Eligibility</a>.";
             if (message.includes("disability definition") || message.includes("disabled")) return "Can’t work due to a severe condition lasting 12+ months or fatal. <a href='https://www.ssa.gov/disability/professionals/bluebook/general-info.htm' target='_blank'>Criteria</a>.";
@@ -158,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (message.includes("ticket to work") || message.includes("vocational")) return "Free program to help return to work while on SSDI/SSI. <a href='https://www.ssa.gov/work/' target='_blank'>Ticket info</a>.";
             if (message.includes("disability appeal") || message.includes("denied")) return "Appeal within 60 days if denied (2/3 are). Steps: reconsideration, hearing, etc. Ex: Mike wins after 8 months with new proof. <a href='https://www.ssa.gov/benefits/disability/appeal.html' target='_blank'>Process</a>.";
 
-            // Medicare
             if (message.includes("medicare start") || message.includes("when medicare")) return "Sign up 3 months before 65, or after 24 months of disability benefits. <a href='https://www.ssa.gov/medicare/sign-up' target='_blank'>Sign-up info</a>.";
             if (message.includes("cms-40b") || message.includes("part b apply")) return "CMS-40B enrolls you in Part B during special periods or with Part A. <a href='https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms40b-e.pdf' target='_blank'>Download</a>.";
             if (message.includes("cms-l564") || message.includes("employment information")) return "CMS-L564 proves employer coverage for Part B special enrollment. <a href='https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms-l564e.pdf' target='_blank'>Download</a>.";
@@ -170,7 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (message.includes("how medicare works") || message.includes("medicare plans")) return "Medicare has two paths: Original (A & B) = government-run, any doctor, add D or Medigap. Advantage (C) = private, bundles A/B/D, network doctors, often extras. <a href='https://www.medicare.gov/basics/get-started-with-medicare' target='_blank'>Learn more</a>.";
             if (message.includes("original medicare")) return "Original Medicare (A & B) is government-run. Part A for hospitals, B for doctors. Any Medicare doctor, but you pay deductibles + 20%. Add D or Medigap if needed. <a href='https://www.medicare.gov/what-medicare-covers/original-medicare' target='_blank'>Details</a>.";
 
-            // Medicaid
             if (message.includes("medicaid qualify") || message.includes("who qualifies for medicaid")) return "Low-income, disabled, elderly, kids, and pregnant women may qualify—varies by state. <a href='https://www.medicaid.gov/medicaid/eligibility/index.html' target='_blank'>Eligibility</a>.";
             if (message.includes("medicaid apply") || message.includes("how apply medicaid")) return "Apply via your state’s Medicaid office or HealthCare.gov. <a href='https://www.medicaid.gov/medicaid/how-apply/index.html' target='_blank'>Apply info</a>.";
             if (message.includes("medicaid coverage") || message.includes("what does medicaid cover")) return "Covers doctor visits, hospital stays, prescriptions—details vary by state. <a href='https://www.medicaid.gov/medicaid/benefits/index.html' target='_blank'>Coverage</a>.";
@@ -178,12 +169,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (message.includes("snap") || message.includes("food stamps")) return "SNAP helps low-income households buy food if income ≤ 130% poverty line (e.g., $2,694/month for 3 in 2025). Apply via your state. <a href='https://www.usa.gov/food-stamps' target='_blank'>SNAP info</a>.";
             if (message.includes("qmb") || message.includes("qualified medicare beneficiary")) return "QMB pays Medicare A/B premiums, deductibles, copays for low-income (≤ $1,275/month individual, 2025). <a href='https://www.cms.gov/medicare/medicaid-coordination/medicare-medicaid-coordination-office/qmb' target='_blank'>QMB details</a>.";
 
-            // Housing Assistance
             if (message.includes("housing assistance") || message.includes("section 8")) return "Section 8 vouchers and public housing help low-income families (income ≤ 50% area median). Apply via local PHA. <a href='https://www.hud.gov/topics/rental_assistance' target='_blank'>HUD Rental Assistance</a>.";
             if (message.includes("housing apply") || message.includes("how apply housing")) return "Contact your local Public Housing Agency (PHA). Waitlists common. <a href='https://apps.hud.gov/apps/section8/' target='_blank'>Find your PHA</a>.";
             if (message.includes("housing eligibility") || message.includes("who qualifies housing")) return "Income ≤ 50% area median (e.g., $36,750 for 4 in 2025, varies). Priority for ≤ 30%. <a href='https://www.hud.gov/program_offices/public_indian_housing/programs/hcv/about' target='_blank'>Eligibility</a>.";
 
-            // General SSA Policy
             if (message.includes("payment dates") || message.includes("when paid")) return "Birth date: 1st-10th (2nd Wed), 11th-20th (3rd Wed), 21st-31st (4th Wed). <a href='https://www.ssa.gov/pubs/EN-05-10031-2025.pdf' target='_blank'>2025 Schedule</a>.";
             if (message.includes("appeal") || message.includes("denied")) return "Appeal within 60 days: reconsideration, hearing, Appeals Council, court. Ex: Mike wins after 8 months with new proof. <a href='https://www.ssa.gov/benefits/disability/appeal.html' target='_blank'>Process</a>.";
             if (message.includes("work credits") || message.includes("credits")) return "40 credits (10 years) for retirement, less for SSDI (e.g., 20 in 10 years). $1,730/credit in 2025. <a href='https://www.ssa.gov/oact/cola/QC.html' target='_blank'>Credit info</a>.";
@@ -225,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Dark Mode Toggle
     const darkModeToggle = document.getElementById("dark-mode-toggle");
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", function () {
@@ -237,7 +225,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Back to Top Button
     const backToTop = document.getElementById("back-to-top");
     if (backToTop) {
         window.addEventListener("scroll", function () {
@@ -248,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Quiz
     const quizForm = document.getElementById("quiz-form");
     if (quizForm) {
         quizForm.addEventListener("submit", function (e) {
@@ -274,7 +260,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Submit a Question Form (simulated)
     const questionForm = document.getElementById("question-form");
     if (questionForm) {
         questionForm.addEventListener("submit", function (e) {
@@ -287,7 +272,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Comments Section
     const commentForm = document.getElementById("comment-form");
     const commentList = document.getElementById("comment-list");
     if (commentForm) {
@@ -317,13 +301,11 @@ document.addEventListener("DOMContentLoaded", function () {
         comments.forEach(displayComment);
     }
 
-    // Thank You Message on Page Exit (only for external exits or tab close)
     const thankYouDiv = document.createElement("div");
     thankYouDiv.id = "thank-you-message";
     thankYouDiv.textContent = "Thank you for visiting Social Security Answers!";
     document.body.appendChild(thankYouDiv);
 
-    // Track navigation clicks to detect internal links
     const navLinks = document.querySelectorAll("nav ul li a");
     let isInternalNavigation = false;
 
@@ -331,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.addEventListener("click", function (e) {
             const href = this.getAttribute("href");
             if (pages.some(page => page.url === href)) {
-                isInternalNavigation = true; // Mark as internal navigation
+                isInternalNavigation = true;
             }
         });
     });
@@ -341,10 +323,10 @@ document.addEventListener("DOMContentLoaded", function () {
             thankYouDiv.classList.add("show");
             setTimeout(() => {
                 thankYouDiv.classList.remove("show");
-            }, 2000); // Fade out after 2 seconds
+            }, 2000);
             e.preventDefault();
-            e.returnValue = ""; // Trigger browser confirmation (though modern browsers may ignore custom text)
+            e.returnValue = "";
         }
-        isInternalNavigation = false; // Reset flag
+        isInternalNavigation = false;
     });
 });
