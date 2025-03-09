@@ -1,0 +1,536 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+header {
+    background: linear-gradient(90deg, #ff0000, #0000ff);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body.dark-mode header {
+    background: linear-gradient(90deg, #800000, #000080);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.dark-mode-btn {
+    padding: 0.5rem 1rem;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.dark-mode-btn:hover {
+    background-color: #555;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body.dark-mode .search-bar {
+    border-color: #666;
+    background: #333;
+    color: #fff;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode main {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f1f1f1;
+}
+
+body.dark-mode footer {
+    background-color: #333;
+}
+
+.hero, .resources, .medicare-links, .retirement-tips, .disability-info, .quiz, .quick-links, .submit-question, .comments {
+    text-align: center;
+    padding: 1rem;
+}
+
+body.dark-mode .hero {
+    background-color: #444;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.2s; }
+.faq-item:nth-child(3) { animation-delay: 0.3s; }
+.faq-item:nth-child(4) { animation-delay: 0.4s; }
+.faq-item:nth-child(5) { animation-delay: 0.5s; }
+.faq-item:nth-child(6) { animation-delay: 0.6s; }
+.faq-item:nth-child(7) { animation-delay: 0.7s; }
+.faq-item:nth-child(8) { animation-delay: 0.8s; }
+.faq-item:nth-child(9) { animation-delay: 0.9s; }
+.faq-item:nth-child(10) { animation-delay: 1.0s; }
+.faq-item:nth-child(11) { animation-delay: 1.1s; }
+
+.faq-question {
+    cursor: pointer;
+    color: #007BFF;
+    margin: 0.5rem 0;
+}
+
+body.dark-mode .faq-question {
+    color: #00ccff;
+}
+
+.faq-question:hover {
+    text-decoration: underline;
+}
+
+.faq-answer {
+    display: none;
+    margin: 0 0 1rem 1rem;
+}
+
+.faq-answer a, .medicare-links ul li a, .disability-info ul li a, .quick-links ul li a, .resources ul li a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+body.dark-mode .faq-answer a, body.dark-mode .medicare-links ul li a, body.dark-mode .disability-info ul li a, body.dark-mode .quick-links ul li a, body.dark-mode .resources ul li a {
+    color: #00ccff;
+}
+
+.faq-answer a:hover, .medicare-links ul li a:hover, .disability-info ul li a:hover, .quick-links ul li a:hover, .resources ul li a:hover {
+    color: #0056b3;
+}
+
+body.dark-mode .faq-answer a:hover, body.dark-mode .medicare-links ul li a:hover, body.dark-mode .disability-info ul li a:hover, body.dark-mode .quick-links ul li a:hover, body.dark-mode .resources ul li a:hover {
+    color: #0099cc;
+}
+
+.medicare-links ul, .retirement-tips ul, .disability-info ul, .quick-links ul, .resources ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.medicare-links ul li, .retirement-tips ul li, .disability-info ul li, .quick-links ul li, .resources ul li {
+    margin: 0.5rem 0;
+}
+
+.medicare-links ul li i, .quick-links ul li i, .resources ul li i {
+    margin-right: 0.5rem;
+}
+
+.form-desc {
+    font-size: 1rem;
+    color: #333;
+    margin: 0.25rem 0 0.5rem 0;
+    text-align: left;
+}
+
+body.dark-mode .form-desc {
+    color: #ccc;
+}
+
+.quiz-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.quiz-btn:hover {
+    background-color: #218838;
+}
+
+.quiz-result {
+    margin-top: 1rem;
+    color: #28a745;
+    font-size: 1.2rem;
+}
+
+body.dark-mode .quiz-result {
+    color: #00ff00;
+}
+
+.submit-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.submit-input[type="textarea"] {
+    height: 100px;
+    resize: vertical;
+}
+
+body.dark-mode .submit-input {
+    border-color: #666;
+    background: #333;
+    color: #fff;
+}
+
+.submit-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.form-response {
+    margin-top: 1rem;
+    color: #28a745;
+    font-size: 1.2rem;
+}
+
+body.dark-mode .form-response {
+    color: #00ff00;
+}
+
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 0.75rem 1.5rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+}
+
+.chatbot-btn:hover {
+    background-color: #218838;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    font-size: 1.2rem;
+}
+
+.back-to-top:hover {
+    background-color: #555;
+}
+
+.chatbot-container {
+    display: none;
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+body.dark-mode .chatbot-container {
+    background-color: #333;
+    border-color: #666;
+}
+
+.chatbot-container.active {
+    opacity: 1;
+}
+
+.chatbot-header {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body.dark-mode .chatbot-header {
+    background-color: #004080;
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.chatbot-messages {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+body.dark-mode .chatbot-messages {
+    color: #fff;
+}
+
+.chatbot-messages p {
+    margin: 0.5rem 0;
+}
+
+.chatbot-typing {
+    color: #666;
+    font-style: italic;
+    margin: 0.5rem 0;
+}
+
+body.dark-mode .chatbot-typing {
+    color: #999;
+}
+
+.chatbot-suggestions {
+    width: calc(100% - 20px);
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body.dark-mode .chatbot-suggestions {
+    border-color: #666;
+    background: #333;
+    color: #fff;
+}
+
+.chatbot-input {
+    width: calc(100% - 210px);
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+}
+
+body.dark-mode .chatbot-input {
+    border-color: #666;
+    background: #333;
+    color: #fff;
+}
+
+.chatbot-send, .chatbot-save, .chatbot-reset {
+    padding: 0.5rem 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0.5rem 0.25rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+}
+
+.chatbot-send:hover, .chatbot-save:hover, .chatbot-reset:hover {
+    background-color: #0056b3;
+}
+
+#comment-list {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding: 0.5rem 0;
+}
+
+body.dark-mode .comment {
+    border-color: #666;
+}
+/* Add this to the end of your existing styles.css */
+#thank-you-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(40, 167, 69, 0.9); /* Green background */
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#thank-you-message.show {
+    opacity: 1;
+}
+/* Existing chatbot styles... */
+
+/* Enhance chatbot close button */
+#chatbot-close {
+    background-color: #ff4444; /* Red background for visibility */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#chatbot-close:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+body.dark-mode #chatbot-close {
+    background-color: #cc0000; /* Adjusted for dark mode */
+}
+
+body.dark-mode #chatbot-close:hover {
+    background-color: #990000; /* Even darker red */
+}
+
+/* Ensure header layout aligns well */
+.chatbot-header {
+    background-color: #007BFF;
+    color: white;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
