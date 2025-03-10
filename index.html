@@ -9,112 +9,39 @@
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqUlEQVQ4jWNgGAXD/////wNEQBAAGmBpaWmGhoYGyA1ABohkZGQEqgAogJ+fH5oZGZkZGBlAAGZmZgaM////T0xMTAzQ////g5mZmRkYGBiY////MzIyMiAgILC////Q0NDQwMDAwP///6enp6e////T09PT/////6+vr6/////39/f3/////+/v7+/////39/f3/////+/v7+/////39/f3/////+/v7+wG4rQvD5R3b5wAAAABJRU5ErkJggg==">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPC7TFVK2B"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QPC7TFVK2B');
-    </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
+    <!-- Google-like Font: Catamaran -->
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Simple Icon Placeholder (replace with your own favicon.ico file) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>Social Security Answers</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="retirement.html">Retirement</a></li>
-                <li><a href="medicare.html">Medicare</a></li>
-                <li><a href="disability.html">Disability</a></li>
-                <li><a href="survivor.html">Survivor</a></li>
-                <li><a href="tax.html">Tax</a></li>
-                <li><a href="medicaid.html">Medicaid</a></li>
-                <li><a href="housing.html">Housing</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-            <button id="dark-mode-toggle" class="dark-mode-btn">Dark Mode</button>
-        </nav>
-        <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
-    </header>
-    <main>
-        <section class="hero">
-            <h2>Get a Replacement or New Social Security Card</h2>
-            <p>Need a Social Security card? It’s free! Here’s how:</p>
-            <ul>
-                <li><strong>Online:</strong> Fastest if 18+, U.S. address, My SSA account. <a href="https://www.ssa.gov/myaccount/replacement-card.html" target="_blank"><i class="fas fa-link" alt="External link icon"></i> Replace Online</a></li>
-                <li><strong>Mail/In-Person:</strong> Use Form SS-5. <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank"><i class="fas fa-file-pdf" alt="PDF icon"></i> Download SS-5</a></li>
-            </ul>
-            <a href="faq.html" class="btn">Explore FAQs</a>
-        </section>
-        <section class="link-boxes">
-            <h2>Quick Resources</h2>
-            <div class="box-container">
-                <div class="link-box">
-                    <i class="fas fa-id-card" alt="Card icon"></i>
-                    <h3><a href="https://www.ssa.gov/myaccount/replacement-card.html" target="_blank">Replace Card</a></h3>
-                    <p>Get a new Social Security card online or by mail.</p>
-                </div>
-                <div class="link-box">
-                    <i class="fas fa-file-alt" alt="File icon"></i>
-                    <h3><a href="https://www.ssa.gov/benefits/retirement/apply.html" target="_blank">Apply for Benefits</a></h3>
-                    <p>Start your retirement or disability application.</p>
-                </div>
-                <div class="link-box">
-                    <i class="fas fa-user" alt="User icon"></i>
-                    <h3><a href="https://www.ssa.gov/myaccount/" target="_blank">My SSA Account</a></h3>
-                    <p>Manage your benefits and card online.</p>
-                </div>
-            </div>
-        </section>
-        <section class="link-boxes">
-            <h2>Explore Benefits</h2>
-            <div class="box-container">
-                <div class="link-box">
-                    <i class="fas fa-link" alt="External link icon"></i>
-                    <h3><a href="https://www.ssa.gov/benefits/retirement/" target="_blank">Retirement</a></WHEN>
-                    <p>Plan your Social Security retirement benefits.</p>
-                </div>
-                <div class="link-box">
-                    <i class="fas fa-link" alt="External link icon"></i>
-                    <h3><a href="disability.html">Disability</a></h3>
-                    <p>Understand SSDI and SSI options.</p>
-                </div>
-                <div class="link-box">
-                    <i class="fas fa-link" alt="External link icon"></i>
-                    <h3><a href="https://www.medicare.gov/basics/get-started-with-medicare" target="_blank">Medicare</a></h3>
-                    <p>Get started with Medicare coverage.</p>
-                </div>
-            </div>
-        </section>
-        <!-- Keep other sections as-is for now, or let me know to tweak more -->
-    </main>
-    <button id="chatbot-toggle" class="chatbot-btn"><i class="fas fa-comment" alt="Chat icon"></i></button>
-    <button id="back-to-top" class="back-to-top">Top</button>
-    <div id="chatbot" class="chatbot-container">
-        <div class="chatbot-header">
-            <h3>Social Security Helper</h3>
-            <button id="chatbot-close">X</button>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
         </div>
-        <div id="chatbot-messages" class="chatbot-messages"></div>
-        <select id="suggested-questions" class="chatbot-suggestions">
-            <option value="">Suggested Questions</option>
-            <option value="When can I start collecting benefits?">When can I start collecting benefits?</option>
-            <option value="How do I apply for SSDI?">How do I apply for SSDI?</option>
-            <option value="What’s the 2025 COLA?">What’s the 2025 COLA?</option>
-        </select>
-        <input type="text" id="chatbot-input" placeholder="Ask a question..." class="chatbot-input">
-        <button id="chatbot-send" class="chatbot-send">Send</button>
-        <button id="chatbot-save" class="chatbot-save">Save</button>
-        <button id="chatbot-reset" class="chatbot-reset">Reset</button>
-    </div>
-    <footer>
-        <p>© 2025 Social Security Answers - <a href="https://ssainfo.github.io/SocialSecurityAnswers/">ssainfo.github.io/SocialSecurityAnswers</a></p>
-    </footer>
-    <script src="script.js"></script>
+    </header>
+
+    <section class="replacement-section">
+        <h2>Get a Replacement Card</h2>
+        <div class="replacement-steps">
+            <div class="step">
+                <i class="fas fa-id-card"></i>
+                <h3>Step 1: Verify Eligibility</h3>
+                <p>Ensure you’re in a qualifying state and have a mySocialSecurity account.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-laptop"></i>
+                <h3>Step 2: Apply Online</h3>
+                <p>Log in to SSA.gov and submit your request in minutes.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-envelope"></i>
+                <h3>Step 3: Receive Your Card</h3>
+                <p>Get your new card mailed to you within 10-14 days.</p>
+            </div>
+        </div>
+        <a href="https://www.ssa.gov" class="cta-button">Start Now</a>
+    </section>
 </body>
 </html>
