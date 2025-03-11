@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Social Security Answers</title>
-    <meta name="description" content="Find answers to frequently asked questions about Social Security, retirement, disability, and more at Social Security Answers.">
-    <meta name="keywords" content="social security faq, retirement faq, disability faq, medicare faq, replace social security card">
+    <meta name="description" content="Answers to frequently asked questions about Social Security, Medicare, Medicaid, and housing assistance in 2025.">
+    <meta name="keywords" content="social security faq, medicare questions, medicaid eligibility, housing assistance faq">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>Social Security Answers</h1>
-        <nav>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
+        <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="replacement.html">Card Replacement</a></li>
                 <li><a href="retirement.html">Retirement</a></li>
                 <li><a href="medicare.html">Medicare</a></li>
                 <li><a href="disability.html">Disability</a></li>
@@ -23,27 +29,92 @@
                 <li><a href="tax.html">Tax</a></li>
                 <li><a href="medicaid.html">Medicaid</a></li>
                 <li><a href="housing.html">Housing</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="fraud.html">Fraud</a></li>
             </ul>
             <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
         </nav>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
     </header>
     <main>
-        <section>
-            <h2>Social Security Frequently Asked Questions</h2>
-            <input type="text" id="faq-search" placeholder="Search FAQs..." class="faq-search">
+        <section class="content-section">
+            <h2>Frequently Asked Questions</h2>
+            <input type="text" id="faq-search" placeholder="Search FAQs..." class="faq-search-bar">
+            
+            <!-- Social Security FAQs -->
+            <h3>Social Security FAQs</h3>
             <div class="faq-item">
-                <h3 class="faq-question">How do I replace my Social Security card?</h3>
-                <div class="faq-answer" style="display: none;">Apply online at My SSA or use Form SS-5 by mail/in-person. See <a href="index.html">Home</a> for details.</div>
+                <div class="faq-question">How do I apply for Social Security benefits?</div>
+                <div class="faq-answer">Apply online at SSA.gov, call 1-800-772-1213, or visit a local office. Start 4 months before you want benefits.</div>
             </div>
             <div class="faq-item">
-                <h3 class="faq-question">When can I start collecting retirement benefits?</h3>
-                <div class="faq-answer" style="display: none;">At 62 (reduced), FRA (66-67), or 70 (increased). Check our <a href="retirement.html">Retirement Guide</a>.</div>
+                <div class="faq-question">What is my Full Retirement Age (FRA)?</div>
+                <div class="faq-answer">FRA is 66-67, depending on your birth year (e.g., 67 for 1960+). Check <a href="https://www.ssa.gov/benefits/retirement/planner/ageincrease.html" target="_blank">SSA.gov</a>.</div>
             </div>
             <div class="faq-item">
-                <h3 class="faq-question">What’s the difference between SSDI and SSI?</h3>
-                <div class="faq-answer" style="display: none;">SSDI is for workers with credits; SSI is for low-income individuals. See <a href="disability.html">Disability Guide</a>.</div>
+                <div class="faq-question">Can I work and collect Social Security?</div>
+                <div class="faq-answer">Yes, but before FRA, earnings over $22,320 (2025) reduce benefits ($1 per $2 over). No limit after FRA.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I replace my Social Security card?</div>
+                <div class="faq-answer">Use My SSA online if 18+ with a U.S. address, or mail Form SS-5 with ID. <a href="https://www.ssa.gov/ssnumber/" target="_blank">Details</a>.</div>
+            </div>
+
+            <!-- Medicare FAQs -->
+            <h3>Medicare FAQs</h3>
+            <div class="faq-item">
+                <div class="faq-question">When should I sign up for Medicare?</div>
+                <div class="faq-answer">Sign up during your Initial Enrollment Period (3 months before to 3 months after your 65th birthday) to avoid penalties. <a href="https://www.medicare.gov/basics/get-started-with-medicare" target="_blank">Medicare.gov</a>.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What does Medicare Part A cover?</div>
+                <div class="faq-answer">Hospital stays, skilled nursing, hospice, and some home health. Free if you worked 10+ years.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I need Part B if I’m still working?</div>
+                <div class="faq-answer">Not if you have employer coverage (20+ employees). Enroll later without penalty via a Special Enrollment Period.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What’s Extra Help?</div>
+                <div class="faq-answer">A program to lower Part D drug costs for low-income folks. Apply at <a href="https://www.ssa.gov/medicare/prescriptionhelp/" target="_blank">SSA.gov</a>.</div>
+            </div>
+
+            <!-- Medicaid FAQs -->
+            <h3>Medicaid FAQs</h3>
+            <div class="faq-item">
+                <div class="faq-question">Who qualifies for Medicaid?</div>
+                <div class="faq-answer">Low-income individuals, families, pregnant women, elderly, and disabled. Rules vary by state. <a href="https://www.medicaid.gov/medicaid/eligibility/index.html" target="_blank">Medicaid.gov</a>.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Does Medicaid cover long-term care?</div>
+                <div class="faq-answer">Yes, unlike Medicare, it covers nursing homes and home care if you qualify financially.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I have Medicare and Medicaid?</div>
+                <div class="faq-answer">Yes, if eligible. Medicaid may pay Medicare premiums and copays. Check your state’s rules.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I apply for Medicaid?</div>
+                <div class="faq-answer">Apply through your state’s Medicaid agency or HealthCare.gov. <a href="https://www.medicaid.gov/about-us/contact-us/index.html" target="_blank">Contact info</a>.</div>
+            </div>
+
+            <!-- Housing FAQs -->
+            <h3>Housing FAQs</h3>
+            <div class="faq-item">
+                <div class="faq-question">What is HUD housing assistance?</div>
+                <div class="faq-answer">HUD offers vouchers, public housing, and subsidized apartments for low-income households. <a href="https://www.hud.gov/topics/rental_assistance" target="_blank">HUD.gov</a>.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Who qualifies for Section 8?</div>
+                <div class="faq-answer">Income below 50% of area median, U.S. citizens or eligible immigrants. Apply via your local Public Housing Agency (PHA).</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I find HUD housing?</div>
+                <div class="faq-answer">Contact your local PHA or use HUD’s online locator. <a href="https://www.hud.gov/program_offices/public_indian_housing/pha/contacts" target="_blank">PHA Contacts</a>.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Does HUD help with home repairs?</div>
+                <div class="faq-answer">Yes, via programs like Title I loans or local grants. Check with your PHA or <a href="https://www.hud.gov/topics/home_improvements" target="_blank">HUD.gov</a>.</div>
             </div>
         </section>
     </main>
@@ -51,5 +122,30 @@
         <p>© 2025 Social Security Answers - <a href="https://ssainfo.github.io/SocialSecurityAnswers/">ssainfo.github.io/SocialSecurityAnswers</a></p>
     </footer>
     <script src="script.js"></script>
+    <!-- Chatbot HTML -->
+    <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i> Chat</button>
+    <div id="chatbot" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Social Security Chatbot</h3>
+            <button id="chatbot-close" class="chatbot-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-input-area">
+            <select id="suggested-questions" class="suggested-questions">
+                <option value="">Suggested Questions</option>
+                <option value="How do I replace my Social Security card?">How do I replace my Social Security card?</option>
+                <option value="When can I start collecting retirement benefits?">When can I start collecting retirement benefits?</option>
+                <option value="What’s the difference between SSDI and SSI?">What’s the difference between SSDI and SSI?</option>
+                <option value="How do I report fraud?">How do I report fraud?</option>
+                <option value="What is my Full Retirement Age?">What is my Full Retirement Age?</option>
+            </select>
+            <input type="text" id="chatbot-input" placeholder="Ask me anything..." class="chatbot-input">
+            <button id="chatbot-send" class="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="chatbot-controls">
+            <button id="chatbot-save" class="chatbot-control-btn">Save Chat</button>
+            <button id="chatbot-reset" class="chatbot-control-btn">Reset Chat</button>
+        </div>
+    </div>
 </body>
 </html>

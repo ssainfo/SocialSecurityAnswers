@@ -9,28 +9,35 @@
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>Social Security Answers</h1>
-        <nav>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
+        <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="replacement.html">Card Replacement</a></li>
                 <li><a href="retirement.html">Retirement</a></li>
                 <li><a href="medicare.html">Medicare</a></li>
                 <li><a href="disability.html">Disability</a></li>
                 <li><a href="survivor.html">Survivor</a></li>
-                <li><a href="tax.html">Tax</a></li>
+                <li><a href="tax.html" class="active">Tax</a></li>
                 <li><a href="medicaid.html">Medicaid</a></li>
                 <li><a href="housing.html">Housing</a></li>
                 <li><a href="faq.html">FAQ</a></li>
+                <li><a href="fraud.html">Fraud</a></li>
             </ul>
             <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
         </nav>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
     </header>
     <main>
-        <section>
+        <section class="content-section">
             <h2>Social Security Tax Basics Guide</h2>
             <p>Some Social Security benefits may be taxable depending on your income. Here’s a simple breakdown:</p>
             <ul>
@@ -38,12 +45,39 @@
                 <li><strong>How to Check:</strong> Use IRS tools or consult a tax professional. <a href="https://www.ssa.gov/benefits/retirement/planner/taxes.html" target="_blank"><i class="fas fa-link" alt="External link icon"></i> Tax Info</a>.</li>
                 <li><strong>Filing:</strong> Report benefits on your tax return using Form SSA-1099.</li>
             </ul>
-            <p>Learn more about benefits in our <a href="retirement.html">Retirement Guide</a> or <a href="disability.html">Disability Guide</a>.</p>
+            <p><strong>Example:</strong> Mike, single, gets $18,000/year from <a href="retirement.html">Social Security</a> and $10,000 from a part-time job. His combined income ($28,000) exceeds $25,000, so 50% of his benefits ($9,000) is taxable.</p>
+            <p>Learn more about benefits in our <a href="retirement.html">Retirement Guide</a>, <a href="disability.html">Disability Guide</a>, or <a href="survivor.html">Survivor Guide</a>.</p>
+            <p><a href="https://www.irs.gov/taxtopics/tc423" target="_blank" class="cta-button">Check Tax Rules</a></p>
         </section>
     </main>
     <footer>
         <p>© 2025 Social Security Answers - <a href="https://ssainfo.github.io/SocialSecurityAnswers/">ssainfo.github.io/SocialSecurityAnswers</a></p>
     </footer>
     <script src="script.js"></script>
+    <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i> Chat</button>
+    <div id="chatbot" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Social Security Chatbot</h3>
+            <button id="chatbot-close" class="chatbot-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-input-area">
+            <select id="suggested-questions" class="suggested-questions">
+                <option value="">Suggested Questions</option>
+                <option value="How do I replace my Social Security card?">How do I replace my Social Security card?</option>
+                <option value="When can I start collecting retirement benefits?">When can I start collecting retirement benefits?</option>
+                <option value="What’s the difference between SSDI and SSI?">What’s the difference between SSDI and SSI?</option>
+                <option value="How do I report fraud?">How do I report fraud?</option>
+                <option value="What is my Full Retirement Age?">What is my Full Retirement Age?</option>
+            </select>
+            <input type="text" id="chatbot-input" placeholder="Ask me anything..." class="chatbot-input">
+            <button id="chatbot-send" class="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="chatbot-controls">
+            <button id="chatbot-save" class="chatbot-control-btn">Save Chat</button>
+            <button id="chatbot-reset" class="chatbot-control-btn">Reset Chat</button>
+        </div>
+    </div>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91e73bb44aa953f0',t:'MTc0MTY1NjA2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const pages = [
         { url: "index.html", title: "Home" },
+        { url: "replacement.html", title: "Card Replacement" },
         { url: "retirement.html", title: "Retirement Planning" },
         { url: "medicare.html", title: "Medicare Basics" },
         { url: "disability.html", title: "Disability Guide" },
@@ -8,20 +9,27 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "tax.html", title: "Tax Basics" },
         { url: "medicaid.html", title: "Medicaid Info" },
         { url: "housing.html", title: "Housing Assistance" },
-        { url: "faq.html", title: "FAQ" }
+        { url: "faq.html", title: "FAQ" },
+        { url: "fraud.html", title: "Fraud Protection" }
     ];
 
+    // FAQ Toggle
     const questions = document.querySelectorAll(".faq-question");
-    questions.forEach(question => {
-        question.addEventListener("click", function () {
-            const answer = this.nextElementSibling;
-            answer.style.display = answer.style.display === "block" ? "none" : "block";
+    if (questions.length) {
+        console.log("FAQ questions found:", questions.length);
+        questions.forEach(question => {
+            question.addEventListener("click", function () {
+                const answer = this.nextElementSibling;
+                answer.style.display = answer.style.display === "block" ? "none" : "block";
+            });
         });
-    });
+    }
 
+    // FAQ Search
     const faqSearch = document.getElementById("faq-search");
     if (faqSearch) {
         const faqItems = document.querySelectorAll(".faq-item");
+        console.log("FAQ search initialized, items:", faqItems.length);
         faqSearch.addEventListener("input", function () {
             const searchTerm = this.value.toLowerCase();
             faqItems.forEach(item => {
@@ -32,8 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Site Search
     const siteSearch = document.getElementById("site-search");
     if (siteSearch) {
+        console.log("Site search initialized");
         siteSearch.addEventListener("keypress", function (e) {
             if (e.key === "Enter") {
                 const searchTerm = this.value.toLowerCase();
@@ -48,6 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    if (darkModeToggle) {
+        console.log("Dark mode toggle found");
+        darkModeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
+        });
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+    }
+
+    // Chatbot Functionality
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbotContainer = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -58,25 +82,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatbotMessages = document.getElementById("chatbot-messages");
     const suggestedQuestions = document.getElementById("suggested-questions");
 
-    if (chatbotToggle) {
+    console.log("Chatbot elements:", {
+        toggle: chatbotToggle,
+        container: chatbotContainer,
+        close: chatbotClose,
+        input: chatbotInput,
+        send: chatbotSend,
+        save: chatbotSave,
+        reset: chatbotReset,
+        messages: chatbotMessages,
+        suggested: suggestedQuestions
+    });
+
+    if (chatbotToggle && chatbotContainer && chatbotClose && chatbotInput && chatbotSend && chatbotMessages && suggestedQuestions) {
         showWelcomeMessage();
         loadChatHistory();
 
         chatbotToggle.addEventListener("click", function () {
-            chatbotContainer.style.display = "block";
-            setTimeout(() => chatbotContainer.classList.add("active"), 10);
+            console.log("Chatbot toggle clicked");
+            chatbotContainer.classList.add("active");
             chatbotToggle.style.display = "none";
         });
 
-        if (chatbotClose) {
-            chatbotClose.addEventListener("click", function () {
-                chatbotContainer.classList.remove("active");
-                setTimeout(() => {
-                    chatbotContainer.style.display = "none";
-                    chatbotToggle.style.display = "block";
-                }, 300);
-            });
-        }
+        chatbotClose.addEventListener("click", function () {
+            console.log("Chatbot close clicked");
+            chatbotContainer.classList.remove("active");
+            setTimeout(() => {
+                chatbotToggle.style.display = "block";
+            }, 300);
+        });
 
         chatbotSend.addEventListener("click", sendMessage);
         chatbotInput.addEventListener("keypress", function (e) {
@@ -88,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         suggestedQuestions.addEventListener("change", function () {
             if (this.value) {
+                console.log("Suggested question selected:", this.value);
                 chatbotInput.value = this.value;
                 sendMessage();
                 this.value = "";
@@ -97,13 +132,14 @@ document.addEventListener("DOMContentLoaded", function () {
         function showWelcomeMessage() {
             if (!localStorage.getItem("chatHistory")) {
                 const welcomeP = document.createElement("p");
-                welcomeP.innerHTML = "Bot: Hi! I’m here to help with Social Security, Medicare, Medicaid, housing, and more. Ask anything—like 'How do I replace my card?' or 'When can I start collecting?'!";
+                welcomeP.innerHTML = "Bot: Hi! I’m here to help with Social Security questions—retirement, disability, fraud, and more. Ask me anything or pick a suggested question!";
                 chatbotMessages.appendChild(welcomeP);
                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
             }
         }
 
         function sendMessage() {
+            console.log("Send message triggered");
             const userMessage = chatbotInput.value.trim();
             if (!userMessage) return;
 
@@ -120,8 +156,24 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
                 chatbotMessages.removeChild(typingP);
                 const botP = document.createElement("p");
-                botP.innerHTML = "Bot: " + getBotResponse(userMessage.toLowerCase());
+                const response = getBotResponse(userMessage.toLowerCase());
+                botP.innerHTML = "Bot: " + response;
                 chatbotMessages.appendChild(botP);
+
+                // Add feedback buttons
+                const feedbackDiv = document.createElement("div");
+                feedbackDiv.className = "chatbot-feedback";
+                feedbackDiv.innerHTML = 'Was this helpful? <button class="feedback-btn" data-value="yes">Yes</button><button class="feedback-btn" data-value="no">No</button>';
+                chatbotMessages.appendChild(feedbackDiv);
+
+                feedbackDiv.querySelectorAll(".feedback-btn").forEach(btn => {
+                    btn.addEventListener("click", function () {
+                        const value = this.getAttribute("data-value");
+                        console.log("Feedback received:", value, "for response:", response);
+                        feedbackDiv.textContent = value === "yes" ? "Thanks for the feedback!" : "Sorry, try asking again!";
+                    });
+                });
+
                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
             }, 1000);
 
@@ -129,77 +181,134 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function getBotResponse(message) {
-            if (message.includes("when can i start") || message.includes("collecting")) return "Start at 62 (reduced, e.g., 70% if FRA is 67), full at FRA (66-67), or delay to 70 (8% more/year). Ex: $2,000 at 67 becomes $1,400 at 62 or $2,480 at 70. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Learn more</a>.";
-            if (message.includes("work and collect") || message.includes("working")) return "Before FRA, 2025 limit is $22,320—$1 cut per $2 over. No limit after FRA. Ex: Earning $30,000 at 63 cuts $320/month until FRA. <a href='https://www.ssa.gov/benefits/retirement/planner/whileworking.html' target='_blank'>Details</a>.";
-            if (message.includes("how do i apply") || message.includes("application")) return "Apply online 4 months early at My SSA, call 1-800-772-1213, or visit an office. Takes time, so start 3 months ahead! <a href='https://www.ssa.gov/benefits/retirement/apply.html' target='_blank'>Apply now</a>.";
-            if (message.includes("maximum benefit") || message.includes("how much")) return "2025 max at FRA is $3,822/month, based on 35 top years. Ex: $50,000/year avg might get $1,800. <a href='https://www.ssa.gov/oact/cola/latestCOLA.html' target='_blank'>Updates</a>.";
-            if (message.includes("delay") || message.includes("wait")) return "Delay to 70 boosts 8%/year past FRA (e.g., $2,000 at 67 becomes $2,480 at 70). <a href='https://www.ssa.gov/benefits/retirement/planner/delayret.html' target='_blank'>More</a>.";
-            if (message.includes("retirement age") || message.includes("full retirement")) return "FRA is 66-67 (e.g., 67 for 1960+). 62 reduces, 70 increases. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Details</a>.";
-            if (message.includes("spousal benefits") || message.includes("spouse")) return "Up to 50% of spouse’s FRA benefit if higher. Ex: Spouse gets $2,200, you get $1,100. <a href='https://www.ssa.gov/benefits/retirement/planner/applying7.html' target='_blank'>More</a>.";
-            if (message.includes("divorced") || message.includes("ex spouse")) return "Married 10+ years, unmarried now? Get up to 50% of ex’s at 62+. <a href='https://www.ssa.gov/benefits/retirement/planner/divspouse.html' target='_blank'>Details</a>.";
-            if (message.includes("survivor benefits") || message.includes("widow")) return "Widow(er)s get up to 100% at FRA, 71.5% at 60. Kids get 75%. <a href='https://www.ssa.gov/benefits/survivors/' target='_blank'>Survivor info</a>.";
-            if (message.includes("child benefits") || message.includes("kids")) return "Kids under 18 (or 19 in school) get 50% (retired/disabled) or 75% (deceased). <a href='https://www.ssa.gov/benefits/retirement/planner/applying8.html' target='_blank'>Details</a>.";
-            if (message.includes("early retirement") || message.includes("62")) return "At 62, benefits drop (e.g., $2,000 at 67 becomes $1,400). Earnings limit until FRA. <a href='https://www.ssa.gov/benefits/retirement/planner/1943.html' target='_blank'>Early retirement</a>.";
-            if (message.includes("benefit estimate") || message.includes("how much will i get")) return "Based on 35 top years. Ex: $50,000/year avg might get $1,800 at FRA. Use My SSA. <a href='https://www.ssa.gov/estimator/' target='_blank'>Estimate tool</a>.";
+            console.log("Processing response for:", message);
 
-            if (message.includes("ssdi") || message.includes("disability insurance")) return "SSDI for workers with credits (e.g., 40 total, 20 in last 10 years) unable to work 12+ months. Avg $1,500/month, 5-month wait. Ex: John gets $1,700 after a crash. <a href='https://www.ssa.gov/benefits/disability/qualify.html' target='_blank'>Qualify info</a>.";
-            if (message.includes("ssi") || message.includes("supplemental security")) return "SSI for low-income (under $2,000 resources) with disability, blind, or 65+. Up to $943/month in 2025. Ex: Maria gets $943 with no work history. <a href='https://www.ssa.gov/ssi/text-eligibility-ussi.htm' target='_blank'>Eligibility</a>.";
-            if (message.includes("disability definition") || message.includes("disabled")) return "Can’t work due to a severe condition lasting 12+ months or fatal. <a href='https://www.ssa.gov/disability/professionals/bluebook/general-info.htm' target='_blank'>Criteria</a>.";
-            if (message.includes("disability apply") || message.includes("how apply disability")) return "Apply online, call 1-800-772-1213, or visit. Takes 3-5 months—need medical records, work history. <a href='https://www.ssa.gov/benefits/disability/apply.html' target='_blank'>Apply</a>.";
-            if (message.includes("disability waiting") || message.includes("how long")) return "SSDI: 5-month wait post-approval, back payments possible. Takes 3-5 months to process. <a href='https://www.ssa.gov/disabilityfacts/facts.html' target='_blank'>Facts</a>.";
-            if (message.includes("disability work") || message.includes("work disabled")) return "Trial Work: 9 months over $1,110/month in 2025, benefits stay. Ex: Sarah earns $1,500/month part-time, keeps $1,200 SSDI. <a href='https://www.ssa.gov/disability/disability_planner3.htm' target='_blank'>Work rules</a>.";
-            if (message.includes("ticket to work") || message.includes("vocational")) return "Free program to help return to work while on SSDI/SSI. <a href='https://www.ssa.gov/work/' target='_blank'>Ticket info</a>.";
-            if (message.includes("disability appeal") || message.includes("denied")) return "Appeal within 60 days if denied (2/3 are). Steps: reconsideration, hearing, etc. Ex: Mike wins after 8 months with new proof. <a href='https://www.ssa.gov/benefits/disability/appeal.html' target='_blank'>Process</a>.";
+            // Edge Cases
+            if (message === "help me" || message === "help") {
+                return "I can assist with Social Security topics like retirement, disability, or housing. What do you need help with? Try 'How do I apply for Medicare?' or check our <a href='faq.html'>FAQ</a>.";
+            }
+            if (message.includes("retirment") || message.includes("retiremnet")) { // Common typos
+                return "Did you mean 'retirement'? You can start at 62 (reduced), FRA (66-67) for full, or 70 for max benefits. <a href='retirement.html'>Learn more</a>.";
+            }
+            if (message.includes("medicad") || message.includes("medicaide")) { // Typos for Medicaid
+                return "Did you mean 'Medicaid'? It’s for low-income folks and covers long-term care. <a href='medicaid.html'>Details here</a>.";
+            }
 
-            if (message.includes("medicare start") || message.includes("when medicare")) return "Sign up 3 months before 65, or after 24 months of disability benefits. <a href='https://www.ssa.gov/medicare/sign-up' target='_blank'>Sign-up info</a>.";
-            if (message.includes("cms-40b") || message.includes("part b apply")) return "CMS-40B enrolls you in Part B during special periods or with Part A. <a href='https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms40b-e.pdf' target='_blank'>Download</a>.";
-            if (message.includes("cms-l564") || message.includes("employment information")) return "CMS-L564 proves employer coverage for Part B special enrollment. <a href='https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms-l564e.pdf' target='_blank'>Download</a>.";
-            if (message.includes("ssa-44") || message.includes("income adjustment")) return "SSA-44 lowers Part B/D premiums if income drops. <a href='https://www.ssa.gov/forms/ssa-44.pdf' target='_blank'>Download</a>.";
-            if (message.includes("medicare cost") || message.includes("premiums")) return "2025 Part B: $185/month (more if income > $103,000). Part A free with 10 years work. Part C/D vary. <a href='https://www.medicare.gov/basics/costs' target='_blank'>Costs</a>.";
-            if (message.includes("part d") || message.includes("prescription")) return "Part D covers drugs. Add it to Original Medicare or get it with Part C. ~$40/month avg in 2025. <a href='https://www.medicare.gov/drug-coverage-part-d' target='_blank'>Part D info</a>.";
-            if (message.includes("medicare advantage") || message.includes("part c")) return "Part C is a private plan bundling A, B, often D. May add extras like dental. Stick to network doctors. <a href='https://www.medicare.gov/what-medicare-covers/medicare-advantage-plans' target='_blank'>Advantage info</a>.";
-            if (message.includes("medigap") || message.includes("supplemental")) return "Medigap helps pay costs Original Medicare doesn’t, like copays. Private plans, costs vary. <a href='https://www.medicare.gov/supplements-other-insurance' target='_blank'>Medigap info</a>.";
-            if (message.includes("how medicare works") || message.includes("medicare plans")) return "Medicare has two paths: Original (A & B) = government-run, any doctor, add D or Medigap. Advantage (C) = private, bundles A/B/D, network doctors, often extras. <a href='https://www.medicare.gov/basics/get-started-with-medicare' target='_blank'>Learn more</a>.";
-            if (message.includes("original medicare")) return "Original Medicare (A & B) is government-run. Part A for hospitals, B for doctors. Any Medicare doctor, but you pay deductibles + 20%. Add D or Medigap if needed. <a href='https://www.medicare.gov/what-medicare-covers/original-medicare' target='_blank'>Details</a>.";
+            // Social Security (General)
+            if (message.includes("apply") && message.includes("social security")) {
+                return "Apply online at SSA.gov, call 1-800-772-1213, or visit an office. Start 4 months before you want benefits. <a href='https://www.ssa.gov/benefits/retirement/apply.html' target='_blank'>Apply now</a>.";
+            }
+            if (message.includes("full retirement age") || message.includes("fra")) {
+                return "FRA is 66-67, based on birth year (e.g., 67 for 1960+). Early at 62 reduces, delay to 70 increases. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Details</a>.";
+            }
+            if (message.includes("work") && message.includes("collect")) {
+                return "Before FRA, earnings over $22,320 (2025) reduce benefits ($1 per $2 over). No limit after FRA. <a href='https://www.ssa.gov/benefits/retirement/planner/whileworking.html' target='_blank'>More info</a>.";
+            }
+            if (message.includes("replace") || message.includes("card")) {
+                return "Use My SSA online if 18+ with a U.S. address, or mail Form SS-5 with ID. Takes 10-14 days. <a href='https://www.ssa.gov/ssnumber/' target='_blank'>Start here</a>.";
+            }
 
-            if (message.includes("medicaid qualify") || message.includes("who qualifies for medicaid")) return "Low-income, disabled, elderly, kids, and pregnant women may qualify—varies by state. <a href='https://www.medicaid.gov/medicaid/eligibility/index.html' target='_blank'>Eligibility</a>.";
-            if (message.includes("medicaid apply") || message.includes("how apply medicaid")) return "Apply via your state’s Medicaid office or HealthCare.gov. <a href='https://www.medicaid.gov/medicaid/how-apply/index.html' target='_blank'>Apply info</a>.";
-            if (message.includes("medicaid coverage") || message.includes("what does medicaid cover")) return "Covers doctor visits, hospital stays, prescriptions—details vary by state. <a href='https://www.medicaid.gov/medicaid/benefits/index.html' target='_blank'>Coverage</a>.";
-            if (message.includes("medicaid medicare") || message.includes("dual eligible")) return "If eligible for both, Medicare pays first, Medicaid covers extras (e.g., premiums, long-term care). <a href='https://www.medicaid.gov/medicaid/eligibility/medicaid-medicare-dual-eligibility/index.html' target='_blank'>Dual eligibility</a>.";
-            if (message.includes("snap") || message.includes("food stamps")) return "SNAP helps low-income households buy food if income ≤ 130% poverty line (e.g., $2,694/month for 3 in 2025). Apply via your state. <a href='https://www.usa.gov/food-stamps' target='_blank'>SNAP info</a>.";
-            if (message.includes("qmb") || message.includes("qualified medicare beneficiary")) return "QMB pays Medicare A/B premiums, deductibles, copays for low-income (≤ $1,275/month individual, 2025). <a href='https://www.cms.gov/medicare/medicaid-coordination/medicare-medicaid-coordination-office/qmb' target='_blank'>QMB details</a>.";
+            // Retirement
+            if (message.includes("retirement") && message.includes("start")) {
+                return "Start at 62 (reduced), FRA (66-67) for full, or 70 for max benefits. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Learn more</a>.";
+            }
+            if (message.includes("how much") && message.includes("retirement")) {
+                return "Based on 35 highest-earning years, max $3,822/month at FRA in 2025. Use <a href='https://www.ssa.gov/estimator/' target='_blank'>SSA’s calculator</a>.";
+            }
+            if (message.includes("spousal benefits")) {
+                return "Up to 50% of your spouse’s FRA benefit if higher than yours. <a href='https://www.ssa.gov/benefits/retirement/planner/applying7.html' target='_blank'>Details</a>.";
+            }
 
-            if (message.includes("housing assistance") || message.includes("section 8")) return "Section 8 vouchers and public housing help low-income families (income ≤ 50% area median). Apply via local PHA. <a href='https://www.hud.gov/topics/rental_assistance' target='_blank'>HUD Rental Assistance</a>.";
-            if (message.includes("housing apply") || message.includes("how apply housing")) return "Contact your local Public Housing Agency (PHA). Waitlists common. <a href='https://apps.hud.gov/apps/section8/' target='_blank'>Find your PHA</a>.";
-            if (message.includes("housing eligibility") || message.includes("who qualifies housing")) return "Income ≤ 50% area median (e.g., $36,750 for 4 in 2025, varies). Priority for ≤ 30%. <a href='https://www.hud.gov/program_offices/public_indian_housing/programs/hcv/about' target='_blank'>Eligibility</a>.";
+            // Medicare
+            if (message.includes("sign up") && message.includes("medicare")) {
+                return "Sign up 3 months before to 3 months after your 65th birthday to avoid penalties. <a href='https://www.ssa.gov/medicare/sign-up' target='_blank'>Medicare.gov</a>.";
+            }
+            if (message.includes("part a") && message.includes("cover")) {
+                return "Part A covers hospital stays, skilled nursing, hospice, some home health. Free if you worked 10+ years. <a href='https://www.medicare.gov/what-medicare-covers/what-part-a-covers' target='_blank'>Details</a>.";
+            }
+            if (message.includes("part b") && message.includes("working")) {
+                return "Not needed if you have employer coverage (20+ employees). Enroll later with a Special Enrollment Period. <a href='https://www.ssa.gov/medicare/sign-up' target='_blank'>More info</a>.";
+            }
+            if (message.includes("extra help")) {
+                return "Extra Help lowers Part D drug costs for low-income folks. Apply at <a href='https://www.ssa.gov/medicare/prescriptionhelp/' target='_blank'>SSA.gov</a>.";
+            }
+            if (message.includes("medicare advantage") || message.includes("part c")) {
+                return "Medicare Advantage (Part C) combines A, B, often D, with extras like vision. Compare at <a href='https://www.medicare.gov/plan-compare' target='_blank'>Plan Finder</a>.";
+            }
 
-            if (message.includes("payment dates") || message.includes("when paid")) return "Birth date: 1st-10th (2nd Wed), 11th-20th (3rd Wed), 21st-31st (4th Wed). <a href='https://www.ssa.gov/pubs/EN-05-10031-2025.pdf' target='_blank'>2025 Schedule</a>.";
-            if (message.includes("appeal") || message.includes("denied")) return "Appeal within 60 days: reconsideration, hearing, Appeals Council, court. Ex: Mike wins after 8 months with new proof. <a href='https://www.ssa.gov/benefits/disability/appeal.html' target='_blank'>Process</a>.";
-            if (message.includes("work credits") || message.includes("credits")) return "40 credits (10 years) for retirement, less for SSDI (e.g., 20 in 10 years). $1,730/credit in 2025. <a href='https://www.ssa.gov/oact/cola/QC.html' target='_blank'>Credit info</a>.";
-            if (message.includes("overpayment") || message.includes("owe money")) return "Repay or request waiver if not your fault and can’t afford. <a href='https://www.ssa.gov/overpayments/' target='_blank'>Overpayment</a>.";
-            if (message.includes("cola") || message.includes("cost of living")) return "2025 COLA: 2.5%, ~$48/month more. <a href='https://www.ssa.gov/cola/' target='_blank'>Details</a>.";
-            if (message.includes("tax") || message.includes("taxed")) return "50-85% taxable if income > $25,000 (single) or $32,000 (joint). <a href='https://www.ssa.gov/benefits/retirement/planner/taxes.html' target='_blank'>Tax info</a>.";
-            if (message.includes("replace") || message.includes("card") || message.includes("new card")) return "Replace or get a new card online with My SSA (18+, U.S. address) or mail Form SS-5. Kids need birth certificate + parent ID. Adults need birth certificate + ID. Name change needs marriage doc + ID. Might need an appointment—call 1-800-772-1213 or book at <a href='https://www.ssa.gov/agency/contact/' target='_blank'>SSA Contact</a>. <a href='https://www.ssa.gov/myaccount/replacement-card.html' target='_blank'>Start here</a>.";
-            if (message.includes("my ssa") || message.includes("account")) return "My SSA for benefits, statements, card replacement. <a href='https://www.ssa.gov/myaccount/' target='_blank'>Sign up</a>.";
-            if (message.includes("fra") || message.includes("full retirement age")) return "FRA: 66-67 (e.g., 67 for 1960+). Early reduces, delay increases. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Chart</a>.";
-            if (message.includes("dependent benefits") || message.includes("dependents")) return "Spouse/kids get 50% of your benefit; family max 150-180%. <a href='https://www.ssa.gov/benefits/retirement/planner/applying8.html' target='_blank'>Details</a>.";
-            if (message.includes("move") || message.includes("address change")) return "Update via My SSA, 1-800-772-1213, or office. <a href='https://www.ssa.gov/myaccount/change-address.html' target='_blank'>Change address</a>.";
-            if (message.includes("direct deposit") || message.includes("payment method")) return "Set up via My SSA or 1-800-772-1213. <a href='https://www.ssa.gov/deposit/' target='_blank'>Direct deposit</a>.";
-            if (message.includes("fraud") || message.includes("scam")) return "Report to 1-800-269-0271 or online. Don’t share SSN with callers. <a href='https://www.ssa.gov/fraud/' target='_blank'>Fraud info</a>.";
-            if (message.includes("contact ssa") || message.includes("phone")) return "1-800-772-1213 (7am-7pm, M-F) or local office. <a href='https://www.ssa.gov/agency/contact/' target='_blank'>Contact</a>.";
-            if (message.includes("benefit verification") || message.includes("proof")) return "Get letter via My SSA for income proof. <a href='https://www.ssa.gov/myaccount/proof-of-benefits.html' target='_blank'>Get letter</a>.";
-            if (message.includes("foreign work") || message.includes("work abroad")) return "Foreign work may count if from a country with an SSA agreement. <a href='https://www.ssa.gov/international/' target='_blank'>International</a>.";
-            if (message.includes("self employed") || message.includes("self-employment")) return "Self-employed pay 12.4% SS tax, earn credits like employees. <a href='https://www.ssa.gov/oact/cola/self.html' target='_blank'>Self-employment</a>.";
-            if (message.includes("military") || message.includes("veteran")) return "Military service may boost credits (e.g., $300/quarter pre-1978). <a href='https://www.ssa.gov/people/veterans/' target='_blank'>Veterans</a>.";
-            return "I’m not sure! Ask something specific or visit <a href='https://www.ssa.gov' target='_blank'>SSA.gov</a>.";
+            // Disability
+            if (message.includes("ssdi") || message.includes("ssi") || message.includes("difference")) {
+                return "SSDI is for workers with credits (avg $1,500/month). SSI is for low-income, up to $943/month (2025). <a href='https://www.ssa.gov/benefits/disability/' target='_blank'>More info</a>.";
+            }
+            if (message.includes("apply disability")) {
+                return "Apply online at SSA.gov, call 1-800-772-1213, or visit an office. Takes 3-5 months. <a href='https://www.ssa.gov/benefits/disability/apply.html' target='_blank'>Apply now</a>.";
+            }
+            if (message.includes("trial work period")) {
+                return "Test work for 9 months (over $1,110/month in 2025) without losing benefits. <a href='https://www.ssa.gov/work/' target='_blank'>Ticket to Work</a>.";
+            }
+
+            // Survivor
+            if (message.includes("survivor") || message.includes("widow")) {
+                return "Widow(er)s get up to 100% of deceased’s benefit at FRA, kids get 75% under 18. Call 1-800-772-1213. <a href='https://www.ssa.gov/benefits/survivors/' target='_blank'>Details</a>.";
+            }
+
+            // Tax
+            if (message.includes("tax") && message.includes("benefits")) {
+                return "50-85% of benefits may be taxed if income exceeds $25,000 (single) or $32,000 (joint). Report via SSA-1099. <a href='https://www.ssa.gov/benefits/retirement/planner/taxes.html' target='_blank'>Tax info</a>.";
+            }
+
+            // Medicaid
+            if (message.includes("who qualifies") && message.includes("medicaid")) {
+                return "Low-income individuals, families, elderly, disabled qualify. Rules vary by state. SSI often auto-qualifies. <a href='https://www.medicaid.gov/medicaid/eligibility/index.html' target='_blank'>Medicaid.gov</a>.";
+            }
+            if (message.includes("long-term care") && message.includes("medicaid")) {
+                return "Yes, Medicaid covers nursing homes and home care if you qualify, unlike Medicare. Check state rules.";
+            }
+            if (message.includes("medicare") && message.includes("medicaid")) {
+                return "You can have both! Medicaid may pay Medicare premiums and copays if eligible. <a href='https://www.medicaid.gov/medicaid/eligibility/index.html' target='_blank'>Details</a>.";
+            }
+            if (message.includes("apply") && message.includes("medicaid")) {
+                return "Apply via your state’s Medicaid agency or HealthCare.gov. <a href='https://www.medicaid.gov/about-us/contact-us/index.html' target='_blank'>State contacts</a>.";
+            }
+
+            // Housing
+            if (message.includes("hud") || message.includes("housing assistance")) {
+                return "HUD offers vouchers, public housing, and subsidized apartments. <a href='https://www.hud.gov/topics/rental_assistance' target='_blank'>HUD.gov</a>.";
+            }
+            if (message.includes("section 8")) {
+                return "Section 8 pays part of rent for income below 50% of area median. Apply via your PHA. <a href='https://www.hud.gov/topics/rental_assistance' target='_blank'>Learn more</a>.";
+            }
+            if (message.includes("find") && message.includes("housing")) {
+                return "Contact your local PHA or use HUD’s locator. <a href='https://www.hud.gov/program_offices/public_indian_housing/pha/contacts' target='_blank'>PHA Contacts</a>.";
+            }
+            if (message.includes("home repairs") || message.includes("fix home")) {
+                return "HUD’s Title I loans or local grants help. Check with your PHA or <a href='https://www.hud.gov/topics/home_improvements' target='_blank'>HUD.gov</a>.";
+            }
+
+            // Fraud
+            if (message.includes("fraud") || message.includes("scam") || message.includes("report")) {
+                return "Report to SSA OIG at 1-800-269-0271 or online. Don’t share SSN with callers! <a href='https://oig.ssa.gov/report' target='_blank'>Report here</a>.";
+            }
+
+            // General
+            if (message.includes("contact ssa") || message.includes("phone")) {
+                return "Call 1-800-772-1213 (7 AM–7 PM, Mon–Fri) or visit an office. <a href='https://www.ssa.gov/agency/contact/' target='_blank'>Contact SSA</a>.";
+            }
+            if (message.includes("my ssa") || message.includes("account")) {
+                return "Create a My SSA account to manage benefits or check estimates. <a href='https://www.ssa.gov/myaccount/' target='_blank'>Sign up</a>.";
+            }
+
+            return "I’m not sure about that! Try something specific like 'How do I apply for Medicaid?' or visit our <a href='faq.html'>FAQ page</a> or <a href='https://www.ssa.gov' target='_blank'>SSA.gov</a>.";
         }
 
         function saveChatHistory() {
+            console.log("Saving chat history");
             localStorage.setItem("chatHistory", chatbotMessages.innerHTML);
             alert("Chat history saved!");
         }
 
         function resetChatHistory() {
+            console.log("Resetting chat history");
             localStorage.removeItem("chatHistory");
             chatbotMessages.innerHTML = "";
             showWelcomeMessage();
@@ -208,109 +317,25 @@ document.addEventListener("DOMContentLoaded", function () {
         function loadChatHistory() {
             const savedHistory = localStorage.getItem("chatHistory");
             if (savedHistory) {
+                console.log("Loading chat history");
                 chatbotMessages.innerHTML = savedHistory;
                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
             }
         }
+    } else {
+        console.error("Chatbot initialization failed: Missing required elements");
     }
 
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener("click", function () {
-            document.body.classList.toggle("dark-mode");
-            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
-        });
-        if (localStorage.getItem("darkMode") === "enabled") {
-            document.body.classList.add("dark-mode");
-        }
-    }
-
-    const backToTop = document.getElementById("back-to-top");
-    if (backToTop) {
-        window.addEventListener("scroll", function () {
-            backToTop.style.display = window.scrollY > 200 ? "block" : "none";
-        });
-        backToTop.addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    }
-
-    const quizForm = document.getElementById("quiz-form");
-    if (quizForm) {
-        quizForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            const finance = document.querySelector("input[name='finance']:checked")?.value;
-            const job = document.querySelector("input[name='job']:checked")?.value;
-            const age = parseInt(document.getElementById("quiz-age").value);
-            const resultP = document.getElementById("quiz-result");
-
-            if (!finance || !job || !age) {
-                resultP.textContent = "Please answer all questions!";
-                return;
-            }
-
-            let advice = "Consider retiring ";
-            if (finance === "yes" && job === "no" && age >= 62) advice += "now—you’re ready!";
-            else if (finance === "no") advice += "later—build your savings.";
-            else if (job === "yes") advice += "when ready to stop working.";
-            else if (age < 62) advice += "at 62 or later.";
-            else advice += "at FRA (66-67).";
-
-            resultP.textContent = advice;
-        });
-    }
-
-    const questionForm = document.getElementById("question-form");
-    if (questionForm) {
-        questionForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            const question = document.getElementById("user-question").value;
-            const email = document.getElementById("user-email").value;
-            const responseP = document.getElementById("form-response");
-            responseP.textContent = `Thanks for your question: "${question}"! We’ll reply to ${email} soon.`;
-            questionForm.reset();
-        });
-    }
-
-    const commentForm = document.getElementById("comment-form");
-    const commentList = document.getElementById("comment-list");
-    if (commentForm) {
-        loadComments();
-        commentForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            const name = document.getElementById("comment-name").value;
-            const text = document.getElementById("comment-text").value;
-            const comment = { name, text, date: new Date().toLocaleString() };
-            const comments = JSON.parse(localStorage.getItem("comments") || "[]");
-            comments.push(comment);
-            localStorage.setItem("comments", JSON.stringify(comments));
-            displayComment(comment);
-            commentForm.reset();
-        });
-    }
-
-    function displayComment(comment) {
-        const div = document.createElement("div");
-        div.className = "comment";
-        div.innerHTML = `<strong>${comment.name}</strong> (${comment.date}): ${comment.text}`;
-        commentList.appendChild(div);
-    }
-
-    function loadComments() {
-        const comments = JSON.parse(localStorage.getItem("comments") || "[]");
-        comments.forEach(displayComment);
-    }
-
+    // Thank You Message
+    const navLinks = document.querySelectorAll("nav ul li a");
+    let isInternalNavigation = false;
     const thankYouDiv = document.createElement("div");
     thankYouDiv.id = "thank-you-message";
     thankYouDiv.textContent = "Thank you for visiting Social Security Answers!";
     document.body.appendChild(thankYouDiv);
 
-    const navLinks = document.querySelectorAll("nav ul li a");
-    let isInternalNavigation = false;
-
     navLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
+        link.addEventListener("click", function () {
             const href = this.getAttribute("href");
             if (pages.some(page => page.url === href)) {
                 isInternalNavigation = true;
@@ -329,4 +354,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         isInternalNavigation = false;
     });
-});
+}, false);

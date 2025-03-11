@@ -4,45 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Housing Assistance - Social Security Answers</title>
-    <meta name="description" content="Find housing assistance info—Section 8, public housing, and eligibility—at Social Security Answers.">
-    <meta name="keywords" content="housing assistance, section 8, public housing, apply for housing, low-income housing">
+    <meta name="description" content="Explore HUD housing assistance options like Section 8, public housing, and home repairs in 2025.">
+    <meta name="keywords" content="hud housing, section 8, public housing, housing assistance">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>Social Security Answers</h1>
-        <nav>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
+        <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="replacement.html">Card Replacement</a></li>
                 <li><a href="retirement.html">Retirement</a></li>
                 <li><a href="medicare.html">Medicare</a></li>
                 <li><a href="disability.html">Disability</a></li>
                 <li><a href="survivor.html">Survivor</a></li>
                 <li><a href="tax.html">Tax</a></li>
                 <li><a href="medicaid.html">Medicaid</a></li>
-                <li><a href="housing.html">Housing</a></li>
+                <li><a href="housing.html" class="active">Housing</a></li>
                 <li><a href="faq.html">FAQ</a></li>
+                <li><a href="fraud.html">Fraud</a></li>
             </ul>
             <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
         </nav>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
     </header>
     <main>
-        <section>
-            <h2>Housing Assistance - Section 8 and More</h2>
-            <p>Housing assistance helps low-income families afford a place to live:</p>
+        <section class="content-section">
+            <h2>Housing Assistance Guide</h2>
+            <p>HUD helps low-income families, elderly, and disabled individuals afford housing in 2025. Here’s how:</p>
+
+            <h3>Section 8 Vouchers</h3>
+            <p>Pays part of your rent based on income (30% typically). Apply through your local PHA. Waitlists may apply.</p>
+            <p><strong>Example:</strong> Maria earns $20,000/year in an area with a $50,000 median income. Section 8 covers $600 of her $800 monthly rent.</p>
+
+            <h3>Public Housing</h3>
+            <p>Affordable apartments or homes managed by PHAs. Income-based rent, often for seniors or those on <a href="disability.html">disability</a>.</p>
+            <p><strong>Example:</strong> John, a retiree on a fixed income, pays $300/month for a PHA apartment instead of $1,000 market rate.</p>
+
+            <h3>Home Repairs & Loans</h3>
+            <p>Title I loans or local grants help fix homes. Contact your PHA or HUD office.</p>
+            <p><strong>Example:</strong> Lisa gets a $5,000 Title I loan to repair her roof, repayable at low interest over 10 years.</p>
+
+            <h3>Eligibility</h3>
             <ul>
-                <li><strong>Section 8:</strong> Vouchers to help pay rent. Income ≤ 50% area median.</li>
-                <li><strong>Apply:</strong> Contact your local Public Housing Agency (PHA). <a href="https://apps.hud.gov/apps/section8/" target="_blank"><i class="fas fa-link" alt="External link icon"></i> Find your PHA</a>.</li>
+                <li><strong>Income:</strong> Below 50-80% of area median (varies).</li>
+                <li><strong>Status:</strong> U.S. citizens or eligible immigrants.</li>
             </ul>
-            <p>See financial support options in our <a href="disability.html">Disability Guide</a>.</p>
+
+            <h3>How to Apply</h3>
+            <p>Find your local PHA via <a href="https://www.hud.gov/program_offices/public_indian_housing/pha/contacts" target="_blank">HUD’s PHA Locator</a>. Apply directly.</p>
+            <p><a href="https://www.hud.gov/program_offices/public_indian_housing/pha/contacts" target="_blank" class="cta-button">Find Your PHA</a></p>
+
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="https://www.hud.gov/topics/rental_assistance" target="_blank">HUD Rental Assistance</a></li>
+                <li><a href="https://www.hud.gov/topics/home_improvements" target="_blank">Home Improvement Help</a></li>
+                <li><a href="faq.html">Housing FAQs</a></li>
+            </ul>
         </section>
     </main>
     <footer>
         <p>© 2025 Social Security Answers - <a href="https://ssainfo.github.io/SocialSecurityAnswers/">ssainfo.github.io/SocialSecurityAnswers</a></p>
     </footer>
     <script src="script.js"></script>
+    <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i> Chat</button>
+    <div id="chatbot" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Social Security Chatbot</h3>
+            <button id="chatbot-close" class="chatbot-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-input-area">
+            <select id="suggested-questions" class="suggested-questions">
+                <option value="">Suggested Questions</option>
+                <option value="How do I replace my Social Security card?">How do I replace my Social Security card?</option>
+                <option value="When can I start collecting retirement benefits?">When can I start collecting retirement benefits?</option>
+                <option value="What’s the difference between SSDI and SSI?">What’s the difference between SSDI and SSI?</option>
+                <option value="How do I report fraud?">How do I report fraud?</option>
+                <option value="What is my Full Retirement Age?">What is my Full Retirement Age?</option>
+            </select>
+            <input type="text" id="chatbot-input" placeholder="Ask me anything..." class="chatbot-input">
+            <button id="chatbot-send" class="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="chatbot-controls">
+            <button id="chatbot-save" class="chatbot-control-btn">Save Chat</button>
+            <button id="chatbot-reset" class="chatbot-control-btn">Reset Chat</button>
+        </div>
+    </div>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91e73bb49e5461ac',t:'MTc0MTY1NjA2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
