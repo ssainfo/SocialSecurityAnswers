@@ -299,6 +299,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             return "I’m not sure about that! Try something specific like 'How do I apply for Medicaid?' or visit our <a href='faq.html'>FAQ page</a> or <a href='https://www.ssa.gov' target='_blank'>SSA.gov</a>.";
+        if (message.includes("documents") && message.includes("child")) {
+    return "For a child’s replacement card, you need their birth certificate, a school ID or medical record, and your ID (driver’s license or passport). See <a href='replacement.html'>Replacement Guide</a>.";
+}
         }
 
         function saveChatHistory() {
