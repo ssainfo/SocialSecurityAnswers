@@ -535,3 +535,51 @@ body.dark-mode .support-btn {
 body.dark-mode .support-btn:hover {
     background: #008080;
 }
+/* Boxes Layout */
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.box {
+    width: 23%; /* 4 boxes per row with spacing */
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.box i {
+    font-size: 24px;
+    color: #0078d4;
+    margin-bottom: 10px;
+}
+
+.box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .box {
+    background: #444;
+}
+
+body.dark-mode .box i {
+    color: #00b7c3;
+}
+
+/* Adjust for smaller screens (optional, since you wanted consistent layout) */
+@media (max-width: 768px) {
+    .box {
+        width: 23%; /* Keep 4 per row, may need horizontal scroll */
+    }
+}
