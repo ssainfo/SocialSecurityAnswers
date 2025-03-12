@@ -383,8 +383,14 @@ body.dark-mode .chatbot-control-btn {
         margin: 5px 0;
     }
 
+    /* Hide entire nav on homepage only */
+    .homepage .main-nav {
+        display: none;
+    }
+
+    /* Keep Home link hidden on other pages (redundant but retained for consistency) */
     .main-nav .home-link {
-        display: none; /* Hide Home link on mobile */
+        display: none;
     }
 
     .search-bar {
