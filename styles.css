@@ -93,6 +93,11 @@ body {
     margin-bottom: 20px;
 }
 
+.content-section h3, .content-section h4 {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
 .boxes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -146,6 +151,39 @@ body {
     font-size: 24px;
     color: #007BFF;
     margin-bottom: 10px;
+}
+
+.step h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Table Styling */
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.doc-table th, .doc-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.doc-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* FAQ Styling */
+.faq h4 {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.faq p {
+    margin-bottom: 15px;
 }
 
 /* Footer */
@@ -335,6 +373,26 @@ footer a {
     display: block;
 }
 
+/* Back to Top Button */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
+
+.back-to-top-btn.show {
+    display: block;
+}
+
 /* Dark Mode */
 body.dark-mode {
     background-color: #1a1a1a;
@@ -360,8 +418,13 @@ body.dark-mode .chatbot-container {
 body.dark-mode .cta-button,
 body.dark-mode .support-btn,
 body.dark-mode .chatbot-send-btn,
-body.dark-mode .chatbot-control-btn {
+body.dark-mode .chatbot-control-btn,
+body.dark-mode .back-to-top-btn {
     background-color: #0056b3;
+}
+
+body.dark-mode .doc-table th {
+    background-color: #004085;
 }
 
 /* Mobile Adjustments */
@@ -388,7 +451,7 @@ body.dark-mode .chatbot-control-btn {
         display: none;
     }
 
-    /* Keep Home link hidden on other pages (redundant but retained for consistency) */
+    /* Keep Home link hidden on other pages */
     .main-nav .home-link {
         display: none;
     }
@@ -411,6 +474,14 @@ body.dark-mode .chatbot-control-btn {
 
     .step {
         padding: 15px;
+    }
+
+    .doc-table {
+        font-size: 14px;
+    }
+
+    .doc-table th, .doc-table td {
+        padding: 8px;
     }
 
     .support-us-container {
@@ -436,6 +507,11 @@ body.dark-mode .chatbot-control-btn {
     .chatbot-input {
         width: 60%;
     }
+
+    .back-to-top-btn {
+        bottom: 70px;
+        right: 15px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -450,5 +526,9 @@ body.dark-mode .chatbot-control-btn {
 
     .step {
         padding: 10px;
+    }
+
+    .doc-table {
+        font-size: 12px;
     }
 }

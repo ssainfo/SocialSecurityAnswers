@@ -185,24 +185,42 @@ document.addEventListener("DOMContentLoaded", function () {
     let isInternalNavigation = false;
     const thankYouDiv = document.getElementById("thank-you-message");
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", function () {
-            const href = this.getAttribute("href");
-            if (pages.some(page => page.url === href)) {
-                isInternalNavigation = true;
+    if (thankYouDiv) {
+        navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                const href = this.getAttribute("href");
+                if (pages.some(page => page.url === href)) {
+                    isInternalNavigation = true;
+                }
+            });
+        });
+
+        window.addEventListener("beforeunload", function (e) {
+            if (!isInternalNavigation) {
+                thankYouDiv.classList.add("show");
+                setTimeout(() => {
+                    thankYouDiv.classList.remove("show");
+                }, 2000);
+                e.preventDefault();
+                e.returnValue = "";
+            }
+            isInternalNavigation = false;
+        });
+    }
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById("back-to-top");
+    if (backToTopBtn) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
             }
         });
-    });
 
-    window.addEventListener("beforeunload", function (e) {
-        if (!isInternalNavigation) {
-            thankYouDiv.classList.add("show");
-            setTimeout(() => {
-                thankYouDiv.classList.remove("show");
-            }, 2000);
-            e.preventDefault();
-            e.returnValue = "";
-        }
-        isInternalNavigation = false;
-    });
+        backToTopBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 }, false);
