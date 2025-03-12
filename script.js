@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Page list (unchanged)
+    // Page list for site search and navigation tracking
     const pages = [
         { url: "index.html", title: "Home" },
         { url: "replacement.html", title: "Card Replacement" },
@@ -11,10 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "medicaid.html", title: "Medicaid Info" },
         { url: "housing.html", title: "Housing Assistance" },
         { url: "faq.html", title: "FAQ" },
-        { url: "fraud.html", title: "Fraud Protection" }
+        { url: "fraud.html", title: "Fraud Protection" },
+        { url: "ssi.html", title: "Supplemental Security Income" }
     ];
 
-    // FAQ Toggle (unchanged)
+    // FAQ Toggle
     const questions = document.querySelectorAll(".faq-question");
     if (questions.length) {
         console.log("FAQ questions found:", questions.length);
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // FAQ Search (unchanged)
+    // FAQ Search
     const faqSearch = document.getElementById("faq-search");
     if (faqSearch) {
         const faqItems = document.querySelectorAll(".faq-item");
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Site Search (unchanged)
+    // Site Search
     const siteSearch = document.getElementById("site-search");
     if (siteSearch) {
         console.log("Site search initialized");
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Dark Mode Toggle (unchanged)
+    // Dark Mode Toggle
     const darkModeToggle = document.getElementById("dark-mode-toggle");
     if (darkModeToggle) {
         console.log("Dark mode toggle found");
@@ -72,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Chatbot Functionality (unchanged)
+    // Chatbot Functionality
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbotContainer = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -197,6 +198,9 @@ document.addEventListener("DOMContentLoaded", function () {
             if (message.includes("full retirement age") || message.includes("fra")) {
                 return "FRA is 66-67, based on birth year (e.g., 67 for 1960+). Early at 62 reduces, delay to 70 increases. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Details</a>.";
             }
+            if (message.includes("ssi") || message.includes("supplemental security income")) {
+                return "SSI pays up to $943/month (individuals) or $1,450 (couples) in 2025 to people with low income who are disabled, blind, or 65+. Call 1-800-772-1213 or start online (65+ only) at <a href='https://secure.ssa.gov/iClaim/SSI' target='_blank'>SSA.gov</a>.";
+            }
             return "I’m not sure about that! Try something specific like 'How do I apply for Medicaid?' or visit <a href='https://www.ssa.gov' target='_blank'>SSA.gov</a>.";
         }
 
@@ -254,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Support Us initialization failed: Missing required elements");
     }
 
-    // Thank You Message (unchanged)
+    // Thank You Message
     const navLinks = document.querySelectorAll("nav ul li a");
     let isInternalNavigation = false;
     const thankYouDiv = document.getElementById("thank-you-message");
