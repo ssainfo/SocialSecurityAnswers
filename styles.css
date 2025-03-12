@@ -383,6 +383,10 @@ body.dark-mode .chatbot-control-btn {
         margin: 5px 0;
     }
 
+    .main-nav .home-link {
+        display: none; /* Hide Home link on mobile */
+    }
+
     .search-bar {
         width: 90%;
     }
