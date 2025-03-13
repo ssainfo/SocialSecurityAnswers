@@ -223,4 +223,36 @@ document.addEventListener("DOMContentLoaded", function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
+
+    // Social Sharing Buttons
+    const currentUrl = encodeURIComponent(window.location.href);
+    const shareText = encodeURIComponent('Check out this Social Security guide at ssaanswers.com!');
+    const shareLinks = {
+        twitter: `https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareText}`,
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
+        linkedin: `https://www.linkedin.com/shareArticle?url=${currentUrl}&title=${shareText}`,
+        pinterest: `https://pinterest.com/pin/create/button/?url=${currentUrl}&description=${shareText}`,
+        reddit: `https://reddit.com/submit?url=${currentUrl}&title=${shareText}`,
+        whatsapp: `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`,
+        instagram: 'https://www.instagram.com/', // Replace with your profile if available
+        youtube: 'https://www.youtube.com/@socialsecurityadministration' // SSA channel
+    };
+
+    const twitterBtn = document.querySelector('.share-btn.twitter');
+    const facebookBtn = document.querySelector('.share-btn.facebook');
+    const linkedinBtn = document.querySelector('.share-btn.linkedin');
+    const pinterestBtn = document.querySelector('.share-btn.pinterest');
+    const redditBtn = document.querySelector('.share-btn.reddit');
+    const whatsappBtn = document.querySelector('.share-btn.whatsapp');
+    const instagramBtn = document.querySelector('.share-btn.instagram');
+    const youtubeBtn = document.querySelector('.share-btn.youtube');
+
+    if (twitterBtn) twitterBtn.href = shareLinks.twitter;
+    if (facebookBtn) facebookBtn.href = shareLinks.facebook;
+    if (linkedinBtn) linkedinBtn.href = shareLinks.linkedin;
+    if (pinterestBtn) pinterestBtn.href = shareLinks.pinterest;
+    if (redditBtn) redditBtn.href = shareLinks.reddit;
+    if (whatsappBtn) whatsappBtn.href = shareLinks.whatsapp;
+    if (instagramBtn) instagramBtn.href = shareLinks.instagram;
+    if (youtubeBtn) youtubeBtn.href = shareLinks.youtube;
 }, false);
