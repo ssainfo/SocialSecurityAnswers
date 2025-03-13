@@ -215,18 +215,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 thankYouMessage.classList.add("fade-out");
                 setTimeout(() => {
                     thankYouMessage.classList.remove("show", "fade-out");
-                }, 500); // Matches CSS transition duration
+                }, 500);
             }, 10000); // 10 seconds visibility
-        });
-    }
-
-    // Topics Toggle for Mobile
-    const topicsToggle = document.getElementById("topics-toggle");
-    const topicsBoxes = document.getElementById("topics-boxes");
-    if (topicsToggle && topicsBoxes) {
-        topicsToggle.addEventListener("click", function () {
-            topicsBoxes.classList.toggle("active");
-            topicsToggle.classList.toggle("active");
         });
     }
 });

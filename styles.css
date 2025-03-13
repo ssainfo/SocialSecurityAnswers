@@ -104,17 +104,18 @@ body {
 
 /* Boxes */
 .boxes {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 .box {
     background: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
-    width: 300px;
     text-align: center;
     position: relative;
 }
@@ -277,16 +278,6 @@ body {
 #thank-you-message.show { display: block; }
 #thank-you-message.fade-out { opacity: 0; }
 
-/* Topics Toggle */
-.topics-toggle {
-    cursor: pointer;
-    margin: 20px 0;
-    color: #4682b4;
-}
-.topics-toggle i { transition: transform 0.3s; }
-.topics-toggle.active i { transform: rotate(180deg); }
-.topics-collapsible { display: block; }
-
 /* Dark Mode */
 .dark-mode { background: #222; color: #fff; }
 .dark-mode .banner { background: #1a4971; }
@@ -299,12 +290,11 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .boxes { flex-direction: column; align-items: center; }
-    .box { width: 100%; max-width: 300px; }
+    .boxes { 
+        grid-template-columns: 1fr; /* Stack to 1 column on mobile */
+        max-width: 300px; /* Keep boxes compact */
+    }
     .main-nav ul { flex-direction: column; align-items: center; }
     .main-nav li { margin: 10px 0; }
     .hero iframe { width: 100%; height: auto; }
-    .topics-collapsible { display: none; }
-    .topics-collapsible.active { display: flex; }
-    .topics-toggle { font-size: 1.5em; }
 }
