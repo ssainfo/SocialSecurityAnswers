@@ -31,16 +31,6 @@
             <ul>
                 <li class="home-link"><a href="/">Home</a></li>
                 <li><a href="/news.html" class="active">News</a></li>
-                <li><a href="/replacement.html">Card Replacement</a></li>
-                <li><a href="/retirement.html">Retirement</a></li>
-                <li><a href="/medicare.html">Medicare</a></li>
-                <li><a href="/disability.html">Disability</a></li>
-                <li><a href="/survivor.html">Survivor</a></li>
-                <li><a href="/tax.html">Tax</a></li>
-                <li><a href="/medicaid.html">Medicaid</a></li>
-                <li><a href="/housing.html">Housing</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/fraud.html">Fraud</a></li>
                 <li><a href="/ssi.html">SSI</a></li>
                 <li><a href="/about.html">About</a></li>
             </ul>
@@ -54,8 +44,12 @@
         <a href="/calculator.html">Calculator</a>
     </div>
     <main>
+        <section class="hero">
+            <h1>Social Security News 2025</h1>
+            <p>Stay updated with the latest on SSI, SSDI, Medicare, and more.</p>
+        </section>
         <section class="content-section">
-            <h2>Social Security News 2025</h2>
+            <h2>Latest Updates</h2>
             <p>Get the latest updates on Social Security, SSI, Medicare, and Medicaid from SSA.gov, Medicare.gov, Medicaid.gov, and top news outlets. Refreshes every 5 minutes!</p>
             <div class="news-filters">
                 <button onclick="filterNews('all')">All</button>
@@ -64,33 +58,30 @@
                 <button onclick="filterNews('medicaid')">Medicaid</button>
             </div>
             <div id="news-feed" class="boxes"></div>
-            <img src="images/ssi-eligibility.png" alt="SSI Eligibility Flowchart" loading="lazy">
-            <h3>Key Resources</h3>
-            <div class="boxes">
-                <div class="box">
-                    <i class="fas fa-link"></i>
-                    <h3>SSA.gov Newsroom</h3>
-                    <p>Official updates from the Social Security Administration.</p>
+            <img src="images/ssi-eligibility.png" alt="SSI Eligibility Flowchart" class="chart" loading="lazy">
+
+            <h2>Key Resources</h2>
+            <ul class="info-list">
+                <li>
+                    <strong>SSA.gov Newsroom:</strong> Official updates from the Social Security Administration.
                     <a href="https://www.ssa.gov/news/" target="_blank" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-link"></i>
-                    <h3>Medicare.gov News</h3>
-                    <p>Latest Medicare announcements and updates.</p>
+                </li>
+                <li>
+                    <strong>Medicare.gov News:</strong> Latest Medicare announcements and updates.
                     <a href="https://www.medicare.gov/about-us/news" target="_blank" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-link"></i>
-                    <h3>Medicaid.gov Updates</h3>
-                    <p>Federal Medicaid news and policy changes.</p>
+                </li>
+                <li>
+                    <strong>Medicaid.gov Updates:</strong> Federal Medicaid news and policy changes.
                     <a href="https://www.medicaid.gov/about-us/newsroom/index.html" target="_blank" class="cta-button">Visit</a>
-                </div>
-            </div>
-            <h3>Get Updates</h3>
+                </li>
+            </ul>
+
+            <h2>Get Updates</h2>
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <input type="email" name="email" placeholder="Your email" required>
                 <button type="submit" class="cta-button">Subscribe</button>
             </form>
+
             <div class="social-share">
                 <h3>Share This Page</h3>
                 <a href="https://twitter.com/intent/tweet?url=" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
@@ -192,43 +183,62 @@
                 const medicareData = await medicareResponse.json();
                 const medicareArticles = medicareData.items.slice(0, 2);
 
-                const medicaidRssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.cms.gov/newsroom/feeds/news-releases.xml';
-                const medicaidResponse = await fetch(medicaidRssUrl);
-                const medicaidData = await medicaidResponse.json();
-                const medicaidArticles = medicaidData.items.filter(item => item.title.toLowerCase().includes('medicaid')).slice(0, 1);
-
-                const allArticles = [
-                    ...newsArticles.map(a => ({ title: a.title, desc: a.description, source: a.source.name, date: a.publishedAt, url: a.url })),
-                    ...ssaArticles.map(a => ({ title: a.title, desc: a.description.slice(0, 100) + '...', source: 'SSA.gov', date: a.pubDate, url: a.link })),
-                    ...medicareArticles.map(a => ({ title: a.title, desc: a.description.slice(0, 100) + '...', source: 'Medicare.gov (CMS)', date: a.pubDate, url: a.link })),
-                    ...medicaidArticles.map(a => ({ title: a.title, desc: a.description.slice(0, 100) + '...', source: 'Medicaid.gov (CMS)', date: a.pubDate, url: a.link }))
-                ].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 8);
-
                 newsFeed.innerHTML = '';
-                allArticles.forEach(article => {
-                    const newsBox = document.createElement('div');
-                    newsBox.className = 'box';
-                    newsBox.innerHTML = `
-                        <i class="fas fa-newspaper"></i>
+                newsArticles.forEach(article => {
+                    const box = document.createElement('div');
+                    box.className = 'box';
+                    box.innerHTML = `
                         <h3>${article.title}</h3>
-                        <p>${article.desc || 'No description available.'}</p>
-                        <p><em>Source: ${article.source}</em> - ${new Date(article.date).toLocaleDateString()}</p>
+                        <p>${article.description || ''}</p>
                         <a href="${article.url}" target="_blank" class="cta-button">Read More</a>
-                        ${article.source === 'SSA.gov' ? '<span class="featured">Featured</span>' : ''}
                     `;
-                    newsFeed.appendChild(newsBox);
+                    newsFeed.appendChild(box);
+                });
+
+                ssaArticles.forEach(article => {
+                    const box = document.createElement('div');
+                    box.className = 'box';
+                    box.innerHTML = `
+                        <h3>${article.title}</h3>
+                        <p>${article.description || article.contentSnippet}</p>
+                        <a href="${article.link}" target="_blank" class="cta-button">Read More</a>
+                        <span class="featured">SSA.gov</span>
+                    `;
+                    newsFeed.appendChild(box);
+                });
+
+                medicareArticles.forEach(article => {
+                    const box = document.createElement('div');
+                    box.className = 'box';
+                    box.innerHTML = `
+                        <h3>${article.title}</h3>
+                        <p>${article.description || article.contentSnippet}</p>
+                        <a href="${article.link}" target="_blank" class="cta-button">Read More</a>
+                        <span class="featured">Medicare.gov</span>
+                    `;
+                    newsFeed.appendChild(box);
                 });
             } catch (error) {
-                console.error('Error fetching news:', error);
-                newsFeed.innerHTML = '<p>Sorry, news updates are unavailable right now. Try again later.</p>';
+                newsFeed.innerHTML = '<p>Sorry, news updates are unavailable right now.</p>';
             }
         }
 
         function filterNews(type) {
             const boxes = document.querySelectorAll('#news-feed .box');
             boxes.forEach(box => {
-                const source = box.querySelector('p em').textContent.toLowerCase();
-                box.style.display = (type === 'all' || source.includes(type)) ? 'block' : 'none';
+                const isSSA = box.querySelector('.featured')?.textContent === 'SSA.gov';
+                const isMedicare = box.querySelector('.featured')?.textContent === 'Medicare.gov';
+                if (type === 'all') {
+                    box.style.display = 'block';
+                } else if (type === 'ssa' && isSSA) {
+                    box.style.display = 'block';
+                } else if (type === 'medicare' && isMedicare) {
+                    box.style.display = 'block';
+                } else if (type === 'medicaid' && !isSSA && !isMedicare) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
             });
         }
     </script>
