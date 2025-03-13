@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
         showWelcomeMessage();
         loadChatHistory();
 
-        // Auto-open chatbot once per session after 10 seconds
         if (!sessionStorage.getItem("chatbotShown")) {
             setTimeout(() => {
                 chatbotContainer.classList.add("active");
@@ -213,8 +212,21 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("beforeunload", function () {
             thankYouMessage.classList.add("show");
             setTimeout(() => {
-                thankYouMessage.classList.remove("show");
-            }, 5000); // Extended to 5 seconds
+                thankYouMessage.classList.add("fade-out");
+                setTimeout(() => {
+                    thankYouMessage.classList.remove("show", "fade-out");
+                }, 500); // Matches CSS transition duration
+            }, 10000); // 10 seconds visibility
+        });
+    }
+
+    // Topics Toggle for Mobile
+    const topicsToggle = document.getElementById("topics-toggle");
+    const topicsBoxes = document.getElementById("topics-boxes");
+    if (topicsToggle && topicsBoxes) {
+        topicsToggle.addEventListener("click", function () {
+            topicsBoxes.classList.toggle("active");
+            topicsToggle.classList.toggle("active");
         });
     }
 });
