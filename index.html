@@ -27,32 +27,36 @@
             <h1>Social Security Answers</h1>
             <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
         </div>
-        <nav class="main-nav">
-            <ul>
-                <li class="home-link"><a href="/">Home</a></li>
-                <li><a href="/news.html">News</a></li>
-                <li><a href="/replacement.html">Card Replacement</a></li>
-                <li><a href="/retirement.html">Retirement</a></li>
-                <li><a href="/medicare.html">Medicare</a></li>
-                <li><a href="/disability.html">Disability</a></li>
-                <li><a href="/survivor.html">Survivor</a></li>
-                <li><a href="/tax.html">Tax</a></li>
-                <li><a href="/medicaid.html">Medicaid</a></li>
-                <li><a href="/housing.html">Housing</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/fraud.html">Fraud</a></li>
-                <li><a href="/ssi.html">SSI</a></li>
-                <li><a href="/about.html" class="active">About</a></li>
-            </ul>
-            <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
-        </nav>
-        <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
     </header>
+
+    <nav class="main-nav">
+        <button class="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        <ul class="nav-grid">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/news.html">News</a></li>
+            <li><a href="/replacement.html">Card Replacement</a></li>
+            <li><a href="/retirement.html">Retirement</a></li>
+            <li><a href="/medicare.html">Medicare</a></li>
+            <li><a href="/disability.html">Disability</a></li>
+            <li><a href="/survivor.html">Survivor</a></li>
+            <li><a href="/tax.html">Tax</a></li>
+            <li><a href="/medicaid.html">Medicaid</a></li>
+            <li><a href="/housing.html">Housing</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/fraud.html">Fraud</a></li>
+            <li><a href="/ssi.html">SSI</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
+        <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
+    </nav>
+
     <div class="quick-links">
         <a href="/ssi.html">SSI</a>
         <a href="/news.html">News</a>
         <a href="/calculator.html">Calculator</a>
     </div>
+
     <main>
         <section class="hero">
             <h1>Master Social Security in 2025</h1>
@@ -70,62 +74,24 @@
             </form>
 
             <h2>Explore Our Topics</h2>
-            <div class="boxes">
-                <div class="box">
-                    <i class="fas fa-newspaper"></i>
-                    <h3>News</h3>
-                    <p>Latest updates from SSA.gov and more.</p>
-                    <a href="/news.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-id-card"></i>
-                    <h3>Card Replacement</h3>
-                    <p>How to replace your SS card.</p>
-                    <a href="/replacement.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <h3>Retirement</h3>
-                    <p>Plan your retirement benefits.</p>
-                    <a href="/retirement.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-hospital"></i>
-                    <h3>Medicare</h3>
-                    <p>Understand Medicare coverage.</p>
-                    <a href="/medicare.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-wheelchair"></i>
-                    <h3>Disability</h3>
-                    <p>Learn about SSDI and disability aid.</p>
-                    <a href="/disability.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-heart"></i>
-                    <h3>Survivor</h3>
-                    <p>Support for survivors.</p>
-                    <a href="/survivor.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-clinic-medical"></i>
-                    <h3>Medicaid</h3>
-                    <p>Medicaid eligibility and benefits.</p>
-                    <a href="/medicaid.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-question-circle"></i>
-                    <h3>FAQ</h3>
-                    <p>Answers to common SS questions.</p>
-                    <a href="/faq.html" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-money-check-alt"></i>
-                    <h3>SSI</h3>
-                    <p>Supplemental Security Income guide.</p>
-                    <a href="/ssi.html" class="cta-button">Visit</a>
-                </div>
-            </div>
+            <ul class="topic-grid">
+                <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="/replacement.html"><i class="fas fa-id-card"></i> Card Replacement</a></li>
+                <li><a href="/retirement.html"><i class="fas fa-umbrella-beach"></i> Retirement</a></li>
+                <li><a href="/medicare.html"><i class="fas fa-hospital"></i> Medicare</a></li>
+                <li><a href="/disability.html"><i class="fas fa-wheelchair"></i> Disability</a></li>
+                <li><a href="/survivor.html"><i class="fas fa-heart"></i> Survivor</a></li>
+                <li><a href="/tax.html"><i class="fas fa-calculator"></i> Tax</a></li>
+                <li><a href="/medicaid.html"><i class="fas fa-clinic-medical"></i> Medicaid</a></li>
+                <li><a href="/housing.html"><i class="fas fa-home"></i> Housing</a></li>
+                <li><a href="/faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="/fraud.html"><i class="fas fa-shield-alt"></i> Fraud</a></li>
+                <li><a href="/ssi.html"><i class="fas fa-money-check-alt"></i> SSI</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/calculator.html"><i class="fas fa-abacus"></i> Calculator</a></li>
+                <li class="empty"></li>
+                <li class="empty"></li>
+            </ul>
 
             <div class="social-share">
                 <h3>Share This Site</h3>
@@ -140,6 +106,7 @@
             </div>
         </section>
     </main>
+
     <div class="promo-banner">Try our <a href="/calculator.html">Benefits Calculator</a>!</div>
     <script type="text/javascript">
         atOptions = {
@@ -151,10 +118,12 @@
         };
     </script>
     <script type="text/javascript" src="//www.highperformanceformat.com/acc28b9353a9fa0b30ec79c7c0e1403f/invoke.js"></script>
+
     <footer>
         <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
         <p>Powered by <a href="https://www.ssa.gov/"><img src="images/ssa-logo.png" alt="SSA.gov" width="100" loading="lazy"></a> & <a href="https://newsapi.org/"><img src="images/newsapi-logo.png" alt="NewsAPI" width="100" loading="lazy"></a></p>
     </footer>
+
     <button id="back-to-top" class="back-to-top-btn"><i class="fas fa-arrow-up"></i> Top</button>
     <button id="support-us-toggle" class="support-us-toggle-btn"><i class="fas fa-heart"></i> Support</button>
     <div id="support-us" class="support-us-container">
@@ -175,6 +144,7 @@
         <p>Explore helpful books and resources:</p>
         <a href="https://www.amazon.com/s?k=social+security+books&tag=socialsecu07f-20" target="_blank" class="support-btn resources-btn"><i class="fas fa-book"></i> Books & Resources</a>
     </div>
+
     <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i> Chat</button>
     <div id="chatbot" class="chatbot-container">
         <div class="chatbot-header">
@@ -199,7 +169,18 @@
             <button id="chatbot-reset" class="chatbot-control-btn">Reset Chat</button>
         </div>
     </div>
-    <div id="thank-you-message">Thank you for visiting Social Security Answers!</div>
+
     <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navGrid = document.querySelector('.nav-grid');
+        menuToggle.addEventListener('click', () => {
+            navGrid.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
 </body>
 </html>
