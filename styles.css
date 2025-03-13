@@ -413,7 +413,7 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
 .dark-mode .banner { background: #1a4971; }
 .dark-mode .main-nav { background: #333; }
 .dark-mode .main-nav a { color: #fff; }
-.dark-mode .topic-grid li { background: linear-gradient(135deg, t#2a2a2a 0%, #1a4971 100%); }
+.dark-mode .topic-grid li { background: linear-gradient(135deg, #2a2a2a 0%, #1a4971 100%); }
 .dark-mode .replacement-steps .step, .dark-mode .example { background: #2a2a2a; }
 .dark-mode .doc-table { background: #333; }
 .dark-mode .doc-table th { background: #1a4971; }
