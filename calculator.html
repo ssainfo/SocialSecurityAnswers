@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits Calculator - Social Security Answers</title>
+    <meta name="description" content="Estimate your SSI, SSDI, and Medicare benefits for 2025 with our interactive calculator at Social Security Answers.">
+    <meta name="keywords" content="benefits calculator, ssi calculator, ssdi eligibility, medicare estimate">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOURCLIENTID" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPC7TFVK2B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QPC7TFVK2B');
+    </script>
+    <script src="//tag.ezoic.com/561589.js" async></script>
+</head>
+<body>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li class="home-link"><a href="/">Home</a></li>
+                <li><a href="/replacement.html">Card Replacement</a></li>
+                <li><a href="/retirement.html">Retirement</a></li>
+                <li><a href="/medicare.html">Medicare</a></li>
+                <li><a href="/disability.html">Disability</a></li>
+                <li><a href="/survivor.html">Survivor</a></li>
+                <li><a href="/tax.html">Tax</a></li>
+                <li><a href="/medicaid.html">Medicaid</a></li>
+                <li><a href="/housing.html">Housing</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/fraud.html">Fraud</a></li>
+                <li><a href="/ssi.html">SSI</a></li>
+                <li><a href="/calculator.html" class="active">Calculator</a></li>
+            </ul>
+            <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
+        </nav>
+        <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
+    </header>
+    <main>
+        <section class="content-section">
+            <h2>Benefits Calculator for 2025</h2>
+            <p>Use this tool to estimate your potential SSI, SSDI, or Medicare benefits based on your situation. Enter your details below—results update instantly!</p>
+
+            <div class="calculator-form">
+                <label for="age">Age:</label>
+                <input type="number" id="age" min="0" max="120" placeholder="e.g., 65" oninput="calculateBenefits()">
+
+                <label for="income">Monthly Income ($):</label>
+                <input type="number" id="income" min="0" placeholder="e.g., 800" oninput="calculateBenefits()">
+
+                <label for="resources">Resources ($):</label>
+                <input type="number" id="resources" min="0" placeholder="e.g., 1000" oninput="calculateBenefits()">
+
+                <label for="disability">Disability Status:</label>
+                <select id="disability" onchange="calculateBenefits()">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+
+                <label for="marital">Marital Status:</label>
+                <select id="marital" onchange="calculateBenefits()">
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                </select>
+
+                <label for="visa">Visa Status:</label>
+                <select id="visa" onchange="calculateBenefits()">
+                    <option value="citizen">U.S. Citizen</option>
+                    <option value="refugee">Refugee/Asylee (< 7 yrs)</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="calculator-result">
+                <h3>Your Estimated Benefits</h3>
+                <p><strong>SSI:</strong> <span id="ssi-result">$0/month</span></p>
+                <p><strong>SSDI:</strong> <span id="ssdi-result">Check eligibility</span></p>
+                <p><strong>Medicare/Medicaid:</strong> <span id="health-result">N/A</span></p>
+                <p class="disclaimer">Note: This is an estimate—actual benefits depend on SSA review.</p>
+            </div>
+
+            <h3>How It Works</h3>
+            <p>Enter your age, income, and status above. The calculator uses 2025 rules (e.g., SSI max $943, resource limits $2,000/$3,000) to estimate payments. See detailed guides for <a href="/ssi.html">SSI</a>, <a href="/disability.html">SSDI</a>, and <a href="/medicare.html">Medicare</a>.</p>
+        </section>
+    </main>
+    <script type="text/javascript">
+        atOptions = {
+            'key' : 'acc28b9353a9fa0b30ec79c7c0e1403f',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/acc28b9353a9fa0b30ec79c7c0e1403f/invoke.js"></script>
+    <footer>
+        <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
+    </footer>
+    <button id="back-to-top" class="back-to-top-btn"><i class="fas fa-arrow-up"></i> Top</button>
+    <button id="support-us-toggle" class="support-us-toggle-btn"><i class="fas fa-heart"></i> Support</button>
+    <div id="support-us" class="support-us-container">
+        <div class="support-us-header">
+            <h3>Support Us</h3>
+            <button id="support-us-close" class="support-us-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <p>Help us keep this resource free! Donate via PayPal:</p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="business" value="ravellc17@gmail.com" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <button type="submit" class="support-btn"><i class="fab fa-paypal"></i> Donate Now</button>
+        </form>
+        <p>Explore helpful books and resources:</p>
+        <a href="https://www.amazon.com/s?k=social+security+books&tag=socialsecu07f-20" target="_blank" class="support-btn resources-btn"><i class="fas fa-book"></i> Books & Resources</a>
+    </div>
+    <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i> Chat</button>
+    <div id="chatbot" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Social Security Chatbot</h3>
+            <button id="chatbot-close" class="chatbot-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-input-area">
+            <select id="suggested-questions" class="suggested-questions">
+                <option value="">Suggested Questions</option>
+                <option value="How do I replace my Social Security card?">How do I replace my Social Security card?</option>
+                <option value="When can I start collecting retirement benefits?">When can I start collecting retirement benefits?</option>
+                <option value="What’s the difference between SSDI and SSI?">What’s the difference between SSDI and SSI?</option>
+                <option value="How do I report fraud?">How do I report fraud?</option>
+                <option value="What is my Full Retirement Age?">What is my Full Retirement Age?</option>
+            </select>
+            <input type="text" id="chatbot-input" placeholder="Ask me anything..." class="chatbot-input">
+            <button id="chatbot-send" class="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div class="chatbot-controls">
+            <button id="chatbot-save" class="chatbot-control-btn">Save Chat</button>
+            <button id="chatbot-reset" class="chatbot-control-btn">Reset Chat</button>
+        </div>
+    </div>
+    <div id="thank-you-message">Thank you for visiting Social Security Answers!</div>
+    <script src="script.js"></script>
+    <script>
+        function calculateBenefits() {
+            const age = parseInt(document.getElementById('age').value) || 0;
+            const income = parseInt(document.getElementById('income').value) || 0;
+            const resources = parseInt(document.getElementById('resources').value) || 0;
+            const disability = document.getElementById('disability').value;
+            const marital = document.getElementById('marital').value;
+            const visa = document.getElementById('visa').value;
+
+            // SSI Calculation
+            const ssiMax = marital === 'married' ? 1415 : 943;
+            let ssiEligible = (resources <= (marital === 'married' ? 3000 : 2000)) && 
+                             (income < (marital === 'married' ? 3000 : 2000)) && 
+                             (visa !== 'other');
+            let ssiAmount = ssiEligible ? Math.max(0, ssiMax - income) : 0;
+            document.getElementById('ssi-result').textContent = ssiEligible ? `$${ssiAmount}/month` : 'Not eligible';
+
+            // SSDI Hint
+            const ssdiHint = (disability === 'yes' && age < 67) ? 'May be eligible—check work history' : 'Not eligible';
+            document.getElementById('ssdi-result').textContent = ssdiHint;
+
+            // Medicare/Medicaid Hint
+            let healthHint = '';
+            if (age >= 65) healthHint += 'Medicare eligible. ';
+            if (income < 14580 && resources < 2000) healthHint += 'May qualify for Medicaid/QMB.';
+            document.getElementById('health-result').textContent = healthHint || 'N/A';
+        }
+    </script>
+</body>
+</html>
