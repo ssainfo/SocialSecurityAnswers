@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Security News 2025 - Social Security Answers</title>
-    <meta name="description" content="Latest Social Security, SSI, Medicare, and Medicaid news for 2025 from SSA.gov, Medicare.gov, Medicaid.gov, and more at Social Security Answers.">
-    <meta name="keywords" content="social security news, ssi updates 2025, ssdi news, medicare news, medicaid news">
+    <title>About Us - Social Security Answers</title>
+    <meta name="description" content="Learn about Social Security Answers—your trusted guide to Social Security benefits in 2025.">
+    <meta name="keywords" content="about social security answers, ssaanswers mission">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -30,7 +30,7 @@
         <nav class="main-nav">
             <ul>
                 <li class="home-link"><a href="/">Home</a></li>
-                <li><a href="/news.html" class="active">News</a></li>
+                <li><a href="/news.html">News</a></li>
                 <li><a href="/replacement.html">Card Replacement</a></li>
                 <li><a href="/retirement.html">Retirement</a></li>
                 <li><a href="/medicare.html">Medicare</a></li>
@@ -42,7 +42,7 @@
                 <li><a href="/faq.html">FAQ</a></li>
                 <li><a href="/fraud.html">Fraud</a></li>
                 <li><a href="/ssi.html">SSI</a></li>
-                <li><a href="/about.html">About</a></li>
+                <li><a href="/about.html" class="active">About</a></li>
             </ul>
             <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
         </nav>
@@ -55,42 +55,9 @@
     </div>
     <main>
         <section class="content-section">
-            <h2>Social Security News 2025</h2>
-            <p>Get the latest updates on Social Security, SSI, Medicare, and Medicaid from SSA.gov, Medicare.gov, Medicaid.gov, and top news outlets. Refreshes every 5 minutes!</p>
-            <div class="news-filters">
-                <button onclick="filterNews('all')">All</button>
-                <button onclick="filterNews('ssa')">SSA.gov</button>
-                <button onclick="filterNews('medicare')">Medicare</button>
-                <button onclick="filterNews('medicaid')">Medicaid</button>
-            </div>
-            <div id="news-feed" class="boxes"></div>
-            <img src="images/ssi-eligibility.png" alt="SSI Eligibility Flowchart" loading="lazy">
-            <h3>Key Resources</h3>
-            <div class="boxes">
-                <div class="box">
-                    <i class="fas fa-link"></i>
-                    <h3>SSA.gov Newsroom</h3>
-                    <p>Official updates from the Social Security Administration.</p>
-                    <a href="https://www.ssa.gov/news/" target="_blank" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-link"></i>
-                    <h3>Medicare.gov News</h3>
-                    <p>Latest Medicare announcements and updates.</p>
-                    <a href="https://www.medicare.gov/about-us/news" target="_blank" class="cta-button">Visit</a>
-                </div>
-                <div class="box">
-                    <i class="fas fa-link"></i>
-                    <h3>Medicaid.gov Updates</h3>
-                    <p>Federal Medicaid news and policy changes.</p>
-                    <a href="https://www.medicaid.gov/about-us/newsroom/index.html" target="_blank" class="cta-button">Visit</a>
-                </div>
-            </div>
-            <h3>Get Updates</h3>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <input type="email" name="email" placeholder="Your email" required>
-                <button type="submit" class="cta-button">Subscribe</button>
-            </form>
+            <h2><i class="fas fa-info-circle"></i> About Us</h2>
+            <p>We’re dedicated to simplifying Social Security for all—updated for 2025 with official sources like SSA.gov, Medicare.gov, and Medicaid.gov. Whether you’re exploring SSI, SSDI, retirement benefits, or the latest news, we’ve got you covered with clear, practical guides.</p>
+            <p>Our mission: Make Social Security easy to understand and accessible to everyone, free of charge. Support us via <a href="https://cash.app/$ssaanswers">Cash App ($ssaanswers)</a> or <a href="https://www.paypal.com/donate?business=ravellc17@gmail.com">PayPal</a> to keep this resource thriving!</p>
             <div class="social-share">
                 <h3>Share This Page</h3>
                 <a href="https://twitter.com/intent/tweet?url=" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
@@ -165,72 +132,5 @@
     </div>
     <div id="thank-you-message">Thank you for visiting Social Security Answers!</div>
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchNews();
-            setInterval(fetchNews, 300000); // Refresh every 5 minutes
-        });
-
-        async function fetchNews() {
-            const newsFeed = document.getElementById('news-feed');
-            newsFeed.innerHTML = '<p>Loading latest news...</p>';
-
-            try {
-                const newsApiKey = '44b25beb8c1c4837bda7298e1f10791c';
-                const newsUrl = `https://newsapi.org/v2/everything?q="social security" OR ssi OR ssdi OR medicare OR medicaid&sortBy=publishedAt&apiKey=${newsApiKey}`;
-                const newsResponse = await fetch(newsUrl);
-                const newsData = await newsResponse.json();
-                const newsArticles = newsData.articles.slice(0, 3);
-
-                const ssaRssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://blog.ssa.gov/feed/';
-                const ssaResponse = await fetch(ssaRssUrl);
-                const ssaData = await ssaResponse.json();
-                const ssaArticles = ssaData.items.slice(0, 2);
-
-                const medicareRssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.cms.gov/newsroom/feeds/news-releases.xml';
-                const medicareResponse = await fetch(medicareRssUrl);
-                const medicareData = await medicareResponse.json();
-                const medicareArticles = medicareData.items.slice(0, 2);
-
-                const medicaidRssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https://www.cms.gov/newsroom/feeds/news-releases.xml';
-                const medicaidResponse = await fetch(medicaidRssUrl);
-                const medicaidData = await medicaidResponse.json();
-                const medicaidArticles = medicaidData.items.filter(item => item.title.toLowerCase().includes('medicaid')).slice(0, 1);
-
-                const allArticles = [
-                    ...newsArticles.map(a => ({ title: a.title, desc: a.description, source: a.source.name, date: a.publishedAt, url: a.url })),
-                    ...ssaArticles.map(a => ({ title: a.title, desc: a.description.slice(0, 100) + '...', source: 'SSA.gov', date: a.pubDate, url: a.link })),
-                    ...medicareArticles.map(a => ({ title: a.title, desc: a.description.slice(0, 100) + '...', source: 'Medicare.gov (CMS)', date: a.pubDate, url: a.link })),
-                    ...medicaidArticles.map(a => ({ title: a.title, desc: a.description.slice(0, 100) + '...', source: 'Medicaid.gov (CMS)', date: a.pubDate, url: a.link }))
-                ].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 8);
-
-                newsFeed.innerHTML = '';
-                allArticles.forEach(article => {
-                    const newsBox = document.createElement('div');
-                    newsBox.className = 'box';
-                    newsBox.innerHTML = `
-                        <i class="fas fa-newspaper"></i>
-                        <h3>${article.title}</h3>
-                        <p>${article.desc || 'No description available.'}</p>
-                        <p><em>Source: ${article.source}</em> - ${new Date(article.date).toLocaleDateString()}</p>
-                        <a href="${article.url}" target="_blank" class="cta-button">Read More</a>
-                        ${article.source === 'SSA.gov' ? '<span class="featured">Featured</span>' : ''}
-                    `;
-                    newsFeed.appendChild(newsBox);
-                });
-            } catch (error) {
-                console.error('Error fetching news:', error);
-                newsFeed.innerHTML = '<p>Sorry, news updates are unavailable right now. Try again later.</p>';
-            }
-        }
-
-        function filterNews(type) {
-            const boxes = document.querySelectorAll('#news-feed .box');
-            boxes.forEach(box => {
-                const source = box.querySelector('p em').textContent.toLowerCase();
-                box.style.display = (type === 'all' || source.includes(type)) ? 'block' : 'none';
-            });
-        }
-    </script>
 </body>
 </html>

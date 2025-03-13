@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const pages = [
         { url: "/", title: "Home" },
+        { url: "/news.html", title: "News" },
         { url: "/replacement.html", title: "Card Replacement" },
         { url: "/retirement.html", title: "Retirement Planning" },
         { url: "/medicare.html", title: "Medicare Basics" },
@@ -11,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/housing.html", title: "Housing Assistance" },
         { url: "/faq.html", title: "FAQ" },
         { url: "/fraud.html", title: "Fraud Protection" },
-        { url: "/ssi.html", title: "Supplemental Security Income" }
+        { url: "/ssi.html", title: "Supplemental Security Income" },
+        { url: "/about.html", title: "About Us" }
     ];
 
     // Site Search
@@ -57,6 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (chatbotToggle && chatbotContainer && chatbotClose && chatbotInput && chatbotSend && chatbotMessages && suggestedQuestions) {
         showWelcomeMessage();
         loadChatHistory();
+
+        // Auto-open chatbot after 10 seconds
+        setTimeout(() => {
+            chatbotContainer.classList.add("active");
+            chatbotToggle.style.display = "none";
+        }, 10000);
 
         chatbotToggle.addEventListener("click", function () {
             chatbotContainer.classList.add("active");
@@ -136,14 +144,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 return "FRA is 66-67, based on birth year (e.g., 67 for 1960+). Early at 62 reduces, delay to 70 increases. <a href='https://www.ssa.gov/benefits/retirement/planner/ageincrease.html' target='_blank'>Details</a>.";
             }
             if (message.includes("ssi") || message.includes("supplemental security income")) {
-                return "SSI pays up to $943/month (individuals) or $1,450 (couples) in 2025 to people with low income who are disabled, blind, or 65+. Call 1-800-772-1213 or start online (65+ only) at <a href='https://secure.ssa.gov/iClaim/SSI' target='_blank'>SSA.gov</a>.";
+                return "SSI pays up to $943/month (individuals) or $1,415 (couples) in 2025 to people with low income who are disabled, blind, or 65+. Call 1-800-772-1213 or start online (65+ only) at <a href='https://secure.ssa.gov/iClaim/SSI' target='_blank'>SSA.gov</a>.";
             }
             return "I’m not sure about that! Try something specific like 'How do I apply for SSI?' or visit <a href='https://www.ssa.gov' target='_blank'>SSA.gov</a>.";
         }
 
         function saveChatHistory() {
             localStorage.setItem("chatHistory", chatbotMessages.innerHTML);
-            alert("Chat history saved!");
+            alert("Chat saved!");
+        }
+
+        function loadChatHistory() {
+            const savedChat = localStorage.getItem("chatHistory");
+            if (savedChat) {
+                chatbotMessages.innerHTML = savedChat;
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
         }
 
         function resetChatHistory() {
@@ -151,17 +167,9 @@ document.addEventListener("DOMContentLoaded", function () {
             chatbotMessages.innerHTML = "";
             showWelcomeMessage();
         }
-
-        function loadChatHistory() {
-            const savedHistory = localStorage.getItem("chatHistory");
-            if (savedHistory) {
-                chatbotMessages.innerHTML = savedHistory;
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            }
-        }
     }
 
-    // Support Us Functionality
+    // Support Us Toggle
     const supportUsToggle = document.getElementById("support-us-toggle");
     const supportUsContainer = document.getElementById("support-us");
     const supportUsClose = document.getElementById("support-us-close");
@@ -180,79 +188,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Thank You Message
-    const navLinks = document.querySelectorAll("nav ul li a");
-    let isInternalNavigation = false;
-    const thankYouDiv = document.getElementById("thank-you-message");
-
-    if (thankYouDiv) {
-        navLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                const href = this.getAttribute("href");
-                if (pages.some(page => page.url === href)) {
-                    isInternalNavigation = true;
-                }
-            });
-        });
-
-        window.addEventListener("beforeunload", function (e) {
-            if (!isInternalNavigation) {
-                thankYouDiv.classList.add("show");
-                setTimeout(() => {
-                    thankYouDiv.classList.remove("show");
-                }, 2000);
-                e.preventDefault();
-                e.returnValue = "";
-            }
-            isInternalNavigation = false;
-        });
-    }
-
     // Back to Top Button
-    const backToTopBtn = document.getElementById("back-to-top");
-    if (backToTopBtn) {
+    const backToTop = document.getElementById("back-to-top");
+    if (backToTop) {
         window.addEventListener("scroll", function () {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add("show");
+            if (window.scrollY > 200) {
+                backToTop.classList.add("show");
             } else {
-                backToTopBtn.classList.remove("show");
+                backToTop.classList.remove("show");
             }
         });
 
-        backToTopBtn.addEventListener("click", function () {
+        backToTop.addEventListener("click", function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
 
-    // Social Sharing Buttons
-    const currentUrl = encodeURIComponent(window.location.href);
-    const shareText = encodeURIComponent('Check out this Social Security guide at ssaanswers.com!');
-    const shareLinks = {
-        twitter: `https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareText}`,
-        facebook: `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
-        linkedin: `https://www.linkedin.com/shareArticle?url=${currentUrl}&title=${shareText}`,
-        pinterest: `https://pinterest.com/pin/create/button/?url=${currentUrl}&description=${shareText}`,
-        reddit: `https://reddit.com/submit?url=${currentUrl}&title=${shareText}`,
-        whatsapp: `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`,
-        instagram: 'https://www.instagram.com/', // Replace with your profile if available
-        youtube: 'https://www.youtube.com/@socialsecurityadministration' // SSA channel
-    };
-
-    const twitterBtn = document.querySelector('.share-btn.twitter');
-    const facebookBtn = document.querySelector('.share-btn.facebook');
-    const linkedinBtn = document.querySelector('.share-btn.linkedin');
-    const pinterestBtn = document.querySelector('.share-btn.pinterest');
-    const redditBtn = document.querySelector('.share-btn.reddit');
-    const whatsappBtn = document.querySelector('.share-btn.whatsapp');
-    const instagramBtn = document.querySelector('.share-btn.instagram');
-    const youtubeBtn = document.querySelector('.share-btn.youtube');
-
-    if (twitterBtn) twitterBtn.href = shareLinks.twitter;
-    if (facebookBtn) facebookBtn.href = shareLinks.facebook;
-    if (linkedinBtn) linkedinBtn.href = shareLinks.linkedin;
-    if (pinterestBtn) pinterestBtn.href = shareLinks.pinterest;
-    if (redditBtn) redditBtn.href = shareLinks.reddit;
-    if (whatsappBtn) whatsappBtn.href = shareLinks.whatsapp;
-    if (instagramBtn) instagramBtn.href = shareLinks.instagram;
-    if (youtubeBtn) youtubeBtn.href = shareLinks.youtube;
-}, false);
+    // Thank You Message on Exit
+    const thankYouMessage = document.getElementById("thank-you-message");
+    if (thankYouMessage) {
+        window.addEventListener("beforeunload", function () {
+            thankYouMessage.classList.add("show");
+            setTimeout(() => {
+                thankYouMessage.classList.remove("show");
+            }, 2000);
+        });
+    }
+});
