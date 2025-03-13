@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    color: #333;
 }
 
 /* Banner */
@@ -83,70 +84,85 @@ body {
     border-bottom: 2px solid #4682b4;
 }
 .hero h1 { font-size: 2.5em; margin-bottom: 10px; }
-.hero .cta-button { margin: 0 10px; }
+.hero p { font-size: 1.1em; }
 
 /* Content Section */
 .content-section {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
 }
-.content-section h2 { color: #4682b4; }
+.content-section h2 { color: #4682b4; font-size: 2em; margin-bottom: 15px; }
+.content-section h3 { color: #326a93; font-size: 1.5em; margin-top: 20px; }
 .callout {
     background: #f0f8ff;
     padding: 15px;
     border-left: 4px solid #4682b4;
-    margin: 15px auto;
+    margin: 15px 0;
     max-width: 600px;
+    font-style: italic;
+}
+
+/* Info List */
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+.info-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.info-list li:last-child { border-bottom: none; }
+
+/* Info Table */
+.info-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.info-table th, .info-table td {
+    padding: 12px;
     text-align: left;
-}
-
-/* Boxes */
-.boxes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.info-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); } /* Flexible grid for info */
-.box {
-    background: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    position: relative;
 }
-.box i { font-size: 2em; color: #4682b4; margin-bottom: 10px; }
-.box h3 { font-size: 1.2em; margin: 10px 0; }
-.box p { font-size: 0.9em; color: #666; margin-bottom: 10px; }
-
-/* News Filters */
-.news-filters { margin: 20px 0; text-align: center; }
-.news-filters button {
-    padding: 8px 16px;
-    margin: 0 5px;
+.info-table th {
     background: #4682b4;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
-.news-filters button:hover { background: #326a93; }
+.info-table tr:nth-child(even) { background: #f9f9f9; }
 
-/* Featured Badge */
-.featured {
-    background: #ff6347;
-    color: #fff;
-    padding: 2px 8px;
-    border-radius: 3px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+/* Charts and Graphs */
+.chart {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
+
+/* Examples */
+.example {
+    background: #f9f9f9;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.example h3 { margin-top: 0; color: #4682b4; }
+
+/* FAQ */
+.faq {
+    margin: 15px 0;
+    padding: 15px;
+    background: #fff;
+    border-left: 4px solid #32cd32;
+}
+.faq h3 { margin-top: 0; }
 
 /* Social Share */
 .social-share { margin: 20px 0; text-align: center; }
@@ -183,7 +199,6 @@ body {
     text-decoration: none;
     display: inline-block;
     transition: background 0.3s;
-    margin: 5px;
 }
 .cta-button:hover { background: #326a93; }
 
@@ -285,19 +300,20 @@ body {
 .dark-mode .banner { background: #1a4971; }
 .dark-mode .main-nav { background: #333; }
 .dark-mode .main-nav a { color: #fff; }
-.dark-mode .box { background: #333; color: #fff; }
+.dark-mode .info-table { background: #333; }
+.dark-mode .info-table th { background: #1a4971; }
 .dark-mode .cta-button { background: #32cd32; }
 .dark-mode .support-us-container, .dark-mode .chatbot-container { background: #333; }
 .dark-mode .callout { background: #1a4971; }
+.dark-mode .example { background: #2a2a2a; }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .boxes { 
-        grid-template-columns: 1fr; /* Stack to 1 column on mobile */
-        max-width: 300px; /* Keep boxes compact */
-    }
-    .info-grid { grid-template-columns: 1fr; } /* Stack info boxes on mobile */
     .main-nav ul { flex-direction: column; align-items: center; }
     .main-nav li { margin: 10px 0; }
-    .hero iframe { width: 100%; height: auto; }
+    .hero { padding: 20px; }
+    .hero h1 { font-size: 2em; }
+    .content-section { padding: 15px; }
+    .info-table { font-size: 0.9em; }
+    .chart { max-width: 100%; }
 }
