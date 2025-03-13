@@ -60,11 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
         showWelcomeMessage();
         loadChatHistory();
 
-        // Auto-open chatbot after 10 seconds
-        setTimeout(() => {
-            chatbotContainer.classList.add("active");
-            chatbotToggle.style.display = "none";
-        }, 10000);
+        // Auto-open chatbot once per session after 10 seconds
+        if (!sessionStorage.getItem("chatbotShown")) {
+            setTimeout(() => {
+                chatbotContainer.classList.add("active");
+                chatbotToggle.style.display = "none";
+                sessionStorage.setItem("chatbotShown", "true");
+            }, 10000);
+        }
 
         chatbotToggle.addEventListener("click", function () {
             chatbotContainer.classList.add("active");
@@ -211,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
             thankYouMessage.classList.add("show");
             setTimeout(() => {
                 thankYouMessage.classList.remove("show");
-            }, 2000);
+            }, 5000); // Extended to 5 seconds
         });
     }
 });
