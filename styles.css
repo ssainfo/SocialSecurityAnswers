@@ -677,3 +677,30 @@ body.dark-mode .doc-table th {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.box {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+.box i {
+    font-size: 2em;
+    color: #4682b4;
+    margin-bottom: 10px;
+}
+.box h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.box p {
+    font-size: 0.9em;
+    color: #666;
+}
