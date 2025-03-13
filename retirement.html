@@ -232,5 +232,16 @@
     </div>
     <div id="thank-you-message">Thank you for visiting Social Security Answers!</div>
     <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navGrid = document.querySelector('.nav-grid');
+        menuToggle.addEventListener('click', () => {
+            navGrid.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+    </script>
 </body>
 </html>
