@@ -46,6 +46,7 @@
             <li><a href="/fraud.html">Fraud</a></li>
             <li><a href="/ssi.html">SSI</a></li>
             <li><a href="/about.html">About</a></li>
+            <li><a href="/calculator.html">Calculator</a></li>
         </ul>
         <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
@@ -107,7 +108,11 @@
         </section>
     </main>
 
-    <div class="promo-banner">Try our <a href="/calculator.html">Benefits Calculator</a>!</div>
+    <div class="promo-banner">
+        Try our <a href="/calculator.html">Benefits Calculator</a>!
+        <button id="promo-close" class="promo-close-btn"><i class="fas fa-times"></i></button>
+    </div>
+
     <script type="text/javascript">
         atOptions = {
             'key' : 'acc28b9353a9fa0b30ec79c7c0e1403f',
@@ -180,6 +185,13 @@
             const icon = menuToggle.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
+        });
+
+        // Promo banner close
+        const promoClose = document.getElementById('promo-close');
+        const promoBanner = document.querySelector('.promo-banner');
+        promoClose.addEventListener('click', () => {
+            promoBanner.style.display = 'none';
         });
     </script>
 </body>

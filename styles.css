@@ -520,3 +520,56 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
     .faq-question { font-size: 1em; padding: 12px; }
     .faq-answer { padding: 12px; }
 }
+/* Promo Banner */
+.promo-banner {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #32cd32;
+    color: #fff;
+    padding: 10px 30px 10px 10px; /* Extra right padding for close button */
+    border-radius: 5px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.promo-banner a { color: #fff; text-decoration: underline; }
+.promo-close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 0;
+}
+.promo-close-btn:hover { color: #ddd; }
+
+/* Dark Mode Button */
+.dark-mode-btn {
+    background: #555; /* Lighter than #333 for better visibility */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .promo-banner {
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+        padding: 8px 25px 8px 8px; /* Adjusted for mobile */
+    }
+    .dark-mode-btn {
+        background: #666; /* Even lighter on mobile */
+    }
+}
