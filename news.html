@@ -49,6 +49,45 @@
             <p>Stay updated with the latest on SSI, SSDI, Medicare, and more.</p>
         </section>
         <section class="content-section">
+            <!-- Featured News Carousel -->
+            <h2>Top Stories</h2>
+            <div class="news-carousel">
+                <div class="carousel-item active">
+                    <h3>White House Insists Musk Cuts Won’t Affect Benefits</h3>
+                    <p>Elon Musk’s claim of $700B in entitlement fraud raises alarms, but the White House vows no cuts to Social Security or Medicare.</p>
+                    <a href="https://www.washingtonpost.com/politics/2025/03/12/white-house-insists-musk-cuts-social-security-medicare-wont-affect-benefits/" target="_blank" class="cta-button">Read More</a>
+                </div>
+                <div class="carousel-item">
+                    <h3>Social Security to Claw Back 100% of Overpayments</h3>
+                    <p>Starting March 27, new overpayment cases face full benefit withholding, sparking concerns for seniors.</p>
+                    <a href="https://www.cbsnews.com/news/social-security-overpayment-100-percent-benefit-check-march-2025/" target="_blank" class="cta-button">Read More</a>
+                </div>
+                <div class="carousel-item">
+                    <h3>Trump’s SSA Cuts Could Disrupt Services</h3>
+                    <p>Staff layoffs and office closures under Musk’s DOGE plan threaten access to Social Security services.</p>
+                    <a href="https://www.medicarerights.org/news/trump-administration-elon-musk-doge-closing-social-security-offices" target="_blank" class="cta-button">Read More</a>
+                </div>
+                <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <!-- Quick Stats -->
+            <h2>2025 At a Glance</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-percentage"></i>
+                    <p><strong>2.5%</strong> COLA Increase</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <p><strong>$4,873</strong> Max SS Benefit</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user"></i>
+                    <p><strong>$943</strong> Max SSI (Individual)</p>
+                </div>
+            </div>
+
             <h2>Latest Updates</h2>
             <p>Get the latest updates on Social Security, SSI, Medicare, and Medicaid from SSA.gov, Medicare.gov, Medicaid.gov, and top news outlets. Refreshes every 5 minutes!</p>
             <div class="news-filters">
@@ -59,7 +98,7 @@
             </div>
             <div id="news-feed" class="boxes"></div>
 
-            <!-- Video Section with Catchy Banner -->
+            <!-- Video Section -->
             <div class="video-banner">
                 <h2>🎥 Must-Watch Social Security Updates!</h2>
                 <p>Dive into these videos for the latest insights and tips!</p>
@@ -72,6 +111,21 @@
                 <div class="video-item">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/ubxwxSsgZaI" title="Social Security Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=ubxwxSsgZaI" target="_blank">watch it on YouTube</a>.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Poll -->
+            <h2>Your Voice</h2>
+            <div class="poll">
+                <p>What’s your biggest Social Security concern?</p>
+                <form id="poll-form">
+                    <label><input type="radio" name="poll" value="eligibility"> Eligibility</label>
+                    <label><input type="radio" name="poll" value="payments"> Payments</label>
+                    <label><input type="radio" name="poll" value="retirement"> Retirement Age</label>
+                    <button type="submit" class="cta-button">Vote</button>
+                </form>
+                <div id="poll-results" style="display: none;">
+                    <p>Thanks for voting! Results: <span id="poll-output"></span></p>
                 </div>
             </div>
 
@@ -107,6 +161,12 @@
                 <a href="https://api.whatsapp.com/send?text=https://www.ssaanswers.com/news.html" class="share-btn whatsapp" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://www.instagram.com/" class="share-btn instagram" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="cta-banner">
+                <h3>Need Answers Fast?</h3>
+                <p>Try our <a href="/calculator.html">Benefits Calculator</a> or explore our <a href="/faq.html">FAQ</a>!</p>
             </div>
         </section>
     </main>
@@ -175,12 +235,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             fetchNews();
             setInterval(fetchNews, 300000); // Refresh every 5 minutes
+            initCarousel();
+            initPoll();
         });
 
         async function fetchNews() {
             const newsFeed = document.getElementById('news-feed');
             newsFeed.innerHTML = '<p>Loading latest news...</p>';
-
             try {
                 const newsApiKey = '44b25beb8c1c4837bda7298e1f10791c';
                 const newsUrl = `https://newsapi.org/v2/everything?q="social security" OR ssi OR ssdi OR medicare OR medicaid&sortBy=publishedAt&apiKey=${newsApiKey}`;
@@ -253,6 +314,53 @@
                     box.style.display = 'block';
                 } else {
                     box.style.display = 'none';
+                }
+            });
+        }
+
+        function initCarousel() {
+            const items = document.querySelectorAll('.carousel-item');
+            let current = 0;
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+
+            function showItem(index) {
+                items.forEach((item, i) => {
+                    item.classList.toggle('active', i === index);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                current = (current - 1 + items.length) % items.length;
+                showItem(current);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                current = (current + 1) % items.length;
+                showItem(current);
+            });
+
+            setInterval(() => {
+                current = (current + 1) % items.length;
+                showItem(current);
+            }, 5000); // Rotate every 5 seconds
+        }
+
+        function initPoll() {
+            const form = document.getElementById('poll-form');
+            const results = document.getElementById('poll-results');
+            const output = document.getElementById('poll-output');
+            let votes = JSON.parse(localStorage.getItem('pollVotes')) || { eligibility: 0, payments: 0, retirement: 0 };
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const selected = form.querySelector('input[name="poll"]:checked');
+                if (selected) {
+                    votes[selected.value]++;
+                    localStorage.setItem('pollVotes', JSON.stringify(votes));
+                    results.style.display = 'block';
+                    output.textContent = `Eligibility: ${votes.eligibility}, Payments: ${votes.payments}, Retirement: ${votes.retirement}`;
+                    form.reset();
                 }
             });
         }
