@@ -95,30 +95,16 @@
             </ul>
 
             <div class="social-share">
-    <h3>Share This Site</h3>
-    <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/" class="share-btn facebook" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.linkedin.com/shareArticle?url=https://ssaanswers.com/" class="share-btn linkedin" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://pinterest.com/pin/create/button/?url=https://ssaanswers.com/" class="share-btn pinterest" target="_blank" title="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
-    <a href="https://reddit.com/submit?url=https://ssaanswers.com/" class="share-btn reddit" target="_blank" title="Share on Reddit"><i class="fab fa-reddit-alien"></i></a>
-    <a href="https://api.whatsapp.com/send?text=https://ssaanswers.com/" class="share-btn whatsapp" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/" class="share-btn instagram" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
-</div>
-
-<script>
-    // Dynamically set social share URLs
-    document.addEventListener('DOMContentLoaded', () => {
-        const currentUrl = encodeURIComponent(window.location.href);
-        const shareButtons = document.querySelectorAll('.share-btn');
-        shareButtons.forEach(btn => {
-            const baseHref = btn.getAttribute('href');
-            if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
-                btn.setAttribute('href', baseHref + currentUrl);
-            }
-        });
-    });
-</script>
+                <h3>Share This Site</h3>
+                <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/" class="share-btn facebook" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?url=https://ssaanswers.com/" class="share-btn linkedin" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://pinterest.com/pin/create/button/?url=https://ssaanswers.com/" class="share-btn pinterest" target="_blank" title="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://reddit.com/submit?url=https://ssaanswers.com/" class="share-btn reddit" target="_blank" title="Share on Reddit"><i class="fab fa-reddit-alien"></i></a>
+                <a href="https://api.whatsapp.com/send?text=https://ssaanswers.com/" class="share-btn whatsapp" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/" class="share-btn instagram" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
         </section>
     </main>
 
@@ -141,6 +127,7 @@
     <footer>
         <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
         <p>Powered by <a href="https://www.ssa.gov/"><img src="images/ssa-logo.png" alt="SSA.gov" width="100" loading="lazy"></a> & <a href="https://newsapi.org/"><img src="images/newsapi-logo.png" alt="NewsAPI" width="100" loading="lazy"></a></p>
+        <p class="disclaimer"><strong>Disclaimer:</strong> This site is for informational purposes only. All benefit estimates and information are unofficial and subject to change. Final eligibility and benefit amounts are determined solely by the Social Security Administration (SSA) and its representatives. For official details, visit <a href="https://www.ssa.gov/" target="_blank">ssa.gov</a> or contact SSA at 1-800-772-1213.</p>
     </footer>
 
     <button id="back-to-top" class="back-to-top-btn"><i class="fas fa-arrow-up"></i> Top</button>
@@ -206,6 +193,18 @@
         const promoBanner = document.querySelector('.promo-banner');
         promoClose.addEventListener('click', () => {
             promoBanner.style.display = 'none';
+        });
+
+        // Dynamically set social share URLs
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const shareButtons = document.querySelectorAll('.share-btn');
+            shareButtons.forEach(btn => {
+                const baseHref = btn.getAttribute('href');
+                if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
+                    btn.setAttribute('href', baseHref + currentUrl);
+                }
+            });
         });
     </script>
 </body>

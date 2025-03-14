@@ -676,3 +676,28 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
 .dark-mode #retirement-result a {
     color: #32cd32;
 }
+/* Disclaimer */
+.disclaimer {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+.disclaimer a {
+    color: #4682b4;
+    text-decoration: underline;
+}
+.dark-mode .disclaimer {
+    color: #aaa;
+}
+.dark-mode .disclaimer a {
+    color: #32cd32;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .disclaimer {
+        font-size: 0.85em;
+        padding: 0 10px;
+    }
+}
