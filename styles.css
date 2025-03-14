@@ -669,3 +669,10 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
         padding: 15px;
     }
 }
+#retirement-result a {
+    color: #4682b4;
+    text-decoration: underline;
+}
+.dark-mode #retirement-result a {
+    color: #32cd32;
+}
