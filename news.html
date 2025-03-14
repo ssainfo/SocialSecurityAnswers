@@ -28,12 +28,15 @@
             <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
         </div>
         <nav class="main-nav">
-            <ul>
-                <li class="home-link"><a href="/">Home</a></li>
-                <li><a href="/news.html" class="active">News</a></li>
-                <li><a href="/ssi.html">SSI</a></li>
-                <li><a href="/about.html">About</a></li>
-            </ul>
+            <div class="nav-box">
+                <button class="nav-toggle" aria-label="Toggle Navigation"><i class="fas fa-bars"></i> Menu</button>
+                <ul class="nav-list">
+                    <li><a href="/" class="home-link">Home</a></li>
+                    <li><a href="/news.html" class="active">News</a></li>
+                    <li><a href="/ssi.html">SSI</a></li>
+                    <li><a href="/about.html">About</a></li>
+                </ul>
+            </div>
             <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
         </nav>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
@@ -49,23 +52,39 @@
             <p>Stay updated with the latest on SSI, SSDI, Medicare, and more.</p>
         </section>
         <section class="content-section">
+            <!-- Video Section (Moved to Top) -->
+            <div class="video-banner">
+                <h2>🎥 Must-Watch Social Security Updates!</h2>
+                <p>Dive into these videos for the latest insights and tips!</p>
+            </div>
+            <div class="video-section">
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6mFpn8BJLV4" title="Social Security Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=6mFpn8BJLV4" target="_blank">watch it on YouTube</a>.</p>
+                </div>
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ubxwxSsgZaI" title="Social Security Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=ubxwxSsgZaI" target="_blank">watch it on YouTube</a>.</p>
+                </div>
+            </div>
+
             <!-- Featured News Carousel -->
             <h2>Top Stories</h2>
             <div class="news-carousel">
                 <div class="carousel-item active">
-                    <h3>White House Insists Musk Cuts Won’t Affect Benefits</h3>
-                    <p>Elon Musk’s claim of $700B in entitlement fraud raises alarms, but the White House vows no cuts to Social Security or Medicare.</p>
-                    <a href="https://www.washingtonpost.com/politics/2025/03/12/white-house-insists-musk-cuts-social-security-medicare-wont-affect-benefits/" target="_blank" class="cta-button">Read More</a>
+                    <h3>Social Security COLA 2025: What You Need to Know</h3>
+                    <p>The SSA confirms a 2.5% COLA increase for 2025, boosting benefits starting January.</p>
+                    <a href="https://www.ssa.gov/cola/" target="_blank" class="cta-button">Read More</a>
                 </div>
                 <div class="carousel-item">
-                    <h3>Social Security to Claw Back 100% of Overpayments</h3>
-                    <p>Starting March 27, new overpayment cases face full benefit withholding, sparking concerns for seniors.</p>
-                    <a href="https://www.cbsnews.com/news/social-security-overpayment-100-percent-benefit-check-march-2025/" target="_blank" class="cta-button">Read More</a>
+                    <h3>Overpayment Policy Update</h3>
+                    <p>Starting March 2025, SSA will recover 100% of overpayments from benefits, says AARP.</p>
+                    <a href="https://www.aarp.org/retirement/social-security/info-2025/overpayment-policy-changes.html" target="_blank" class="cta-button">Read More</a>
                 </div>
                 <div class="carousel-item">
-                    <h3>Trump’s SSA Cuts Could Disrupt Services</h3>
-                    <p>Staff layoffs and office closures under Musk’s DOGE plan threaten access to Social Security services.</p>
-                    <a href="https://www.medicarerights.org/news/trump-administration-elon-musk-doge-closing-social-security-offices" target="_blank" class="cta-button">Read More</a>
+                    <h3>Medicare Part D Changes for 2025</h3>
+                    <p>CMS outlines new prescription drug cost caps effective January 2025.</p>
+                    <a href="https://www.cms.gov/newsroom/fact-sheets/2025-medicare-parts-b-d-premiums" target="_blank" class="cta-button">Read More</a>
                 </div>
                 <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
                 <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
@@ -97,22 +116,6 @@
                 <button onclick="filterNews('medicaid')">Medicaid</button>
             </div>
             <div id="news-feed" class="boxes"></div>
-
-            <!-- Video Section -->
-            <div class="video-banner">
-                <h2>🎥 Must-Watch Social Security Updates!</h2>
-                <p>Dive into these videos for the latest insights and tips!</p>
-            </div>
-            <div class="video-section">
-                <div class="video-item">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6mFpn8BJLV4" title="Social Security Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=6mFpn8BJLV4" target="_blank">watch it on YouTube</a>.</p>
-                </div>
-                <div class="video-item">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ubxwxSsgZaI" title="Social Security Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=ubxwxSsgZaI" target="_blank">watch it on YouTube</a>.</p>
-                </div>
-            </div>
 
             <!-- Interactive Poll -->
             <h2>Your Voice</h2>
@@ -237,6 +240,7 @@
             setInterval(fetchNews, 300000); // Refresh every 5 minutes
             initCarousel();
             initPoll();
+            initNavToggle();
         });
 
         async function fetchNews() {
@@ -362,6 +366,15 @@
                     output.textContent = `Eligibility: ${votes.eligibility}, Payments: ${votes.payments}, Retirement: ${votes.retirement}`;
                     form.reset();
                 }
+            });
+        }
+
+        function initNavToggle() {
+            const toggleBtn = document.querySelector('.nav-toggle');
+            const navList = document.querySelector('.nav-list');
+            toggleBtn.addEventListener('click', () => {
+                navList.classList.toggle('open');
+                toggleBtn.innerHTML = navList.classList.contains('open') ? '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
             });
         }
     </script>
