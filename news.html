@@ -23,34 +23,19 @@
 </head>
 <body>
     <header class="banner">
-    <div class="banner-content">
-        <h1>Social Security Answers</h1>
-        <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
-    </div>
-</header>
-
-<nav class="main-nav">
-    <button class="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
-    <ul class="nav-grid">
-        <li><a href="/" class="[active if Home]">Home</a></li>
-        <li><a href="/news.html" class="[active if News]">News</a></li>
-        <li><a href="/replacement.html" class="[active if Card Replacement]">Card Replacement</a></li>
-        <li><a href="/retirement.html" class="[active if Retirement]">Retirement</a></li>
-        <li><a href="/medicare.html" class="[active if Medicare]">Medicare</a></li>
-        <li><a href="/disability.html" class="[active if Disability]">Disability</a></li>
-        <li><a href="/survivor.html" class="[active if Survivor]">Survivor</a></li>
-        <li><a href="/tax.html" class="[active if Tax]">Tax</a></li>
-        <li><a href="/medicaid.html" class="[active if Medicaid]">Medicaid</a></li>
-        <li><a href="/housing.html" class="[active if Housing]">Housing</a></li>
-        <li><a href="/faq.html" class="[active if FAQ]">FAQ</a></li>
-        <li><a href="/fraud.html" class="[active if Fraud]">Fraud</a></li>
-        <li><a href="/ssi.html" class="[active if SSI]">SSI</a></li>
-        <li><a href="/about.html" class="[active if About]">About</a></li>
-        <li><a href="/calculator.html" class="[active if Calculator]">Calculator</a></li>
-    </ul>
-    <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
-    <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
-</nav>
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li class="home-link"><a href="/">Home</a></li>
+                <li><a href="/news.html" class="active">News</a></li>
+                <li><a href="/ssi.html">SSI</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+            <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
+        </nav>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
     </header>
     <div class="quick-links">
@@ -73,7 +58,21 @@
                 <button onclick="filterNews('medicaid')">Medicaid</button>
             </div>
             <div id="news-feed" class="boxes"></div>
-            <img src="images/ssi-eligibility.png" alt="SSI Eligibility Flowchart" class="chart" loading="lazy">
+            <!-- Removed SSI Eligibility Flowchart -->
+
+            <!-- New Video Section with Catchy Banner -->
+            <div class="video-banner">
+                <h2>🎥 Must-Watch Social Security Updates!</h2>
+                <p>Dive into these videos for the latest insights and tips!</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6mFpn8BJLV4?si=G7FXKX_rNegxAOXT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ubxwxSsgZaI?si=2XJTxjsXH6jFE64k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
 
             <h2>Key Resources</h2>
             <ul class="info-list">
@@ -257,15 +256,5 @@
             });
         }
     </script>
-    <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navGrid = document.querySelector('.nav-grid');
-    menuToggle.addEventListener('click', () => {
-        navGrid.classList.toggle('active');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-    });
-</script>
 </body>
 </html>
