@@ -741,3 +741,93 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
     .poll { padding: 15px; }
     .cta-banner { padding: 15px; }
 }
+/* Social Media Section (X Posts) */
+.social-media-section {
+    margin: 20px 0;
+    text-align: center;
+}
+.social-media-section h2 {
+    color: #4682b4;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+.social-posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+.social-post {
+    flex: 1 1 300px;
+    max-width: 560px;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.post-header i {
+    font-size: 1.5em;
+    color: #000;
+    margin-right: 8px;
+}
+.post-header span {
+    font-weight: 700;
+    color: #333;
+}
+.post-header .handle {
+    font-weight: 400;
+    color: #666;
+    margin-left: 5px;
+}
+.social-post p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+.social-post a {
+    color: #4682b4;
+    text-decoration: underline;
+}
+.post-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Dark Mode for Social Media Section */
+.dark-mode .social-media-section h2 {
+    color: #32cd32;
+}
+.dark-mode .social-post {
+    background: #2a2a2a;
+    color: #f0f0f0;
+}
+.dark-mode .post-header span {
+    color: #f0f0f0;
+}
+.dark-mode .post-header .handle {
+    color: #aaa;
+}
+.dark-mode .social-post a {
+    color: #32cd32;
+}
+.dark-mode .post-meta {
+    color: #aaa;
+}
+
+/* Mobile Responsiveness for Social Media Section */
+@media (max-width: 768px) {
+    .social-posts {
+        flex-direction: column;
+        align-items: center;
+    }
+    .social-post {
+        max-width: 100%;
+    }
+}
