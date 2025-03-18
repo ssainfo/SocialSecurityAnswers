@@ -223,24 +223,103 @@ document.addEventListener("DOMContentLoaded", function () {
     // YouTube Video Automation (for news.html or pages with video-section)
     const videoSection = document.getElementById("video-section");
     if (videoSection) {
+        // Initialize API usage tracking
+        initializeApiUsage();
+
+        // Start fetching videos
         fetchYouTubeVideos(); // Initial fetch
-        setInterval(fetchYouTubeVideos, 36000000); // Refresh every 10 hours (36,000,000 milliseconds)
+        const refreshInterval = setInterval(() => {
+            if (canMakeApiRequest()) {
+                fetchYouTubeVideos();
+            } else {
+                clearInterval(refreshInterval); // Stop refreshing when limit is reached
+                videoSection.innerHTML = '<p>API usage limit reached for this month. Video updates will resume next month.</p>';
+            }
+        }, 43200000); // Refresh every 12 hours (43,200,000 milliseconds)
+    }
+
+    // API Usage Tracking Functions
+    function initializeApiUsage() {
+        const currentMonth = new Date().getMonth() + 1; // 1-12
+        const storedMonth = localStorage.getItem("apiUsageMonth");
+        const storedUnits = localStorage.getItem("apiUsageUnits");
+
+        // Reset usage if the month has changed
+        if (storedMonth !== currentMonth.toString()) {
+            localStorage.setItem("apiUsageMonth", currentMonth.toString());
+            localStorage.setItem("apiUsageUnits", "0");
+        } else if (!storedUnits) {
+            localStorage.setItem("apiUsageUnits", "0");
+        }
+    }
+
+    function canMakeApiRequest() {
+        const unitsUsed = parseInt(localStorage.getItem("apiUsageUnits")) || 0;
+        const unitsPerRefresh = 700; // Worst case: 6 channels + 1 fallback
+        return unitsUsed + unitsPerRefresh <= 10000; // Free tier limit
+    }
+
+    function incrementApiUsage(units) {
+        const currentUnits = parseInt(localStorage.getItem("apiUsageUnits")) || 0;
+        localStorage.setItem("apiUsageUnits", (currentUnits + units).toString());
     }
 
     async function fetchYouTubeVideos() {
         const videoSection = document.getElementById("video-section");
         if (!videoSection) return; // Exit if video section not found
         videoSection.innerHTML = '<p>Loading latest videos...</p>';
-        try {
-            const apiKey = 'AIzaSyAABDh2g2x_ufrfmij3tVQJ1J5yAnHvvoo'; // Your provided API key
-            const searchQuery = encodeURIComponent('"social security 2025" OR ssi OR ssdi OR medicare OR medicaid');
-            const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&type=video&maxResults=2&order=date&key=${apiKey}`;
-            const response = await fetch(youtubeUrl);
-            const data = await response.json();
 
-            if (data.items && data.items.length > 0) {
+        // Check if we can make the request
+        if (!canMakeApiRequest()) {
+            videoSection.innerHTML = '<p>API usage limit reached for this month. Video updates will resume next month.</p>';
+            return;
+        }
+
+        // List of news channel IDs
+        const newsChannelIds = [
+            'UCupvZG-5ko_eiXAupbDfxWw', // CNN
+            'UCvJJ_dzjViJCoLf5uKUTwoA', // CNBC
+            'UCaXkIU1QidjPwiAYu6GcHjg', // MSNBC
+            'UCXIJgqnII2ZOINSWNOGFThA', // Fox News
+            'UCBi2mrWuNuyYy4gbM6fU18Q', // ABC News
+            'UCeY0bbntWtlXynqpMrKpHTg'  // NBC News
+        ];
+
+        const apiKey = 'AIzaSyAABDh2g2x_ufrfmij3tVQJ1J5yAnHvvoo'; // Your provided API key
+        const searchQuery = encodeURIComponent('"social security 2025" OR ssi OR ssdi OR medicare OR medicaid news');
+        let videosFound = false;
+        let allVideos = [];
+
+        try {
+            // Step 1: Search within specified news channels
+            for (const channelId of newsChannelIds) {
+                const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&type=video&maxResults=2&order=date&channelId=${channelId}&key=${apiKey}`;
+                const response = await fetch(youtubeUrl);
+                const data = await response.json();
+                incrementApiUsage(100); // Each search costs 100 units
+
+                if (data.items && data.items.length > 0) {
+                    videosFound = true;
+                    allVideos.push(...data.items);
+                }
+            }
+
+            // Step 2: If no videos found from news channels, fall back to general search
+            if (!videosFound) {
+                const fallbackUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&type=video&maxResults=2&order=date&key=${apiKey}`;
+                const fallbackResponse = await fetch(fallbackUrl);
+                const fallbackData = await fallbackResponse.json();
+                incrementApiUsage(100); // Fallback search costs 100 units
+
+                if (fallbackData.items && fallbackData.items.length > 0) {
+                    allVideos.push(...fallbackData.items);
+                }
+            }
+
+            // Step 3: Display videos (limit to 2)
+            if (allVideos.length > 0) {
                 videoSection.innerHTML = ''; // Clear loading message
-                data.items.forEach(item => {
+                allVideos.slice(0, 2).forEach(item => {
                     const videoId = item.id.videoId;
                     const videoItem = document.createElement('div');
                     videoItem.className = 'video-item';
@@ -251,10 +330,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     videoSection.appendChild(videoItem);
                 });
             } else {
-                videoSection.innerHTML = '<p>No videos available at this time.</p>';
+                videoSection.innerHTML = '<p>No Social Security or Medicare news videos available at this time.</p>';
             }
         } catch (error) {
-            videoSection.innerHTML = '<p>Sorry, video updates are unavailable right now. Check back later or <a href="https://www.youtube.com/results?search_query=social+security+2025" target="_blank">search YouTube</a>.</p>';
+            videoSection.innerHTML = '<p>Sorry, video updates are unavailable right now. Check back later or <a href="https://www.youtube.com/results?search_query=social+security+2025+news" target="_blank">search YouTube</a>.</p>';
         }
     }
 });
