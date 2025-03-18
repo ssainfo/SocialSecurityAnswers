@@ -219,4 +219,42 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 10000); // 10 seconds visibility
         });
     }
+
+    // YouTube Video Automation (for news.html or pages with video-section)
+    const videoSection = document.getElementById("video-section");
+    if (videoSection) {
+        fetchYouTubeVideos(); // Initial fetch
+        setInterval(fetchYouTubeVideos, 36000000); // Refresh every 10 hours (36,000,000 milliseconds)
+    }
+
+    async function fetchYouTubeVideos() {
+        const videoSection = document.getElementById("video-section");
+        if (!videoSection) return; // Exit if video section not found
+        videoSection.innerHTML = '<p>Loading latest videos...</p>';
+        try {
+            const apiKey = 'AIzaSyAABDh2g2x_ufrfmij3tVQJ1J5yAnHvvoo'; // Your provided API key
+            const searchQuery = encodeURIComponent('"social security 2025" OR ssi OR ssdi OR medicare OR medicaid');
+            const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&type=video&maxResults=2&order=date&key=${apiKey}`;
+            const response = await fetch(youtubeUrl);
+            const data = await response.json();
+
+            if (data.items && data.items.length > 0) {
+                videoSection.innerHTML = ''; // Clear loading message
+                data.items.forEach(item => {
+                    const videoId = item.id.videoId;
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    videoItem.innerHTML = `
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" title="${item.snippet.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">watch it on YouTube</a>.</p>
+                    `;
+                    videoSection.appendChild(videoItem);
+                });
+            } else {
+                videoSection.innerHTML = '<p>No videos available at this time.</p>';
+            }
+        } catch (error) {
+            videoSection.innerHTML = '<p>Sorry, video updates are unavailable right now. Check back later or <a href="https://www.youtube.com/results?search_query=social+security+2025" target="_blank">search YouTube</a>.</p>';
+        }
+    }
 });
