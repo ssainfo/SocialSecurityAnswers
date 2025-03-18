@@ -41,23 +41,33 @@
         </nav>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
     </header>
-    <div class="quick-links">
-        <a href="/ssi.html">SSI</a>
-        <a href="/news.html">News</a>
-        <a href="/calculator.html">Calculator</a>
-    </div>
+   
     <main>
         <section class="hero">
             <h1>Social Security News 2025</h1>
             <p>Stay updated with the latest on SSI, SSDI, Medicare, and more.</p>
         </section>
         <section class="content-section">
-            <!-- Video Section (Dynamic) -->
+            <!-- Video Section (Automated and Manual Videos) -->
             <div class="video-banner">
                 <h2>🎥 Must-Watch Social Security Updates!</h2>
-                <p>Dive into these videos for the latest insights and tips! Refreshes every 10 hours.</p>
+                <p>Dive into these videos for the latest insights and tips! Automated videos refresh every 12 hours (until API limit is reached).</p>
             </div>
+            <!-- Automated Videos (Populated by script.js) -->
             <div id="video-section" class="video-section"></div>
+
+            <!-- Manual Videos -->
+            <div class="manual-videos">
+                <!-- Update the video IDs in the src and href attributes below to change the manual videos -->
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6mFpn8BJLV4" title="Social Security Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=6mFpn8BJLV4" target="_blank">watch it on YouTube</a>.</p>
+                </div>
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ubxwxSsgZaI" title="Social Security Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=ubxwxSsgZaI" target="_blank">watch it on YouTube</a>.</p>
+                </div>
+            </div>
 
             <!-- Featured News Carousel -->
             <h2>Top Stories</h2>
@@ -232,8 +242,6 @@
             initCarousel();
             initPoll();
             initNavToggle();
-            fetchYouTubeVideos(); // Initial fetch of YouTube videos
-            setInterval(fetchYouTubeVideos, 36000000); // Refresh videos every 10 hours (36,000,000 milliseconds)
         });
 
         async function fetchNews() {
@@ -370,37 +378,6 @@
                 toggleBtn.innerHTML = navList.classList.contains('open') ? '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
             });
         }
-
-        async function fetchYouTubeVideos() {
-            const videoSection = document.getElementById('video-section');
-            videoSection.innerHTML = '<p>Loading latest videos...</p>';
-            try {
-                const apiKey = 'AIzaSyAABDh2g2x_ufrfmij3tVQJ1J5yAnHvvoo'; // Your provided API key
-                const searchQuery = encodeURIComponent('"social security 2025" OR ssi OR ssdi OR medicare OR medicaid');
-                const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&type=video&maxResults=2&order=date&key=${apiKey}`;
-                const response = await fetch(youtubeUrl);
-                const data = await response.json();
-
-                if (data.items && data.items.length > 0) {
-                    videoSection.innerHTML = ''; // Clear loading message
-                    data.items.forEach(item => {
-                        const videoId = item.id.videoId;
-                        const videoItem = document.createElement('div');
-                        videoItem.className = 'video-item';
-                        videoItem.innerHTML = `
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" title="${item.snippet.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">watch it on YouTube</a>.</p>
-                        `;
-                        videoSection.appendChild(videoItem);
-                    });
-                } else {
-                    videoSection.innerHTML = '<p>No videos available at this time.</p>';
-                }
-            } catch (error) {
-                videoSection.innerHTML = '<p>Sorry, video updates are unavailable right now. Check back later or <a href="https://www.youtube.com/results?search_query=social+security+2025" target="_blank">search YouTube</a>.</p>';
-            }
-        }
     </script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9220d52e4b324529',t:'MTc0MjI2MDA0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
