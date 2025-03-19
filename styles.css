@@ -831,3 +831,52 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
         max-width: 100%;
     }
 }
+/* Adjust Manual Videos Container */
+.manual-videos {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping, forcing side-by-side layout */
+    gap: 20px; /* Space between videos */
+    justify-content: center; /* Center the videos horizontally */
+    margin: 20px 0;
+    overflow-x: auto; /* Adds horizontal scrolling if videos exceed viewport width */
+    padding: 10px; /* Optional: adds some padding for better scrolling appearance */
+}
+
+/* Adjust Video Items */
+.manual-videos .video-item {
+    flex: 0 0 280px; /* Fixed width per video, half of 560px for smaller size */
+    max-width: 280px; /* Matches flex basis */
+    text-align: center;
+}
+
+.manual-videos .video-item iframe {
+    width: 100%; /* Scales to container width */
+    height: 157px; /* Maintains 16:9 aspect ratio (280 * 9 / 16 ≈ 157) */
+    max-width: 280px;
+}
+
+/* Ensure Responsiveness on Smaller Screens */
+@media (max-width: 1200px) {
+    .manual-videos {
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        justify-content: center;
+    }
+    .manual-videos .video-item {
+        flex: 1 1 45%; /* Two per row on medium screens */
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .manual-videos {
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: center;
+    }
+    .manual-videos .video-item {
+        flex: 1 1 100%; /* Full width on small screens */
+        max-width: 560px; /* Restore max-width for larger display */
+    }
+    .manual-videos .video-item iframe {
+        height: 315px; /* Restore original height */
+    }
+}
