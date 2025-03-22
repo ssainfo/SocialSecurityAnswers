@@ -7,6 +7,7 @@
     <meta name="description" content="Calculate your 2025 SSI, SSDI, Retirement, and Medicare benefits with our advanced, free tool at Social Security Answers.">
     <meta name="keywords" content="social security calculator 2025, ssi benefits, ssdi estimate, retirement benefits, medicare costs">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.ssaanswers.com/calculator.html">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
@@ -47,7 +48,6 @@
             <li><a href="/ssi.html">SSI</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/calculator.html" class="active">Calculator</a></li>
-            <li><a href="/shelter.html">Shelter</a></li>
         </ul>
         <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
         <input type="text" id="site-search" placeholder="Search Social Security topics..." class="search-bar">
@@ -150,6 +150,11 @@
                 <p class="chart-note">Chart scales to $4,018 (2025 SSA max benefit).</p>
             </div>
 
+            <div class="timeline-container">
+                <h3>Your Benefits Timeline</h3>
+                <div id="timeline" class="timeline"></div>
+            </div>
+
             <h3>Parent-to-Child Deeming Chart</h3>
             <table class="doc-table">
                 <thead><tr><th>Household</th><th>Max Earned Income</th><th>Max Unearned Income</th></tr></thead>
@@ -230,82 +235,57 @@
 
     <script src="script.js"></script>
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navGrid = document.querySelector('.nav-grid');
-        menuToggle.addEventListener('click', () => {
-            navGrid.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
+        async function calculateBenefits() {
+            const inputs = {
+                age: parseInt(document.getElementById('age').value) || 0,
+                earnedIncome: parseInt(document.getElementById('earned-income').value) || 0,
+                unearnedIncome: parseInt(document.getElementById('unearned-income').value) || 0,
+                resources: parseInt(document.getElementById('resources').value) || 0,
+                workYears: parseInt(document.getElementById('work-years').value) || 0,
+                disability: document.getElementById('disability').value,
+                marital: document.getElementById('marital').value,
+                visa: document.getElementById('visa').value,
+                parents: document.getElementById('parents').value,
+                parentEarned: parseInt(document.getElementById('parent-earned').value) || 0,
+                parentUnearned: parseInt(document.getElementById('parent-unearned').value) || 0,
+                siblings: parseInt(document.getElementById('siblings').value) || 0
+            };
 
-        function calculateBenefits() {
-            const age = parseInt(document.getElementById('age').value) || 0;
-            const earnedIncome = parseInt(document.getElementById('earned-income').value) || 0;
-            const unearnedIncome = parseInt(document.getElementById('unearned-income').value) || 0;
-            const resources = parseInt(document.getElementById('resources').value) || 0;
-            const workYears = parseInt(document.getElementById('work-years').value) || 0;
-            const disability = document.getElementById('disability').value;
-            const marital = document.getElementById('marital').value;
-            const visa = document.getElementById('visa').value;
-            const parents = document.getElementById('parents').value;
-            const parentEarned = parseInt(document.getElementById('parent-earned').value) || 0;
-            const parentUnearned = parseInt(document.getElementById('parent-unearned').value) || 0;
-            const siblings = parseInt(document.getElementById('siblings').value) || 0;
+            try {
+                const response = await fetch('/.netlify/functions/calculate-benefits', {
+                    method: 'POST',
+                    body: JSON.stringify(inputs),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const result = await response.json();
 
-            // 2025 FBR
-            const fbrIndividual = 967;
-            const fbrCouple = 1450;
-            const childAllocation = 484; // $967 - $483
+                // Update Results
+                document.getElementById('ssi-result').textContent = result.ssi.eligible ? `$${result.ssi.amount}/month` : 'Not eligible';
+                document.getElementById('ssdi-result').textContent = result.ssdi.eligible ? `$${result.ssdi.amount}/month` : 'Not eligible';
+                document.getElementById('retirement-result').textContent = result.retirement.amount ? `$${result.retirement.amount}/month` : 'Not eligible';
+                document.getElementById('medicare-result').textContent = result.medicare;
 
-            // SSI Calculation
-            let countableUnearned = Math.max(0, unearnedIncome - 20);
-            let countableEarned = earnedIncome > 0 ? Math.max(0, (earnedIncome - 65) / 2) : 0;
-            let deemedIncome = 0;
+                // Update Chart
+                const maxHeight = 4018;
+                document.getElementById('ssi-bar').style.height = `${(result.ssi.amount || 0) / maxHeight * 100}%`;
+                document.getElementById('ssi-bar').textContent = `SSI: $${result.ssi.amount || 0}`;
+                document.getElementById('ssdi-bar').style.height = `${(result.ssdi.amount || 0) / maxHeight * 100}%`;
+                document.getElementById('ssdi-bar').textContent = `SSDI: $${result.ssdi.amount || 0}`;
+                document.getElementById('retirement-bar').style.height = `${(result.retirement.amount || 0) / maxHeight * 100}%`;
+                document.getElementById('retirement-bar').textContent = `Retirement: $${result.retirement.amount || 0}`;
 
-            // Parent Deeming (if under 18)
-            if (age < 18 && parents !== 'none') {
-                let parentTotalUnearned = parentUnearned - (siblings * childAllocation);
-                let parentTotalEarned = parentEarned - Math.max(0, (siblings * childAllocation - parentUnearned));
-                let parentCountableUnearned = Math.max(0, parentTotalUnearned - 20);
-                let parentCountableEarned = parentTotalEarned > 0 ? Math.max(0, (parentTotalEarned - 65) / 2) : 0;
-                let parentLivingAllowance = parents === 'one' ? fbrIndividual : fbrCouple;
-                deemedIncome = Math.max(0, (parentCountableUnearned + parentCountableEarned - parentLivingAllowance));
-                countableUnearned += deemedIncome;
+                // Update Timeline
+                const timeline = document.getElementById('timeline');
+                const fra = inputs.age < 67 ? 67 : inputs.age;
+                timeline.innerHTML = `
+                    <div class="timeline-point"><span>Age 62: $${Math.round(inputs.workYears * 100 * 0.7)}</span></div>
+                    <div class="timeline-point"><span>Age ${fra}: $${Math.round(inputs.workYears * 100)}</span></div>
+                    <div class="timeline-point"><span>Age 70: $${Math.round(inputs.workYears * 100 * 1.24)}</span></div>
+                `;
+            } catch (error) {
+                console.error('Calculation error:', error);
+                document.getElementById('ssi-result').textContent = 'Error';
             }
-
-            let totalCountable = countableUnearned + countableEarned;
-            let ssiEligible = (resources <= (marital === 'married' ? 3000 : 2000)) && (visa !== 'other');
-            let ssiAmount = ssiEligible ? Math.max(0, fbrIndividual - totalCountable) : 0;
-            document.getElementById('ssi-result').textContent = ssiEligible ? `$${ssiAmount}/month` : 'Not eligible';
-
-            // SSDI (Simplified)
-            const ssdiEligible = disability === 'yes' && workYears >= 5 && age < 67;
-            let ssdiAmount = ssdiEligible ? Math.min(4018, workYears * 80) : 0;
-            document.getElementById('ssdi-result').textContent = ssdiEligible ? `$${ssdiAmount}/month` : 'Not eligible';
-
-            // Retirement (Simplified)
-            let retirementAmount = 0;
-            if (age >= 62 && workYears >= 10) {
-                const base = Math.min(4018, workYears * 100);
-                retirementAmount = age < 67 ? base * 0.7 : (age > 70 ? base * 1.24 : base);
-            }
-            document.getElementById('retirement-result').textContent = retirementAmount ? `$${Math.round(retirementAmount)}/month` : 'Not eligible';
-
-            // Medicare
-            let medicareResult = age >= 65 ? 'Eligible (Part A free, Part B ~$185/month)' : 'Not eligible';
-            if (totalCountable < 14580 && resources < 2000) medicareResult += ', may qualify for Medicaid/QMB';
-            document.getElementById('medicare-result').textContent = medicareResult;
-
-            // Update Chart
-            const maxHeight = 4018;
-            document.getElementById('ssi-bar').style.height = `${(ssiAmount / maxHeight) * 100}%`;
-            document.getElementById('ssi-bar').textContent = `SSI: $${ssiAmount}`;
-            document.getElementById('ssdi-bar').style.height = `${(ssdiAmount / maxHeight) * 100}%`;
-            document.getElementById('ssdi-bar').textContent = `SSDI: $${ssdiAmount}`;
-            document.getElementById('retirement-bar').style.height = `${(retirementAmount / maxHeight) * 100}%`;
-            document.getElementById('retirement-bar').textContent = `Retirement: $${Math.round(retirementAmount)}`;
         }
     </script>
 </body>
