@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -10,11 +10,12 @@ exports.handler = async (event) => {
     parents, parentEarned, parentUnearned, siblings
   } = JSON.parse(event.body);
 
-  const client = new MongoClient(process.env.MONGODB_URI);
-  await client.connect();
-  const db = client.db('ssaanswers');
-  const rules = await db.collection('ssa_rules').findOne({ year: 2025 }) || {
-    fbrIndividual: 967, fbrCouple: 1450, childAllocation: 484, maxBenefit: 4018
+  // Hardcoded 2025 SSA Rules (update annually or fetch dynamically)
+  const rules = {
+    fbrIndividual: 967,
+    fbrCouple: 1450,
+    childAllocation: 484,
+    maxBenefit: 4018
   };
 
   // SSI Calculation
@@ -50,8 +51,6 @@ exports.handler = async (event) => {
   // Medicare
   let medicareResult = age >= 65 ? 'Eligible (Part A free, Part B ~$185/month)' : 'Not eligible';
   if (totalCountable * 12 < 14580 && resources < 2000) medicareResult += ', may qualify for Medicaid/QMB';
-
-  await client.close();
 
   return {
     statusCode: 200,
