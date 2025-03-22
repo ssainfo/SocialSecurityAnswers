@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/faq.html", title: "FAQ" },
         { url: "/fraud.html", title: "Fraud Protection" },
         { url: "/ssi.html", title: "Supplemental Security Income" },
+        { url: "/shelter.html", title: "Shelter" },
+        { url: "/shelter-locations.html", title: "Shelter Locations" },
         { url: "/about.html", title: "About Us" },
         { url: "/calculator.html", title: "Benefits Calculator" }
     ];
@@ -190,5 +192,64 @@ document.addEventListener("DOMContentLoaded", function () {
                 btn.setAttribute('href', baseHref + currentUrl);
             }
         });
+    }
+
+    // Calculator Function (only if on calculator.html)
+    if (window.location.pathname === '/calculator.html') {
+        async function calculateBenefits() {
+            const inputs = {
+                age: parseInt(document.getElementById('age').value) || 0,
+                earnedIncome: parseInt(document.getElementById('earned-income').value) || 0,
+                unearnedIncome: parseInt(document.getElementById('unearned-income').value) || 0,
+                resources: parseInt(document.getElementById('resources').value) || 0,
+                workYears: parseInt(document.getElementById('work-years').value) || 0,
+                disability: document.getElementById('disability').value,
+                marital: document.getElementById('marital').value,
+                visa: document.getElementById('visa').value,
+                parents: document.getElementById('parents').value,
+                parentEarned: parseInt(document.getElementById('parent-earned').value) || 0,
+                parentUnearned: parseInt(document.getElementById('parent-unearned').value) || 0,
+                siblings: parseInt(document.getElementById('siblings').value) || 0
+            };
+
+            try {
+                const response = await fetch('/.netlify/functions/calculate-benefits', {
+                    method: 'POST',
+                    body: JSON.stringify(inputs),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const result = await response.json();
+
+                // Update Results
+                document.getElementById('ssi-result').textContent = result.ssi.eligible ? `$${result.ssi.amount}/month` : 'Not eligible';
+                document.getElementById('ssdi-result').textContent = result.ssdi.eligible ? `$${result.ssdi.amount}/month` : 'Not eligible';
+                document.getElementById('retirement-result').textContent = result.retirement.amount ? `$${result.retirement.amount}/month` : 'Not eligible';
+                document.getElementById('medicare-result').textContent = result.medicare;
+
+                // Update Chart
+                const maxHeight = 4018;
+                document.getElementById('ssi-bar').style.height = `${(result.ssi.amount || 0) / maxHeight * 100}%`;
+                document.getElementById('ssi-bar').textContent = `SSI: $${result.ssi.amount || 0}`;
+                document.getElementById('ssdi-bar').style.height = `${(result.ssdi.amount || 0) / maxHeight * 100}%`;
+                document.getElementById('ssdi-bar').textContent = `SSDI: $${result.ssdi.amount || 0}`;
+                document.getElementById('retirement-bar').style.height = `${(result.retirement.amount || 0) / maxHeight * 100}%`;
+                document.getElementById('retirement-bar').textContent = `Retirement: $${result.retirement.amount || 0}`;
+
+                // Update Timeline
+                const timeline = document.getElementById('timeline');
+                const fra = inputs.age < 67 ? 67 : inputs.age;
+                timeline.innerHTML = `
+                    <div class="timeline-point"><span>Age 62: $${Math.round(inputs.workYears * 100 * 0.7)}</span></div>
+                    <div class="timeline-point"><span>Age ${fra}: $${Math.round(inputs.workYears * 100)}</span></div>
+                    <div class="timeline-point"><span>Age 70: $${Math.round(inputs.workYears * 100 * 1.24)}</span></div>
+                `;
+            } catch (error) {
+                console.error('Calculation error:', error);
+                document.getElementById('ssi-result').textContent = 'Error';
+            }
+        }
+
+        // Attach calculateBenefits to global scope for inline event handlers
+        window.calculateBenefits = calculateBenefits;
     }
 });
