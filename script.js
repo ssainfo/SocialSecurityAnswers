@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pages = [
         { url: "/", title: "Home" },
         { url: "/news.html", title: "News" },
+        { url: "/community.html", title: "Community" }, // Added Community
         { url: "/replacement.html", title: "Card Replacement" },
         { url: "/retirement.html", title: "Retirement Planning" },
         { url: "/medicare.html", title: "Medicare Basics" },
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Chatbot Functionality
+    // Chatbot Functionality (unchanged)
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbotContainer = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -171,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Support Us Toggle
+    // Support Us Toggle (unchanged)
     const supportUsToggle = document.getElementById("support-us-toggle");
     const supportUsContainer = document.getElementById("support-us");
     const supportUsClose = document.getElementById("support-us-close");
@@ -190,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Back to Top Button
+    // Back to Top Button (unchanged)
     const backToTop = document.getElementById("back-to-top");
     if (backToTop) {
         window.addEventListener("scroll", function () {
@@ -206,134 +207,135 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Thank You Message on Exit
-    const thankYouMessage = document.getElementById("thank-you-message");
-    if (thankYouMessage) {
-        window.addEventListener("beforeunload", function () {
-            thankYouMessage.classList.add("show");
-            setTimeout(() => {
-                thankYouMessage.classList.add("fade-out");
-                setTimeout(() => {
-                    thankYouMessage.classList.remove("show", "fade-out");
-                }, 500);
-            }, 10000); // 10 seconds visibility
+    // Community Section Toggle (for index.html)
+    const navLinks = document.querySelectorAll('.nav-list a');
+    const communitySection = document.getElementById('community-section');
+    const heroSection = document.querySelector('.hero');
+    const contentSection = document.querySelector('.content-section');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            if (this.getAttribute('href') === '/community.html') {
+                e.preventDefault();
+                communitySection.style.display = 'block';
+                heroSection.style.display = 'none';
+                contentSection.style.display = 'none';
+                loadCommunityPosts();
+            } else if (this.getAttribute('href') === '/') {
+                communitySection.style.display = 'none';
+                heroSection.style.display = 'block';
+                contentSection.style.display = 'block';
+            }
+        });
+    });
+
+    // Community Post Form Submission
+    const postForm = document.getElementById('community-post-form');
+    if (postForm) {
+        postForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const content = document.getElementById('post-content').value.trim();
+            if (!content) return;
+
+            const response = await fetch('/.netlify/functions/submit-post', {
+                method: 'POST',
+                body: JSON.stringify({ content, timestamp: new Date().toISOString() }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (response.ok) {
+                document.getElementById('post-content').value = '';
+                loadCommunityPosts();
+            } else {
+                alert('Error submitting post. Try again later.');
+            }
         });
     }
 
-    // YouTube Video Automation (for news.html or pages with video-section)
-    const videoSection = document.getElementById("video-section");
-    if (videoSection) {
-        // Initialize API usage tracking
-        initializeApiUsage();
+    // Load Community Posts
+    async function loadCommunityPosts() {
+        const postsContainer = document.getElementById('community-posts');
+        if (!postsContainer) return;
+        postsContainer.innerHTML = '<p>Loading posts...</p>';
 
-        // Start fetching videos
-        fetchYouTubeVideos(); // Initial fetch
-        const refreshInterval = setInterval(() => {
-            if (canMakeApiRequest()) {
-                fetchYouTubeVideos();
-            } else {
-                clearInterval(refreshInterval); // Stop refreshing when limit is reached
-                videoSection.innerHTML = '<p>API usage limit reached for this month. Video updates will resume next month.</p>';
-            }
-        }, 43200000); // Refresh every 12 hours (43,200,000 milliseconds)
-    }
+        const response = await fetch('/.netlify/functions/get-posts');
+        const posts = await response.json();
 
-    // API Usage Tracking Functions
-    function initializeApiUsage() {
-        const currentMonth = new Date().getMonth() + 1; // 1-12
-        const storedMonth = localStorage.getItem("apiUsageMonth");
-        const storedUnits = localStorage.getItem("apiUsageUnits");
+        postsContainer.innerHTML = '';
+        posts.forEach((post, index) => {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <div class="post-header">
+                    <span>Anonymous</span>
+                    <span class="post-meta">${new Date(post.timestamp).toLocaleString()}</span>
+                </div>
+                <p class="post-content">${post.content}</p>
+                <div class="post-actions">
+                    <button class="vote-btn upvote" data-id="${index}"><i class="fas fa-arrow-up"></i> <span>${post.upvotes || 0}</span></button>
+                    <button class="vote-btn downvote" data-id="${index}"><i class="fas fa-arrow-down"></i> <span>${post.downvotes || 0}</span></button>
+                    <button class="comment-btn">Comments (${post.comments ? post.comments.length : 0})</button>
+                </div>
+                <div class="comments">
+                    ${post.comments ? post.comments.map(c => `<div class="comment">${c}</div>`).join('') : ''}
+                    <form class="comment-form">
+                        <input type="text" class="comment-input" placeholder="Add a comment..." />
+                        <button type="submit" class="cta-button">Comment</button>
+                    </form>
+                </div>
+            `;
+            postsContainer.appendChild(postElement);
+        });
 
-        // Reset usage if the month has changed
-        if (storedMonth !== currentMonth.toString()) {
-            localStorage.setItem("apiUsageMonth", currentMonth.toString());
-            localStorage.setItem("apiUsageUnits", "0");
-        } else if (!storedUnits) {
-            localStorage.setItem("apiUsageUnits", "0");
-        }
-    }
-
-    function canMakeApiRequest() {
-        const unitsUsed = parseInt(localStorage.getItem("apiUsageUnits")) || 0;
-        const unitsPerRefresh = 700; // Worst case: 6 channels + 1 fallback
-        return unitsUsed + unitsPerRefresh <= 10000; // Free tier limit
-    }
-
-    function incrementApiUsage(units) {
-        const currentUnits = parseInt(localStorage.getItem("apiUsageUnits")) || 0;
-        localStorage.setItem("apiUsageUnits", (currentUnits + units).toString());
-    }
-
-    async function fetchYouTubeVideos() {
-        const videoSection = document.getElementById("video-section");
-        if (!videoSection) return; // Exit if video section not found
-        videoSection.innerHTML = '<p>Loading latest videos...</p>';
-
-        // Check if we can make the request
-        if (!canMakeApiRequest()) {
-            videoSection.innerHTML = '<p>API usage limit reached for this month. Video updates will resume next month.</p>';
-            return;
-        }
-
-        // List of news channel IDs
-        const newsChannelIds = [
-            'UCupvZG-5ko_eiXAupbDfxWw', // CNN
-            'UCvJJ_dzjViJCoLf5uKUTwoA', // CNBC
-            'UCaXkIU1QidjPwiAYu6GcHjg', // MSNBC
-            'UCXIJgqnII2ZOINSWNOGFThA', // Fox News
-            'UCBi2mrWuNuyYy4gbM6fU18Q', // ABC News
-            'UCeY0bbntWtlXynqpMrKpHTg'  // NBC News
-        ];
-
-        const apiKey = 'AIzaSyAABDh2g2x_ufrfmij3tVQJ1J5yAnHvvoo'; // Your provided API key
-        const searchQuery = encodeURIComponent('"social security 2025" OR ssi OR ssdi OR medicare OR medicaid news');
-        let videosFound = false;
-        let allVideos = [];
-
-        try {
-            // Step 1: Search within specified news channels
-            for (const channelId of newsChannelIds) {
-                const youtubeUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&type=video&maxResults=2&order=date&channelId=${channelId}&key=${apiKey}`;
-                const response = await fetch(youtubeUrl);
-                const data = await response.json();
-                incrementApiUsage(100); // Each search costs 100 units
-
-                if (data.items && data.items.length > 0) {
-                    videosFound = true;
-                    allVideos.push(...data.items);
-                }
-            }
-
-            // Step 2: If no videos found from news channels, fall back to general search
-            if (!videosFound) {
-                const fallbackUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&type=video&maxResults=2&order=date&key=${apiKey}`;
-                const fallbackResponse = await fetch(fallbackUrl);
-                const fallbackData = await fallbackResponse.json();
-                incrementApiUsage(100); // Fallback search costs 100 units
-
-                if (fallbackData.items && fallbackData.items.length > 0) {
-                    allVideos.push(...fallbackData.items);
-                }
-            }
-
-            // Step 3: Display videos (limit to 2)
-            if (allVideos.length > 0) {
-                videoSection.innerHTML = ''; // Clear loading message
-                allVideos.slice(0, 2).forEach(item => {
-                    const videoId = item.id.videoId;
-                    const videoItem = document.createElement('div');
-                    videoItem.className = 'video-item';
-                    videoItem.innerHTML = `
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" title="${item.snippet.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">watch it on YouTube</a>.</p>
-                    `;
-                    videoSection.appendChild(videoItem);
+        // Voting
+        document.querySelectorAll('.vote-btn').forEach(btn => {
+            btn.addEventListener('click', async function () {
+                const id = this.dataset.id;
+                const type = this.classList.contains('upvote') ? 'upvote' : 'downvote';
+                const response = await fetch('/.netlify/functions/vote-post', {
+                    method: 'POST',
+                    body: JSON.stringify({ id: parseInt(id), type }),
+                    headers: { 'Content-Type': 'application/json' }
                 });
-            } else {
-                videoSection.innerHTML = '<p>No Social Security or Medicare news videos available at this time.</p>';
-            }
-        } catch (error) {
-            videoSection.innerHTML = '<p>Sorry, video updates are unavailable right now. Check back later or <a href="https://www.youtube.com/results?search_query=social+security+2025+news" target="_blank">search YouTube</a>.</p>';
-        }
+                if (response.ok) {
+                    loadCommunityPosts();
+                }
+            });
+        });
+
+        // Comment Toggle and Submission
+        document.querySelectorAll('.comment-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const comments = this.parentElement.nextElementSibling;
+                comments.classList.toggle('active');
+            });
+        });
+
+        document.querySelectorAll('.comment-form').forEach(form => {
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const input = this.querySelector('.comment-input');
+                const comment = input.value.trim();
+                const postId = this.closest('.post').querySelector('.vote-btn').dataset.id;
+                if (!comment) return;
+
+                const response = await fetch('/.netlify/functions/add-comment', {
+                    method: 'POST',
+                    body: JSON.stringify({ postId: parseInt(postId), comment }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (response.ok) {
+                    input.value = '';
+                    loadCommunityPosts();
+                }
+            });
+        });
+    }
+
+    // Initial Load (if on community page)
+    if (window.location.pathname === '/community.html') {
+        loadCommunityPosts();
     }
 });
