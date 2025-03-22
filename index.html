@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Security Answers - Your 2025 Guide</title>
-    <meta name="description" content="Your free, all-in-one guide to Social Security, SSI, Medicare, and more—updated for 2025.">
+    <meta name="description" content="Your free, all-in-one guide to Social Security, SSI, Medicare, and more—updated for 2025;">
     <meta name="keywords" content="social security 2025, ssi, ssdi, medicare, medicaid, benefits calculator">
     <meta name="robots" content="index, follow">
     <!-- Open Graph Meta Tags for Social Sharing -->
@@ -41,6 +41,7 @@
             <ul class="nav-list">
                 <li><a href="/" class="active">Home</a></li>
                 <li><a href="/news.html">News</a></li>
+                <li><a href="/community.html">Community</a></li> <!-- New Community Tab -->
                 <li><a href="/replacement.html">Card Replacement</a></li>
                 <li><a href="/retirement.html">Retirement</a></li>
                 <li><a href="/medicare.html">Medicare</a></li>
@@ -89,6 +90,7 @@
             </div>
             <iframe src="https://www.youtube.com/embed/vFo687bP9Pc" width="560" height="315" frameborder="0" allowfullscreen loading="lazy"></iframe>
         </section>
+
         <section class="content-section">
             <h2>Welcome to Your Social Security Hub</h2>
             <p>Explore key topics with ease—everything you need, simplified.</p>
@@ -131,6 +133,21 @@
                 <a href="https://www.instagram.com/" class="share-btn instagram" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
             </div>
+        </section>
+
+        <!-- New Community Section -->
+        <section class="community-section" id="community-section" style="display: none;">
+            <h2>Community Discussion</h2>
+            <p>Ask questions, share tips, and connect with others about Social Security topics!</p>
+            
+            <!-- Post Submission Form -->
+            <form id="community-post-form" method="POST">
+                <textarea id="post-content" name="content" placeholder="Ask a question or share a tip..." required></textarea>
+                <button type="submit" class="cta-button">Post</button>
+            </form>
+
+            <!-- Community Posts Container -->
+            <div id="community-posts" class="community-posts"></div>
         </section>
     </main>
 
@@ -223,7 +240,7 @@
 
         // Dynamically set social share URLs
         document.addEventListener('DOMContentLoaded', () => {
-            initNavToggle(); // Initialize the navigation toggle
+            initNavToggle();
             const currentUrl = encodeURIComponent(window.location.href);
             const shareButtons = document.querySelectorAll('.share-btn');
             shareButtons.forEach(btn => {
@@ -234,8 +251,5 @@
             });
         });
     </script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'921868efede653b9',t:'MTc0MjE3MTcyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'921ff1f40c5b62f4',t:'MTc0MjI1MDczNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9238f8da3edec584',t:'MTc0MjUxMzE2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
