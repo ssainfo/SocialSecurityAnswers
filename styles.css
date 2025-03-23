@@ -1261,3 +1261,46 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
         max-width: 100%;
     }
 }
+.flowchart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.flow-step {
+    background: #f9f9f9;
+    border: 2px solid #4682b4;
+    border-radius: 10px;
+    padding: 15px;
+    width: 20%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+.step-details {
+    display: none;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 1px solid #4682b4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    width: 200px;
+    text-align: left;
+    font-size: 0.9em;
+}
+.flow-step.active .step-details { display: block; }
+@media (max-width: 768px) {
+    .flowchart { flex-direction: column; align-items: center; }
+    .flow-step { width: 80%; margin: 10px 0; }
+    .step-details { top: auto; bottom: -70px; left: 50%; transform: translateX(-50%); }
+}
