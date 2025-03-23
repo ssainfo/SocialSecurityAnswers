@@ -1337,3 +1337,38 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
         transform: translateX(-50%); 
     }
 }
+.main-nav {
+    background: #f4f4f4;
+    padding: 10px;
+    border-bottom: 2px solid #4682b4;
+    position: relative;
+    text-align: center;
+}
+.nav-box { display: inline-block; position: relative; }
+.nav-toggle {
+    background: #4682b4;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.nav-toggle:hover { background: #326a93; }
+.nav-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    background: #fff;
+    border: 1px solid #4682b4;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    z-index: 1000;
+}
+.nav-list.open { display: block; }
