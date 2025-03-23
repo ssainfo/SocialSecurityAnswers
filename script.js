@@ -200,15 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (promoClose && promoBanner) {
         promoClose.addEventListener("click", () => promoBanner.style.display = "none");
     }
-// Navigation Toggle
-const toggleBtn = document.querySelector('.nav-toggle');
-const navList = document.querySelector('.nav-list');
-if (toggleBtn && navList) {
-    toggleBtn.addEventListener('click', () => {
-        navList.classList.toggle('open');
-        toggleBtn.innerHTML = navList.classList.contains('open') ? '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
-    });
-}
+
     // Social Share URLs
     const shareButtons = document.querySelectorAll('.share-btn');
     if (shareButtons) {
