@@ -1264,12 +1264,13 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
 .flowchart {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Changed from center to avoid clipping */
     flex-wrap: wrap;
     margin: 20px 0;
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    min-height: 200px; /* Ensure enough space for details */
 }
 .flow-step {
     background: #f9f9f9;
@@ -1281,11 +1282,12 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
     position: relative;
     cursor: pointer;
     transition: transform 0.3s, background 0.3s;
+    min-height: 100px; /* Ensure step content is fully visible */
 }
 .step-details {
     display: none;
     position: absolute;
-    top: -60px;
+    top: 100%; /* Move details below the step instead of above */
     left: 50%;
     transform: translateX(-50%);
     background: #fff;
@@ -1297,10 +1299,41 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
     width: 200px;
     text-align: left;
     font-size: 0.9em;
+    margin-top: 5px; /* Small gap between step and details */
 }
 .flow-step.active .step-details { display: block; }
+.flow-step:hover, .flow-step.active {
+    background: #4682b4;
+    color: #fff;
+    transform: scale(1.05);
+}
+.step-number {
+    display: inline-block;
+    background: #4682b4;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.flow-step:hover .step-number, .flow-step.active .step-number {
+    background: #fff;
+    color: #4682b4;
+}
+.flow-arrow {
+    font-size: 1.5em;
+    color: #4682b4;
+    margin: 0 10px;
+}
 @media (max-width: 768px) {
     .flowchart { flex-direction: column; align-items: center; }
     .flow-step { width: 80%; margin: 10px 0; }
-    .step-details { top: auto; bottom: -70px; left: 50%; transform: translateX(-50%); }
+    .flow-arrow { transform: rotate(90deg); margin: 5px 0; }
+    .step-details { 
+        top: auto; 
+        bottom: -80px; /* Keep below on mobile, adjust if needed */
+        left: 50%; 
+        transform: translateX(-50%); 
+    }
 }
