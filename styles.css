@@ -1372,3 +1372,50 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
     z-index: 1000;
 }
 .nav-list.open { display: block; }
+.banner {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Gradient background */
+    background-image: url('https://www.ssaanswers.com/images/banner-bg.jpg'); /* Optional: Add a custom image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    overflow: hidden;
+}
+
+/* Optional overlay for better text contrast if using a background image */
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2; /* Ensures content stays above the overlay */
+}
+
+.banner h1 {
+    font-size: 3.5rem; /* Larger header (adjust as needed) */
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase; /* Optional: for emphasis */
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-top10px;
+    font-weight: 400;
+}
+
+.sign {
+    color: #ffd700; /* Gold color for the "SS Made Easy" sparkle */
+}
