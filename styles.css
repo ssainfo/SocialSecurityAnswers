@@ -1419,3 +1419,14 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
 .sign {
     color: #ffd700; /* Gold color for the "SS Made Easy" sparkle */
 }
+.step-link {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.step-link:hover {
+    text-decoration: underline;
+}
