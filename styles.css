@@ -1430,3 +1430,85 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
 .step-link:hover {
     text-decoration: underline;
 }
+/* Modern Appeal Page Styles */
+.appeal-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.appeal-section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+}
+
+.appeal-section:hover {
+    transform: translateY(-5px);
+}
+
+.appeal-section h2 {
+    color: #1e3c72;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.appeal-section h3 {
+    color: #2a5298;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.appeal-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.appeal-section ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.appeal-section ul li:last-child {
+    border-bottom: none;
+}
+
+.example-box {
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.resource-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.resource-link:hover {
+    background: #0056b3;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #2a5298;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background: #1e3c72;
+}
