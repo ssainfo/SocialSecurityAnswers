@@ -1571,3 +1571,69 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
     justify-content: space-between;
     align-items: center;
 }
+/* Main navigation styles */
+.main-nav {
+    background: #f8f9fa; /* Light gray for contrast */
+    padding: 10px 20px;
+}
+
+/* Hide nav-list by default on smaller screens */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hidden off-screen to the left */
+        width: 250px;
+        height: 100%;
+        background: #2a5298; /* Dark blue sidebar */
+        color: #fff;
+        padding: 20px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-list.open {
+        display: block;
+        left: 0; /* Slide in from the left */
+    }
+
+    .nav-list li {
+        margin: 15px 0;
+    }
+
+    .nav-list a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1rem;
+    }
+
+    .nav-list a:hover {
+        color: #ffd700; /* Gold hover effect */
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .dark-mode-btn {
+        margin-left: auto;
+    }
+}
+
+/* Show nav-list by default on larger screens */
+@media (min-width: 769px) {
+    .nav-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-list li {
+        margin: 0 15px;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+}
