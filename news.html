@@ -27,43 +27,48 @@
             <h1>Social Security Answers</h1>
             <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
         </div>
+        <nav class="main-nav">
+            <div class="nav-box">
+                <button class="nav-toggle" aria-label="Toggle Navigation"><i class="fas fa-bars"></i> Menu</button>
+                <ul class="nav-list">
+                    <li><a href="/" class="home-link">Home</a></li>
+                    <li><a href="/news.html" class="active">News</a></li>
+                    <li><a href="/replacement.html">Card Replacement</a></li>
+                    <li><a href="/retirement.html">Retirement</a></li>
+                    <li><a href="/medicare.html">Medicare</a></li>
+                    <li><a href="/disability.html">Disability</a></li>
+                    <li><a href="/survivor.html">Survivor</a></li>
+                    <li><a href="/tax.html">Tax</a></li>
+                    <li><a href="/medicaid.html">Medicaid</a></li>
+                    <li><a href="/housing.html">Housing</a></li>
+                    <li><a href="/faq.html">FAQ</a></li>
+                    <li><a href="/fraud.html">Fraud</a></li>
+                    <li><a href="/ssi.html">SSI</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/calculator.html">Calculator</a></li>
+                    <li><a href="/shelter.html">Shelter</a></li>
+                </ul>
+            </div>
+            <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
+        </nav>
+        
     </header>
-    <nav class="main-nav">
-        <div class="nav-box">
-            <button class="nav-toggle" aria-label="Toggle Navigation"><i class="fas fa-bars"></i> Menu</button>
-            <ul class="nav-list">
-                <li><a href="/" class="home-link">Home</a></li>
-                <li><a href="/news.html" class="active">News</a></li>
-                <li><a href="/replacement.html">Card Replacement</a></li>
-                <li><a href="/retirement.html">Retirement</a></li>
-                <li><a href="/medicare.html">Medicare</a></li>
-                <li><a href="/disability.html">Disability</a></li>
-                <li><a href="/survivor.html">Survivor</a></li>
-                <li><a href="/tax.html">Tax</a></li>
-                <li><a href="/medicaid.html">Medicaid</a></li>
-                <li><a href="/housing.html">Housing</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/fraud.html">Fraud</a></li>
-                <li><a href="/ssi.html">SSI</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/calculator.html">Calculator</a></li>
-                <li><a href="/shelter.html">Shelter</a></li>
-            </ul>
-        </div>
-        <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
-    </nav>
+   
     <main>
         <section class="hero">
             <h1>Social Security News 2025</h1>
             <p>Stay updated with the latest on SSI, SSDI, Medicare, and more.</p>
         </section>
-        <!-- Rest of your <main> content remains unchanged -->
         <section class="content-section">
+            <!-- Video Section (Automated and Manual Videos) -->
             <div class="video-banner">
                 <h2>🎥 Must-Watch Social Security Updates!</h2>
                 <p>Dive into these videos for the latest insights and tips! Automated videos refresh every 12 hours (until API limit is reached).</p>
             </div>
+            <!-- Automated Videos (Populated by script.js) -->
             <div id="video-section" class="video-section"></div>
+
+            <!-- Manual Videos -->
             <div class="manual-videos">
                 <div class="video-item">
                     <div class="video-header">
@@ -98,6 +103,8 @@
                     <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=7PV0wBRSD_8" target="_blank">watch it on YouTube</a>.</p>
                 </div>
             </div>
+
+            <!-- Featured News Carousel -->
             <h2>Top Stories</h2>
             <div class="news-carousel">
                 <div class="carousel-item active">
@@ -118,6 +125,8 @@
                 <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
                 <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
             </div>
+
+            <!-- Quick Stats -->
             <h2>2025 At a Glance</h2>
             <div class="stats-grid">
                 <div class="stat-item">
@@ -133,6 +142,7 @@
                     <p><strong>$943</strong> Max SSI (Individual)</p>
                 </div>
             </div>
+
             <h2>Latest Updates</h2>
             <p>Get the latest updates on Social Security, SSI, Medicare, and Medicaid from SSA.gov, Medicare.gov, Medicaid.gov, and top news outlets. Refreshes every 5 minutes!</p>
             <div class="news-filters">
@@ -142,6 +152,8 @@
                 <button onclick="filterNews('medicaid')">Medicaid</button>
             </div>
             <div id="news-feed" class="boxes"></div>
+
+            <!-- Interactive Poll -->
             <h2>Your Voice</h2>
             <div class="poll">
                 <p>What’s your biggest Social Security concern?</p>
@@ -155,6 +167,7 @@
                     <p>Thanks for voting! Results: <span id="poll-output"></span></p>
                 </div>
             </div>
+
             <h2>Key Resources</h2>
             <ul class="info-list">
                 <li>
@@ -170,11 +183,13 @@
                     <a href="https://www.medicaid.gov/about-us/newsroom/index.html" target="_blank" class="cta-button">Visit</a>
                 </li>
             </ul>
+
             <h2>Get Updates</h2>
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <input type="email" name="email" placeholder="Your email" required>
                 <button type="submit" class="cta-button">Subscribe</button>
             </form>
+
             <div class="social-share">
                 <h3>Share This Page</h3>
                 <a href="https://twitter.com/intent/tweet?url=https://www.ssaanswers.com/news.html" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
@@ -186,6 +201,8 @@
                 <a href="https://www.instagram.com/" class="share-btn instagram" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
             </div>
+
+            <!-- CTA Banner -->
             <div class="cta-banner">
                 <h3>Need Answers Fast?</h3>
                 <p>Try our <a href="/calculator.html">Benefits Calculator</a> or explore our <a href="/faq.html">FAQ</a>!</p>
@@ -193,6 +210,7 @@
         </section>
     </main>
     <div class="promo-banner">Try our <a href="/calculator.html">Benefits Calculator</a>!</div>
+    
     <footer>
         <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
         <p>Powered by <a href="https://www.ssa.gov/"><img src="images/ssa-logo.png" alt="SSA.gov" width="100" loading="lazy"></a> & <a href="https://newsapi.org/"><img src="images/newsapi-logo.png" alt="NewsAPI" width="100" loading="lazy"></a></p>
@@ -388,6 +406,5 @@
         }
     </script>
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'923163408a27b088',t:'MTc0MjQzMzYzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'927fd1ca088b53ec',t:'MTc0MzI1NjA1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92802e1d18031315',t:'MTc0MzI1OTgzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
