@@ -28,7 +28,36 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleBtn.innerHTML = navList.classList.contains('open') ? '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
         });
     }
+// Popup Functionality
+    const popupContainer = document.getElementById("retirement-popup");
+    const popupClose = document.getElementById("popup-close");
 
+    if (popupContainer && popupClose) {
+        // Show popup on page load (only once per session)
+        if (!sessionStorage.getItem("popupShown")) {
+            setTimeout(() => {
+                popupContainer.style.display = "flex";
+                sessionStorage.setItem("popupShown", "true");
+                
+                // Auto-close after 10 seconds
+                setTimeout(() => {
+                    popupContainer.style.display = "none";
+                }, 10000); // 10 seconds
+            }, 1000); // Delay popup by 1 second after page load
+        }
+
+        // Close popup on button click
+        popupClose.addEventListener("click", () => {
+            popupContainer.style.display = "none";
+        });
+
+        // Optional: Close popup when clicking outside
+        popupContainer.addEventListener("click", (e) => {
+            if (e.target === popupContainer) {
+                popupContainer.style.display = "none";
+            }
+        });
+    }
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navGrid = document.querySelector('.nav-grid');
