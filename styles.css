@@ -1619,4 +1619,94 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
         margin-left: auto;
     }
 }
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
 
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.dropdown-toggle i {
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #4682b4;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    z-index: 1001; /* Ensure it appears above other elements */
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    color: #4682b4;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .dropdown-menu {
+    background: #2a2a2a;
+    border-color: #32cd32;
+}
+
+.dark-mode .dropdown-menu a {
+    color: #f0f0f0;
+}
+
+.dark-mode .dropdown-menu a:hover {
+    color: #32cd32;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static; /* Reset to static for mobile sidebar */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: #3a6db2; /* Slightly lighter blue for contrast in sidebar */
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: none; /* Disable hover on mobile, rely on click */
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block; /* Show when parent is active */
+    }
+
+    .dropdown-menu li {
+        padding: 10px 20px;
+    }
+}
