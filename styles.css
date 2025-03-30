@@ -1710,3 +1710,127 @@ footer { text-align: center; padding: 20px; background: #f4f4f4; }
         padding: 10px 20px;
     }
 }
+/* Popup Styles */
+.popup-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    z-index: 2000; /* Above everything else */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: popupFadeIn 0.5s ease; /* Animation on show */
+}
+
+@keyframes popupFadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4682b4;
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+.popup-close-btn:hover {
+    background: #326a93;
+}
+
+.popup-content h2 {
+    color: #1e3c72;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.popup-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.popup-actions .cta-button {
+    background: #32cd32;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode .popup-content {
+    background: #2a2a2a;
+    color: #f0f0f0;
+}
+
+.dark-mode .popup-content h2 {
+    color: #32cd32;
+}
+
+.dark-mode .popup-content p {
+    color: #f0f0f0;
+}
+
+.dark-mode .popup-close-btn {
+    background: #1a4971;
+}
+
+.dark-mode .popup-close-btn:hover {
+    background: #326a93;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 85%;
+        padding: 15px;
+    }
+
+    .popup-content h2 {
+        font-size: 1.5em;
+    }
+
+    .popup-content p {
+        font-size: 1em;
+    }
+
+    .popup-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
