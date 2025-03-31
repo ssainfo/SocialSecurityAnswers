@@ -229,7 +229,52 @@ document.addEventListener("DOMContentLoaded", function () {
     if (promoClose && promoBanner) {
         promoClose.addEventListener("click", () => promoBanner.style.display = "none");
     }
+// Popup functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('replacement-popup');
+    const closeBtn = document.getElementById('popup-close');
+    let timeout;
 
+    // Function to show popup
+    function showPopup() {
+        popup.style.display = 'flex';
+        // Auto-close after 10 seconds
+        timeout = setTimeout(() => {
+            popup.style.display = 'none';
+        }, 10000);
+    }
+
+    // Function to close popup
+    function closePopup() {
+        clearTimeout(timeout);
+        popup.style.display = 'none';
+    }
+
+    // Close button event
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closePopup);
+    }
+
+    // On replacement.html, show popup immediately
+    if (window.location.pathname.includes('replacement.html')) {
+        showPopup();
+    }
+
+    // On index.html, show popup when scrolling past "Explore Our Topics"
+    if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+        const topicsSection = document.querySelector('.topic-grid');
+        if (topicsSection) {
+            let hasShown = false;
+            window.addEventListener('scroll', () => {
+                const rect = topicsSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight && !hasShown) {
+                    showPopup();
+                    hasShown = true; // Prevent multiple triggers
+                }
+            });
+        }
+    }
+});
     // Social Share URLs
     const shareButtons = document.querySelectorAll('.share-btn');
     if (shareButtons) {
