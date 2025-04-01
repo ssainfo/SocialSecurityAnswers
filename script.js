@@ -28,36 +28,77 @@ document.addEventListener("DOMContentLoaded", function () {
             toggleBtn.innerHTML = navList.classList.contains('open') ? '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
         });
     }
-// Popup Functionality
-    const popupContainer = document.getElementById("retirement-popup");
-    const popupClose = document.getElementById("popup-close");
 
-    if (popupContainer && popupClose) {
-        // Show popup on page load (only once per session)
-        if (!sessionStorage.getItem("popupShown")) {
+    // Retirement Popup Functionality
+    const retirementPopup = document.getElementById("retirement-popup");
+    const retirementClose = document.getElementById("popup-close");
+    if (retirementPopup && retirementClose) {
+        if (!sessionStorage.getItem("retirementPopupShown")) {
             setTimeout(() => {
-                popupContainer.style.display = "flex";
-                sessionStorage.setItem("popupShown", "true");
-                
-                // Auto-close after 10 seconds
-                setTimeout(() => {
-                    popupContainer.style.display = "none";
-                }, 10000); // 10 seconds
-            }, 1000); // Delay popup by 1 second after page load
+                retirementPopup.style.display = "flex";
+                sessionStorage.setItem("retirementPopupShown", "true");
+                setTimeout(() => retirementPopup.style.display = "none", 10000);
+            }, 1000);
         }
-
-        // Close popup on button click
-        popupClose.addEventListener("click", () => {
-            popupContainer.style.display = "none";
-        });
-
-        // Optional: Close popup when clicking outside
-        popupContainer.addEventListener("click", (e) => {
-            if (e.target === popupContainer) {
-                popupContainer.style.display = "none";
-            }
+        retirementClose.addEventListener("click", () => retirementPopup.style.display = "none");
+        retirementPopup.addEventListener("click", (e) => {
+            if (e.target === retirementPopup) retirementPopup.style.display = "none";
         });
     }
+
+    // Replacement Popup Functionality
+    const replacementPopup = document.getElementById('replacement-popup');
+    const replacementClose = document.getElementById('popup-close-replacement');
+    let replacementTimeout;
+
+    if (replacementPopup && replacementClose) {
+        function showReplacementPopup() {
+            console.log('Showing replacement popup');
+            replacementPopup.style.display = 'flex';
+            replacementTimeout = setTimeout(() => {
+                console.log('Auto-closing replacement popup');
+                replacementPopup.style.display = 'none';
+            }, 10000);
+        }
+
+        function closeReplacementPopup() {
+            console.log('Closing replacement popup manually');
+            clearTimeout(replacementTimeout);
+            replacementPopup.style.display = 'none';
+        }
+
+        replacementClose.addEventListener('click', closeReplacementPopup);
+        replacementPopup.addEventListener('click', (e) => {
+            if (e.target === replacementPopup) closeReplacementPopup();
+        });
+
+        // On replacement.html, show popup immediately
+        if (window.location.pathname.includes('replacement.html')) {
+            showReplacementPopup();
+        }
+
+        // On index.html, show popup when scrolling past "Explore Our Topics"
+        if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+            const topicsSection = document.querySelector('.topic-grid');
+            if (topicsSection) {
+                let hasShown = false;
+                window.addEventListener('scroll', () => {
+                    const rect = topicsSection.getBoundingClientRect();
+                    console.log('Scroll position:', rect.top, 'Window height:', window.innerHeight);
+                    if (rect.top < window.innerHeight && !hasShown) {
+                        showReplacementPopup();
+                        hasShown = true;
+                        console.log('Replacement popup triggered on scroll');
+                    }
+                });
+            } else {
+                console.error('Topics section (.topic-grid) not found!');
+            }
+        }
+    } else {
+        console.error('Replacement popup or close button not found!');
+    }
+
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navGrid = document.querySelector('.nav-grid');
@@ -229,52 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (promoClose && promoBanner) {
         promoClose.addEventListener("click", () => promoBanner.style.display = "none");
     }
-// Popup functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('replacement-popup');
-    const closeBtn = document.getElementById('popup-close');
-    let timeout;
 
-    // Function to show popup
-    function showPopup() {
-        popup.style.display = 'flex';
-        // Auto-close after 10 seconds
-        timeout = setTimeout(() => {
-            popup.style.display = 'none';
-        }, 10000);
-    }
-
-    // Function to close popup
-    function closePopup() {
-        clearTimeout(timeout);
-        popup.style.display = 'none';
-    }
-
-    // Close button event
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closePopup);
-    }
-
-    // On replacement.html, show popup immediately
-    if (window.location.pathname.includes('replacement.html')) {
-        showPopup();
-    }
-
-    // On index.html, show popup when scrolling past "Explore Our Topics"
-    if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
-        const topicsSection = document.querySelector('.topic-grid');
-        if (topicsSection) {
-            let hasShown = false;
-            window.addEventListener('scroll', () => {
-                const rect = topicsSection.getBoundingClientRect();
-                if (rect.top < window.innerHeight && !hasShown) {
-                    showPopup();
-                    hasShown = true; // Prevent multiple triggers
-                }
-            });
-        }
-    }
-});
     // Social Share URLs
     const shareButtons = document.querySelectorAll('.share-btn');
     if (shareButtons) {
