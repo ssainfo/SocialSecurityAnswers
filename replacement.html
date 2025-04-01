@@ -65,7 +65,6 @@
                 <div class="step"><i class="fas fa-envelope"></i><h4>Step 3: Receive Card</h4><p>Expect your new card in 10-14 business days. No tracking—contact SSA if delayed past 3 weeks.</p></div>
             </div>
 
-            <!-- Centered Video -->
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Mmj3DiNmKfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -137,35 +136,20 @@
 
             <h3>Get Started</h3>
             <p>Replace your card now at <a href="https://www.ssa.gov/ssnumber/" target="_blank" class="cta-button">SSA.gov</a> or visit a <a href="https://www.ssa.gov/locator/" target="_blank">local office</a>.</p>
-        <div class="social-share">
-    <h3>Share This Site</h3>
-    <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/" class="share-btn facebook" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.linkedin.com/shareArticle?url=https://ssaanswers.com/" class="share-btn linkedin" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://pinterest.com/pin/create/button/?url=https://ssaanswers.com/" class="share-btn pinterest" target="_blank" title="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
-    <a href="https://reddit.com/submit?url=https://ssaanswers.com/" class="share-btn reddit" target="_blank" title="Share on Reddit"><i class="fab fa-reddit-alien"></i></a>
-    <a href="https://api.whatsapp.com/send?text=https://ssaanswers.com/" class="share-btn whatsapp" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/" class="share-btn instagram" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
-</div>
 
-<script>
-    // Dynamically set social share URLs
-    document.addEventListener('DOMContentLoaded', () => {
-        const currentUrl = encodeURIComponent(window.location.href);
-        const shareButtons = document.querySelectorAll('.share-btn');
-        shareButtons.forEach(btn => {
-            const baseHref = btn.getAttribute('href');
-            if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
-                btn.setAttribute('href', baseHref + currentUrl);
-            }
-        });
-    });
-</script>        
+            <div class="social-share">
+                <h3>Share This Site</h3>
+                <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/" class="share-btn facebook" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?url=https://ssaanswers.com/" class="share-btn linkedin" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://pinterest.com/pin/create/button/?url=https://ssaanswers.com/" class="share-btn pinterest" target="_blank" title="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://reddit.com/submit?url=https://ssaanswers.com/" class="share-btn reddit" target="_blank" title="Share on Reddit"><i class="fab fa-reddit-alien"></i></a>
+                <a href="https://api.whatsapp.com/send?text=https://ssaanswers.com/" class="share-btn whatsapp" target="_blank" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/" class="share-btn instagram" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
         </section>
     </main>
-
-    
 
     <footer>
         <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
@@ -213,30 +197,20 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navGrid = document.querySelector('.nav-grid');
-        menuToggle.addEventListener('click', () => {
-            navGrid.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-    </script>
     <!-- Popup Container for Social Security Card Replacement -->
-<div id="replacement-popup" class="popup-container">
-    <div class="popup-content">
-        <button id="popup-close" class="popup-close-btn"><i class="fas fa-times"></i></button>
-        <h2>Lost Your Social Security Card? ✨</h2>
-        <p>Get a new one fast—it’s easier than you think! Start now and secure your future!</p>
-        <img src="images/ss-card-sample.png" alt="Sample Social Security Card" class="popup-image" loading="lazy">
-        <div class="popup-actions">
-            <a href="https://www.ssa.gov/ssnumber/" target="_blank" class="cta-button">Replace My Card Now</a>
-            <a href="https://www.ssa.gov/osnap/" target="_blank" class="cta-button osnap-btn">Use OSNAP</a>
+    <div id="replacement-popup" class="popup-container">
+        <div class="popup-content">
+            <button id="popup-close-replacement" class="popup-close-btn"><i class="fas fa-times"></i></button>
+            <h2>Lost Your Social Security Card? ✨</h2>
+            <p>Get a new one fast—it’s easier than you think! Start now and secure your future!</p>
+            <img src="images/ss-card-sample.png" alt="Sample Social Security Card" class="popup-image" loading="lazy">
+            <div class="popup-actions">
+                <a href="https://www.ssa.gov/ssnumber/" target="_blank" class="cta-button">Replace My Card Now</a>
+                <a href="https://www.ssa.gov/osnap/" target="_blank" class="cta-button osnap-btn">Use OSNAP</a>
+            </div>
         </div>
     </div>
-</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
