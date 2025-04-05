@@ -270,7 +270,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (promoClose && promoBanner) {
         promoClose.addEventListener("click", () => promoBanner.style.display = "none");
     }
-
+setTimeout(() => {
+    newsButton.classList.add('pulse');
+}, 1000);
     // Social Share URLs
     const shareButtons = document.querySelectorAll('.share-btn');
     if (shareButtons) {
