@@ -54,47 +54,57 @@
 
     <main>
         <section class="hero">
-            <h1>Social Security News 2025</h1>
-            <p>Stay updated with the latest on SSI, SSDI, Medicare, and more.</p>
+            <h1 class="futuristic-header">Social Security News 2025</h1>
+            <p>Stay ahead with the latest on SSI, SSDI, Medicare, and more—delivered with a futuristic edge.</p>
         </section>
+
         <section class="content-section">
-            <!-- Video Section (Automated and Manual Videos) -->
+            <!-- Video Section -->
             <div class="video-banner">
-                <h2>🎥 Must-Watch Social Security Updates!</h2>
-                <p>Dive into these videos for the latest insights and tips! Automated videos refresh every 12 hours (until API limit is reached).</p>
+                <h2 class="futuristic-header">🎥 Must-Watch Updates</h2>
+                <p>Explore the future of Social Security with these videos—refreshed every 12 hours!</p>
             </div>
-            <!-- Automated Videos (Populated by script.js) -->
+
+            <!-- Automated Videos -->
             <div id="video-section" class="video-section"></div>
 
-            <!-- Manual Videos -->
+            <!-- Manual Videos (Centered Box Layout) -->
             <div class="manual-videos">
-                <div class="video-item">
+                <div class="video-box">
                     <div class="video-header">
-                        <h3>Social Security Changes Are Coming in 2025 | What You Need To Know</h3>
+                        <h3>Social Security Updates for 2025 Are Here!</h3>
+                        <span class="must-watch">Must Watch!</span>
+                    </div>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/s7i-ievZZiQ" title="Social Security Video 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=s7i-ievZZiQ" target="_blank">watch it on YouTube</a>.</p>
+                </div>
+                <div class="video-box">
+                    <div class="video-header">
+                        <h3>Social Security Changes Are Coming in 2025</h3>
                         <span class="must-watch">Must Watch!</span>
                     </div>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/YAtCvsULvXA" title="Social Security Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=YAtCvsULvXA" target="_blank">watch it on YouTube</a>.</p>
                 </div>
-                <div class="video-item">
+                <div class="video-box">
                     <div class="video-header">
-                        <h3>Big Social Security Changes Coming in 2025 - Are You Ready?</h3>
+                        <h3>Big Changes Coming in 2025 - Are You Ready?</h3>
                         <span class="must-watch">Must Watch!</span>
                     </div>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/rWJAobgJtbE" title="Social Security Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=rWJAobgJtbE" target="_blank">watch it on YouTube</a>.</p>
                 </div>
-                <div class="video-item">
+                <div class="video-box">
                     <div class="video-header">
-                        <h3>Social Security Update: News For Recipients in 2025!</h3>
+                        <h3>News For Recipients in 2025!</h3>
                         <span class="must-watch">Must Watch!</span>
                     </div>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/f8naOxHj15U" title="Social Security Video 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <p class="video-fallback">If the video doesn’t load, <a href="https://www.youtube.com/watch?v=f8naOxHj15U" target="_blank">watch it on YouTube</a>.</p>
                 </div>
-                <div class="video-item">
+                <div class="video-box">
                     <div class="video-header">
-                        <h3>Big Changes to Social Security in 2025 - Must Know Updates!</h3>
+                        <h3>Must-Know Updates for 2025!</h3>
                         <span class="must-watch">Must Watch!</span>
                     </div>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/7PV0wBRSD_8" title="Social Security Video 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -103,7 +113,7 @@
             </div>
 
             <!-- Featured News Carousel -->
-            <h2>Top Stories</h2>
+            <h2 class="futuristic-header">Top Stories</h2>
             <div class="news-carousel">
                 <div class="carousel-item active">
                     <h3>Social Security COLA 2025: What You Need to Know</h3>
@@ -125,7 +135,7 @@
             </div>
 
             <!-- Quick Stats -->
-            <h2>2025 At a Glance</h2>
+            <h2 class="futuristic-header">2025 At a Glance</h2>
             <div class="stats-grid">
                 <div class="stat-item">
                     <i class="fas fa-percentage"></i>
@@ -141,8 +151,8 @@
                 </div>
             </div>
 
-            <h2>Latest Updates</h2>
-            <p>Get the latest updates on Social Security, SSI, Medicare, and Medicaid from SSA.gov, Medicare.gov, Medicaid.gov, and top news outlets. Refreshes every 5 minutes!</p>
+            <h2 class="futuristic-header">Latest Updates</h2>
+            <p>Get real-time updates from SSA.gov, Medicare.gov, Medicaid.gov, and top outlets—refreshed every 5 minutes!</p>
             <div class="news-filters">
                 <button onclick="filterNews('all')">All</button>
                 <button onclick="filterNews('ssa')">SSA.gov</button>
@@ -152,7 +162,7 @@
             <div id="news-feed" class="boxes"></div>
 
             <!-- Interactive Poll -->
-            <h2>Your Voice</h2>
+            <h2 class="futuristic-header">Your Voice</h2>
             <div class="poll">
                 <p>What’s your biggest Social Security concern?</p>
                 <form id="poll-form">
@@ -166,7 +176,7 @@
                 </div>
             </div>
 
-            <h2>Key Resources</h2>
+            <h2 class="futuristic-header">Key Resources</h2>
             <ul class="info-list">
                 <li>
                     <strong>SSA.gov Newsroom:</strong> Official updates from the Social Security Administration.
@@ -182,7 +192,7 @@
                 </li>
             </ul>
 
-            <h2>Get Updates</h2>
+            <h2 class="futuristic-header">Get Updates</h2>
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <input type="email" name="email" placeholder="Your email" required>
                 <button type="submit" class="cta-button">Subscribe</button>
@@ -208,7 +218,6 @@
                 <a href="https://www.youtube.com/@socialsecurityadministration" class="share-btn youtube" target="_blank" title="Learn More on YouTube"><i class="fab fa-youtube"></i></a>
             </div>
 
-            <!-- CTA Banner -->
             <div class="cta-banner">
                 <h3>Need Answers Fast?</h3>
                 <p>Try our <a href="/calculator.html">Benefits Calculator</a> or explore our <a href="/faq.html">FAQ</a>!</p>
@@ -271,7 +280,7 @@
 
     <div id="thank-you-message">Thank you for visiting Social Security Answers!</div>
 
-    <!-- Scripts moved to end of body -->
+    <!-- Scripts -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
@@ -294,6 +303,14 @@
                     if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
                         btn.setAttribute('href', baseHref + currentUrl);
                     }
+                });
+
+                // Video animation on load
+                const videoBoxes = document.querySelectorAll('.video-box');
+                videoBoxes.forEach((box, index) => {
+                    setTimeout(() => {
+                        box.classList.add('slide-in');
+                    }, index * 200); // Staggered slide-in effect
                 });
             } catch (e) {
                 console.error("Error in DOMContentLoaded script:", e);
@@ -452,9 +469,5 @@
             }
         }
     </script>
-    <!-- Cloudflare script (optional, commented out unless needed) -->
-    <!--
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92bc4d934c33b039',t:'MTc0Mzg5MDI2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    -->
 </body>
 </html>
