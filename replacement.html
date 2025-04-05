@@ -18,7 +18,6 @@
       gtag('js', new Date());
       gtag('config', 'G-QPC7TFVK2B');
     </script>
-
 </head>
 <body>
     <header class="banner">
@@ -136,6 +135,14 @@
             <h3>Get Started</h3>
             <p>Replace your card now at <a href="https://www.ssa.gov/ssnumber/" target="_blank" class="cta-button">SSA.gov</a> or visit a <a href="https://www.ssa.gov/locator/" target="_blank">local office</a>.</p>
 
+            <!-- Ad Container -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5346424450981440"
+                 data-ad-slot="5473550665"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+
             <div class="social-share">
                 <h3>Share This Site</h3>
                 <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
@@ -196,20 +203,40 @@
         </div>
     </div>
 
-    <!-- Popup Container for Social Security Card Replacement -->
-    <div id="replacement-popup" class="popup-container">
-        <div class="popup-content">
-            <button id="popup-close-replacement" class="popup-close-btn"><i class="fas fa-times"></i></button>
-            <h2>Lost Your Social Security Card? ✨</h2>
-            <p>Get a new one fast—it’s easier than you think! Start now and secure your future!</p>
-            <img src="images/ss-card-sample.png" alt="Sample Social Security Card" class="popup-image" loading="lazy">
-            <div class="popup-actions">
-                <a href="https://www.ssa.gov/ssnumber/" target="_blank" class="cta-button">Replace My Card Now</a>
-                <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank" class="cta-button osnap-btn">Use OSNAP and schedule appt</a>
-            </div>
-        </div>
-    </div>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440"
-     crossorigin="anonymous"></script>    <script src="script.js"></script>
+    <!-- Scripts moved to end of body -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <!-- Ezoic commented out to test without it -->
+    <!-- <script src="//tag.ezoic.com/561589.js" async></script> -->
+    <script src="script.js"></script>
+    <script>
+        try {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navGrid = document.querySelector('.nav-grid');
+            menuToggle.addEventListener('click', () => {
+                navGrid.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+            console.log("Menu toggle initialized");
+        } catch (e) {
+            console.error("Error in menu toggle script:", e);
+        }
+
+        // Dynamically set social share URLs
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const shareButtons = document.querySelectorAll('.share-btn');
+            shareButtons.forEach(btn => {
+                const baseHref = btn.getAttribute('href');
+                if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
+                    btn.setAttribute('href', baseHref + currentUrl);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
