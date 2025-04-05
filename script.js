@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOMContentLoaded triggered successfully");
-});    const pages = [
+    console.log("DOMContentLoaded triggered successfully")
+        const pages = [
         { url: "/", title: "Home" },
         { url: "/news.html", title: "News" },
         { url: "/replacement.html", title: "Card Replacement" },
