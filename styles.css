@@ -1022,3 +1022,6 @@ footer {
         gap: 10px;
     }
 }
+body {
+    background-color: lightblue;
+}
