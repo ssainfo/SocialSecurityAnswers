@@ -77,6 +77,7 @@
             </div>
             <iframe src="https://www.youtube.com/embed/vFo687bP9Pc" width="560" height="315" frameborder="0" allowfullscreen loading="lazy"></iframe>
         </section>
+
         <section class="content-section">
             <h2>Welcome to Your Social Security Hub</h2>
             <p>Explore key topics with ease—everything you need, simplified.</p>
@@ -112,6 +113,15 @@
                 </div>
             </div>
             <p class="flowchart-note">Click "Learn More" for detailed steps and resources. <a href="https://www.ssa.gov/appeals/" target="_blank">Visit SSA.gov Appeals</a>.</p>
+
+            <!-- New Catchy News Section -->
+            <div class="news-cta-section">
+                <div class="news-cta-card">
+                    <h2>🚨 Stay Ahead with 2025 Updates!</h2>
+                    <p>Get the latest Social Security news—COLA changes, policy shifts, and more. Don’t miss out!</p>
+                    <a href="/news.html" class="news-cta-button">Dive into the News Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
 
             <h2>Resource Hub</h2>
             <div class="resource-hub">
@@ -267,5 +277,42 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                // Navigation toggle
+                const navToggle = document.querySelector('.nav-toggle');
+                const navList = document.querySelector('.nav-list');
+                navToggle.addEventListener('click', () => {
+                    navList.classList.toggle('open');
+                    const icon = navToggle.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+
+                // Dynamically set social share URLs
+                const currentUrl = encodeURIComponent(window.location.href);
+                const shareButtons = document.querySelectorAll('.share-btn');
+                shareButtons.forEach(btn => {
+                    const baseHref = btn.getAttribute('href');
+                    if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
+                        btn.setAttribute('href', baseHref + currentUrl);
+                    }
+                });
+
+                // Optional: Add subtle animation trigger for news button on load
+                const newsButton = document.querySelector('.news-cta-button');
+                setTimeout(() => {
+                    newsButton.classList.add('pulse');
+                }, 1000); // Pulse after 1 second
+            } catch (e) {
+                console.error("Error in inline script:", e);
+            }
+        });
+    </script>
+    <!-- Cloudflare script (optional, commented out unless needed) -->
+    <!--
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92bc82848e05b029',t:'MTc0Mzg5MjQzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    -->
 </body>
 </html>
