@@ -1025,3 +1025,6 @@ footer {
 body {
     background-color: lightblue;
 }
+body {
+    background-color: red !important;
+}
