@@ -1,3 +1,4 @@
+console.log("Script.js loaded successfully");
 document.addEventListener("DOMContentLoaded", function () {
     const pages = [
         { url: "/", title: "Home" },
