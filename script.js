@@ -18,7 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/about.html", title: "About Us" },
         { url: "/calculator.html", title: "Benefits Calculator" }
     ];
-
+const videoBoxes = document.querySelectorAll('.video-box');
+videoBoxes.forEach((box, index) => {
+    setTimeout(() => {
+        box.classList.add('slide-in');
+    }, index * 200);
+});
     // Navigation Toggle
     const toggleBtn = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
