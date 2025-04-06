@@ -19,19 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/calculator.html", title: "Benefits Calculator" }
     ];
 
-    // Video Box Animation (for news.html)
+    // Video Box Animation (for news.html or any page with .video-box)
     const videoBoxes = document.querySelectorAll('.video-box');
     videoBoxes.forEach((box, index) => {
         setTimeout(() => box.classList.add('slide-in'), index * 200);
     });
 
-    // News Button Pulse (for index.html)
+    // News Button Pulse (for index.html or any page with .news-cta-button)
     const newsButton = document.querySelector('.news-cta-button');
     if (newsButton) {
         setTimeout(() => newsButton.classList.add('pulse'), 1000);
     }
 
-    // Retirement Popup
+    // Retirement Popup (for pages with #retirement-popup)
     const retirementPopup = document.getElementById("retirement-popup");
     const retirementClose = document.getElementById("popup-close");
     if (retirementPopup && retirementClose) {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Replacement Popup
+    // Replacement Popup (for pages with #replacement-popup)
     const replacementPopup = document.getElementById('replacement-popup');
     const replacementClose = document.getElementById('popup-close-replacement');
     let replacementTimeout;
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Site Search
+    // Site Search (for pages with #site-search)
     const siteSearch = document.getElementById("site-search");
     if (siteSearch) {
         siteSearch.addEventListener("keypress", function (e) {
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Dark Mode Toggle
+    // Dark Mode Toggle (for all pages with #dark-mode-toggle)
     const darkModeToggle = document.getElementById("dark-mode-toggle");
     if (darkModeToggle) {
         darkModeToggle.addEventListener("click", () => {
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (localStorage.getItem("darkMode") === "enabled") document.body.classList.add("dark-mode");
     }
 
-    // Flowchart Interactivity
+    // Flowchart Interactivity (for pages with .flow-step)
     const flowSteps = document.querySelectorAll('.flow-step');
     flowSteps.forEach(step => {
         step.addEventListener('click', () => {
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Chatbot Functionality
+    // Chatbot Functionality (for pages with chatbot elements)
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbotContainer = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Support Us Toggle
+    // Support Us Toggle (for pages with support-us elements)
     const supportUsToggle = document.getElementById("support-us-toggle");
     const supportUsContainer = document.getElementById("support-us");
     const supportUsClose = document.getElementById("support-us-close");
@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Back to Top Button
+    // Back to Top Button (for pages with #back-to-top)
     const backToTop = document.getElementById("back-to-top");
     if (backToTop) {
         window.addEventListener("scroll", () => {
@@ -244,14 +244,14 @@ document.addEventListener("DOMContentLoaded", function () {
         backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
     }
 
-    // Promo Banner Close
+    // Promo Banner Close (for pages with .promo-banner)
     const promoClose = document.getElementById("promo-close");
     const promoBanner = document.querySelector(".promo-banner");
     if (promoClose && promoBanner) {
         promoClose.addEventListener("click", () => promoBanner.style.display = "none");
     }
 
-    // Social Share URLs
+    // Social Share URLs (for pages with .share-btn)
     const shareButtons = document.querySelectorAll('.share-btn');
     if (shareButtons) {
         const currentUrl = encodeURIComponent(window.location.href);
