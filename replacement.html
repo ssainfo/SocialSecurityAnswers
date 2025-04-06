@@ -119,10 +119,14 @@
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             margin: 20px auto;
+            text-align: center; /* Center the iframe */
         }
         .replacement-page .video-container iframe {
             border: 2px solid #a9a9a9; /* Medium light grey */
             border-radius: 10px;
+            width: 90%; /* Takes up most of the middle */
+            height: 600px; /* Large height for prominence */
+            max-width: 1200px; /* Matches content-section max-width */
         }
 
         .replacement-page .examples {
@@ -211,6 +215,10 @@
             }
             .replacement-page .video-container {
                 padding: 10px;
+            }
+            .replacement-page .video-container iframe {
+                width: 100%; /* Full width on mobile */
+                height: 300px; /* Smaller height for mobile */
             }
         }
     </style>
