@@ -42,90 +42,31 @@ body {
     background: #f8f9fa;
     padding: 10px 20px;
     border-bottom: 2px solid #4682b4;
-    position: relative;
-    text-align: center;
-}
-.nav-box {
-    display: inline-block;
-    position: relative;
-}
-.nav-toggle {
-    background: #4682b4;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-.nav-toggle:hover {
-    background: #326a93;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .nav-list {
-    display: none;
     list-style: none;
     padding: 0;
-    margin: 10px 0 0;
-    background: #fff;
-    border: 1px solid #4682b4;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    z-index: 1000;
-}
-.nav-list.open {
-    display: block;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .nav-list li {
-    margin: 0;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-.nav-list li:last-child {
-    border-bottom: none;
+    margin: 0 15px;
 }
 .nav-list a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    display: block;
+    padding: 5px 10px;
+    transition: color 0.3s;
 }
 .nav-list a:hover, .nav-list a.active {
     color: #4682b4;
-}
-.nav-grid {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.nav-grid li {
-    margin: 0 15px;
-}
-.nav-grid a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-}
-.nav-grid a:hover, .nav-grid a.active {
-    color: #4682b4;
-}
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #4682b4;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 10px;
 }
 .dark-mode-btn {
     background: #333;
@@ -134,8 +75,6 @@ body {
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px auto;
-    display: block;
 }
 
 /* Hero Section */
@@ -839,11 +778,8 @@ footer {
 .dark-mode .main-nav {
     background: #333;
 }
-.dark-mode .nav-list, .dark-mode .nav-grid a {
+.dark-mode .nav-list a {
     color: #fff;
-}
-.dark-mode .nav-toggle {
-    background: #1a4971;
 }
 .dark-mode .topic-grid li {
     background: linear-gradient(135deg, #2a2a2a 0%, #1a4971 100%);
@@ -915,30 +851,17 @@ footer {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    .nav-grid {
-        display: none;
+    .main-nav {
         flex-direction: column;
         align-items: center;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #f4f4f4;
-        padding: 10px;
-        border-bottom: 2px solid #4682b4;
-        z-index: 1000;
-    }
-    .nav-grid.active {
-        display: flex;
-    }
-    .nav-grid li {
-        margin: 10px 0;
     }
     .nav-list {
-        width: 150px;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-list li {
+        margin: 10px 0;
     }
     .hero {
         padding: 20px;
@@ -1022,15 +945,16 @@ footer {
         gap: 10px;
     }
 }
+
+/* News CTA Section */
 .news-cta-section {
     display: flex;
     justify-content: center;
     margin: 40px 0;
     padding: 20px;
 }
-
 .news-cta-card {
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4); /* Vibrant gradient */
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
     border-radius: 15px;
     padding: 30px;
     text-align: center;
@@ -1039,22 +963,18 @@ footer {
     color: #fff;
     transition: transform 0.3s ease;
 }
-
 .news-cta-card:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
 }
-
 .news-cta-card h2 {
     font-size: 2rem;
     margin-bottom: 15px;
     font-weight: 700;
 }
-
 .news-cta-card p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
-
 .news-cta-button {
     display: inline-block;
     background-color: #fff;
@@ -1066,24 +986,18 @@ footer {
     font-size: 1.1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .news-cta-button:hover {
     background-color: #f0f0f0;
-    transform: translateY(-3px); /* Slight lift on hover */
+    transform: translateY(-3px);
 }
-
 .news-cta-button i {
     margin-left: 10px;
 }
-
 .pulse {
     animation: pulse 1.5s infinite;
 }
-
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
-   
-
