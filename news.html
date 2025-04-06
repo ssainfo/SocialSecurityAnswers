@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Page-Specific Title]</title> <!-- e.g., "Card Replacement - Social Security Answers" -->
+    <title>News - Social Security Answers</title>
     <meta name="description" content="Free 2025 Social Security guide: SSI, SSDI, Medicare, benefits calculator & more. Get updated info to maximize your benefits now!">
     <meta name="keywords" content="social security 2025, ssi, ssdi, medicare, medicaid, benefits calculator, social security replacement card, disability, social security appointment">
     <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
     <meta property="og:title" content="Social Security Answers - Your 2025 Guide">
     <meta property="og:description" content="Your free, all-in-one guide to Social Security, SSI, Medicare, and more—updated for 2025.">
     <meta property="og:image" content="https://www.ssaanswers.com/images/og-image.jpg">
-    <meta property="og:url" content="https://www.ssaanswers.com/[page-specific-path]"> <!-- e.g., /replacement.html -->
+    <meta property="og:url" content="https://www.ssaanswers.com/news.html">
     <meta property="og:type" content="website">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="Social Security Answers - Your 2025 Guide">
     <meta name="twitter:description" content="Your free, all-in-one guide to Social Security, SSI, Medicare, and more—updated for 2025.">
     <meta name="twitter:image" content="https://www.ssaanswers.com/images/og-image.jpg">
-    <link rel="canonical" href="https://www.ssaanswers.com/[page-specific-path]">
+    <link rel="canonical" href="https://www.ssaanswers.com/news.html">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
@@ -33,8 +33,322 @@
       gtag('js', new Date());
       gtag('config', 'G-QPC7TFVK2B');
     </script>
+    <style>
+        /* Futuristic News Section Styles */
+        .news-page .hero {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            padding: 60px 20px;
+            border-bottom: 4px solid #00ccff;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.7);
+        }
+        .news-page .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: glow 2s infinite alternate;
+        }
+        .news-page .hero p {
+            font-size: 1.3rem;
+            color: #d1e8ff;
+        }
+
+        .news-page .content-section {
+            background: #1a1a1a;
+            padding: 40px 20px;
+        }
+
+        /* Video Section */
+        .news-page .video-banner {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .news-page .video-banner h2 {
+            color: #00ccff;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #00ccff;
+        }
+        .news-page .video-banner p {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+
+        .news-page .manual-videos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .news-page .video-box {
+            position: relative;
+            width: 560px;
+            max-width: 100%;
+            background: linear-gradient(45deg, #2a5298, #1e3c72);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .news-page .video-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.8);
+        }
+        .news-page .video-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .news-page .video-header h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .news-page .must-watch {
+            background: #ff3333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        .news-page .video-box iframe {
+            border: 2px solid #00ccff;
+            border-radius: 10px;
+            width: 100%;
+            height: 315px;
+        }
+        .news-page .video-fallback {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .news-page .video-fallback a {
+            color: #00ccff;
+            text-decoration: none;
+        }
+        .news-page .video-fallback a:hover {
+            text-decoration: underline;
+        }
+
+        /* Top Stories */
+        .news-page .futuristic-header {
+            color: #00ccff;
+            text-shadow: 0 0 10px #00ccff;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .news-page .news-carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+        }
+        .news-page .carousel-item {
+            display: none;
+            text-align: center;
+        }
+        .news-page .carousel-item.active {
+            display: block;
+        }
+        .news-page .carousel-item h3 {
+            color: #fff;
+            font-size: 1.8rem;
+        }
+        .news-page .carousel-item p {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+        .news-page .carousel-prev, .news-page .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #00ccff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .news-page .carousel-prev:hover, .news-page .carousel-next:hover {
+            background: #0099cc;
+        }
+        .news-page .carousel-prev {
+            left: -40px;
+        }
+        .news-page .carousel-next {
+            right: -40px;
+        }
+
+        /* Stats Grid */
+        .news-page .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .news-page .stat-item {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+            transition: transform 0.3s;
+        }
+        .news-page .stat-item:hover {
+            transform: scale(1.1);
+        }
+        .news-page .stat-item.red { background: #ff3333; }
+        .news-page .stat-item.blue { background: #2a5298; }
+        .news-page .stat-item.green { background: #33cc33; }
+        .news-page .stat-item.grey { background: #666666; }
+        .news-page .stat-item.black { background: #1a1a1a; }
+        .news-page .stat-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .news-page .stat-item p { margin: 5px 0; }
+        .news-page .stat-item small { color: #d1e8ff; }
+
+        /* News Feed */
+        .news-page #news-feed {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .news-page .box {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+            transition: transform 0.3s;
+        }
+        .news-page .box:hover {
+            transform: scale(1.05);
+        }
+        .news-page .box h3 {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+        .news-page .box p {
+            color: #b0b0b0;
+        }
+        .news-page .box .cta-button {
+            background: #00ccff;
+            color: #fff;
+        }
+        .news-page .box .cta-button:hover {
+            background: #0099cc;
+        }
+        .news-page .box .featured {
+            background: #33cc33;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Poll */
+        .news-page .poll {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+        }
+        .news-page .poll p {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .news-page .poll label {
+            color: #d1e8ff;
+            margin: 0 10px;
+        }
+        .news-page .poll .cta-button {
+            background: #00ccff;
+        }
+        .news-page .poll .cta-button:hover {
+            background: #0099cc;
+        }
+        .news-page #poll-results p {
+            color: #33cc33;
+        }
+
+        /* Key Resources */
+        .news-page .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .news-page .info-list li {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 204, 255, 0.2);
+        }
+        .news-page .info-list strong {
+            color: #00ccff;
+        }
+        .news-page .info-list .cta-button {
+            background: #00ccff;
+        }
+        .news-page .info-list .cta-button:hover {
+            background: #0099cc;
+        }
+
+        /* Subscribe Form */
+        .news-page form {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .news-page form input[type="email"] {
+            padding: 10px;
+            border: 2px solid #00ccff;
+            border-radius: 5px;
+            background: #1a1a1a;
+            color: #fff;
+            width: 250px;
+        }
+        .news-page form .cta-button {
+            background: #33cc33;
+            margin-left: 10px;
+        }
+        .news-page form .cta-button:hover {
+            background: #29a329;
+        }
+
+        /* Animation */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #00ccff; }
+            100% { text-shadow: 0 0 15px #00ccff, 0 0 25px #00ccff; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .news-page .hero h1 { font-size: 2rem; }
+            .news-page .video-box { width: 100%; }
+            .news-page .carousel-prev { left: 10px; }
+            .news-page .carousel-next { right: 10px; }
+            .news-page .stats-grid { grid-template-columns: 1fr; }
+            .news-page .box { width: 100%; }
+            .news-page form input[type="email"] { width: 100%; margin-bottom: 10px; }
+            .news-page form .cta-button { margin-left: 0; }
+        }
+    </style>
 </head>
-<body>
+<body class="news-page">
     <header class="banner">
         <div class="banner-content">
             <h1>Social Security Answers</h1>
@@ -43,26 +357,26 @@
     </header>
 
     <nav class="main-nav">
-    <ul class="nav-list">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/news.html">News</a></li>
-        <li><a href="/replacement.html">Card Replacement</a></li>
-        <li><a href="/retirement.html">Retirement</a></li>
-        <li><a href="/medicare.html">Medicare</a></li>
-        <li><a href="/disability.html">Disability</a></li>
-        <li><a href="/survivor.html">Survivor</a></li>
-        <li><a href="/tax.html">Tax</a></li>
-        <li><a href="/medicaid.html">Medicaid</a></li>
-        <li><a href="/housing.html">Housing</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
-        <li><a href="/fraud.html">Fraud</a></li>
-        <li><a href="/ssi.html">SSI</a></li>
-        <li><a href="/shelter.html">Shelter</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/calculator.html">Calculator</a></li>
-    </ul>
-    <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
-</nav>
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/news.html" class="active">News</a></li>
+            <li><a href="/replacement.html">Card Replacement</a></li>
+            <li><a href="/retirement.html">Retirement</a></li>
+            <li><a href="/medicare.html">Medicare</a></li>
+            <li><a href="/disability.html">Disability</a></li>
+            <li><a href="/survivor.html">Survivor</a></li>
+            <li><a href="/tax.html">Tax</a></li>
+            <li><a href="/medicaid.html">Medicaid</a></li>
+            <li><a href="/housing.html">Housing</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/fraud.html">Fraud</a></li>
+            <li><a href="/ssi.html">SSI</a></li>
+            <li><a href="/shelter.html">Shelter</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/calculator.html">Calculator</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
+    </nav>
 
     <main>
         <section class="hero">
@@ -77,10 +391,6 @@
                 <p>Explore the future of Social Security with these videos—refreshed every 12 hours!</p>
             </div>
 
-            <!-- Automated Videos -->
-            <div id="video-section" class="video-section"></div>
-
-            <!-- Manual Videos -->
             <div class="manual-videos">
                 <div class="video-box">
                     <div class="video-header">
@@ -124,7 +434,7 @@
                 </div>
             </div>
 
-            <!-- Enhanced Top Stories Section -->
+            <!-- Top Stories Section -->
             <h2 class="futuristic-header">Top Stories</h2>
             <div class="news-carousel">
                 <div class="carousel-item active">
@@ -155,7 +465,7 @@
                 <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
             </div>
 
-            <!-- Enhanced 2025 At a Glance Section -->
+            <!-- 2025 At a Glance Section -->
             <h2 class="futuristic-header">2025 At a Glance</h2>
             <div class="stats-grid">
                 <div class="stat-item red">
@@ -185,6 +495,7 @@
                 </div>
             </div>
 
+            <!-- Latest Updates -->
             <h2 class="futuristic-header">Latest Updates</h2>
             <p>Get real-time updates from SSA.gov, Medicare.gov, Medicaid.gov, BBC, and top outlets—refreshed every 5 minutes!</p>
             <div class="news-filters">
@@ -195,6 +506,7 @@
             </div>
             <div id="news-feed" class="boxes"></div>
 
+            <!-- Poll -->
             <h2 class="futuristic-header">Your Voice</h2>
             <div class="poll">
                 <p>What’s your biggest Social Security concern?</p>
@@ -209,6 +521,7 @@
                 </div>
             </div>
 
+            <!-- Key Resources -->
             <h2 class="futuristic-header">Key Resources</h2>
             <ul class="info-list">
                 <li>
@@ -229,6 +542,7 @@
                 </li>
             </ul>
 
+            <!-- Subscribe -->
             <h2 class="futuristic-header">Get Updates</h2>
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <input type="email" name="email" placeholder="Your email" required>
@@ -329,7 +643,6 @@
                 setInterval(fetchNews, 300000); // Refresh news every 5 minutes
                 initCarousel();
                 initPoll();
-                initNavToggle();
 
                 // Dynamically set social share URLs
                 const currentUrl = encodeURIComponent(window.location.href);
@@ -489,19 +802,6 @@
                 });
             } catch (e) {
                 console.error("Error in initPoll:", e);
-            }
-        }
-
-        function initNavToggle() {
-            try {
-                const toggleBtn = document.querySelector('.nav-toggle');
-                const navList = document.querySelector('.nav-list');
-                toggleBtn.addEventListener('click', () => {
-                    navList.classList.toggle('open');
-                    toggleBtn.innerHTML = navList.classList.contains('open') ? '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
-                });
-            } catch (e) {
-                console.error("Error in initNavToggle:", e);
             }
         }
     </script>
