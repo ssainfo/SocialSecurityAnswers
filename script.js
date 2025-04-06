@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-        const pages = [
+    const pages = [
         { url: "/", title: "Home" },
         { url: "/news.html", title: "News" },
         { url: "/replacement.html", title: "Card Replacement" },
@@ -18,23 +18,38 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/about.html", title: "About Us" },
         { url: "/calculator.html", title: "Benefits Calculator" }
     ];
-const videoBoxes = document.querySelectorAll('.video-box');
-videoBoxes.forEach((box, index) => {
-    setTimeout(() => {
-        box.classList.add('slide-in');
-    }, index * 200);
-});
+
+    // Video Box Animation (for news.html)
+    const videoBoxes = document.querySelectorAll('.video-box');
+    videoBoxes.forEach((box, index) => {
+        setTimeout(() => {
+            box.classList.add('slide-in');
+        }, index * 200);
+    });
+
     // Navigation Toggle
-    const toggleBtn = document.querySelector('.nav-toggle');
+    const navToggle = document.querySelector('.nav-toggle');
     const navList = document.querySelector('.nav-list');
-    if (toggleBtn && navList) {
-        toggleBtn.addEventListener('click', () => {
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
             navList.classList.toggle('open');
-            toggleBtn.innerHTML = navList.classList.contains('open') ? '<i class="fas fa-times"></i> Close' : '<i class="fas fa-bars"></i> Menu';
+            const icon = navToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
+    } else {
+        console.warn("Nav toggle or list not found.");
     }
 
-    // Retirement Popup Functionality
+    // News Button Pulse (for index.html)
+    const newsButton = document.querySelector('.news-cta-button');
+    if (newsButton) {
+        setTimeout(() => {
+            newsButton.classList.add('pulse');
+        }, 1000);
+    }
+
+    // Retirement Popup
     const retirementPopup = document.getElementById("retirement-popup");
     const retirementClose = document.getElementById("popup-close");
     if (retirementPopup && retirementClose) {
@@ -51,7 +66,7 @@ videoBoxes.forEach((box, index) => {
         });
     }
 
-    // Replacement Popup Functionality
+    // Replacement Popup
     const replacementPopup = document.getElementById('replacement-popup');
     const replacementClose = document.getElementById('popup-close-replacement');
     let replacementTimeout;
@@ -77,34 +92,24 @@ videoBoxes.forEach((box, index) => {
             if (e.target === replacementPopup) closeReplacementPopup();
         });
 
-        // On replacement.html, show popup immediately
         if (window.location.pathname.includes('replacement.html')) {
             showReplacementPopup();
-        }
-
-        // On index.html, show popup when scrolling past "Explore Our Topics"
-        if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+        } else if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
             const topicsSection = document.querySelector('.topic-grid');
             if (topicsSection) {
                 let hasShown = false;
                 window.addEventListener('scroll', () => {
                     const rect = topicsSection.getBoundingClientRect();
-                    console.log('Scroll position:', rect.top, 'Window height:', window.innerHeight);
                     if (rect.top < window.innerHeight && !hasShown) {
                         showReplacementPopup();
                         hasShown = true;
-                        console.log('Replacement popup triggered on scroll');
                     }
                 });
-            } else {
-                console.error('Topics section (.topic-grid) not found!');
             }
         }
-    } else {
-        console.error('Replacement popup or close button not found!');
     }
 
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle (if nav-grid exists)
     const menuToggle = document.querySelector('.menu-toggle');
     const navGrid = document.querySelector('.nav-grid');
     if (menuToggle && navGrid) {
@@ -141,22 +146,20 @@ videoBoxes.forEach((box, index) => {
 
     // Flowchart Interactivity
     const flowSteps = document.querySelectorAll('.flow-step');
-    if (flowSteps) {
-        flowSteps.forEach(step => {
-            step.addEventListener('click', () => {
-                flowSteps.forEach(s => s.classList.remove('active'));
-                step.classList.add('active');
-            });
-            step.addEventListener('mouseover', () => {
-                step.querySelector('.step-details').style.display = 'block';
-            });
-            step.addEventListener('mouseout', () => {
-                if (!step.classList.contains('active')) {
-                    step.querySelector('.step-details').style.display = 'none';
-                }
-            });
+    flowSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            flowSteps.forEach(s => s.classList.remove('active'));
+            step.classList.add('active');
         });
-    }
+        step.addEventListener('mouseover', () => {
+            step.querySelector('.step-details').style.display = 'block';
+        });
+        step.addEventListener('mouseout', () => {
+            if (!step.classList.contains('active')) {
+                step.querySelector('.step-details').style.display = 'none';
+            }
+        });
+    });
 
     // Chatbot Functionality
     const chatbotToggle = document.getElementById("chatbot-toggle");
@@ -187,11 +190,13 @@ videoBoxes.forEach((box, index) => {
         chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
         chatbotSave.addEventListener("click", saveChatHistory);
         chatbotReset.addEventListener("click", resetChatHistory);
+
         suggestedQuestions.addEventListener("change", function () {
+            console.log("Dropdown changed to:", this.value); // Debug
             if (this.value) {
                 chatbotInput.value = this.value;
                 sendMessage();
-                this.value = "";
+                this.value = ""; // Reset to default option
             }
         });
 
@@ -243,6 +248,16 @@ videoBoxes.forEach((box, index) => {
             chatbotMessages.innerHTML = "";
             showWelcomeMessage();
         }
+    } else {
+        console.error("Chatbot elements missing:", {
+            toggle: !!chatbotToggle,
+            container: !!chatbotContainer,
+            close: !!chatbotClose,
+            input: !!chatbotInput,
+            send: !!chatbotSend,
+            messages: !!chatbotMessages,
+            suggested: !!suggestedQuestions
+        });
     }
 
     // Support Us Toggle
@@ -275,9 +290,7 @@ videoBoxes.forEach((box, index) => {
     if (promoClose && promoBanner) {
         promoClose.addEventListener("click", () => promoBanner.style.display = "none");
     }
-setTimeout(() => {
-    newsButton.classList.add('pulse');
-}, 1000);
+
     // Social Share URLs
     const shareButtons = document.querySelectorAll('.share-btn');
     if (shareButtons) {
