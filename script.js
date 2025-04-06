@@ -19,33 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/calculator.html", title: "Benefits Calculator" }
     ];
 
-    // Navigation Toggle (Main Dropdown Menu)
-    const navToggle = document.querySelector('.nav-toggle');
-    const navList = document.querySelector('.nav-list');
-
-    console.log("Nav toggle found:", !!navToggle, "Nav list found:", !!navList); // Debug
-
-    if (navToggle && navList) {
-        navToggle.addEventListener('click', () => {
-            console.log("Nav toggle clicked"); // Debug
-            navList.classList.toggle('open');
-            const icon = navToggle.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-                console.log("Icon classes after toggle:", icon.classList.toString()); // Debug
-            } else {
-                console.warn("Icon not found in nav-toggle");
-            }
-            console.log("Nav list classes after toggle:", navList.classList.toString()); // Debug
-        });
-    } else {
-        console.error("Navigation elements missing:", {
-            toggle: !!navToggle,
-            list: !!navList
-        });
-    }
-
     // Video Box Animation (for news.html)
     const videoBoxes = document.querySelectorAll('.video-box');
     videoBoxes.forEach((box, index) => {
@@ -116,18 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         }
-    }
-
-    // Mobile Menu Toggle (if nav-grid exists)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navGrid = document.querySelector('.nav-grid');
-    if (menuToggle && navGrid) {
-        menuToggle.addEventListener('click', () => {
-            navGrid.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
     }
 
     // Site Search
