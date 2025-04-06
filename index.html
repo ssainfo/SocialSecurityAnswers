@@ -34,30 +34,28 @@
     </header>
 
     <nav class="main-nav">
-        <div class="nav-box">
-            <button class="nav-toggle" aria-label="Toggle Navigation"><i class="fas fa-bars"></i> Menu</button>
-            <ul class="nav-list">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/news.html">News</a></li>
-                <li><a href="/replacement.html">Card Replacement</a></li>
-                <li><a href="/retirement.html">Retirement</a></li>
-                <li><a href="/medicare.html">Medicare</a></li>
-                <li><a href="/disability.html">Disability</a></li>
-                <li><a href="/survivor.html">Survivor</a></li>
-                <li><a href="/tax.html">Tax</a></li>
-                <li><a href="/medicaid.html">Medicaid</a></li>
-                <li><a href="/housing.html">Housing</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/fraud.html">Fraud</a></li>
-                <li><a href="/ssi.html">SSI</a></li>
-                <li><a href="/shelter.html">Shelter</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/calculator.html">Calculator</a></li>
-            </ul>
-        </div>
+        <ul class="nav-list">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/news.html">News</a></li>
+            <li><a href="/replacement.html">Card Replacement</a></li>
+            <li><a href="/retirement.html">Retirement</a></li>
+            <li><a href="/medicare.html">Medicare</a></li>
+            <li><a href="/disability.html">Disability</a></li>
+            <li><a href="/survivor.html">Survivor</a></li>
+            <li><a href="/tax.html">Tax</a></li>
+            <li><a href="/medicaid.html">Medicaid</a></li>
+            <li><a href="/housing.html">Housing</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/fraud.html">Fraud</a></li>
+            <li><a href="/ssi.html">SSI</a></li>
+            <li><a href="/shelter.html">Shelter</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/calculator.html">Calculator</a></li>
+        </ul>
         <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
     </nav>
 
+    <!-- Rest of the HTML remains unchanged -->
     <main>
         <section class="hero">
             <h1>Master Social Security in 2025</h1>
@@ -114,7 +112,6 @@
             </div>
             <p class="flowchart-note">Click "Learn More" for detailed steps and resources. <a href="https://www.ssa.gov/appeals/" target="_blank">Visit SSA.gov Appeals</a>.</p>
 
-            <!-- New Catchy News Section -->
             <div class="news-cta-section">
                 <div class="news-cta-card">
                     <h2>🚨 Stay Ahead with 2025 Updates!</h2>
@@ -164,7 +161,6 @@
                 <li><a href="/calculator.html"><i class="fas fa-abacus"></i> Calculator</a></li>
             </ul>
 
-            <!-- Ad Container -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-5346424450981440"
@@ -243,7 +239,6 @@
         </div>
     </div>
 
-    <!-- Retirement Popup -->
     <div id="retirement-popup" class="popup-container">
         <div class="popup-content">
             <button id="popup-close" class="popup-close-btn"><i class="fas fa-times"></i></button>
@@ -258,7 +253,6 @@
         </div>
     </div>
 
-    <!-- Replacement Popup -->
     <div id="replacement-popup" class="popup-container">
         <div class="popup-content">
             <button id="popup-close-replacement" class="popup-close-btn"><i class="fas fa-times"></i></button>
@@ -271,48 +265,10 @@
         </div>
     </div>
 
-    <!-- Scripts moved to end of body -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            try {
-                // Navigation toggle
-                const navToggle = document.querySelector('.nav-toggle');
-                const navList = document.querySelector('.nav-list');
-                navToggle.addEventListener('click', () => {
-                    navList.classList.toggle('open');
-                    const icon = navToggle.querySelector('i');
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                });
-
-                // Dynamically set social share URLs
-                const currentUrl = encodeURIComponent(window.location.href);
-                const shareButtons = document.querySelectorAll('.share-btn');
-                shareButtons.forEach(btn => {
-                    const baseHref = btn.getAttribute('href');
-                    if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
-                        btn.setAttribute('href', baseHref + currentUrl);
-                    }
-                });
-
-                // Optional: Add subtle animation trigger for news button on load
-                const newsButton = document.querySelector('.news-cta-button');
-                setTimeout(() => {
-                    newsButton.classList.add('pulse');
-                }, 1000); // Pulse after 1 second
-            } catch (e) {
-                console.error("Error in inline script:", e);
-            }
-        });
-    </script>
-    <!-- Cloudflare script (optional, commented out unless needed) -->
-    <!--
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92bc82848e05b029',t:'MTc0Mzg5MjQzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    -->
 </body>
 </html>
