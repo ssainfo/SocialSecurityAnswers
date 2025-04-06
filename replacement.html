@@ -40,11 +40,12 @@
         }
 
         .replacement-page .alert {
-            background: linear-gradient(135deg, #333333, #666666);
-            color: #fff;
+            background: linear-gradient(135deg, #d3d3d3, #a9a9a9); /* Light grey gradient */
+            color: #000; /* Black text for contrast */
             padding: 15px;
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1.3rem; /* Larger font */
+            font-weight: bold; /* Bold text */
             border-bottom: 3px solid #ff3333;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             position: sticky;
@@ -57,7 +58,7 @@
             font-weight: 700;
         }
         .replacement-page .alert a:hover {
-            color: #fff;
+            color: #000;
         }
 
         .replacement-page .content-section {
@@ -70,16 +71,16 @@
             font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(128, 128, 128, 0.5); /* Grey shadow */
+            text-shadow: 0 0 10px rgba(169, 169, 169, 0.5); /* Light grey shadow */
             animation: glow 2s infinite alternate;
         }
         .replacement-page h3 {
-            color: #333333; /* Dark grey */
+            color: #d3d3d3; /* Light grey */
             font-size: 1.8rem;
-            text-shadow: 0 0 5px rgba(128, 128, 128, 0.3); /* Lighter grey shadow */
+            text-shadow: 0 0 5px rgba(169, 169, 169, 0.3); /* Lighter grey shadow */
         }
         .replacement-page h4 {
-            color: #555555; /* Medium grey */
+            color: #a9a9a9; /* Medium light grey */
             font-size: 1.4rem;
         }
         .replacement-page p {
@@ -107,20 +108,20 @@
         }
         .replacement-page .step i {
             font-size: 2rem;
-            color: #333333; /* Dark grey */
+            color: #d3d3d3; /* Light grey */
             margin-bottom: 10px;
-            text-shadow: 0 0 5px rgba(128, 128, 128, 0.5); /* Grey shadow */
+            text-shadow: 0 0 5px rgba(169, 169, 169, 0.5); /* Light grey shadow */
         }
 
         .replacement-page .video-container {
-            background: linear-gradient(45deg, #555555, #333333); /* Grey gradient */
+            background: linear-gradient(45deg, #a9a9a9, #d3d3d3); /* Light grey gradient */
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             margin: 20px auto;
         }
         .replacement-page .video-container iframe {
-            border: 2px solid #666666; /* Medium grey */
+            border: 2px solid #a9a9a9; /* Medium light grey */
             border-radius: 10px;
         }
 
@@ -150,13 +151,13 @@
             margin: 20px 0;
         }
         .replacement-page .bar-chart .bar {
-            background: linear-gradient(135deg, #333333, #666666); /* Grey gradient */
+            background: linear-gradient(135deg, #d3d3d3, #a9a9a9); /* Light grey gradient */
         }
         .replacement-page .pie-chart {
-            background: conic-gradient(#333333 0% 30%, #d1e8ff 30% 100%);
+            background: conic-gradient(#d3d3d3 0% 30%, #d1e8ff 30% 100%);
         }
         .replacement-page .pie-legend i {
-            color: #333333; /* Dark grey */
+            color: #d3d3d3; /* Light grey */
         }
 
         .replacement-page .doc-table {
@@ -164,13 +165,13 @@
             border-radius: 10px;
         }
         .replacement-page .doc-table th {
-            background: #333333; /* Dark grey */
+            background: #d3d3d3; /* Light grey */
         }
 
         .replacement-page .image-container img {
-            border: 2px solid #666666; /* Medium grey */
+            border: 2px solid #a9a9a9; /* Medium light grey */
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(128, 128, 128, 0.3); /* Grey shadow */
+            box-shadow: 0 0 10px rgba(169, 169, 169, 0.3); /* Light grey shadow */
         }
 
         .replacement-page .faq {
@@ -181,22 +182,22 @@
         }
 
         .replacement-page .cta-button {
-            background: #333333; /* Dark grey */
-            color: #fff;
+            background: #d3d3d3; /* Light grey */
+            color: #000; /* Black text */
             padding: 12px 25px;
             border-radius: 25px;
             text-transform: uppercase;
             transition: background 0.3s, transform 0.2s;
         }
         .replacement-page .cta-button:hover {
-            background: #555555; /* Medium grey */
+            background: #a9a9a9; /* Medium light grey */
             transform: scale(1.05);
         }
 
         /* Animation */
         @keyframes glow {
-            0% { text-shadow: 0 0 5px #808080; } /* Grey shadow */
-            100% { text-shadow: 0 0 15px #808080, 0 0 25px #808080; }
+            0% { text-shadow: 0 0 5px #a9a9a9; } /* Light grey shadow */
+            100% { text-shadow: 0 0 15px #a9a9a9, 0 0 25px #a9a9a9; }
         }
 
         /* Mobile Responsiveness */
@@ -265,7 +266,7 @@
             </div>
 
             <div class="video-container">
-                <iframe width="1200" height="800" src="https://www.youtube.com/embed/Mmj3DiNmKfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Mmj3DiNmKfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <p>See how to replace your card in this quick video!</p>
 
@@ -298,7 +299,7 @@
             <div class="chart-container">
                 <h4>Replacement Limits (2025)</h4>
                 <div class="pie-chart">
-                    <div class="pie-slice" style="background: conic-gradient(#333333 0% 30%, #d1e8ff 30% 100%);">3/year</div>
+                    <div class="pie-slice" style="background: conic-gradient(#d3d3d3 0% 30%, #d1e8ff 30% 100%);">3/year</div>
                     <div class="pie-legend">
                         <span><i class="fas fa-square"></i> 3 per year (30%)</span>
                         <span><i class="fas fa-square" style="color: #d1e8ff;"></i> Up to 10 lifetime (70%)</span>
