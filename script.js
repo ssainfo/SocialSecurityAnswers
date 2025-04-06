@@ -19,34 +19,43 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/calculator.html", title: "Benefits Calculator" }
     ];
 
+    // Navigation Toggle (Main Dropdown Menu)
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    console.log("Nav toggle found:", !!navToggle, "Nav list found:", !!navList); // Debug
+
+    if (navToggle && navList) {
+        navToggle.addEventListener('click', () => {
+            console.log("Nav toggle clicked"); // Debug
+            navList.classList.toggle('open');
+            const icon = navToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+                console.log("Icon classes after toggle:", icon.classList.toString()); // Debug
+            } else {
+                console.warn("Icon not found in nav-toggle");
+            }
+            console.log("Nav list classes after toggle:", navList.classList.toString()); // Debug
+        });
+    } else {
+        console.error("Navigation elements missing:", {
+            toggle: !!navToggle,
+            list: !!navList
+        });
+    }
+
     // Video Box Animation (for news.html)
     const videoBoxes = document.querySelectorAll('.video-box');
     videoBoxes.forEach((box, index) => {
-        setTimeout(() => {
-            box.classList.add('slide-in');
-        }, index * 200);
+        setTimeout(() => box.classList.add('slide-in'), index * 200);
     });
-
-    // Navigation Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navList = document.querySelector('.nav-list');
-    if (navToggle && navList) {
-        navToggle.addEventListener('click', () => {
-            navList.classList.toggle('open');
-            const icon = navToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-    } else {
-        console.warn("Nav toggle or list not found.");
-    }
 
     // News Button Pulse (for index.html)
     const newsButton = document.querySelector('.news-cta-button');
     if (newsButton) {
-        setTimeout(() => {
-            newsButton.classList.add('pulse');
-        }, 1000);
+        setTimeout(() => newsButton.classList.add('pulse'), 1000);
     }
 
     // Retirement Popup
@@ -192,11 +201,11 @@ document.addEventListener("DOMContentLoaded", function () {
         chatbotReset.addEventListener("click", resetChatHistory);
 
         suggestedQuestions.addEventListener("change", function () {
-            console.log("Dropdown changed to:", this.value); // Debug
+            console.log("Dropdown changed to:", this.value);
             if (this.value) {
                 chatbotInput.value = this.value;
                 sendMessage();
-                this.value = ""; // Reset to default option
+                this.value = "";
             }
         });
 
@@ -248,16 +257,6 @@ document.addEventListener("DOMContentLoaded", function () {
             chatbotMessages.innerHTML = "";
             showWelcomeMessage();
         }
-    } else {
-        console.error("Chatbot elements missing:", {
-            toggle: !!chatbotToggle,
-            container: !!chatbotContainer,
-            close: !!chatbotClose,
-            input: !!chatbotInput,
-            send: !!chatbotSend,
-            messages: !!chatbotMessages,
-            suggested: !!suggestedQuestions
-        });
     }
 
     // Support Us Toggle
