@@ -23,42 +23,45 @@
     <style>
         body {
             font-family: 'Catamaran', sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             margin: 0;
             padding: 0;
         }
 
         .hero {
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 60px 20px;
+            padding: 40px 15px;
             text-align: center;
             color: #000000;
             text-shadow: 0 0 5px #ffffff;
+            margin-bottom: 0;
         }
         .hero h1 {
-            font-size: 3rem;
-            margin: 0;
+            font-size: 2.5rem;
+            margin: 0 0 10px;
         }
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            margin: 0;
         }
 
         .content-section {
-            padding: 40px 20px;
+            padding: 20px 15px;
             background: #ffffff;
             color: #000000;
             text-shadow: 0 0 5px #ffffff;
         }
         .content-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            margin: 20px 0 15px;
         }
         .content-section h3 {
-            font-size: 1.8rem;
-            margin-top: 30px;
+            font-size: 1.6rem;
+            margin: 20px 0 10px;
         }
         .content-section p, .content-section li {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            margin: 10px 0;
         }
 
         .info-list {
@@ -66,8 +69,8 @@
             padding: 0;
         }
         .info-list li {
-            margin-bottom: 15px;
-            padding-left: 20px;
+            margin-bottom: 10px;
+            padding-left: 15px;
             position: relative;
         }
         .info-list li:before {
@@ -80,14 +83,14 @@
         .info-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         .info-table th, .info-table td {
-            padding: 15px;
+            padding: 10px;
             border: 1px solid #ddd;
             text-align: left;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         .info-table th {
             background: #f0f0f0;
@@ -95,19 +98,19 @@
 
         .callout {
             background: #e6ecf5;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .example {
             background: #f8f8f8;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             cursor: pointer;
         }
@@ -115,56 +118,71 @@
             transform: scale(1.02);
         }
         .example h3 {
-            font-size: 1.8rem;
-            margin-top: 0;
+            font-size: 1.6rem;
+            margin: 0 0 10px;
             color: #000000;
             text-shadow: 0 0 5px #ffffff;
         }
         .example p {
-            font-size: 1.3rem;
-            margin: 10px 0 0;
+            font-size: 1.2rem;
+            margin: 0;
         }
 
         .chart {
             max-width: 100%;
             height: auto;
-            margin: 20px 0;
-            border-radius: 10px;
+            margin: 15px 0;
+            border-radius: 8px;
         }
 
         .faq {
-            margin: 20px 0;
+            margin: 15px 0;
         }
         .faq h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            margin: 0 0 10px;
         }
 
         .adsbygoogle {
-            margin: 20px auto;
+            margin: 15px auto;
             display: block;
         }
 
-        @media (max-width: 768px) {
-            .hero { padding: 40px 15px; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.2rem; }
-            .content-section { padding: 20px 15px; }
-            .content-section h2 { font-size: 2rem; }
-            .content-section h3 { font-size: 1.6rem; }
-            .content-section p, .content-section li { font-size: 1.2rem; }
-            .info-table th, .info-table td { font-size: 1.1rem; padding: 10px; }
-            .example { padding: 15px; }
-            .example h3 { font-size: 1.6rem; }
-            .example p { font-size: 1.2rem; }
+        .social-share {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .social-share h3 {
+            font-size: 1.6rem;
+            margin: 0 0 10px;
         }
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
+        @media (max-width: 768px) {
+            .hero { padding: 30px 10px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .content-section { padding: 15px 10px; }
             .content-section h2 { font-size: 1.8rem; }
             .content-section h3 { font-size: 1.4rem; }
             .content-section p, .content-section li { font-size: 1.1rem; }
-            .info-table th, .info-table td { display: block; width: 100%; box-sizing: border-box; }
+            .info-table th, .info-table td { font-size: 1rem; padding: 8px; }
+            .example { padding: 10px; }
+            .example h3 { font-size: 1.4rem; }
+            .example p { font-size: 1.1rem; }
+            .callout { padding: 10px; font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 20px 10px; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+            .content-section h2 { font-size: 1.6rem; }
+            .content-section h3 { font-size: 1.3rem; }
+            .content-section p, .content-section li { font-size: 1rem; }
+            .info-table th, .info-table td { display: block; width: 100%; box-sizing: border-box; font-size: 0.9rem; padding: 6px; }
+            .example h3 { font-size: 1.3rem; }
+            .example p { font-size: 1rem; }
+            .social-share h3 { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -200,7 +218,7 @@
     <main>
         <section class="hero">
             <h1>Your 2025 SSI Guide</h1>
-            <p>Everything you need to know about Supplemental Security Income—benefits, eligibility, and how to apply.</p>
+            <p>Get the essentials on Supplemental Security Income (SSI)—who qualifies, payment rates, and how to apply in 2025.</p>
         </section>
 
         <ins class="adsbygoogle"
@@ -212,24 +230,24 @@
 
         <section class="content-section">
             <h2>What is SSI?</h2>
-            <p>Supplemental Security Income (SSI) is a federal program providing monthly cash payments to people with limited income and resources who are <strong>disabled</strong>, <strong>blind</strong>, or <strong>aged 65 or older</strong>. Unlike Social Security Disability Insurance (SSDI), which requires work credits, SSI is needs-based, supporting those who may never have worked or who earn very little. In 2025, SSI helps over 7 million Americans, including adults and children, with payments adjusted for inflation. For 2025, the maximum federal benefit rate is $967 for individuals and $1,450 for couples. <a href="https://www.ssa.gov/ssi/" target="_blank">Learn more at SSA.gov</a>.</p>
-            <p>SSI isn’t just for adults—children with disabilities or blindness can qualify too, and the rules change when they turn 18. Plus, certain income and resources don’t count toward eligibility, making it more accessible than you might think. Let’s dive into who qualifies and how it works.</p>
-            <div class="callout">Key Fact: SSI max payments in 2025 are $967 for individuals and $1,450 for couples, with states often adding supplements.</div>
+            <p>Supplemental Security Income (SSI) is a federal program that provides monthly cash payments to people with limited income and resources who are <strong>disabled</strong>, <strong>blind</strong>, or <strong>65 or older</strong>. Unlike SSDI, which is based on work history, SSI is needs-based—helping over 7 million Americans in 2025, including kids and adults who may not have worked much or at all. In 2025, maximum payments are $967 for individuals and $1,450 for couples, often boosted by state supplements. <a href="https://www.ssa.gov/ssi/" target="_blank">Learn more at SSA.gov</a>.</p>
+            <p>SSI supports diverse groups—children with disabilities, young adults transitioning at 18, seniors, and even some immigrants. Curious about eligibility or how payments work? Let’s break it down.</p>
+            <div class="callout">Key Fact: SSI max payments in 2025 are $967 for individuals and $1,450 for couples.</div>
 
             <h2>Who Qualifies for SSI?</h2>
-            <p>Eligibility depends on three main factors: <strong>category</strong>, <strong>income</strong>, and <strong>resources</strong>. Here’s how it breaks down:</p>
+            <p>Eligibility rests on three pillars: category, income, and resources.</p>
             <h3>1. Category</h3>
             <ul class="info-list">
-                <li><strong>Disabled:</strong> Adults or children with a physical/mental condition lasting 12+ months or expected to be fatal, severely limiting daily activities (e.g., working, walking). <a href="https://www.ssa.gov/disability/" target="_blank">See disability rules</a>.</li>
-                <li><strong>Blind:</strong> Vision 20/200 or worse in the better eye with glasses, or a visual field of 20 degrees or less.</li>
-                <li><strong>Aged:</strong> 65 or older, no disability required.</li>
-                <li><strong>Visa Holders:</strong> Certain immigrants (e.g., refugees, asylees) within 7 years of status, if they meet disability/blindness criteria.</li>
+                <li><strong>Disabled:</strong> Adults or kids with a condition lasting 12+ months or fatal, limiting daily life. <a href="https://www.ssa.gov/disability/" target="_blank">Details</a>.</li>
+                <li><strong>Blind:</strong> Vision 20/200 or worse, or field ≤20°.</li>
+                <li><strong>Aged:</strong> 65+.</li>
+                <li><strong>Visa Holders:</strong> Refugees/asylees within 7 years, if disabled/blind.</li>
             </ul>
             <h3>2. Income Limits</h3>
-            <p>Your "countable income" must be below $967 (individual) or $1,450 (couple) monthly in 2025. SSA excludes some income before counting—more on that below.</p>
+            <p>Countable income must be below $967 (individual) or $1,450 (couple). Some income is excluded:</p>
             <table class="info-table">
                 <thead>
-                    <tr><th>Type</th><th>2025 Limit (Monthly)</th><th>Example</th></tr>
+                    <tr><th>Type</th><th>2025 Limit</th><th>Example</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>Individual</td><td>$967</td><td>$500 pension → $467 SSI</td></tr>
@@ -237,86 +255,79 @@
                 </tbody>
             </table>
             <h3>3. Resource Limits</h3>
-            <p>Countable assets (excluding your home, one car, and some basics) must be under:</p>
             <ul class="info-list">
                 <li><strong>Individual:</strong> $2,000</li>
                 <li><strong>Couple:</strong> $3,000</li>
             </ul>
-            <p><a href="https://www.ssa.gov/ssi/text-eligibility-ussi.htm" target="_blank">Check eligibility details at SSA.gov</a>.</p>
+            <p><a href="https://www.ssa.gov/ssi/text-eligibility-ussi.htm" target="_blank">More at SSA.gov</a>.</p>
 
             <h2>Income and Resource Exclusions</h2>
-            <p>Not all income or assets count toward SSI limits. Here’s what’s excluded:</p>
             <h3>Income Exclusions</h3>
             <ul class="info-list">
-                <li><strong>$20 General Exclusion:</strong> First $20 of any income (earned or unearned) monthly.</li>
-                <li><strong>$65 Earned Income Exclusion:</strong> First $65 of wages, plus $1 reduction per $2 after that.</li>
-                <li><strong>Student Earned Income:</strong> Up to $2,350/month ($9,460/year) for students under 22.</li>
-                <li><strong>Food/Shelter Aid:</strong> As of 2025, food isn’t counted as in-kind support. <a href="https://www.ssa.gov/ssi/text-income-ussi.htm" target="_blank">See income rules</a>.</li>
+                <li>$20 of any income.</li>
+                <li>$65 of wages + $1 per $2 after.</li>
+                <li>Up to $2,350/month for students under 22.</li>
+                <li>Food aid (2025 update). <a href="https://www.ssa.gov/ssi/text-income-ussi.htm" target="_blank">Details</a>.</li>
             </ul>
             <h3>Resource Exclusions</h3>
             <ul class="info-list">
-                <li>Your primary home and land it’s on.</li>
-                <li>One vehicle used for transportation.</li>
-                <li>Household goods and personal items (e.g., rings).</li>
-                <li>Burial funds up to $1,500 per person.</li>
-                <li>ABLE accounts up to $100,000 for disability expenses.</li>
+                <li>Home, one car, personal items.</li>
+                <li>$1,500 burial funds.</li>
+                <li>ABLE accounts ≤$100,000.</li>
             </ul>
-            <p><a href="https://www.ssa.gov/ssi/text-resources-ussi.htm" target="_blank">Explore resource exclusions at SSA.gov</a>.</p>
+            <p><a href="https://www.ssa.gov/ssi/text-resources-ussi.htm" target="_blank">See exclusions</a>.</p>
 
             <h2>SSI Payments in 2025</h2>
-            <p>Payments depend on income and living arrangements. Maximum federal rates are:</p>
             <table class="info-table">
                 <thead>
-                    <tr><th>Recipient</th><th>Max Monthly Payment</th></tr>
+                    <tr><th>Recipient</th><th>Max Payment</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>Individual</td><td>$967</td></tr>
                     <tr><td>Couple</td><td>$1,450</td></tr>
-                    <tr><td>Individual in Another’s Household</td><td>$645</td></tr>
+                    <tr><td>In Another’s Household</td><td>$645</td></tr>
                 </tbody>
             </table>
-            <p><strong>State Supplements:</strong> Many states add to federal SSI (e.g., California adds ~$200). Check your state at <a href="https://www.ssa.gov/ssi/text-benefits-ussi.htm" target="_blank">SSA.gov</a>.</p>
+            <p>State supplements vary—check <a href="https://www.ssa.gov/ssi/text-benefits-ussi.htm" target="_blank">SSA.gov</a>.</p>
 
             <h2>How SSI Adjusts for Income</h2>
-            <p>SSI reduces payments based on countable income:</p>
             <ul class="info-list">
-                <li><strong>Unearned (e.g., pensions):</strong> $1 reduction per $1 after $20 exclusion.</li>
-                <li><strong>Earned (e.g., wages):</strong> $1 reduction per $2 after $85 exclusion.</li>
+                <li><strong>Unearned:</strong> $1 off per $1 after $20.</li>
+                <li><strong>Earned:</strong> $1 off per $2 after $85.</li>
             </ul>
             <div class="example" data-example="maria">
-                <h3>Maria, 67, Retired</h3>
-                <p>Maria lives alone with a $400 pension. After the $20 exclusion, her countable income is $380. SSI pays $587 ($967 - $380) monthly.</p>
+                <h3>Maria, 67</h3>
+                <p>$400 pension - $20 = $380 countable. SSI: $967 - $380 = $587.</p>
             </div>
             <div class="example" data-example="tom">
-                <h3>Tom, 35, Disabled Worker</h3>
-                <p>Tom earns $205 monthly. After $85 exclusion, $120 is countable; half ($60) reduces his SSI: $967 - $60 = $907/month.</p>
+                <h3>Tom, 35</h3>
+                <p>$205 wages - $85 = $120; $60 reduces SSI: $967 - $60 = $907.</p>
             </div>
 
             <h2>Application Process</h2>
-            <p>Applying is free and takes 3-5 months:</p>
             <ol class="info-list">
-                <li><strong>Gather Docs:</strong> ID, income proof, medical records (if disabled).</li>
-                <li><strong>Apply:</strong> Call 1-800-772-1213 or online (65+ only) at <a href="https://secure.ssa.gov/iClaim/SSI" target="_blank">SSA.gov</a>.</li>
-                <li><strong>Interview:</strong> SSA schedules a review.</li>
-                <li><strong>Decision:</strong> Payments start the next month if approved.</li>
+                <li>Gather ID, income, medical docs.</li>
+                <li>Apply: 1-800-772-1213 or <a href="https://secure.ssa.gov/iClaim/SSI" target="_blank">online (65+)</a>.</li>
+                <li>Interview with SSA.</li>
+                <li>Payments start if approved.</li>
             </ol>
 
             <h2>Real-Life Scenarios</h2>
             <div class="example" data-example="sarah">
-                <h3>Sarah, 12, Blind Child</h3>
-                <p>Sarah’s parents earn $2,000/month. SSA deems $300 as her income, reducing her SSI to $667 ($967 - $300). She also gets Medicaid.</p>
+                <h3>Sarah, 12</h3>
+                <p>Parents’ $2,000 deems $300. SSI: $967 - $300 = $667.</p>
             </div>
             <div class="example" data-example="jake">
-                <h3>Jake, 18, Filing at Age 18</h3>
-                <p>Jake, disabled, turns 18. Previously, his parents’ income was deemed ($500/month). Now independent with no income, he gets $967/month.</p>
+                <h3>Jake, 18</h3>
+                <p>No income after 18. SSI: $967.</p>
             </div>
             <div class="example" data-example="ahmed">
-                <h3>Ahmed, 40, Refugee</h3>
-                <p>Ahmed, disabled, arrived in 2023 with no income and $1,000 savings. He receives $967/month until 2030 (7-year limit).</p>
+                <h3>Ahmed, 40</h3>
+                <p>No income, $1,000 savings. SSI: $967.</p>
             </div>
             <div class="example" data-example="lisa">
-                <h3>Lisa and Mark, Disabled Couple</h3>
-                <p>Lisa and Mark have $600 combined pension. After $20 exclusion, $580 is countable. SSI pays $870 ($1,450 - $580) monthly.</p>
+                <h3>Lisa & Mark</h3>
+                <p>$600 pension - $20 = $580. SSI: $1,450 - $580 = $870.</p>
             </div>
 
             <h2>SSI vs. SSDI</h2>
@@ -325,28 +336,27 @@
                     <tr><th>Aspect</th><th>SSI</th><th>SSDI</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Basis</strong></td><td>Need</td><td>Work history</td></tr>
-                    <tr><td><strong>Max 2025</strong></td><td>$967</td><td>Avg $1,500</td></tr>
-                    <tr><td><strong>Health</strong></td><td>Medicaid</td><td>Medicare</td></tr>
+                    <tr><td>Basis</td><td>Need</td><td>Work</td></tr>
+                    <tr><td>Max 2025</td><td>$967</td><td>~$1,500</td></tr>
+                    <tr><td>Health</td><td>Medicaid</td><td>Medicare</td></tr>
                 </tbody>
             </table>
 
             <h2>Living Arrangements Impact</h2>
-            <p>Your situation adjusts SSI:</p>
             <ul class="info-list">
-                <li><strong>Own Home:</strong> Full $967 (no income).</li>
-                <li><strong>With Others:</strong> $645 if they provide food/shelter.</li>
-                <li><strong>Institution:</strong> $30 if Medicaid pays.</li>
+                <li>Own Home: $967 (no income).</li>
+                <li>With Others: $645.</li>
+                <li>Institution: $30.</li>
             </ul>
 
             <h2>Frequently Asked Questions</h2>
             <div class="faq">
-                <h3>Can I work and get SSI?</h3>
-                <p>Yes! $400 wages → $853 SSI after exclusions. <a href="https://www.ssa.gov/ssi/text-work-ussi.htm" target="_blank">Learn more</a>.</p>
+                <h3>Can I work?</h3>
+                <p>Yes! $400 wages → $853 SSI. <a href="https://www.ssa.gov/ssi/text-work-ussi.htm" target="_blank">Details</a>.</p>
             </div>
             <div class="faq">
-                <h3>Does SSI affect other benefits?</h3>
-                <p>Yes, often qualifies you for Medicaid, SNAP, and housing aid.</p>
+                <h3>Affects other benefits?</h3>
+                <p>Yes, often ties to Medicaid, SNAP.</p>
             </div>
 
             <div class="social-share">
