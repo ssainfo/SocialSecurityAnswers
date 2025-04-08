@@ -1,0 +1,13 @@
+{
+  "name": "ssaanswers",
+  "version": "1.0.0",
+  "description": "Social Security Answers site with Netlify Functions",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {
+    "start": "netlify dev"
+  },
+  "author": "",
+  "license": "MIT"
+}
