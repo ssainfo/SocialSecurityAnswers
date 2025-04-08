@@ -16,7 +16,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Social Security Answers 2025 Guide Preview">
-    <!-- Twitter Card Tags (Optional, enhances Twitter sharing) -->
+    <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Social Security Answers - Your 2025 Guide">
     <meta name="twitter:description" content="Your free, all-in-one guide to Social Security, SSI, Medicare, and more—updated for 2025.">
@@ -33,9 +33,103 @@
       gtag('js', new Date());
       gtag('config', 'G-QPC7TFVK2B');
     </script>
+    <style>
+        /* New CSS for the Ask SSA button */
+        .ask-ssa-cta {
+            text-align: center;
+            padding: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .ask-ssa-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ccff, #007bff);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Catamaran', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ask-ssa-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
+        }
+
+        .ask-ssa-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .ask-ssa-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-text {
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-subtext {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            .ask-ssa-btn {
+                padding: 12px 20px;
+                font-size: 1.2rem;
+            }
+            .btn-text {
+                font-size: 1.4rem;
+            }
+            .btn-subtext {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
     </header>
+
+    <!-- New Ask SSA Button -->
+    <div class="ask-ssa-cta">
+        <a href="/ask-ssa.html" class="ask-ssa-btn">
+            <span class="btn-text">🎯 Ask SSA Now!</span>
+            <span class="btn-subtext">Get Instant Answers from SSA.gov</span>
+        </a>
+    </div>
+
     <nav class="main-nav">
         <ul class="nav-list">
             <li><a href="/" class="active">Home</a></li>
@@ -58,17 +152,7 @@
         </ul>
         <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
     </nav>
-    <!-- ... (rest of the body) -->
-</body>
-</html>
-    <header class="banner">
-        <div class="banner-content">
-            <h1>Social Security Answers</h1>
-            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
-        </div>
-    </header>
 
-    <!-- Rest of the HTML remains unchanged -->
     <main>
         <section class="hero">
             <h1>Master Social Security in 2025</h1>
@@ -283,5 +367,6 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     <script src="script.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92d47ac6188b1d72',t:'MTc0NDE0Mzc3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
