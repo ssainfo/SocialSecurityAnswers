@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask SSA - Social Security Answers</title>
-    <meta name="description" content="Ask a question about Social Security and get answers with links from SSA.gov.">
-    <meta name="keywords" content="social security 2025, ssa questions, ssa.gov links">
+    <meta name="description" content="Ask a question about Social Security and get instant answers with links from SSA.gov and more.">
+    <meta name="keywords" content="social security 2025, ssa questions, ssa.gov links, ssdi, ssi, medicare">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -30,60 +30,25 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        .hero {
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            padding: 40px 15px;
-            text-align: center;
-            color: #000;
-            text-shadow: 0 0 5px #fff;
-        }
+        .hero { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 40px 15px; text-align: center; color: #000; text-shadow: 0 0 5px #fff; }
         .hero h1 { font-size: 2.5rem; margin: 0 0 10px; }
         .hero p { font-size: 1.3rem; margin: 0; }
-        .content-section {
-            flex: 1;
-            padding: 20px 15px;
-            background: #fff;
-            border-radius: 10px;
-            margin: 15px auto;
-            max-width: 800px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        .question-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .question-input {
-            padding: 10px;
-            font-size: 1.2rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
+        .content-section { flex: 1; padding: 20px 15px; background: #fff; border-radius: 10px; margin: 15px auto; max-width: 800px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        .question-form { display: flex; flex-direction: column; gap: 15px; position: relative; }
+        .question-input { padding: 10px; font-size: 1.2rem; border: 1px solid #ddd; border-radius: 5px; outline: none; transition: border-color 0.3s; }
         .question-input:focus { border-color: #00ccff; }
-        .submit-btn {
-            background: #00ccff;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
+        .submit-btn { background: #00ccff; color: #fff; padding: 10px; border: none; border-radius: 5px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s, transform 0.3s; }
         .submit-btn:hover { background: #0099cc; transform: scale(1.05); }
-        .answer {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f8f8f8;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.5s ease-out;
-        }
+        .answer { margin-top: 20px; padding: 15px; background: #f8f8f8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); animation: fadeIn 0.5s ease-out; }
         .answer a { color: #00ccff; text-decoration: none; }
         .answer a:hover { text-decoration: underline; }
+        .answer-actions { margin-top: 10px; display: flex; gap: 10px; }
+        .action-btn { background: #ddd; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        .action-btn:hover { background: #ccc; }
         .adsense-container { margin: 20px 0; text-align: center; }
+        .suggestions { position: absolute; top: 60px; left: 0; right: 0; background: #fff; border: 1px solid #ddd; border-radius: 5px; max-height: 200px; overflow-y: auto; display: none; }
+        .suggestion-item { padding: 10px; cursor: pointer; }
+        .suggestion-item:hover { background: #f0f0f0; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @media (max-width: 480px) {
             .hero { padding: 20px 10px; }
@@ -127,12 +92,13 @@
     <main>
         <section class="hero">
             <h1>Ask SSA Anything</h1>
-            <p>Type your Social Security question and get answers from SSA.gov.</p>
+            <p>Get instant answers to your 2025 Social Security questions from SSA.gov and beyond.</p>
         </section>
 
         <section class="content-section">
             <form id="questionForm" class="question-form">
-                <input type="text" id="questionInput" class="question-input" placeholder="Ask me a question..." required>
+                <input type="text" id="questionInput" class="question-input" placeholder="Ask me anything (e.g., 'What’s the 2025 COLA?')" required>
+                <div id="suggestions" class="suggestions"></div>
                 <button type="submit" class="submit-btn">Get Answer</button>
             </form>
             <div id="answerContainer" class="answer" style="display: none;"></div>
@@ -168,19 +134,52 @@
             "what is my full retirement age": "https://www.ssa.gov/benefits/retirement/planner/ageincrease.html",
             "how do i apply for ssi": "https://www.ssa.gov/ssi/start-application.html",
             "what is ssi": "https://www.ssa.gov/ssi/",
-            "how do i check my benefits": "https://www.ssa.gov/myaccount/"
+            "how do i check my benefits": "https://www.ssa.gov/myaccount/",
+            "what’s the 2025 cola increase": "https://www.ssa.gov/cola/",
+            "how do i verify my identity for ssa in 2025": "https://www.ssa.gov/myaccount/identity-verification.html",
+            "what is the social security fairness act": "https://www.ssa.gov/legislation/",
+            "how do i appeal a decision in 2025": "https://www.ssa.gov/appeals/"
         };
 
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('questionForm');
             const input = document.getElementById('questionInput');
             const answerContainer = document.getElementById('answerContainer');
+            const suggestions = document.getElementById('suggestions');
+            const questions = Object.keys(ssaLinks);
+
+            input.addEventListener('input', () => {
+                const query = input.value.toLowerCase().trim();
+                suggestions.innerHTML = '';
+                if (query) {
+                    const matches = questions.filter(q => q.includes(query)).slice(0, 5);
+                    if (matches.length) {
+                        matches.forEach(match => {
+                            const div = document.createElement('div');
+                            div.className = 'suggestion-item';
+                            div.textContent = match;
+                            div.addEventListener('click', () => {
+                                input.value = match;
+                                suggestions.style.display = 'none';
+                                form.dispatchEvent(new Event('submit'));
+                            });
+                            suggestions.appendChild(div);
+                        });
+                        suggestions.style.display = 'block';
+                    } else {
+                        suggestions.style.display = 'none';
+                    }
+                } else {
+                    suggestions.style.display = 'none';
+                }
+            });
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const question = input.value.trim().toLowerCase();
                 answerContainer.style.display = 'none';
-                answerContainer.innerHTML = 'Searching...';
+                answerContainer.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+                suggestions.style.display = 'none';
 
                 let answerLink = ssaLinks[question] || Object.entries(ssaLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
 
@@ -188,14 +187,21 @@
                     try {
                         const response = await fetch(`/.netlify/functions/search?q=${encodeURIComponent(question)}`);
                         const data = await response.json();
-                        answerLink = data.answer;
+                        answerLink = data.answer || `https://www.ssa.gov/site/search/?q=${encodeURIComponent(question)}`;
                     } catch (error) {
                         console.error('Function Error:', error);
                         answerLink = `https://www.ssa.gov/site/search/?q=${encodeURIComponent(question)}`;
                     }
                 }
 
-                answerContainer.innerHTML = `Here’s your answer from SSA.gov: <a href="${answerLink}" target="_blank">${answerLink}</a>`;
+                answerContainer.innerHTML = `
+                    <p><i class="fas fa-check-circle" style="color: #00ccff;"></i> Here’s your answer:</p>
+                    <p><a href="${answerLink}" target="_blank">${answerLink}</a></p>
+                    <div class="answer-actions">
+                        <button class="action-btn" onclick="navigator.clipboard.writeText('${answerLink}')"><i class="fas fa-copy"></i> Copy Link</button>
+                        <button class="action-btn" onclick="window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent('Check out this Social Security answer: ' + answerLink)}', '_blank')"><i class="fab fa-x-twitter"></i> Share</button>
+                    </div>
+                `;
                 answerContainer.style.display = 'block';
                 input.value = '';
             });
