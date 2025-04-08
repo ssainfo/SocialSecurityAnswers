@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask SSA - Social Security Answers</title>
+    <meta name="description" content="Ask a question about Social Security and get answers with links from SSA.gov.">
+    <meta name="keywords" content="social security 2025, ssa questions, ssa.gov links">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPC7TFVK2B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QPC7TFVK2B');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
+    <style>
+        /* Same CSS as above */
+        body {
+            font-family: 'Catamaran', sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 40px 15px;
+            text-align: center;
+            color: #000;
+            text-shadow: 0 0 5px #fff;
+        }
+        .hero h1 { font-size: 2.5rem; margin: 0 0 10px; }
+        .hero p { font-size: 1.3rem; margin: 0; }
+
+        .content-section {
+            flex: 1;
+            padding: 20px 15px;
+            background: #fff;
+            border-radius: 10px;
+            margin: 15px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .question-input {
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .question-input:focus { border-color: #00ccff; }
+        .submit-btn {
+            background: #00ccff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .submit-btn:hover { background: #0099cc; transform: scale(1.05); }
+
+        .answer {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+        .answer a { color: #00ccff; text-decoration: none; }
+        .answer a:hover { text-decoration: underline; }
+
+        .adsense-container { margin: 20px 0; text-align: center; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @media (max-width: 480px) {
+            .hero { padding: 20px 10px; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+            .content-section { padding: 15px 10px; margin: 10px; }
+            .question-input, .submit-btn { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/news.html">News</a></li>
+            <li><a href="/replacement.html">Card Replacement</a></li>
+            <li><a href="/retirement.html">Retirement</a></li>
+            <li><a href="/medicare.html">Medicare</a></li>
+            <li><a href="/disability.html">Disability</a></li>
+            <li><a href="/survivor.html">Survivor</a></li>
+            <li><a href="/tax.html">Tax</a></li>
+            <li><a href="/medicaid.html">Medicaid</a></li>
+            <li><a href="/housing.html">Housing</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/fraud.html">Fraud</a></li>
+            <li><a href="/ssi.html">SSI</a></li>
+            <li><a href="/shelter.html">Shelter</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/calculator.html">Calculator</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Ask SSA Anything</h1>
+            <p>Type your Social Security question and get answers from SSA.gov.</p>
+        </section>
+
+        <section class="content-section">
+            <form id="questionForm" class="question-form">
+                <input type="text" id="questionInput" class="question-input" placeholder="Ask me a question..." required>
+                <button type="submit" class="submit-btn">Get Answer</button>
+            </form>
+            <div id="answerContainer" class="answer" style="display: none;"></div>
+            <div class="adsense-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5346424450981440"
+                     data-ad-slot="5473550665"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
+        <p>Powered by <a href="https://www.ssa.gov/"><img src="images/ssa-logo.png" alt="SSA.gov" width="100" loading="lazy"></a></p>
+    </footer>
+
+    <script>
+        const ssaLinks = {
+            "how do i apply for ssdi": "https://www.ssa.gov/applyfordisability/",
+            "what is the ssdi benefit in 2025": "https://www.ssa.gov/benefits/disability/",
+            "what’s the difference between ssdi and ssi": "https://www.ssa.gov/disabilityfacts/facts.html",
+            "can i work while on ssdi": "https://www.ssa.gov/disability/disability_work.html",
+            "how long does ssdi approval take": "https://www.ssa.gov/disability/professionals/processingtimes.htm",
+            "how do i replace my social security card": "https://www.ssa.gov/ssnumber/",
+            "when can i start collecting retirement benefits": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+            "how do i report fraud": "https://www.ssa.gov/fraud/",
+            "what is my full retirement age": "https://www.ssa.gov/benefits/retirement/planner/ageincrease.html",
+            "how do i apply for ssi": "https://www.ssa.gov/ssi/start-application.html",
+            "what is ssi": "https://www.ssa.gov/ssi/",
+            "how do i check my benefits": "https://www.ssa.gov/myaccount/"
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('questionForm');
+            const input = document.getElementById('questionInput');
+            const answerContainer = document.getElementById('answerContainer');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const question = input.value.trim().toLowerCase();
+                answerContainer.style.display = 'none';
+                answerContainer.innerHTML = 'Searching...';
+
+                let answerLink = ssaLinks[question] || Object.entries(ssaLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
+
+                if (!answerLink) {
+                    try {
+                        const response = await fetch(`/.netlify/functions/search?q=${encodeURIComponent(question)}`);
+                        const data = await response.json();
+                        answerLink = data.answer;
+                    } catch (error) {
+                        console.error('Function Error:', error);
+                        answerLink = `https://www.ssa.gov/site/search/?q=${encodeURIComponent(question)}`;
+                    }
+                }
+
+                answerContainer.innerHTML = `Here’s your answer from SSA.gov: <a href="${answerLink}" target="_blank">${answerLink}</a>`;
+                answerContainer.style.display = 'block';
+                input.value = '';
+            });
+        });
+    </script>
+</body>
+</html>
