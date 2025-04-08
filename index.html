@@ -34,14 +34,16 @@
       gtag('config', 'G-QPC7TFVK2B');
     </script>
     <style>
-        /* New CSS for the Ask SSA button */
-        .ask-ssa-cta {
+        /* Existing CSS for Ask SSA button */
+        .ask-ssa-cta, .news-cta {
             text-align: center;
             padding: 20px 0;
             animation: pulse 2s infinite;
+            display: inline-block; /* Align side by side */
+            margin: 0 10px; /* Spacing between buttons */
         }
 
-        .ask-ssa-btn {
+        .ask-ssa-btn, .news-cta-btn {
             display: inline-block;
             background: linear-gradient(135deg, #00ccff, #007bff);
             color: #fff;
@@ -57,12 +59,12 @@
             overflow: hidden;
         }
 
-        .ask-ssa-btn:hover {
+        .ask-ssa-btn:hover, .news-cta-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
         }
 
-        .ask-ssa-btn::before {
+        .ask-ssa-btn::before, .news-cta-btn::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -75,7 +77,7 @@
             transition: width 0.6s ease, height 0.6s ease;
         }
 
-        .ask-ssa-btn:hover::before {
+        .ask-ssa-btn:hover::before, .news-cta-btn:hover::before {
             width: 300px;
             height: 300px;
         }
@@ -100,8 +102,18 @@
             100% { transform: scale(1); }
         }
 
+        /* Container to hold both buttons side by side */
+        .cta-container {
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Wrap on small screens */
+            gap: 20px; /* Space between buttons */
+        }
+
         @media (max-width: 480px) {
-            .ask-ssa-btn {
+            .ask-ssa-btn, .news-cta-btn {
                 padding: 12px 20px;
                 font-size: 1.2rem;
             }
@@ -110,6 +122,10 @@
             }
             .btn-subtext {
                 font-size: 0.9rem;
+            }
+            .cta-container {
+                flex-direction: column; /* Stack vertically on small screens */
+                gap: 10px;
             }
         }
     </style>
@@ -122,12 +138,23 @@
         </div>
     </header>
 
-    <!-- New Ask SSA Button -->
-    <div class="ask-ssa-cta">
-        <a href="/ask-ssa.html" class="ask-ssa-btn">
-            <span class="btn-text">🎯 Ask SSA Now!</span>
-            <span class="btn-subtext">Get Instant Answers from SSA.gov</span>
-        </a>
+    <!-- Container for both buttons -->
+    <div class="cta-container">
+        <!-- Ask SSA Button -->
+        <div class="ask-ssa-cta">
+            <a href="/ask-ssa.html" class="ask-ssa-btn">
+                <span class="btn-text">🎯 Ask SSA Now!</span>
+                <span class="btn-subtext">Get Instant Answers from SSA.gov</span>
+            </a>
+        </div>
+
+        <!-- News CTA Button (Moved from content-section) -->
+        <div class="news-cta">
+            <a href="/news.html" class="news-cta-btn">
+                <span class="btn-text">🚨 2025 Updates!</span>
+                <span class="btn-subtext">Stay Ahead with Latest News</span>
+            </a>
+        </div>
     </div>
 
     <nav class="main-nav">
@@ -209,13 +236,7 @@
             </div>
             <p class="flowchart-note">Click "Learn More" for detailed steps and resources. <a href="https://www.ssa.gov/appeals/" target="_blank">Visit SSA.gov Appeals</a>.</p>
 
-            <div class="news-cta-section">
-                <div class="news-cta-card">
-                    <h2>🚨 Stay Ahead with 2025 Updates!</h2>
-                    <p>Get the latest Social Security news—COLA changes, policy shifts, and more. Don’t miss out!</p>
-                    <a href="/news.html" class="news-cta-button">Dive into the News Now <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <!-- Removed news-cta-section from here -->
 
             <h2>Resource Hub</h2>
             <div class="resource-hub">
@@ -368,5 +389,6 @@
     </script>
     <script src="script.js"></script>
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92d47ac6188b1d72',t:'MTc0NDE0Mzc3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92d4b866097a6dbc',t:'MTc0NDE0NjI5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
