@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask SSA - Social Security Answers</title>
-    <meta name="description" content="Ask a question about Social Security and get instant, personalized answers from SSA.gov, AARP, Medicare, HUD, POMS, and more.">
-    <meta name="keywords" content="social security 2025, ssa questions, ssdi, ssi, medicare, housing assistance, poms">
+    <meta name="description" content="Ask a question about Social Security and get instant, personalized answers from SSA.gov, AARP, Medicare, HUD, and more.">
+    <meta name="keywords" content="social security 2025, ssa questions, ssdi, ssi, medicare, housing assistance">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -40,64 +40,13 @@
         .suggestion-item { padding: 10px; cursor: pointer; }
         .suggestion-item:hover { background: #f0f0f0; }
         .source-label { font-weight: bold; margin-top: 10px; }
-        .policy-suggestion { margin-top: 15px; font-style: italic; }
-
-        /* New CTA Button Styles */
-        .cta-container { text-align: center; padding: 20px 0; }
-        .ask-ssa-cta { animation: pulse 2s infinite; }
-        .ask-ssa-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #00ccff, #007bff);
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-family: 'Catamaran', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .ask-ssa-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
-        }
-        .ask-ssa-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-        .ask-ssa-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        .btn-text { display: block; font-size: 1.8rem; letter-spacing: 1px; }
-        .btn-subtext { display: block; font-size: 1rem; font-weight: 400; opacity: 0.9; margin-top: 5px; }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @media (max-width: 480px) {
             .hero { padding: 20px 10px; }
             .hero h1 { font-size: 1.6rem; }
             .hero p { font-size: 1rem; }
             .content-section { padding: 15px 10px; margin: 10px; }
             .question-input, .personal-input, .submit-btn { font-size: 1rem; }
-            .ask-ssa-btn { padding: 12px 20px; font-size: 1.2rem; }
-            .btn-text { font-size: 1.4rem; }
-            .btn-subtext { font-size: 0.9rem; }
-            .suggestions { top: 100px; }
         }
     </style>
 </head>
@@ -108,16 +57,6 @@
             <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
         </div>
     </header>
-
-    <!-- New Animated Button -->
-    <div class="cta-container">
-        <div class="ask-ssa-cta">
-            <a href="/ask-ssa.html" class="ask-ssa-btn">
-                <span class="btn-text">🎯 Ask SSA Anything</span>
-                <span class="btn-subtext">Personalized Answers & Policy</span>
-            </a>
-        </div>
-    </div>
 
     <nav class="main-nav">
         <ul class="nav-list">
@@ -144,7 +83,7 @@
     <main>
         <section class="hero">
             <h1>Ask SSA Anything</h1>
-            <p>Get instant, personalized answers to your 2025 Social Security questions, including official SSA policy from POMS.</p>
+            <p>Get instant, personalized answers to your 2025 Social Security questions from trusted free sources.</p>
         </section>
 
         <section class="content-section">
@@ -230,21 +169,6 @@
             "veterans benefits": "https://www.va.gov/pension/"
         };
 
-        const pomsLinks = {
-            "how do i apply for ssdi": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0500501010",
-            "what is the ssdi benefit in 2025": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0500820501",
-            "what’s the difference between ssdi and ssi": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0500501035",
-            "can i work while on ssdi": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0502100001",
-            "how do i replace my social security card": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0110201035",
-            "when can i start collecting retirement benefits": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0300601001",
-            "how do i report fraud": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0400410001",
-            "what is my full retirement age": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0300601002",
-            "how do i apply for ssi": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0500502010",
-            "what is ssi": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0500501010",
-            "what’s the 2025 cola increase": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0300605001",
-            "how do i appeal a decision in 2025": "https://secure.ssa.gov/apps10/poms.nsf/lnx/0502020001"
-        };
-
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('questionForm');
             const input = document.getElementById('questionInput');
@@ -252,7 +176,7 @@
             const benefitType = document.getElementById('benefitType');
             const answerContainer = document.getElementById('answerContainer');
             const suggestions = document.getElementById('suggestions');
-            const allLinks = { ...ssaLinks, ...aarpLinks, ...medicareLinks, ...hudLinks, ...otherFreeLinks, ...pomsLinks };
+            const allLinks = { ...ssaLinks, ...aarpLinks, ...medicareLinks, ...hudLinks, ...otherFreeLinks };
             const questions = Object.keys(allLinks);
 
             input.addEventListener('input', () => {
@@ -326,26 +250,15 @@
                     answerHTML += `<p class="source-label">From Other Sources:</p><p><a href="${otherLink}" target="_blank">${otherLink}</a></p>`;
                 }
 
-                // Check POMS Links
-                let pomsLink = pomsLinks[question] || Object.entries(pomsLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
-                if (pomsLink) {
-                    answerHTML += `<p class="source-label">From POMS (SSA Policy):</p><p><a href="${pomsLink}" target="_blank">${pomsLink}</a></p>`;
-                }
-
                 // Default SSA Search if no matches
                 if (!answerHTML) {
                     const defaultLink = `https://www.ssa.gov/site/search/?q=${encodeURIComponent(fullQuestion)}`;
                     answerHTML = `<p class="source-label">Search SSA.gov:</p><p><a href="${defaultLink}" target="_blank">${defaultLink}</a></p>`;
                 }
 
-                // Policy Suggestion
-                const policyLink = pomsLink || `https://secure.ssa.gov/apps10/poms.nsf/searchresults?searchText=${encodeURIComponent(fullQuestion)}`;
-                const policySuggestion = `<p class="policy-suggestion">Want to know the policy for your question? <a href="${policyLink}" target="_blank">View SSA POMS</a></p>`;
-
                 answerContainer.innerHTML = `
                     <p><i class="fas fa-check-circle" style="color: #00ccff;"></i> Here’s your answer${age || benefit ? ' (personalized)' : ''}:</p>
                     ${answerHTML}
-                    ${policySuggestion}
                     <div class="answer-actions">
                         <button class="action-btn" onclick="navigator.clipboard.writeText('${answerHTML.replace(/<\/?[^>]+(>|$)/g, '')}')"><i class="fas fa-copy"></i> Copy</button>
                         <button class="action-btn" onclick="window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent('Social Security Answer: ' + answerHTML.replace(/<\/?[^>]+(>|$)/g, ''))}', '_blank')"><i class="fab fa-x-twitter"></i> Share</button>
