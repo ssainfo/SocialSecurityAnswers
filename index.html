@@ -35,7 +35,7 @@
     </script>
     <style>
         /* Existing CSS for Ask SSA button */
-        .ask-ssa-cta, .news-cta {
+        .ask-ssa-cta, .news-cta, .investments-cta {
             text-align: center;
             padding: 20px 0;
             animation: pulse 2s infinite;
@@ -43,7 +43,7 @@
             margin: 0 10px; /* Spacing between buttons */
         }
 
-        .ask-ssa-btn, .news-cta-btn {
+        .ask-ssa-btn, .news-cta-btn, .investments-cta-btn {
             display: inline-block;
             background: linear-gradient(135deg, #00ccff, #007bff);
             color: #fff;
@@ -59,12 +59,12 @@
             overflow: hidden;
         }
 
-        .ask-ssa-btn:hover, .news-cta-btn:hover {
+        .ask-ssa-btn:hover, .news-cta-btn:hover, .investments-cta-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
         }
 
-        .ask-ssa-btn::before, .news-cta-btn::before {
+        .ask-ssa-btn::before, .news-cta-btn::before, .investments-cta-btn::before  {
             content: '';
             position: absolute;
             top: 50%;
@@ -77,7 +77,7 @@
             transition: width 0.6s ease, height 0.6s ease;
         }
 
-        .ask-ssa-btn:hover::before, .news-cta-btn:hover::before {
+        .ask-ssa-btn:hover::before, .news-cta-btn:hover::before, .investments-cta-btn:hover::before {
             width: 300px;
             height: 300px;
         }
