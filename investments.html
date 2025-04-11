@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investments Beyond SSA 2025 - Social Security Answers</title>
-    <meta name="description" content="Maximize 2025 finances beyond SSA with 401(k), Roth IRA, stocks (QQQ, SPY, IWM), ETFs, Fidelity, Vanguard, Schwab, TD Ameritrade IRAs, charts, and more!">
-    <meta name="keywords" content="investments 2025, social security investments, 401k, roth ira, stock market, qqq, spy, iwm, fidelity, vanguard, schwab, td ameritrade, etfs, mutual funds, retirement planning, ssa benefits, warren buffett, financial independence">
+    <meta name="description" content="Maximize 2025 finances beyond SSA with 401(k), Roth IRA, stocks (QQQ, SPY, IWM, Mag 7), ETFs, Fidelity, Vanguard, Schwab, TD Ameritrade IRAs, charts, and more!">
+    <meta name="keywords" content="investments 2025, social security investments, 401k, roth ira, stock market, qqq, spy, iwm, aapl, msft, nvda, amzn, fidelity, vanguard, schwab, td ameritrade, etfs, mutual funds, retirement planning, ssa benefits, warren buffett, financial independence">
     <meta name="robots" content="index, follow">
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Investments Beyond SSA 2025 - Social Security Answers">
@@ -59,9 +59,12 @@
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
         .hero { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 60px 20px; text-align: center; }
         .content-section { padding: 40px 20px; background: #fff; max-width: 1200px; margin: 0 auto; }
-        .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 20px 0; }
+        .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 40px 0; }
         .video-box { background: #f8f8f8; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
         .video-box iframe { width: 100%; height: 200px; border: 2px solid #00ccff; border-radius: 5px; }
+        .mag7-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 40px 0; }
+        .mag7-box { background: #f8f8f8; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        .mag7-box select { width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; }
         .chart-container { margin: 20px 0; padding: 20px; background: #f8f8f8; border-radius: 10px; }
         .calc-tool, .trends-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
         .resource-list { list-style: none; padding: 0; }
@@ -79,10 +82,32 @@
         .ira-item img { max-width: 100%; height: auto; border-radius: 5px; }
         @media (max-width: 768px) {
             .cta-container { flex-direction: column; gap: 10px; }
-            .invest-btn, .ask-ssa-btn, .news-cta-btn, .broker-btn { padding: 12px 20px; font-size: 1.2rem; }
-            .btn-text { font-size: 1.4rem; } .btn-subtext { font-size: 0.9rem; }
-            .video-grid, .broker-comparison, .ira-section { grid-template-columns: 1fr; }
-            .compound-table { font-size: 0.9rem; }
+            .invest-btn, .ask-ssa-btn, .news-cta-btn, .broker-btn { padding: 10px 15px; font-size: 1.1rem; }
+            .btn-text { font-size: 1.3rem; }
+            .btn-subtext { font-size: 0.8rem; }
+            .hero { padding: 40px 15px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .content-section { padding: 20px 10px; }
+            .video-grid, .mag7-grid, .broker-comparison, .ira-section { grid-template-columns: 1fr; gap: 15px; }
+            .video-box iframe { height: 180px; }
+            .mag7-box select { font-size: 0.9rem; }
+            .chart-container { padding: 10px; }
+            .compound-table { font-size: 0.8rem; }
+            .compound-table th, .compound-table td { padding: 8px; }
+            .calc-tool, .trends-section { padding: 10px; }
+            .quote-box { padding: 15px; }
+            .cta-banner { padding: 15px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.5rem; }
+            .hero p { font-size: 0.9rem; }
+            .invest-btn, .ask-ssa-btn, .news-cta-btn, .broker-btn { padding: 8px 12px; font-size: 1rem; }
+            .btn-text { font-size: 1.2rem; }
+            .btn-subtext { font-size: 0.7rem; }
+            .video-box iframe { height: 160px; }
+            .content-section h2 { font-size: 1.4rem; }
+            .content-section p { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -146,16 +171,99 @@
 
         <section class="content-section">
             <h2>Why Go Beyond SSA?</h2>
-            <p>Social Security provides a vital safety net, averaging around $1,900 per month in 2025, but it often falls short of covering rising living expenses, medical costs, and unexpected emergencies. With inflation eroding purchasing power and healthcare expenses soaring—often exceeding $300,000 in retirement—relying solely on SSA can leave you vulnerable. Investments like 401(k)s, Roth IRAs, and stocks offer a way to build wealth, secure your future, and enjoy the retirement you deserve.</p>
-            <div class="quote-box">
-                <p>"Someone’s sitting in the shade today because someone planted a tree a long time ago."</p>
-                <p class="quote-author">- Warren Buffett</p>
-            </div>
+            <p>Social Security is a foundation, but investments pave the way to financial freedom. Explore below.</p>
+
             <!-- AdSense Unit 1 -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5346424450981440" data-ad-slot="5473550665" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-            <h2>Investment Videos (2x2 Grid)</h2>
+            <h2>Magnificent 7 Stocks</h2>
+            <p>Track top tech giants (Apple, Microsoft, Nvidia, Amazon, etc.). Select a symbol to customize each chart.</p>
+            <div class="mag7-grid">
+                <div class="mag7-box">
+                    <h3>Apple (AAPL)</h3>
+                    <select class="symbol-select" data-chart="aapl_widget">
+                        <option value="NASDAQ:AAPL" selected>Apple (AAPL)</option>
+                        <option value="NASDAQ:MSFT">Microsoft (MSFT)</option>
+                        <option value="NASDAQ:NVDA">Nvidia (NVDA)</option>
+                        <option value="NASDAQ:AMZN">Amazon (AMZN)</option>
+                        <option value="NASDAQ:GOOGL">Alphabet (GOOGL)</option>
+                        <option value="NASDAQ:META">Meta (META)</option>
+                        <option value="NASDAQ:TSLA">Tesla (TSLA)</option>
+                    </select>
+                    <div id="aapl_widget"></div>
+                    <script src="https://s3.tradingview.com/tv.js"></script>
+                    <script>
+                        new TradingView.widget({
+                            "width": "100%", "height": 300, "symbol": "NASDAQ:AAPL", "interval": "D",
+                            "timezone": "Etc/UTC", "theme": "light", "style": "1", "locale": "en",
+                            "toolbar_bg": "#f1f3f6", "enable_publishing": false, "container_id": "aapl_widget"
+                        });
+                    </script>
+                </div>
+                <div class="mag7-box">
+                    <h3>Microsoft (MSFT)</h3>
+                    <select class="symbol-select" data-chart="msft_widget">
+                        <option value="NASDAQ:MSFT" selected>Microsoft (MSFT)</option>
+                        <option value="NASDAQ:AAPL">Apple (AAPL)</option>
+                        <option value="NASDAQ:NVDA">Nvidia (NVDA)</option>
+                        <option value="NASDAQ:AMZN">Amazon (AMZN)</option>
+                        <option value="NASDAQ:GOOGL">Alphabet (GOOGL)</option>
+                        <option value="NASDAQ:META">Meta (META)</option>
+                        <option value="NASDAQ:TSLA">Tesla (TSLA)</option>
+                    </select>
+                    <div id="msft_widget"></div>
+                    <script>
+                        new TradingView.widget({
+                            "width": "100%", "height": 300, "symbol": "NASDAQ:MSFT", "interval": "D",
+                            "timezone": "Etc/UTC", "theme": "light", "style": "1", "locale": "en",
+                            "toolbar_bg": "#f1f3f6", "enable_publishing": false, "container_id": "msft_widget"
+                        });
+                    </script>
+                </div>
+                <div class="mag7-box">
+                    <h3>Nvidia (NVDA)</h3>
+                    <select class="symbol-select" data-chart="nvda_widget">
+                        <option value="NASDAQ:NVDA" selected>Nvidia (NVDA)</option>
+                        <option value="NASDAQ:AAPL">Apple (AAPL)</option>
+                        <option value="NASDAQ:MSFT">Microsoft (MSFT)</option>
+                        <option value="NASDAQ:AMZN">Amazon (AMZN)</option>
+                        <option value="NASDAQ:GOOGL">Alphabet (GOOGL)</option>
+                        <option value="NASDAQ:META">Meta (META)</option>
+                        <option value="NASDAQ:TSLA">Tesla (TSLA)</option>
+                    </select>
+                    <div id="nvda_widget"></div>
+                    <script>
+                        new TradingView.widget({
+                            "width": "100%", "height": 300, "symbol": "NASDAQ:NVDA", "interval": "D",
+                            "timezone": "Etc/UTC", "theme": "light", "style": "1", "locale": "en",
+                            "toolbar_bg": "#f1f3f6", "enable_publishing": false, "container_id": "nvda_widget"
+                        });
+                    </script>
+                </div>
+                <div class="mag7-box">
+                    <h3>Amazon (AMZN)</h3>
+                    <select class="symbol-select" data-chart="amzn_widget">
+                        <option value="NASDAQ:AMZN" selected>Amazon (AMZN)</option>
+                        <option value="NASDAQ:AAPL">Apple (AAPL)</option>
+                        <option value="NASDAQ:MSFT">Microsoft (MSFT)</option>
+                        <option value="NASDAQ:NVDA">Nvidia (NVDA)</option>
+                        <option value="NASDAQ:GOOGL">Alphabet (GOOGL)</option>
+                        <option value="NASDAQ:META">Meta (META)</option>
+                        <option value="NASDAQ:TSLA">Tesla (TSLA)</option>
+                    </select>
+                    <div id="amzn_widget"></div>
+                    <script>
+                        new TradingView.widget({
+                            "width": "100%", "height": 300, "symbol": "NASDAQ:AMZN", "interval": "D",
+                            "timezone": "Etc/UTC", "theme": "light", "style": "1", "locale": "en",
+                            "toolbar_bg": "#f1f3f6", "enable_publishing": false, "container_id": "amzn_widget"
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <h2>Investment Videos</h2>
             <div class="video-grid">
                 <div class="video-box">
                     <h3>Investing 101</h3>
@@ -223,7 +331,6 @@
             <div class="chart-container">
                 <h3>QQQ (Nasdaq-100 ETF)</h3>
                 <div id="qqq_widget"></div>
-                <script src="https://s3.tradingview.com/tv.js"></script>
                 <script>
                     new TradingView.widget({
                         "width": "100%", "height": 400, "symbol": "NASDAQ:QQQ", "interval": "D",
@@ -431,7 +538,7 @@
             <button id="support-us-close" class="support-us-close-btn"><i class="fas fa-times"></i></button>
         </div>
         <p>Help us keep this resource free! Donate via PayPal or Cash App:</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+        <form action="https://www.paypal.com/donate" method="post" target slate.com="_blank">
             <input type="hidden" name="business" value="ravellc17@gmail.com" />
             <input type="hidden" name="currency_code" value="USD" />
             <button type="submit" class="support-btn"><i class="fab fa-paypal"></i> Donate via PayPal</button>
@@ -468,6 +575,7 @@
 
     <script src="script.js"></script>
     <script>
+        // Retirement Calculator
         document.getElementById('retirementCalc').addEventListener('submit', (e) => {
             e.preventDefault();
             const monthly = parseFloat(document.getElementById('monthly').value);
@@ -477,7 +585,29 @@
             const futureValue = monthly * ((Math.pow(1 + rate / 12, months) - 1) / (rate / 12));
             document.getElementById('calcResult').textContent = `Future Value: $${futureValue.toFixed(2)}`;
         });
+
+        // Dynamic Chart Symbol Update
+        document.querySelectorAll('.symbol-select').forEach(select => {
+            select.addEventListener('change', (e) => {
+                const chartId = e.target.getAttribute('data-chart');
+                const newSymbol = e.target.value;
+                const container = document.getElementById(chartId);
+                container.innerHTML = ''; // Clear existing chart
+                new TradingView.widget({
+                    "width": "100%",
+                    "height": 300,
+                    "symbol": newSymbol,
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "light",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "container_id": chartId
+                });
+            });
+        });
     </script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92dec84ec89653f0',t:'MTc0NDI1MTgwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
