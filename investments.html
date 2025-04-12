@@ -35,79 +35,299 @@
     <!-- Chart.js for Graphs -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        .cta-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 20px 0; }
-        .invest-cta, .ask-ssa-cta, .news-cta { animation: pulse 2s infinite; }
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .invest-cta, .ask-ssa-cta, .news-cta {
+            animation: pulse 2s infinite;
+        }
         .invest-btn, .ask-ssa-btn, .news-cta-btn, .broker-btn {
-            display: inline-block; background: linear-gradient(135deg, #00ccff, #007bff); color: #fff;
-            padding: 15px 30px; border-radius: 25px; text-decoration: none; font-family: 'Catamaran', sans-serif;
-            font-weight: 700; font-size: 1.5rem; box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden;
+            display: inline-block;
+            background: linear-gradient(135deg, #00ccff, #007bff);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Catamaran', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
         .invest-btn:hover, .ask-ssa-btn:hover, .news-cta-btn:hover, .broker-btn:hover {
-            transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
         }
         .invest-btn::before, .ask-ssa-btn::before, .news-cta-btn::before, .broker-btn::before {
-            content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
-            background: rgba(255, 255, 255, 0.2); border-radius: 50%; transform: translate(-50%, -50%);
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
             transition: width 0.6s ease, height 0.6s ease;
         }
         .invest-btn:hover::before, .ask-ssa-btn:hover::before, .news-cta-btn:hover::before, .broker-btn:hover::before {
-            width: 300px; height: 300px;
+            width: 300px;
+            height: 300px;
         }
-        .btn-text { display: block; font-size: 1.8rem; letter-spacing: 1px; }
-        .btn-subtext { display: block; font-size: 1rem; font-weight: 400; opacity: 0.9; margin-top: 5px; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
-        .hero { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 60px 20px; text-align: center; }
-        .content-section { padding: 40px 20px; background: #fff; max-width: 1200px; margin: 0 auto; }
-        .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 40px 0; }
-        .video-box { background: #f8f8f8; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-        .video-box iframe { width: 100%; height: 200px; border: 2px solid #00ccff; border-radius: 5px; }
-        .mag7-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 40px 0; }
-        .mag7-box { background: #f8f8f8; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-        .mag7-box select { width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; }
-        .chart-container { margin: 20px 0; padding: 20px; background: #f8f8f8; border-radius: 10px; }
-        .calc-tool, .trends-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .resource-list { list-style: none; padding: 0; }
-        .resource-list li { padding: 15px; background: #f8f8f8; margin-bottom: 10px; border-radius: 5px; }
-        .quote-box { background: #e6f0ff; padding: 20px; margin: 20px 0; border-left: 5px solid #00ccff; border-radius: 5px; font-style: italic; }
-        .quote-author { font-weight: bold; margin-top: 10px; color: #007bff; }
-        .compound-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .compound-table th, .compound-table td { border: 1px solid #ddd; padding: 10px; text-align: center; }
-        .cta-banner { background: #00ccff; color: #fff; padding: 20px; text-align: center; margin: 20px 0; border-radius: 10px; }
-        .broker-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
-        .broker-item { background: #f8f8f8; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-        .broker-item img { max-width: 100%; height: auto; border-radius: 5px; }
-        .ira-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
-        .ira-item { background: #f8f8f8; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-        .ira-item img { max-width: 100%; height: auto; border-radius: 5px; }
+        .btn-text {
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+        .btn-subtext {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .content-section {
+            padding: 40px 20px;
+            background: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .video-box {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .video-box iframe {
+            width: 100%;
+            height: 200px;
+            border: 2px solid #00ccff;
+            border-radius: 5px;
+        }
+        .mag7-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .mag7-box {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .mag7-box select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .chart-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 10px;
+        }
+        .calc-tool, .trends-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+        .resource-list li {
+            padding: 15px;
+            background: #f8f8f8;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .quote-box {
+            background: #e6f0ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #00ccff;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .quote-author {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #007bff;
+        }
+        .compound-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .compound-table th, .compound-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .cta-banner {
+            background: #00ccff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .broker-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .broker-item {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .broker-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .ira-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .ira-item {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .ira-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
         @media (max-width: 768px) {
-            .cta-container { flex-direction: column; gap: 10px; }
-            .invest-btn, .ask-ssa-btn, .news-cta-btn, .broker-btn { padding: 10px 15px; font-size: 1.1rem; }
-            .btn-text { font-size: 1.3rem; }
-            .btn-subtextynami { font-size: 0.8rem; }
-            .hero { padding: 40px 15px; }
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            .content-section { padding: 20px 10px; }
-            .video-grid, .mag7-grid, .broker-comparison, .ira-section { grid-template-columns: 1fr; gap: 15px; }
-            .video-box iframe { height: 180px; }
-            .mag7-box select { font-size: 0.9rem; }
-            .chart-container { padding: 10px; }
-            .compound-table { font-size: 0.8rem; }
-            .compound-table th, .compound-table td { padding: 8px; }
-            .calc-tool, .trends-section { padding: 10px; }
-            .quote-box { padding: 15px; }
-            .cta-banner { padding: 15px; }
+            .cta-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 10px;
+            }
+            .ask-ssa-cta, .news-cta {
+                flex: 0 0 calc(50% - 5px);
+                max-width: calc(50% - 5px);
+            }
+            .invest-cta {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-top: 10px;
+            }
+            .invest-btn, .ask-ssa-btn, .news-cta-btn {
+                padding: 10px 15px;
+                font-size: 1.1rem;
+                width: 100%;
+                text-align: center;
+            }
+            .btn-text {
+                font-size: 1.3rem;
+            }
+            .btn-subtext {
+                font-size: 0.8rem;
+            }
+            .hero {
+                padding: 40px 15px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .content-section {
+                padding: 20px 10px;
+            }
+            .video-grid, .mag7-grid, .broker-comparison, .ira-section {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .video-box iframe {
+                height: 180px;
+            }
+            .mag7-box select {
+                font-size: 0.9rem;
+            }
+            .chart-container {
+                padding: 10px;
+            }
+            .compound-table {
+                font-size: 0.8rem;
+            }
+            .compound-table th, .compound-table td {
+                padding: 8px;
+            }
+            .calc-tool, .trends-section {
+                padding: 10px;
+            }
+            .quote-box {
+                padding: 15px;
+            }
+            .cta-banner {
+                padding: 15px;
+            }
         }
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.5rem; }
-            .hero p { font-size: 0.9rem; }
-            .invest-btn, .ask-ssa-btn, .news-cta-btn, .broker-btn { padding: 8px 12px; font-size: 1rem; }
-            .btn-text { font-size: 1.2rem; }
-            .btn-subtext { font-size: 0.7rem; }
-            .video-box iframe { height: 160px; }
-            .content-section h2 { font-size: 1.4rem; }
-            .content-section p { font-size: 0.9rem; }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .invest-btn, .ask-ssa-btn, .news-cta-btn, .broker-btn {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+            .btn-text {
+                font-size: 1.2rem;
+            }
+            .btn-subtext {
+                font-size: 0.7rem;
+            }
+            .video-box iframe {
+                height: 160px;
+            }
+            .content-section h2 {
+                font-size: 1.4rem;
+            }
+            .content-section p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -178,13 +398,13 @@
                 <li><strong>Longevity Risk</strong>: People are living longer—into their 80s and 90s. A $10,000 investment at age 50 could grow to $38,697 by 70 (7% return), extending financial security.</li>
                 <li><strong>Success Stories</strong>:
                     <ul>
-                        <li><strong>Maria, 62</strong>: A nurse who started investing $200/month in a Roth IRA at 40. By 2025, her $2,400 in contributions grew to $150,000 at 7% returns, letting her retire comfortably in Florida with SSA as supplemental income.</li>
+                        <li><strong>Maria, 62</strong>: A nurse who started investing $200/month in a Roth IRA at 40. By 2025, her $57,600 in contributions grew to $150,000 at 7% returns, letting her retire comfortably in Florida with SSA as supplemental income.</li>
                         <li><strong>James, 55</strong>: A teacher who maxed out his 403(b) for 15 years ($19,000/year). His $285,000 in savings grew to $600,000 by 2025, allowing him to travel Europe annually while SSA covered basic bills.</li>
                     </ul>
                 </li>
                 <li><strong>Future Impact</strong>: Investing $500/month for 30 years at 7% could yield $566,416 by retirement—enough to triple your SSA income annually ($68,400 vs. $22,800). This cushions against unexpected costs, funds hobbies, or builds generational wealth.</li>
             </ul>
-            <p>By starting early and staying* staying consistent, investments empower you to live on your terms, not just survive.</p>
+            <p>By starting early and staying consistent, investments empower you to live on your terms, not just survive.</p>
 
             <!-- AdSense Unit 1 -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5346424450981440" data-ad-slot="5473550665" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -313,7 +533,7 @@
                     <p>Beginner-friendly, strong customer support.</p>
                     <a href="https://www.schwab.com/" target="_blank" class="broker-btn">Explore Schwab</a>
                 </div>
-                <div class="broker-item">
+                <div class="broker        <div class="broker-item">
                     <h3>TD Ameritrade</h3>
                     <p>Advanced trading tools, now part of Schwab.</p>
                     <a href="https://www.tdameritrade.com/" target="_blank" class="broker-btn">Explore TD</a>
