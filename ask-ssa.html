@@ -4,231 +4,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask SSA - Social Security Answers</title>
-    <meta name="description" content="Get instant answers to your Social Security questions for 2025, including benefits, eligibility, and more.">
-    <meta name="keywords" content="social security 2025, ssa questions, disability benefits, medicare, ssi">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="description" content="Ask a question about Social Security and get instant, personalized answers from SSA.gov, AARP, Medicare, HUD, and more.">
+    <meta name="keywords" content="social security 2025, ssa questions, ssdi, ssi, medicare, housing assistance">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPC7TFVK2B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QPC7TFVK2B');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .dark-mode {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-        header {
-            background-color: #005ea2;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        nav {
-            background-color: #003087;
-            padding: 1rem;
-        }
-        nav a {
-            color: white;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .chat-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .dark-mode .chat-container {
-            background: #2a2a2a;
-        }
-        .chat-message {
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 8px;
-        }
-        .user-message {
-            background-color: #e6f3ff;
-            margin-left: 20%;
-        }
-        .bot-message {
-            background-color: #f0f0f0;
-            margin-right: 20%;
-        }
-        .dark-mode .user-message {
-            background-color: #4a6fa5;
-        }
-        .dark-mode .bot-message {
-            background-color: #3a3a3a;
-        }
-        .chat-input {
-            display: flex;
-            margin-top: 1rem;
-        }
-        .chat-input input[type="text"] {
-            flex: 1;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .chat-input button {
-            padding: 0.5rem 1rem;
-            background-color: #005ea2;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            margin-left: 0.5rem;
-            cursor: pointer;
-        }
-        .chat-input button:hover {
-            background-color: #003087;
-        }
-        .suggestions {
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            max-width: 600px;
-            border-radius: 4px;
-            z-index: 1000;
-        }
-        .dark-mode .suggestions {
-            background: #2a2a2a;
-            border-color: #444;
-        }
-        .suggestions div {
-            padding: 0.5rem;
-            cursor: pointer;
-        }
-        .suggestions div:hover {
-            background-color: #e6f3ff;
-        }
-        .dark-mode .suggestions div:hover {
-            background-color: #4a6fa5;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #005ea2;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+        body { font-family: 'Catamaran', sans-serif; line-height: 1.5; margin: 0; padding: 0; background: #f5f7fa; display: flex; flex-direction: column; min-height: 100vh; }
+        .hero { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 40px 15px; text-align: center; color: #000; text-shadow: 0 0 5px #fff; }
+        .hero h1 { font-size: 2.5rem; margin: 0 0 10px; }
+        .hero p { font-size: 1.3rem; margin: 0; }
+        .content-section { flex: 1; padding: 20px 15px; background: #fff; border-radius: 10px; margin: 15px auto; max-width: 800px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+        .question-form { display: flex; flex-direction: column; gap: 15px; position: relative; }
+        .question-input, .personal-input { padding: 10px; font-size: 1.2rem; border: 1px solid #ddd; border-radius: 5px; outline: none; transition: border-color 0.3s; }
+        .question-input:focus, .personal-input:focus { border-color: #00ccff; }
+        .submit-btn { background: #00ccff; color: #fff; padding: 10px; border: none; border-radius: 5px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s, transform 0.3s; }
+        .submit-btn:hover { background: #0099cc; transform: scale(1.05); }
+        .answer { margin-top: 20px; padding: 15px; background: #f8f8f8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); animation: fadeIn 0.5s ease-out; }
+        .answer a { color: #00ccff; text-decoration: none; }
+        .answer a:hover { text-decoration: underline; }
+        .answer-actions { margin-top: 10px; display: flex; gap: 10px; }
+        .action-btn { background: #ddd; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        .action-btn:hover { background: #ccc; }
+        .suggestions { position: absolute; top: 120px; left: 0; right: 0; background: #fff; border: 1px solid #ddd; border-radius: 5px; max-height: 200px; overflow-y: auto; display: none; }
+        .suggestion-item { padding: 10px; cursor: pointer; }
+        .suggestion-item:hover { background: #f0f0f0; }
+        .source-label { font-weight: bold; margin-top: 10px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @media (max-width: 480px) {
-            .chat-container {
-                margin: 1rem;
-                padding: 0.5rem;
-            }
-            .chat-input input[type="text"] {
-                font-size: 0.9rem;
-            }
-            .chat-input button {
-                font-size: 0.9rem;
-            }
+            .hero { padding: 20px 10px; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+            .content-section { padding: 15px 10px; margin: 10px; }
+            .question-input, .personal-input, .submit-btn { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Social Security Answers</h1>
-        <p>Your Guide to Benefits, Simplified ✨ SS Made Easy</p>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">News</a>
-        <a href="#">Retirement</a>
-        <a href="#">Medicare</a>
-        <a href="#">Disability</a>
-        <a href="#">Housing</a>
-        <a href="#">FAQ</a>
-        <a href="#" onclick="toggleDarkMode()">Toggle Dark Mode</a>
-    </nav>
-    <div class="chat-container">
-        <div id="chatArea"></div>
-        <div class="chat-input">
-            <input type="text" id="questionInput" placeholder="Ask about Social Security, Medicare, etc." oninput="showSuggestions(this.value)">
-            <input type="number" id="ageInput" placeholder="Your age (optional)" min="0">
-            <select id="benefitType">
-                <option value="">Select Benefit (optional)</option>
-                <option value="retirement">Retirement</option>
-                <option value="disability">Disability</option>
-                <option value="ssi">SSI</option>
-                <option value="medicare">Medicare</option>
-                <option value="housing">Housing</option>
-            </select>
-            <button onclick="submitQuestion()">Ask</button>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
         </div>
-        <div id="suggestions" class="suggestions" style="display: none;"></div>
-    </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/news.html">News</a></li>
+            <li><a href="/replacement.html">Card Replacement</a></li>
+            <li><a href="/retirement.html">Retirement</a></li>
+            <li><a href="/medicare.html">Medicare</a></li>
+            <li><a href="/disability.html">Disability</a></li>
+            <li><a href="/survivor.html">Survivor</a></li>
+            <li><a href="/tax.html">Tax</a></li>
+            <li><a href="/medicaid.html">Medicaid</a></li>
+            <li><a href="/housing.html">Housing</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/fraud.html">Fraud</a></li>
+            <li><a href="/ssi.html">SSI</a></li>
+            <li><a href="/shelter.html">Shelter</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/calculator.html">Calculator</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Ask SSA Anything</h1>
+            <p>Get instant, personalized answers to your 2025 Social Security questions from trusted free sources.</p>
+        </section>
+
+        <section class="content-section">
+            <form id="questionForm" class="question-form">
+                <input type="text" id="questionInput" class="question-input" placeholder="Ask me anything (e.g., 'What’s the 2025 COLA?')" required>
+                <input type="number" id="ageInput" class="personal-input" placeholder="Your age (optional)" min="1" max="120">
+                <select id="benefitType" class="personal-input">
+                    <option value="">Benefit type (optional)</option>
+                    <option value="retirement">Retirement</option>
+                    <option value="disability">Disability</option>
+                    <option value="ssi">SSI</option>
+                    <option value="medicare">Medicare</option>
+                    <option value="housing">Housing</option>
+                </select>
+                <div id="suggestions" class="suggestions"></div>
+                <button type="submit" class="submit-btn">Get Answer</button>
+            </form>
+            <div id="answerContainer" class="answer" style="display: none;"></div>
+            <div class="adsense-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5346424450981440"
+                     data-ad-slot="5473550665"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <p>© 2025 Social Security Answers - ssaanswers.com | <a href="https://www.ssa.gov/">SSA.gov</a></p>
+        <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
+        <p>Powered by <a href="https://www.ssa.gov/"><img src="images/ssa-logo.png" alt="SSA.gov" width="100" loading="lazy"></a></p>
     </footer>
+
     <script>
-        const questionDatabase = [
-            { question: "What’s the 2025 COLA?", answer: "The 2025 COLA is estimated at 2.5%.", sources: [{ name: "SSA.gov", url: "https://www.ssa.gov/cola/" }, { name: "POMS", url: "https://secure.ssa.gov/poms.nsf/lnx/0501100000" }] },
-            { question: "How do I apply for disability?", answer: "Apply online at SSA.gov or visit a local office.", sources: [{ name: "SSA.gov", url: "https://www.ssa.gov/benefits/disability/" }, { name: "POMS", url: "https://secure.ssa.gov/poms.nsf/lnx/0434000000" }] },
-            // Add more questions here
-        ];
+        const ssaLinks = {
+            "how do i apply for ssdi": "https://www.ssa.gov/applyfordisability/",
+            "what is the ssdi benefit in 2025": "https://www.ssa.gov/benefits/disability/",
+            "what’s the difference between ssdi and ssi": "https://www.ssa.gov/disabilityfacts/facts.html",
+            "can i work while on ssdi": "https://www.ssa.gov/disability/disability_work.html",
+            "how long does ssdi approval take": "https://www.ssa.gov/disability/professionals/processingtimes.htm",
+            "how do i replace my social security card": "https://www.ssa.gov/ssnumber/",
+            "when can i start collecting retirement benefits": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+            "how do i report fraud": "https://www.ssa.gov/fraud/",
+            "what is my full retirement age": "https://www.ssa.gov/benefits/retirement/planner/ageincrease.html",
+            "how do i apply for ssi": "https://www.ssa.gov/ssi/start-application.html",
+            "what is ssi": "https://www.ssa.gov/ssi/",
+            "how do i check my benefits": "https://www.ssa.gov/myaccount/",
+            "what’s the 2025 cola increase": "https://www.ssa.gov/cola/",
+            "how do i verify my identity for ssa in 2025": "https://www.ssa.gov/myaccount/identity-verification.html",
+            "what is the social security fairness act": "https://www.ssa.gov/legislation/",
+            "how do i appeal a decision in 2025": "https://www.ssa.gov/appeals/"
+        };
 
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
+        const aarpLinks = {
+            "social security basics": "https://www.aarp.org/retirement/social-security/info-2020/basics.html",
+            "how to maximize social security": "https://www.aarp.org/retirement/social-security/info-2020/maximize-benefits.html",
+            "medicare basics": "https://www.aarp.org/health/medicare-insurance/info-2020/medicare-basics.html",
+            "retirement planning": "https://www.aarp.org/retirement/planning-for-retirement/"
+        };
 
-        function showSuggestions(input) {
-            const suggestionsDiv = document.getElementById('suggestions');
-            suggestionsDiv.innerHTML = '';
-            if (input.length < 3) {
-                suggestionsDiv.style.display = 'none';
-                return;
-            }
-            const matches = questionDatabase.filter(q => q.question.toLowerCase().includes(input.toLowerCase())).slice(0, 5);
-            matches.forEach(match => {
-                const div = document.createElement('div');
-                div.textContent = match.question;
-                div.onclick = () => {
-                    document.getElementById('questionInput').value = match.question;
-                    suggestionsDiv.style.display = 'none';
-                };
-                suggestionsDiv.appendChild(div);
+        const medicareLinks = {
+            "what is medicare": "https://www.medicare.gov/what-medicare-covers",
+            "how do i sign up for medicare": "https://www.medicare.gov/basics/get-started-with-medicare",
+            "medicare costs in 2025": "https://www.medicare.gov/basics/costs",
+            "medicare advantage plans": "https://www.medicare.gov/what-medicare-covers/your-medicare-coverage-options"
+        };
+
+        const hudLinks = {
+            "housing assistance": "https://www.hud.gov/topics/rental_assistance",
+            "how do i apply for hud housing": "https://www.hud.gov/topics/rental_assistance/apply",
+            "senior housing options": "https://www.hud.gov/states/shared/topics/housing_for_seniors",
+            "housing for disabled": "https://www.hud.gov/program_offices/fair_housing_equal_opp/disability_main"
+        };
+
+        const otherFreeLinks = {
+            "medicaid basics": "https://www.medicaid.gov/medicaid/index.html",
+            "how do i apply for medicaid": "https://www.medicaid.gov/medicaid/eligibility/index.html",
+            "eldercare resources": "https://www.eldercare.acl.gov/Public/Index.aspx",
+            "veterans benefits": "https://www.va.gov/pension/"
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('questionForm');
+            const input = document.getElementById('questionInput');
+            const ageInput = document.getElementById('ageInput');
+            const benefitType = document.getElementById('benefitType');
+            const answerContainer = document.getElementById('answerContainer');
+            const suggestions = document.getElementById('suggestions');
+            const allLinks = { ...ssaLinks, ...aarpLinks, ...medicareLinks, ...hudLinks, ...otherFreeLinks };
+            const questions = Object.keys(allLinks);
+
+            input.addEventListener('input', () => {
+                const query = input.value.toLowerCase().trim();
+                suggestions.innerHTML = '';
+                if (query) {
+                    const matches = questions.filter(q => q.includes(query)).slice(0, 5);
+                    if (matches.length) {
+                        matches.forEach(match => {
+                            const div = document.createElement('div');
+                            div.className = 'suggestion-item';
+                            div.textContent = match;
+                            div.addEventListener('click', () => {
+                                input.value = match;
+                                suggestions.style.display = 'none';
+                                form.dispatchEvent(new Event('submit'));
+                            });
+                            suggestions.appendChild(div);
+                        });
+                        suggestions.style.display = 'block';
+                    } else {
+                        suggestions.style.display = 'none';
+                    }
+                } else {
+                    suggestions.style.display = 'none';
+                }
             });
-            suggestionsDiv.style.display = matches.length ? 'block' : 'none';
-        }
 
-        function submitQuestion() {
-            const question = document.getElementById('questionInput').value;
-            const age = document.getElementById('ageInput').value;
-            const benefitType = document.getElementById('benefitType').value;
-            const chatArea = document.getElementById('chatArea');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const question = input.value.trim().toLowerCase();
+                const age = ageInput.value;
+                const benefit = benefitType.value;
+                let fullQuestion = question;
+                if (age) fullQuestion = `At age ${age}, ${question}`;
+                if (benefit) fullQuestion = `${fullQuestion} for ${benefit}`;
 
-            // Add user message
-            const userMessage = document.createElement('div');
-            userMessage.className = 'chat-message user-message';
-            userMessage.textContent = question;
-            chatArea.appendChild(userMessage);
+                answerContainer.style.display = 'none';
+                answerContainer.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+                suggestions.style.display = 'none';
 
-            // Find answer
-            const match = questionDatabase.find(q => q.question.toLowerCase() === question.toLowerCase());
-            const botMessage = document.createElement('div');
-            botMessage.className = 'chat-message bot-message';
-            if (match) {
-                botMessage.innerHTML = `${match.answer}<br>Sources:<br>` + match.sources.map(s => `<a href="${s.url}" target="_blank">${s.name}</a>`).join('<br>');
-            } else {
-                const searchUrl = `https://secure.ssa.gov/poms.nsf/Search?SearchView&Query=${encodeURIComponent(question)}`;
-                botMessage.innerHTML = `I’m not sure about that, but you can search POMS here: <a href="${searchUrl}" target="_blank">POMS Search</a>`;
-            }
-            chatArea.appendChild(botMessage);
-            chatArea.scrollTop = chatArea.scrollHeight;
-            document.getElementById('questionInput').value = '';
-            document.getElementById('suggestions').style.display = 'none';
-        }
+                let answerHTML = '';
+
+                // Check SSA Links
+                let ssaLink = ssaLinks[question] || Object.entries(ssaLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
+                if (ssaLink) {
+                    answerHTML += `<p class="source-label">From SSA.gov:</p><p><a href="${ssaLink}" target="_blank">${ssaLink}</a></p>`;
+                }
+
+                // Check AARP Links
+                let aarpLink = aarpLinks[question] || Object.entries(aarpLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
+                if (aarpLink) {
+                    answerHTML += `<p class="source-label">From AARP:</p><p><a href="${aarpLink}" target="_blank">${aarpLink}</a></p>`;
+                }
+
+                // Check Medicare Links
+                let medicareLink = medicareLinks[question] || Object.entries(medicareLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
+                if (medicareLink) {
+                    answerHTML += `<p class="source-label">From Medicare.gov:</p><p><a href="${medicareLink}" target="_blank">${medicareLink}</a></p>`;
+                }
+
+                // Check HUD Links
+                let hudLink = hudLinks[question] || Object.entries(hudLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
+                if (hudLink) {
+                    answerHTML += `<p class="source-label">From HUD.gov:</p><p><a href="${hudLink}" target="_blank">${hudLink}</a></p>`;
+                }
+
+                // Check Other Free Links
+                let otherLink = otherFreeLinks[question] || Object.entries(otherFreeLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
+                if (otherLink) {
+                    answerHTML += `<p class="source-label">From Other Sources:</p><p><a href="${otherLink}" target="_blank">${otherLink}</a></p>`;
+                }
+
+                // Default SSA Search if no matches
+                if (!answerHTML) {
+                    const defaultLink = `https://www.ssa.gov/site/search/?q=${encodeURIComponent(fullQuestion)}`;
+                    answerHTML = `<p class="source-label">Search SSA.gov:</p><p><a href="${defaultLink}" target="_blank">${defaultLink}</a></p>`;
+                }
+
+                answerContainer.innerHTML = `
+                    <p><i class="fas fa-check-circle" style="color: #00ccff;"></i> Here’s your answer${age || benefit ? ' (personalized)' : ''}:</p>
+                    ${answerHTML}
+                    <div class="answer-actions">
+                        <button class="action-btn" onclick="navigator.clipboard.writeText('${answerHTML.replace(/<\/?[^>]+(>|$)/g, '')}')"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="action-btn" onclick="window.open('https://twitter.com/intent/tweet?text=${encodeURIComponent('Social Security Answer: ' + answerHTML.replace(/<\/?[^>]+(>|$)/g, ''))}', '_blank')"><i class="fab fa-x-twitter"></i> Share</button>
+                    </div>
+                `;
+                answerContainer.style.display = 'block';
+                input.value = '';
+                ageInput.value = '';
+                benefitType.value = '';
+            });
+        });
     </script>
 </body>
 </html>
