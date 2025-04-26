@@ -26,7 +26,7 @@
         .hero p { font-size: 1.3rem; margin: 0; }
         .content-section { flex: 1; padding: 20px 15px; background: #fff; border-radius: 10px; margin: 15px auto; max-width: 800px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
         .question-form { display: flex; flex-direction: column; gap: 15px; position: relative; }
-        .question-input, .personal-input { padding: 10px; font-size: 1.2rem; border: 1px solid #ddd; border-radius: 5px; outline: none; transition: border-color 0.3s; }
+        .question-input, .personal-input { padding: 10px; font-size: 1.2rem; border: 1px solid #ddd; border-radius: 5px; outline  outline: none; transition: border-color 0.3s; }
         .question-input:focus, .personal-input:focus { border-color: #00ccff; }
         .submit-btn { background: #00ccff; color: #fff; padding: 10px; border: none; border-radius: 5px; font-size: 1.2rem; cursor: pointer; transition: background 0.3s, transform 0.3s; }
         .submit-btn:hover { background: #0099cc; transform: scale(1.05); }
@@ -123,50 +123,169 @@
 
     <script>
         const ssaLinks = {
-            "how do i apply for ssdi": "https://www.ssa.gov/applyfordisability/",
-            "what is the ssdi benefit in 2025": "https://www.ssa.gov/benefits/disability/",
-            "what’s the difference between ssdi and ssi": "https://www.ssa.gov/disabilityfacts/facts.html",
-            "can i work while on ssdi": "https://www.ssa.gov/disability/disability_work.html",
-            "how long does ssdi approval take": "https://www.ssa.gov/disability/professionals/processingtimes.htm",
-            "how do i replace my social security card": "https://www.ssa.gov/ssnumber/",
-            "when can i start collecting retirement benefits": "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
-            "how do i report fraud": "https://www.ssa.gov/fraud/",
-            "what is my full retirement age": "https://www.ssa.gov/benefits/retirement/planner/ageincrease.html",
-            "how do i apply for ssi": "https://www.ssa.gov/ssi/start-application.html",
-            "what is ssi": "https://www.ssa.gov/ssi/",
-            "how do i check my benefits": "https://www.ssa.gov/myaccount/",
-            "what’s the 2025 cola increase": "https://www.ssa.gov/cola/",
-            "how do i verify my identity for ssa in 2025": "https://www.ssa.gov/myaccount/identity-verification.html",
-            "what is the social security fairness act": "https://www.ssa.gov/legislation/",
-            "how do i appeal a decision in 2025": "https://www.ssa.gov/appeals/"
+            "how do i apply for ssdi": {
+                url: "https://www.ssa.gov/applyfordisability/",
+                answer: "To apply for SSDI, you can submit an application online at SSA.gov, call 1-800-772-1213, or visit a local SSA office. You'll need medical records, work history, and personal details."
+            },
+            "what is the ssdi benefit in 2025": {
+                url: "https://www.ssa.gov/benefits/disability/",
+                answer: "SSDI benefits in 2025 depend on your earnings history. The average monthly benefit is around $1,500, adjusted for the 2025 COLA (2.5%)."
+            },
+            "what’s the difference between ssdi and ssi": {
+                url: "https://www.ssa.gov/disabilityfacts/facts.html",
+                answer: "SSDI is for workers with a disability who paid Social Security taxes. SSI is for low-income individuals with disabilities or those over 65, regardless of work history."
+            },
+            "can i work while on ssdi": {
+                url: "https://www.ssa.gov/disability/disability_work.html",
+                answer: "Yes, you can work while on SSDI under the Ticket to Work program, but earnings above $1,550/month (2025) may affect benefits. Report income to SSA."
+            },
+            "how long does ssdi approval take": {
+                url: "https://www.ssa.gov/disability/professionals/processingtimes.htm",
+                answer: "SSDI approval typically takes 3-6 months, but complex cases or appeals can take longer, sometimes up to a year."
+            },
+            "how do i replace my social security card": {
+                url: "https://www.ssa.gov/ssnumber/",
+                answer: "To replace a Social Security card, apply online at SSA.gov, by mail, or in person with proof of identity and citizenship. It's free."
+            },
+            "when can i start collecting retirement benefits": {
+                url: "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+                answer: "You can start retirement benefits at age 62, but waiting until your full retirement age (66-67, depending on birth year) gives you the full amount."
+            },
+            "how do i report fraud": {
+                url: "https://www.ssa.gov/fraud/",
+                answer: "Report Social Security fraud to the SSA Office of the Inspector General online, by calling 1-800-269-0271, or mailing details to their fraud hotline."
+            },
+            "what is my full retirement age": {
+                url: "https://www.ssa.gov/benefits/retirement/planner/ageincrease.html",
+                answer: "Your full retirement age is 66 if born before 1955, or 67 if born in 1960 or later. It varies slightly for those born between 1955-1959."
+            },
+            "how do i apply for ssi": {
+                url: "https://www.ssa.gov/ssi/start-application.html",
+                answer: "Apply for SSI online, by calling 1-800-772-1213, or at an SSA office. Provide income, asset, and medical details."
+            },
+            "what is ssi": {
+                url: "https://www.ssa.gov/ssi/",
+                answer: "SSI provides monthly payments to low-income individuals who are disabled, blind, or over 65 and have limited resources."
+            },
+            "how do i check my benefits": {
+                url: "https://www.ssa.gov/myaccount/",
+                answer: "Check your benefits by creating an account on SSA.gov's 'my Social Security' portal to view your earnings record and benefit estimates."
+            },
+            "what’s the 2025 cola increase": {
+                url: "https://www.ssa.gov/cola/",
+                answer: "The 2025 COLA increase is 2.5%, raising average Social Security benefits by about $48/month starting January 2025."
+            },
+            "how do i verify my identity for ssa in 2025": {
+                url: "https://www.ssa.gov/myaccount/identity-verification.html",
+                answer: "Verify your identity for SSA online via 'my Social Security' using a driver’s license, passport, or other approved ID."
+            },
+            "what is the social security fairness act": {
+                url: "https://www.ssa.gov/legislation/",
+                answer: "The Social Security Fairness Act aims to eliminate rules like WEP and GPO that reduce benefits for some public workers with pensions."
+            },
+            "how do i appeal a decision in 2025": {
+                url: "https://www.ssa.gov/appeals/",
+                answer: "To appeal an SSA decision, submit a request online, by mail, or in person within 60 days of the decision notice."
+            }
+        };
+
+        const pomsLinks = {
+            "how do i apply for ssdi": {
+                url: "https://secure.ssa.gov/poms.nsf/lnx/0500501010",
+                answer: ssaLinks["how do i apply for ssdi"].answer
+            },
+            "what’s the difference between ssdi and ssi": {
+                url: "https://secure.ssa.gov/poms.nsf/lnx/0500501020",
+                answer: ssaLinks["what’s the difference between ssdi and ssi"].answer
+            },
+            "can i work while on ssdi": {
+                url: "https://secure.ssa.gov/poms.nsf/lnx/0502101000",
+                answer: ssaLinks["can i work while on ssdi"].answer
+            },
+            "how do i apply for ssi": {
+                url: "https://secure.ssa.gov/poms.nsf/lnx/0500501030",
+                answer: ssaLinks["how do i apply for ssi"].answer
+            },
+            "what is ssi": {
+                url: "https://secure.ssa.gov/poms.nsf/lnx/0500501000",
+                answer: ssaLinks["what is ssi"].answer
+            }
         };
 
         const aarpLinks = {
-            "social security basics": "https://www.aarp.org/retirement/social-security/info-2020/basics.html",
-            "how to maximize social security": "https://www.aarp.org/retirement/social-security/info-2020/maximize-benefits.html",
-            "medicare basics": "https://www.aarp.org/health/medicare-insurance/info-2020/medicare-basics.html",
-            "retirement planning": "https://www.aarp.org/retirement/planning-for-retirement/"
+            "social security basics": {
+                url: "https://www.aarp.org/retirement/social-security/info-2020/basics.html",
+                answer: "Social Security provides retirement, disability, and survivor benefits based on your work history and contributions."
+            },
+            "how to maximize social security": {
+                url: "https://www.aarp.org/retirement/social-security/info-2020/maximize-benefits.html",
+                answer: "Maximize Social Security by delaying benefits until age 70, coordinating with a spouse, and checking your earnings record."
+            },
+            "medicare basics": {
+                url: "https://www.aarp.org/health/medicare-insurance/info-2020/medicare-basics.html",
+                answer: "Medicare is health insurance for those 65+ or with certain disabilities, covering hospital stays, doctor visits, and drugs."
+            },
+            "retirement planning": {
+                url: "https://www.aarp.org/retirement/planning-for-retirement/",
+                answer: "Retirement planning involves saving, investing, and estimating Social Security and other income to meet your needs."
+            }
         };
 
         const medicareLinks = {
-            "what is medicare": "https://www.medicare.gov/what-medicare-covers",
-            "how do i sign up for medicare": "https://www.medicare.gov/basics/get-started-with-medicare",
-            "medicare costs in 2025": "https://www.medicare.gov/basics/costs",
-            "medicare advantage plans": "https://www.medicare.gov/what-medicare-covers/your-medicare-coverage-options"
+            "what is medicare": {
+                url: "https://www.medicare.gov/what-medicare-covers",
+                answer: "Medicare is a federal program covering hospital care (Part A), medical services (Part B), and drugs (Part D) for those 65+."
+            },
+            "how do i sign up for medicare": {
+                url: "https://www.medicare.gov/basics/get-started-with-medicare",
+                answer: "Sign up for Medicare online, by phone (1-800-633-4227), or at an SSA office, typically during your Initial Enrollment Period."
+            },
+            "medicare costs in 2025": {
+                url: "https://www.medicare.gov/basics/costs",
+                answer: "In 2025, Medicare Part B premiums are about $185/month, with deductibles and copays varying by plan."
+            },
+            "medicare advantage plans": {
+                url: "https://www.medicare.gov/what-medicare-covers/your-medicare-coverage-options",
+                answer: "Medicare Advantage (Part C) plans combine Parts A, B, and often D, offered by private insurers with varying costs and coverage."
+            }
         };
 
         const hudLinks = {
-            "housing assistance": "https://www.hud.gov/topics/rental_assistance",
-            "how do i apply for hud housing": "https://www.hud.gov/topics/rental_assistance/apply",
-            "senior housing options": "https://www.hud.gov/states/shared/topics/housing_for_seniors",
-            "housing for disabled": "https://www.hud.gov/program_offices/fair_housing_equal_opp/disability_main"
+            "housing assistance": {
+                url: "https://www.hud.gov/topics/rental_assistance",
+                answer: "HUD offers rental assistance like Section 8 vouchers to help low-income families afford housing."
+            },
+            "how do i apply for hud housing": {
+                url: "https://www.hud.gov/topics/rental_assistance/apply",
+                answer: "Apply for HUD housing through your local Public Housing Agency with income and family details."
+            },
+            "senior housing options": {
+                url: "https://www.hud.gov/states/shared/topics/housing_for_seniors",
+                answer: "HUD provides senior housing options like subsidized apartments and supportive living for those 62+."
+            },
+            "housing for disabled": {
+                url: "https://www.hud.gov/program_offices/fair_housing_equal_opp/disability_main",
+                answer: "HUD offers accessible housing and subsidies for people with disabilities through local housing agencies."
+            }
         };
 
         const otherFreeLinks = {
-            "medicaid basics": "https://www.medicaid.gov/medicaid/index.html",
-            "how do i apply for medicaid": "https://www.medicaid.gov/medicaid/eligibility/index.html",
-            "eldercare resources": "https://www.eldercare.acl.gov/Public/Index.aspx",
-            "veterans benefits": "https://www.va.gov/pension/"
+            "medicaid basics": {
+                url: "https://www.medicaid.gov/medicaid/index.html",
+                answer: "Medicaid provides health coverage for low-income individuals, covering doctor visits, hospital care, and more."
+            },
+            "how do i apply for medicaid": {
+                url: "https://www.medicaid.gov/medicaid/eligibility/index.html",
+                answer: "Apply for Medicaid through your state’s Medicaid agency or HealthCare.gov with income and household details."
+            },
+            "eldercare resources": {
+                url: "https://www.eldercare.acl.gov/Public/Index.aspx",
+                answer: "Eldercare resources include local services like caregiving support, transportation, and meal programs for seniors."
+            },
+            "veterans benefits": {
+                url: "https://www.va.gov/pension/",
+                answer: "VA pensions provide monthly payments to low-income wartime veterans or their survivors."
+            }
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -176,7 +295,7 @@
             const benefitType = document.getElementById('benefitType');
             const answerContainer = document.getElementById('answerContainer');
             const suggestions = document.getElementById('suggestions');
-            const allLinks = { ...ssaLinks, ...aarpLinks, ...medicareLinks, ...hudLinks, ...otherFreeLinks };
+            const allLinks = { ...ssaLinks, ...pomsLinks, ...aarpLinks, ...medicareLinks, ...hudLinks, ...otherFreeLinks };
             const questions = Object.keys(allLinks);
 
             input.addEventListener('input', () => {
@@ -223,37 +342,43 @@
                 // Check SSA Links
                 let ssaLink = ssaLinks[question] || Object.entries(ssaLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
                 if (ssaLink) {
-                    answerHTML += `<p class="source-label">From SSA.gov:</p><p><a href="${ssaLink}" target="_blank">${ssaLink}</a></p>`;
+                    answerHTML += `<p>${ssaLink.answer}</p><p class="source-label">From SSA.gov:</p><p><a href="${ssaLink.url}" target="_blank">${ssaLink.url}</a></p>`;
+                }
+
+                // Check POMS Links
+                let pomsLink = pomsLinks[question] || Object.entries(pomsLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
+                if (pomsLink && !ssaLink) { // Avoid duplicating SSA answers
+                    answerHTML += `<p>${pomsLink.answer}</p><p class="source-label">From SSA POMS:</p><p><a href="${pomsLink.url}" target="_blank">${pomsLink.url}</a></p>`;
                 }
 
                 // Check AARP Links
                 let aarpLink = aarpLinks[question] || Object.entries(aarpLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
                 if (aarpLink) {
-                    answerHTML += `<p class="source-label">From AARP:</p><p><a href="${aarpLink}" target="_blank">${aarpLink}</a></p>`;
+                    answerHTML += `<p>${aarpLink.answer}</p><p class="source-label">From AARP:</p><p><a href="${aarpLink.url}" target="_blank">${aarpLink.url}</a></p>`;
                 }
 
                 // Check Medicare Links
                 let medicareLink = medicareLinks[question] || Object.entries(medicareLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
                 if (medicareLink) {
-                    answerHTML += `<p class="source-label">From Medicare.gov:</p><p><a href="${medicareLink}" target="_blank">${medicareLink}</a></p>`;
+                    answerHTML += `<p>${medicareLink.answer}</p><p class="source-label">From Medicare.gov:</p><p><a href="${medicareLink.url}" target="_blank">${medicareLink.url}</a></p>`;
                 }
 
                 // Check HUD Links
                 let hudLink = hudLinks[question] || Object.entries(hudLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
                 if (hudLink) {
-                    answerHTML += `<p class="source-label">From HUD.gov:</p><p><a href="${hudLink}" target="_blank">${hudLink}</a></p>`;
+                    answerHTML += `<p>${hudLink.answer}</p><p class="source-label">From HUD.gov:</p><p><a href="${hudLink.url}" target="_blank">${hudLink.url}</a></p>`;
                 }
 
                 // Check Other Free Links
                 let otherLink = otherFreeLinks[question] || Object.entries(otherFreeLinks).find(([q]) => question.includes(q.split(' ').slice(-2).join(' ')))?.[1];
                 if (otherLink) {
-                    answerHTML += `<p class="source-label">From Other Sources:</p><p><a href="${otherLink}" target="_blank">${otherLink}</a></p>`;
+                    answerHTML += `<p>${otherLink.answer}</p><p class="source-label">From Other Sources:</p><p><a href="${otherLink.url}" target="_blank">${otherLink.url}</a></p>`;
                 }
 
                 // Default SSA Search if no matches
                 if (!answerHTML) {
                     const defaultLink = `https://www.ssa.gov/site/search/?q=${encodeURIComponent(fullQuestion)}`;
-                    answerHTML = `<p class="source-label">Search SSA.gov:</p><p><a href="${defaultLink}" target="_blank">${defaultLink}</a></p>`;
+                    answerHTML = `<p>We couldn't find a specific answer. Try searching SSA.gov for more details.</p><p class="source-label">Search SSA.gov:</p><p><a href="${defaultLink}" target="_blank">${defaultLink}</a></p>`;
                 }
 
                 answerContainer.innerHTML = `
@@ -271,5 +396,5 @@
             });
         });
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9368b0fa0e7c4584',t:'MTc0NTY5Nzg4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
