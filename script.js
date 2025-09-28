@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const pages = [
         { url: "/", title: "Home" },
         { url: "/news.html", title: "News" },
-        { url: "/blog.html", title: "Blog" },  // New Blog entry added here
+        { url: "/blog.html", title: "Blog" },  // Added Blog page
+        { url: "/investments.html", title: "Investments" },
         { url: "/replacement.html", title: "Card Replacement" },
         { url: "/retirement.html", title: "Retirement Planning" },
         { url: "/medicare.html", title: "Medicare Basics" },
@@ -17,8 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
         { url: "/shelter.html", title: "Shelter" },
         { url: "/shelter-locations.html", title: "Shelter Locations" },
         { url: "/about.html", title: "About Us" },
-        { url: "/calculator.html", title: "Benefits Calculator" }
+        { url: "/calculator.html", title: "Benefits Calculator" },
+        // Optional: Add individual blog posts for search functionality
+        { url: "/blog/ssi-mistakes.html", title: "5 Common Mistakes in SSI Applications for 2025" },
+        { url: "/blog/medicare-changes.html", title: "Medicare Changes Coming in 2026" },
+        { url: "/blog/ssdi-maximize.html", title: "How to Maximize Your SSDI Benefits" }
     ];
+
+    // Blog Post Animation (for blog.html and blog post pages)
+    const blogPosts = document.querySelectorAll('.blog-post');
+    blogPosts.forEach((post, index) => {
+        setTimeout(() => post.classList.add('slide-in'), index * 200);
+    });
 
     // Video Box Animation (for news.html or any page with .video-box)
     const videoBoxes = document.querySelectorAll('.video-box');
