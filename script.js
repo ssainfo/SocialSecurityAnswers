@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pages = [
         { url: "/", title: "Home" },
         { url: "/news.html", title: "News" },
+        { url: "/blog.html", title: "Blog" },  // New Blog entry added here
         { url: "/replacement.html", title: "Card Replacement" },
         { url: "/retirement.html", title: "Retirement Planning" },
         { url: "/medicare.html", title: "Medicare Basics" },
