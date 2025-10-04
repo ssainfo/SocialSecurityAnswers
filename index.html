@@ -383,6 +383,7 @@
         <ul class="nav-list" id="nav-list">
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/news.html">News</a></li>
+            <li><a href="/blog.html">MUST READ</a></li>
             <li><a href="/investments.html">Investments</a></li>
             <li><a href="/replacement.html">Card Replacement</a></li>
             <li><a href="/retirement.html">Retirement</a></li>
@@ -691,7 +692,7 @@
                         setTimeout(() => {
                             showReplacementPopup();
                             sessionStorage.setItem("replacementPopupShown", "true");
-                        }, 1000);
+                        }, 0); // Immediate display
                     }
                 } else if (window.location.pathname.includes('replacement.html')) {
                     showReplacementPopup();
