@@ -34,98 +34,145 @@
       gtag('config', 'G-QPC7TFVK2B');
     </script>
     <style>
-        /* CSS for CTA buttons */
-        .ask-ssa-cta, .news-cta, .investments-cta {
-            text-align: center;
-            padding: 20px 0;
-            animation: pulse 2s infinite;
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        .ask-ssa-btn, .news-cta-btn, .investments-cta-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #00ccff, #007bff);
+        /* Enhanced Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: #4682b4;
             color: #fff;
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-family: 'Catamaran', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border: none;
+            padding: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
         }
-
-        .ask-ssa-btn:hover, .news-cta-btn:hover, .investments-cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
-        }
-
-        .ask-ssa-btn::before, .news-cta-btn::before, .investments-cta-btn::before {
-            content: '';
+        .nav-list.mobile-open {
+            display: flex !important;
+            flex-direction: column;
+            width: 100%;
+            background: #f8f9fa;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
+            top: 100%;
+            left: 0;
+            padding: 10px 0;
         }
-
-        .ask-ssa-btn:hover::before, .news-cta-btn:hover::before, .investments-cta-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-text {
-            display: block;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
-
-        .btn-subtext {
-            display: block;
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.9;
-            margin-top: 5px;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        .cta-container {
+        .nav-list.mobile-open li {
+            margin: 5px 0;
             text-align: center;
-            padding: 20px 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .main-nav {
+                position: relative;
+            }
+            .nav-list {
+                display: none;
+            }
         }
 
-        @media (max-width: 480px) {
-            .ask-ssa-btn, .news-cta-btn, .investments-cta-btn {
-                padding: 12px 20px;
-                font-size: 1.2rem;
+        /* Simplified Hero for Readability */
+        .hero {
+            padding: 30px 20px;
+        }
+        .hero h1 {
+            font-size: 2.2em;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* Compact Topic Grid on Mobile */
+        @media (max-width: 768px) {
+            .topic-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
-            .btn-text {
-                font-size: 1.4rem;
+            .topic-grid li a {
+                padding: 15px;
             }
-            .btn-subtext {
-                font-size: 0.9rem;
+            .topic-grid li a i {
+                font-size: 1.8em;
+                margin-bottom: 10px;
             }
+        }
+
+        /* Engaging CTA Enhancements */
+        .cta-container {
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px;
+        }
+        @media (min-width: 769px) {
             .cta-container {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: row;
+                justify-content: center;
             }
+        }
+
+        /* Social Posts Compact */
+        .social-posts {
+            flex-direction: column;
+            align-items: center;
+        }
+        .social-post {
+            width: 100%;
+            max-width: 400px;
+        }
+        @media (min-width: 769px) {
+            .social-posts {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .social-post {
+                flex: 1 1 300px;
+                max-width: 560px;
+            }
+        }
+
+        /* YouTube Responsive */
+        .hero iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+        }
+        @media (max-width: 768px) {
+            .hero iframe {
+                height: 200px;
+            }
+        }
+
+        /* Bullet Points for Readability */
+        .why-choose ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .why-choose li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Add Engagement: Testimonial Snippet */
+        .testimonial {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: #4682b4;
+            margin-top: 10px;
+        }
+
+        /* Optimized Images */
+        .popup-image, .cashapp-qr {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -137,7 +184,7 @@
         </div>
     </header>
 
-    <!-- Fixed CTA Container -->
+    <!-- Fixed CTA Container - Simplified for Mobile Stack -->
     <div class="cta-container">
         <!-- Ask SSA Button -->
         <div class="ask-ssa-cta">
@@ -163,10 +210,10 @@
     </div>
 
     <nav class="main-nav">
-        <ul class="nav-list">
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        <ul class="nav-list" id="nav-list">
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/news.html">News</a></li>
-            <li><a href="/blog.html">Blog</a></li>  <!-- New Blog tab added here -->
             <li><a href="/investments.html">Investments</a></li>
             <li><a href="/replacement.html">Card Replacement</a></li>
             <li><a href="/retirement.html">Retirement</a></li>
@@ -190,7 +237,8 @@
     <main>
         <section class="hero">
             <h1>SSA Answers: Master Social Security in 2025</h1>
-            <p>SSA Answers provides your free, all-in-one guide to SSI, SSDI, Medicare, and more—updated daily to help you maximize your benefits.</p>
+            <p>Free, daily-updated guides to SSI, SSDI, Medicare, and more. Maximize your benefits—start today!</p>
+            
             <div class="social-media-section">
                 <h2>Latest on X</h2>
                 <div class="social-posts" id="x-posts">
@@ -199,76 +247,90 @@
                             <i class="fab fa-x-twitter"></i>
                             <span>Social Security</span> <span class="handle">@SocialSecurity</span>
                         </div>
-                        <p>Need to visit a Social Security office? You must make an appointment first to ensure you get the best service possible. Visit https://ow.ly/bELM50V75GH: <a href="https://x.com/SocialSecurity/status/1900200435899601234" target="_blank">ssa.gov</a></p>
+                        <p>Need to visit a Social Security office? You must make an appointment first to ensure you get the best service possible. Visit <a href="https://x.com/SocialSecurity/status/1900200435899601234" target="_blank">ssa.gov</a></p>
                         <p class="post-meta">Posted on March 13, 2025</p>
                     </div>
                 </div>
             </div>
-            <iframe src="https://www.youtube.com/embed/vFo687bP9Pc" width="560" height="315" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/vFo687bP9Pc" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            </div>
         </section>
 
         <section class="content-section">
-            <h2>Welcome to SSA Answers, Your Social Security Hub</h2>
-            <p>SSA Answers makes it easy to explore key Social Security topics—everything you need, simplified. Whether you're navigating SSI, SSDI, Medicare, or retirement benefits, SSA Answers offers free, daily-updated resources to guide you every step of the way. Trust SSA Answers for clear, reliable information to maximize your benefits in 2025.</p>
+            <h2>Welcome to SSA Answers</h2>
+            <p>Your hub for simplified Social Security info. Explore SSI, SSDI, Medicare, retirement—everything updated for 2025.</p>
 
-            <h2>Why Choose SSA Answers?</h2>
-            <p>At SSA Answers, we simplify the complex world of Social Security. Our free guides, tools like the benefits calculator, and daily updates ensure you have the latest information at your fingertips. Unlike other sites, SSA Answers is designed for clarity and ease, helping you find answers fast—whether you’re replacing a card, appealing a decision, or planning retirement.</p>
+            <h2>Why SSA Answers?</h2>
+            <div class="why-choose">
+                <ul>
+                    <li>Free guides & tools like our benefits calculator</li>
+                    <li>Daily updates on 2025 changes</li>
+                    <li>Clear, easy-to-read resources—no jargon</li>
+                    <li>Fast answers for card replacement, appeals, and more</li>
+                </ul>
+            </div>
+            <div class="testimonial">
+                "SSA Answers saved me hours—clear steps for my SSI claim!"<br>
+                <span class="testimonial-author">- Maria R., Recent User</span>
+            </div>
 
-            <h2>Interactive Policy Guide: How to Appeal a Decision</h2>
+            <h2>Appeal a Decision: Quick Guide</h2>
             <div class="flowchart">
                 <div class="flow-step" data-step="1">
                     <span class="step-number">1</span>
-                    <p>Receive Denial Notice</p>
-                    <div class="step-details">Get your official SSA denial letter.</div>
-                    <a href="/appeal-step1.html" class="step-link">Learn More</a>
+                    <p>Receive Denial</p>
+                    <div class="step-details">Check your SSA letter.</div>
+                    <a href="/appeal-step1.html" class="step-link">More</a>
                 </div>
                 <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
                 <div class="flow-step" data-step="2">
                     <span class="step-number">2</span>
                     <p>File Reconsideration</p>
-                    <div class="step-details">Submit Form SSA-561 within 60 days.</div>
-                    <a href="/appeal-step2.html" class="step-link">Learn More</a>
+                    <div class="step-details">Form SSA-561 in 60 days.</div>
+                    <a href="/appeal-step2.html" class="step-link">More</a>
                 </div>
                 <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
                 <div class="flow-step" data-step="3">
                     <span class="step-number">3</span>
-                    <p>Hearing with ALJ</p>
-                    <div class="step-details">Request a hearing if denied again.</div>
-                    <a href="/appeal-step3.html" class="step-link">Learn More</a>
+                    <p>ALJ Hearing</p>
+                    <div class="step-details">Request if denied again.</div>
+                    <a href="/appeal-step3.html" class="step-link">More</a>
                 </div>
                 <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
                 <div class="flow-step" data-step="4">
                     <span class="step-number">4</span>
                     <p>Appeals Council</p>
-                    <div class="step-details">Final SSA review if hearing fails.</div>
-                    <a href="/appeal-step4.html" class="step-link">Learn More</a>
+                    <div class="step-details">Final review option.</div>
+                    <a href="/appeal-step4.html" class="step-link">More</a>
                 </div>
             </div>
-            <p class="flowchart-note">Click "Learn More" for detailed steps and resources. <a href="https://www.ssa.gov/appeals/" target="_blank">Visit SSA.gov Appeals</a>.</p>
+            <p class="flowchart-note">Click steps for details. <a href="https://www.ssa.gov/appeals/" target="_blank">SSA Appeals</a></p>
 
-            <h2>Resource Hub</h2>
+            <h2>Quick Resources</h2>
             <div class="resource-hub">
                 <div class="resource-item">
                     <h3>2025 SSI Cheat Sheet</h3>
-                    <p>Key SSI rules and limits for 2025, brought to you by SSA Answers.</p>
-                    <a href="/resources/2025-ssi-cheat-sheet.pdf" download class="cta-button"><i class="fas fa-download"></i> Download PDF</a>
+                    <p>Rules & limits at a glance.</p>
+                    <a href="/resources/2025-ssi-cheat-sheet.pdf" download class="cta-button"><i class="fas fa-download"></i> Download</a>
                 </div>
                 <div class="resource-item">
                     <h3>Medicare Basics</h3>
-                    <p>A quick guide to Medicare coverage from SSA Answers.</p>
-                    <a href="/resources/medicare-basics.pdf" download class="cta-button"><i class="fas fa-download"></i> Download PDF</a>
+                    <p>Coverage essentials.</p>
+                    <a href="/resources/medicare-basics.pdf" download class="cta-button"><i class="fas fa-download"></i> Download</a>
                 </div>
             </div>
 
-            <h2>Get Updates</h2>
+            <h2>Stay Updated</h2>
             <form name="subscribe" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="subscribe" />
                 <input type="email" name="email" placeholder="Your email" required>
                 <button type="submit" class="cta-button">Subscribe</button>
             </form>
-            <p class="form-note">Sign up to receive the latest Social Security updates straight to your inbox!</p>
+            <p class="form-note">Get 2025 updates in your inbox!</p>
 
-            <h2>Explore Our Topics</h2>
+            <h2>Explore Topics</h2>
             <ul class="topic-grid">
                 <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
                 <li><a href="/replacement.html"><i class="fas fa-id-card"></i> Card Replacement</a></li>
@@ -288,14 +350,14 @@
             </ul>
 
             <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-5346424450981440"
-                 data-ad-slot="5473550665"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
+                style="display:block"
+                data-ad-client="ca-pub-5346424450981440"
+                data-ad-slot="5473550665"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
 
             <div class="social-share">
-                <h3>Share This Site</h3>
+                <h3>Share SSA Answers</h3>
                 <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/" class="share-btn twitter" target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i></a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/" class="share-btn facebook" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.linkedin.com/shareArticle?url=https://ssaanswers.com/" class="share-btn linkedin" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -395,9 +457,17 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     <script src="script.js"></script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92d47ac6188b1d72',t:'MTc0NDE0Mzc3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92d4b866097a6dbc',t:'MTc0NDE0NjI5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92dea2933cd153f7',t:'MTc0NDI1MDI2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92fceb178c48ae89',t:'MTc0NDU2NzgwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileBtn = document.getElementById("mobile-menu-btn");
+            const navList = document.getElementById("nav-list");
+            if (mobileBtn && navList) {
+                mobileBtn.addEventListener("click", () => {
+                    navList.classList.toggle("mobile-open");
+                });
+            }
+        });
+    </script>
 </body>
 </html>
