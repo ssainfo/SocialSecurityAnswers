@@ -249,9 +249,103 @@
                 gap: 10px;
             }
         }
+
+        /* Apply Now Tab Styles */
+        .apply-tab-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+        }
+        .apply-tab-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px 25px 0 0;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .apply-tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        .apply-tab-panel {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 0 10px 10px 10px;
+            padding: 15px;
+            max-width: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .apply-tab-panel.active {
+            display: flex;
+        }
+        .apply-link {
+            color: #4682b4;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .apply-link:hover {
+            background: #f0f8ff;
+        }
+        @media (max-width: 768px) {
+            .apply-tab-container {
+                top: 10px;
+                left: 10px;
+            }
+            .apply-tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            .apply-tab-panel {
+                max-width: 200px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Apply Now Tab -->
+    <div class="apply-tab-container">
+        <button class="apply-tab-btn" id="apply-tab-btn">
+            <i class="fas fa-file-alt"></i> Apply Now for Benefits
+        </button>
+        <div class="apply-tab-panel" id="apply-tab-panel">
+            <a href="https://www.ssa.gov/myaccount/" target="_blank" class="apply-link">
+                <i class="fas fa-sign-in-alt"></i> SSA Login Portal
+            </a>
+            <a href="https://www.ssa.gov/apply/" target="_blank" class="apply-link">
+                <i class="fas fa-user-plus"></i> Apply for Retirement
+            </a>
+            <a href="https://www.ssa.gov/applyfordisability/" target="_blank" class="apply-link">
+                <i class="fas fa-wheelchair"></i> Apply for Disability
+            </a>
+            <a href="https://www.ssa.gov/ssi/text-apply-ussi.htm" target="_blank" class="apply-link">
+                <i class="fas fa-money-check-alt"></i> Apply for SSI
+            </a>
+            <a href="https://www.ssa.gov/medicare/sign-up" target="_blank" class="apply-link">
+                <i class="fas fa-hospital"></i> Medicare Enrollment
+            </a>
+        </div>
+    </div>
+
     <header class="banner">
         <div class="banner-content">
             <h1>SSA Answers</h1>
@@ -289,7 +383,6 @@
         <ul class="nav-list" id="nav-list">
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/news.html">News</a></li>
-            <li><a href="/blog.html">BLOG</a></li>
             <li><a href="/investments.html">Investments</a></li>
             <li><a href="/replacement.html">Card Replacement</a></li>
             <li><a href="/retirement.html">Retirement</a></li>
@@ -547,6 +640,21 @@
                     navList.classList.toggle("mobile-open");
                 });
             }
+
+            // Apply Now Tab Toggle
+            const applyTabBtn = document.getElementById("apply-tab-btn");
+            const applyTabPanel = document.getElementById("apply-tab-panel");
+            if (applyTabBtn && applyTabPanel) {
+                applyTabBtn.addEventListener("click", () => {
+                    applyTabPanel.classList.toggle("active");
+                });
+                // Close panel when clicking outside
+                document.addEventListener("click", (e) => {
+                    if (!applyTabContainer.contains(e.target)) {
+                        applyTabPanel.classList.remove("active");
+                    }
+                });
+            }
         });
     </script>
     <!-- Updated Popup Logic: Replacement First, Then Retirement -->
@@ -564,7 +672,7 @@
                     replacementTimeout = setTimeout(() => {
                         console.log('Auto-closing replacement popup');
                         replacementPopup.style.display = 'none';
-                    }, 10000);
+                    }, 15000); // Increased to 15 seconds
                 }
 
                 function closeReplacementPopup() {
@@ -600,9 +708,9 @@
                         if (!sessionStorage.getItem("replacementPopupShown")) {
                             retirementPopup.style.display = "flex";
                             sessionStorage.setItem("retirementPopupShown", "true");
-                            setTimeout(() => retirementPopup.style.display = "none", 10000);
+                            setTimeout(() => retirementPopup.style.display = "none", 15000); // Increased to 15 seconds
                         }
-                    }, 12000); // 12s delay to let replacement show first
+                    }, 16000); // Adjusted delay for new timer
 
                     const topicsSection = document.querySelector('.topic-grid');
                     if (topicsSection) {
@@ -613,7 +721,7 @@
                                 retirementPopup.style.display = "flex";
                                 sessionStorage.setItem("retirementPopupShown", "true");
                                 hasShown = true;
-                                setTimeout(() => retirementPopup.style.display = "none", 10000);
+                                setTimeout(() => retirementPopup.style.display = "none", 15000); // Increased to 15 seconds
                             }
                         });
                     }
