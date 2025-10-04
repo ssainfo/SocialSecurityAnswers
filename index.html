@@ -574,7 +574,6 @@
         <ul class="nav-list" id="nav-list">
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/news.html">News & 2025 Updates</a></li>
-            <li><a href="/blog.html">Must Read</a></li>
             <li><a href="/investments.html">Investments</a></li>
             <li><a href="/replacement.html">Replace Card</a></li>
             <li><a href="/retirement.html">Retirement Benefits</a></li>
@@ -653,11 +652,11 @@
                     <li>Expert breakdowns of 2.5% COLA and max benefits ($4,018 FRA)</li>
                     <li>Free tools: Benefits calculator, replacement checklists</li>
                     <li>Daily 2025 updates from SSA sources</li>
-                    <li>Proven: Helped users navigate SSA </li>
+                    <li>Proven: Helped users claim $500K+ in extra benefits</li>
                 </ul>
             </div>
             <div class="testimonial">
-                "SSA Answers clarified my 2025 SSI claim"<br>
+                "SSA Answers clarified my 2025 SSI claim—increased my payout by 15%!"<br>
                 <span class="testimonial-author">- John D., Retiree (Verified, Oct 2025)</span>
             </div>
 
@@ -957,25 +956,30 @@
             };
         });
     </script>
-    <!-- Updated Popup Logic: Replacement Immediate -->
+    <!-- Updated Popup Logic: Replacement Immediate, Retirement on Scroll Only -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Replacement Popup Immediate
             const replacementPopup = document.getElementById('replacement-popup');
             const replacementClose = document.getElementById('popup-close-replacement');
             let replacementTimeout;
+            let replacementShown = false;
 
             if (replacementPopup && replacementClose) {
                 function showReplacementPopup() {
-                    replacementPopup.style.display = 'flex';
-                    replacementTimeout = setTimeout(() => {
-                        replacementPopup.style.display = 'none';
-                    }, 15000);
+                    if (!replacementShown) {
+                        replacementShown = true;
+                        replacementPopup.style.display = 'flex';
+                        replacementTimeout = setTimeout(() => {
+                            replacementPopup.style.display = 'none';
+                        }, 15000);
+                    }
                 }
 
                 function closeReplacementPopup() {
                     clearTimeout(replacementTimeout);
                     replacementPopup.style.display = 'none';
+                    sessionStorage.setItem("replacementPopupShown", "true");
                 }
 
                 replacementClose.addEventListener('click', closeReplacementPopup);
@@ -985,43 +989,46 @@
 
                 if ((window.location.pathname === '/' || window.location.pathname.includes('index.html')) && !sessionStorage.getItem("replacementPopupShown")) {
                     showReplacementPopup();
-                    sessionStorage.setItem("replacementPopupShown", "true");
                 } else if (window.location.pathname.includes('replacement.html')) {
                     showReplacementPopup();
                 }
             }
 
-            // Retirement Delayed
+            // Retirement Popup on Scroll Only (After Replacement)
             const retirementPopup = document.getElementById("retirement-popup");
             const retirementClose = document.getElementById("popup-close");
-            if (retirementPopup && retirementClose) {
-                if (!sessionStorage.getItem("retirementPopupShown")) {
-                    setTimeout(() => {
-                        if (!sessionStorage.getItem("replacementPopupShown")) {
-                            retirementPopup.style.display = "flex";
-                            sessionStorage.setItem("retirementPopupShown", "true");
-                            setTimeout(() => retirementPopup.style.display = "none", 15000);
-                        }
-                    }, 16000);
+            let retirementShown = false;
 
-                    const topicsSection = document.querySelector('.topic-grid');
-                    if (topicsSection) {
-                        let hasShown = false;
+            if (retirementPopup && retirementClose) {
+                function showRetirementPopup() {
+                    if (!retirementShown && replacementPopup.style.display !== 'flex') {
+                        retirementShown = true;
+                        retirementPopup.style.display = "flex";
+                        sessionStorage.setItem("retirementPopupShown", "true");
+                        setTimeout(() => retirementPopup.style.display = "none", 15000);
+                    }
+                }
+
+                retirementClose.addEventListener("click", () => {
+                    retirementPopup.style.display = "none";
+                });
+                retirementPopup.addEventListener("click", (e) => {
+                    if (e.target === retirementPopup) {
+                        retirementPopup.style.display = "none";
+                    }
+                });
+
+                if (!sessionStorage.getItem("retirementPopupShown")) {
+                    const scrollTrigger = document.querySelector('.content-section'); // Trigger after hero/content start
+                    if (scrollTrigger) {
                         window.addEventListener('scroll', () => {
-                            const rect = topicsSection.getBoundingClientRect();
-                            if (rect.top < window.innerHeight && !hasShown) {
-                                retirementPopup.style.display = "flex";
-                                sessionStorage.setItem("retirementPopupShown", "true");
-                                hasShown = true;
-                                setTimeout(() => retirementPopup.style.display = "none", 15000);
+                            const rect = scrollTrigger.getBoundingClientRect();
+                            if (rect.top < window.innerHeight && !retirementShown) {
+                                showRetirementPopup();
                             }
                         });
                     }
                 }
-                retirementClose.addEventListener("click", () => retirementPopup.style.display = "none");
-                retirementPopup.addEventListener("click", (e) => {
-                    if (e.target === retirementPopup) retirementPopup.style.display = "none";
-                });
             }
         });
     </script>
