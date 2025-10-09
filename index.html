@@ -860,7 +860,7 @@
         </div>
     </div>
 
-    <!-- Switched Order: Replacement Popup First -->
+    <!-- Only Replacement Popup -->
     <div id="replacement-popup" class="popup-container">
         <div class="popup-content">
             <button id="popup-close-replacement" class="popup-close-btn"><i class="fas fa-times"></i></button>
@@ -871,21 +871,6 @@
                 <a href="/replacement.html" class="cta-button">Full Guide</a>
                 <a href="https://www.ssa.gov/ssnumber/" target="_blank" class="cta-button">File Online</a>
                 <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank" class="cta-button osnap-btn">Book Appt</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Retirement Popup Second -->
-    <div id="retirement-popup" class="popup-container">
-        <div class="popup-content">
-            <button id="popup-close" class="popup-close-btn"><i class="fas fa-times"></i></button>
-            <h2 class="popup-header">Claim 2025 Benefits Now?</h2>
-            <p class="popup-text">File for retirement ($4,018 max FRA) or disability. 2.5% COLA applies—act before Dec 31!</p>
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="2025 Retirement Benefits Planning" class="popup-image" loading="lazy">
-            <div class="popup-actions">
-                <a href="/retirement.html" class="cta-button">Retirement Guide</a>
-                <a href="/disability.html" class="cta-button">Disability Guide</a>
-                <a href="/medicare.html" class="cta-button">Medicare Guide</a>
             </div>
         </div>
     </div>
@@ -956,10 +941,10 @@
             };
         });
     </script>
-    <!-- Updated Popup Logic: Replacement Immediate, Retirement on Scroll Only -->
+    <!-- Popup Logic: Only Replacement Immediate -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Replacement Popup Immediate
+            // Only Replacement Popup Immediate
             const replacementPopup = document.getElementById('replacement-popup');
             const replacementClose = document.getElementById('popup-close-replacement');
             let replacementTimeout;
@@ -994,42 +979,7 @@
                 }
             }
 
-            // Retirement Popup on Scroll Only (After Replacement)
-            const retirementPopup = document.getElementById("retirement-popup");
-            const retirementClose = document.getElementById("popup-close");
-            let retirementShown = false;
-
-            if (retirementPopup && retirementClose) {
-                function showRetirementPopup() {
-                    if (!retirementShown && replacementPopup.style.display !== 'flex') {
-                        retirementShown = true;
-                        retirementPopup.style.display = "flex";
-                        sessionStorage.setItem("retirementPopupShown", "true");
-                        setTimeout(() => retirementPopup.style.display = "none", 15000);
-                    }
-                }
-
-                retirementClose.addEventListener("click", () => {
-                    retirementPopup.style.display = "none";
-                });
-                retirementPopup.addEventListener("click", (e) => {
-                    if (e.target === retirementPopup) {
-                        retirementPopup.style.display = "none";
-                    }
-                });
-
-                if (!sessionStorage.getItem("retirementPopupShown")) {
-                    const scrollTrigger = document.querySelector('.content-section'); // Trigger after hero/content start
-                    if (scrollTrigger) {
-                        window.addEventListener('scroll', () => {
-                            const rect = scrollTrigger.getBoundingClientRect();
-                            if (rect.top < window.innerHeight && !retirementShown) {
-                                showRetirementPopup();
-                            }
-                        });
-                    }
-                }
-            }
+            // No Retirement Popup
         });
     </script>
 </body>
