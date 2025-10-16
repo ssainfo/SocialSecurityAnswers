@@ -158,7 +158,7 @@
         .apply-tab-container { 
             position: absolute; 
             top: 1rem; 
-            right: 1rem; 
+            left: 1rem; 
             background: rgba(255,255,255,0.9); 
             border-radius: 10px; 
             padding: 0.5rem; 
@@ -169,18 +169,18 @@
             display: none; 
             position: absolute; 
             top: 100%; 
-            right: 0; 
+            left: 0; 
             background: white; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
             border-radius: 5px; 
-            min-width: 200px; 
+            min-width: 250px; 
             z-index: 1000; 
             margin-top: 0.5rem; 
         }
         #apply-tab-panel.active { display: block; }
-        #apply-tab-panel label { display: block; padding: 0.5rem; cursor: pointer; border-bottom: 1px solid #eee; }
+        #apply-tab-panel label { display: block; padding: 1rem; cursor: pointer; border-bottom: 1px solid #eee; font-size: 1.1em; }
         #apply-tab-panel label:last-child { border-bottom: none; }
-        #apply-tab-panel input[type="radio"] { margin-right: 0.5rem; }
+        #apply-tab-panel input[type="radio"] { margin-right: 0.5rem; transform: scale(1.2); }
         .hero { background: white; padding: 2rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .hero h1 { font-size: 2.5em; margin-bottom: 1rem; color: #4682b4; }
         .hero p { font-size: 1.2em; margin-bottom: 2rem; }
@@ -230,12 +230,13 @@
             }
             .apply-tab-container { 
                 top: 0.5rem; 
-                right: 0.5rem; 
+                left: 0.5rem; 
             }
             #apply-tab-panel { 
-                right: -1rem; 
-                min-width: 180px; 
+                left: -1rem; 
+                min-width: 200px; 
             }
+            #apply-tab-panel label { padding: 0.75rem; font-size: 1em; }
         }
         /* Simplified Hero for Readability */
         .hero {
@@ -312,7 +313,8 @@
 
     <section class="topics-grid">
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Elderly couple walking in retirement" class="topic-image">
+            <!-- Replace with your local image: Save your retirement image as 'images/retirement.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/retirement.jpg" alt="Elderly couple walking in retirement" class="topic-image">
             <div class="topic-content">
                 <h3>Retirement Benefits</h3>
                 <p>Looking to file for retirement? Learn about 2025 payouts up to $4,018/month at full retirement age.</p>
@@ -321,7 +323,8 @@
         </article>
 
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1581500990989-24e7a1f3d4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Disability support wheelchair" class="topic-image">
+            <!-- Replace with your local image: Save your disability image as 'images/disability.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/disability.jpg" alt="Disability support wheelchair" class="topic-image">
             <div class="topic-content">
                 <h3>Disability Benefits (SSDI/SSI)</h3>
                 <p>Apply for SSDI (avg $1,537) or SSI ($967 max). Check eligibility and changes for 2025.</p>
@@ -330,7 +333,8 @@
         </article>
 
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1581493894912-8b47e8b8a2f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="ID card document" class="topic-image">
+            <!-- Replace with your local image: Save your card replacement image as 'images/replacement.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/replacement.jpg" alt="ID card document" class="topic-image">
             <div class="topic-content">
                 <h3>Replace Social Security Card</h3>
                 <p>Lost your card? Replace it online or schedule an appointment—free and fast for 2025.</p>
@@ -339,7 +343,8 @@
         </article>
 
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Doctor with senior patient Medicare" class="topic-image">
+            <!-- Replace with your local image: Save your medicare image as 'images/medicare.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/medicare.jpg" alt="Doctor with senior patient Medicare" class="topic-image">
             <div class="topic-content">
                 <h3>Medicare Enrollment</h3>
                 <p>2025 Medicare updates: Parts A/B, enrollment deadlines, and how it pairs with Social Security.</p>
@@ -348,7 +353,8 @@
         </article>
 
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1554224154-a1f463d74af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Money help low income SSI" class="topic-image">
+            <!-- Replace with your local image: Save your SSI image as 'images/ssi.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/ssi.jpg" alt="Money help low income SSI" class="topic-image">
             <div class="topic-content">
                 <h3>SSI Benefits</h3>
                 <p>Supplemental Security Income for low-income: 2025 max $967, asset limits, and application tips.</p>
@@ -357,7 +363,8 @@
         </article>
 
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Family support hug" class="topic-image">
+            <!-- Replace with your local image: Save your survivor image as 'images/survivor.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/survivor.jpg" alt="Family support hug" class="topic-image">
             <div class="topic-content">
                 <h3>Survivor Benefits</h3>
                 <p>Support for families after loss: 2025 eligibility, payments, and how to apply.</p>
@@ -366,7 +373,8 @@
         </article>
 
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1541643601529-4ff7a2e7de0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gavel court appeals" class="topic-image">
+            <!-- Replace with your local image: Save your appeals image as 'images/appeals.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/appeals.jpg" alt="Gavel court appeals" class="topic-image">
             <div class="topic-content">
                 <h3>Appeals Process</h3>
                 <p>Denied benefits? Guide to SSA appeals: Reconsideration, hearings, and timelines for 2025.</p>
@@ -375,7 +383,8 @@
         </article>
 
         <article class="topic-card">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Calculator financial tool" class="topic-image">
+            <!-- Replace with your local image: Save your calculator image as 'images/calculator.jpg' on your desktop and copy to the 'images' folder in your project -->
+            <img src="images/calculator.jpg" alt="Calculator financial tool" class="topic-image">
             <div class="topic-content">
                 <h3>Benefits Calculator</h3>
                 <p>Estimate your 2025 payout with our free tool: Factor in COLA, earnings, and retirement age.</p>
