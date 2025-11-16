@@ -481,6 +481,10 @@
         .cta-button:hover {
             opacity: 0.9;
         }
+        .osnap-cta {
+            background: #ff6b35 !important; /* Highlight OSSNAP button */
+            font-size: 1.1em;
+        }
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
@@ -660,12 +664,12 @@
         <div class="popup-content">
             <button id="popup-close-replacement" class="popup-close-btn" aria-label="Close popup"><i class="fas fa-times"></i></button>
             <h2 class="popup-header">Need to Replace Your SSN Card? Quick 2025 Guide ✨</h2>
-            <p class="popup-text">For non-citizens, visa holders, EAD applicants, and first-time immigrants: Apply in-person at SSA office with Form SS-5, passport, visa/I-94/EAD. (Auto-issuance suspended—14-day processing.)</p>
+            <p class="popup-text">For non-citizens, visa holders, EAD applicants, and first-time immigrants: Apply in-person at SSA office with Form SS-5, passport, visa/I-94/EAD. (Auto-issuance suspended—14-day processing.) Schedule your appointment now!</p>
             <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="SSN card replacement steps for visa holders and non-citizens 2025" class="popup-image" loading="lazy">
             <div class="popup-actions">
                 <a href="/replacement.html" class="cta-button">Full Guide for Immigrants</a>
                 <a href="https://www.ssa.gov/ssnumber/" target="_blank" class="cta-button">Download Form SS-5</a>
-                <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank" class="cta-button">Book SSA Appt</a>
+                <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank" class="cta-button osnap-cta">Schedule Appt via OSSNAP</a>
             </div>
         </div>
     </div>
@@ -731,18 +735,17 @@
                 });
             }
 
-            // Replacement Popup (Faster: 3s delay on all devices)
+            // Replacement Popup (Fixed: Immediate show on load, no sessionStorage block; always triggers on homepage)
             const replacementPopup = document.getElementById('replacement-popup');
             const replacementClose = document.getElementById('popup-close-replacement');
-            let replacementShown = sessionStorage.getItem("replacementPopupShown");
-            if (replacementPopup && !replacementShown && (window.location.pathname === '/' || window.location.pathname.includes('index.html'))) {
-                setTimeout(() => {
-                    replacementPopup.style.display = 'flex';
-                }, 3000); // 3s delay for faster appearance
+            if (replacementPopup && (window.location.pathname === '/' || window.location.pathname.includes('index.html'))) {
+                // Immediate display (0ms delay) - acts as regular popup on load
+                replacementPopup.style.display = 'flex';
             }
             if (replacementClose) {
                 replacementClose.addEventListener('click', () => {
                     replacementPopup.style.display = 'none';
+                    // Optional: Set sessionStorage to prevent re-show in this session
                     sessionStorage.setItem("replacementPopupShown", "true");
                 });
                 replacementPopup.addEventListener('click', (e) => {
