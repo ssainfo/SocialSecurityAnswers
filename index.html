@@ -53,6 +53,8 @@
             --gray: #dee2e6;
             --text: #333;
             --transition: all 0.3s ease;
+            --box-bg: #f9fcff;
+            --box-border: #c3d7ff;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -99,7 +101,6 @@
             text-decoration: none;
         }
 
-        /* Desktop menu */
         .nav-list {
             display: flex;
             gap: 1.5rem;
@@ -123,7 +124,6 @@
             border-radius: 6px;
         }
 
-        /* Dropdown */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -179,7 +179,6 @@
             border: none;
         }
 
-        /* Mobile menu toggle (checkbox hack) */
         #mobile-toggle {
             display: none;
         }
@@ -187,8 +186,7 @@
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             height: 100vh;
             background: rgba(0,0,0,0.5);
@@ -205,15 +203,14 @@
 
         .mobile-menu-content {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 0; right: 0;
             width: 85%;
             max-width: 340px;
             height: 100%;
             background: white;
-            padding: 2rem 1.5rem;
-            overflow-y: auto;               /* FIXED: enables smooth scrolling */
-            -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
+            padding: 2rem 1.5rem 4rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             transform: translateX(100%);
             transition: var(--transition);
         }
@@ -254,13 +251,14 @@
         .mobile-dropdown {
             margin-left: 1rem;
             display: none;
+            padding-left: 0.8rem;
+            border-left: 3px solid var(--primary);
         }
 
         .mobile-dropdown-toggle:checked ~ .mobile-dropdown {
             display: block;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .nav-list { display: none; }
             .hamburger { display: block; }
@@ -270,6 +268,36 @@
             .mobile-menu { display: none !important; }
         }
 
+        /* Boxed section design */
+        .topic-box {
+            background: var(--box-bg);
+            border: 2px solid var(--box-border);
+            border-radius: 10px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .topic-box:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+
+        .topic-box h3, .topic-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .topic-box ol, .topic-box ul {
+            padding-left: 1.8rem;
+            margin: 1rem 0;
+        }
+
+        .topic-box table {
+            margin: 1.2rem 0;
+        }
+
         /* Content styles */
         .alert {
             background: #fff3cd;
@@ -277,12 +305,11 @@
             color: #856404;
             padding: 1rem;
             margin: 1.5rem 0;
-            border-radius: 4px;
+            border-radius: 6px;
             text-align: center;
         }
 
-        .content-section { margin: 2rem 0; }
-        h2, h3, h4 { color: var(--primary); }
+        .content-section { margin: 2.5rem 0; }
 
         .replacement-steps {
             display: flex;
@@ -525,13 +552,14 @@
             <h2>Social Security Card Replacement in 2026</h2>
             <p>Lost, stolen or damaged card? Replacement is free through SSA. You usually don't need the physical card if you know your SSN — but here's the current process.</p>
 
-            <h3>Replacement Process for Adults</h3>
-            <p>Limits: 3 replacements per calendar year, 10 lifetime (exceptions rare). Processing: typically 5–10 business days by mail.</p>
-
-            <div class="replacement-steps">
-                <div class="step"><i class="fas fa-user"></i><h4>Step 1: Check Eligibility</h4><p>U.S. citizens 18+ with my Social Security account, U.S. address, no name/SSN changes → online possible. Otherwise mail or in-person.</p></div>
-                <div class="step"><i class="fas fa-laptop"></i><h4>Step 2: Apply Online / Mail / In-Person</h4><p>Online: <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security</a> or start at ssa.gov/number-card. Mail/In-person: Form SS-5 + docs.</p></div>
-                <div class="step"><i class="fas fa-envelope"></i><h4>Step 3: Receive Card</h4><p>Mailed to your address. No tracking — call if not received in 3 weeks.</p></div>
+            <div class="topic-box">
+                <h3>Replacement Process for Adults</h3>
+                <p>Limits: 3 per year, 10 lifetime. Processing: 5–10 business days by mail.</p>
+                <div class="replacement-steps">
+                    <div class="step"><i class="fas fa-user"></i><h4>Step 1: Check Eligibility</h4><p>U.S. citizens 18+, no changes → online possible. Others → mail/in-person.</p></div>
+                    <div class="step"><i class="fas fa-laptop"></i><h4>Step 2: Apply</h4><p>Online via my Social Security or Form SS-5 + docs by mail/in-person.</p></div>
+                    <div class="step"><i class="fas fa-envelope"></i><h4>Step 3: Receive</h4><p>Card mailed. Call if delayed past 3 weeks.</p></div>
+                </div>
             </div>
 
             <div class="video-container">
@@ -540,118 +568,107 @@
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
-                <p>See the official step-by-step guide on how to replace your Social Security card (updated guidance).</p>
+                <p>Official step-by-step guide (updated 2026).</p>
             </div>
 
-            <h3>Let's Get Started Now</h3>
-            <p style="text-align:center;">
-                <a href="https://www.ssa.gov/number-card/replace-card" target="_blank" class="cta-button">Replace Card at SSA.gov</a>
-                <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank" class="cta-button">Schedule Appointment</a>
-                <a href="https://www.ssa.gov/myaccount/" target="_blank" class="cta-button">Create/Login my Social Security</a>
-            </p>
-
-            <h3>Non-Citizen / Immigrant Replacement Guide (H1B, F1, J1, EAD)</h3>
-            <p>For non-citizens, visa holders, and immigrants from any country (e.g., India, Canada, UK, Mexico), SSN card replacement or first-time application usually requires an in-person visit to a SSA office. Online options are limited—follow these steps:</p>
-            <ol>
-                <li><strong>Check Eligibility & Gather Documents:</strong> Confirm your work authorization via USCIS. Visit <a href="https://www.uscis.gov/working-in-the-united-states" target="_blank">USCIS Working in the U.S.</a> for details. Required docs vary by visa type—originals only (no copies).</li>
-                <li><strong>File OSSNAP Online:</strong> Start the process at <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank">SSA OSSNAP</a> to pre-fill info and schedule your appointment (required for in-person).</li>
-                <li><strong>Schedule Appointment:</strong> Use OSSNAP or call 1-800-772-1213. Locate office at <a href="https://www.ssa.gov/locator/" target="_blank">SSA Locator</a>.</li>
-                <li><strong>Attend In-Person & Submit:</strong> Bring Form SS-5 (filled), passport, I-94 (from <a href="https://i94.cbp.dhs.gov/" target="_blank">CBP I-94 site</a>), and visa-specific docs. Expect 7–14 days processing.</li>
-                <li><strong>Receive Card:</strong> Mailed to U.S. address. Limits apply (3/year, 10/lifetime).</li>
-            </ol>
-
-            <h4>Required USCIS Documents by Visa Type</h4>
-            <table class="doc-table">
-                <thead><tr><th>Visa Type</th><th>Required Documents (Plus Passport & I-94)</th></tr></thead>
-                <tbody>
-                    <tr><td>EAD (Employment Authorization Document)</td><td>Form I-766 (EAD card), USCIS approval notice (I-797 if applicable), proof of identity/status.</td></tr>
-                    <tr><td>F1 (Student Visa)</td><td>Form I-20 (Certificate of Eligibility for Nonimmigrant Student Status), SEVIS fee receipt, OPT/CPT authorization if working, school enrollment proof.</td></tr>
-                    <tr><td>J1 (Exchange Visitor)</td><td>Form DS-2019 (Certificate of Eligibility for Exchange Visitor Status), sponsor letter, proof of program participation.</td></tr>
-                    <tr><td>H1B (Specialty Occupation)</td><td>Form I-797 (Approval Notice), LCA (Labor Condition Application), employer petition docs, degree/credentials if needed.</td></tr>
-                </tbody>
-            </table>
-
-            <p><strong>Tip for International Users:</strong> If you're from outside the U.S. (e.g., applying after entry), ensure your I-94 is current. Beware of scams—SSA never charges for cards. For more USCIS visa info: <a href="https://www.uscis.gov/forms/all-forms" target="_blank">USCIS Forms</a>.</p>
-
-            <!-- New Section: First-Time SSN Applicants -->
-            <h3>First-Time SSN Applicants (Never Had an SSN Before)</h3>
-            <p>If this is your first time applying for a Social Security Number (common for new immigrants, visa holders, or international students/workers), the process is similar to replacement but with extra emphasis on proving eligibility for work or study in the U.S. Most non-citizens cannot apply fully online — in-person is required.</p>
-
-            <h4>Who Can Apply for a First-Time SSN?</h4>
-            <ul>
-                <li>Non-citizens authorized to work (H1B, L1, TN, O-1, etc.)</li>
-                <li>F-1 students with approved on-campus work, CPT, or OPT</li>
-                <li>J-1 exchange visitors with work authorization from sponsor</li>
-                <li>EAD holders (I-766) with valid work permission</li>
-                <li>Other non-immigrants with DHS work authorization</li>
-            </ul>
-
-            <h4>Steps for First-Time SSN Application (Non-Citizens)</h4>
-            <ol>
-                <li><strong>Wait After Arrival:</strong> Wait at least 10 business days after U.S. entry (some offices recommend 2 weeks) so SSA systems update your immigration records.</li>
-                <li><strong>Gather Required Documents:</strong> Same as replacement + proof of first-time need (job offer letter, school enrollment, sponsor letter). Originals only:
-                    <ul>
-                        <li>Valid passport</li>
-                        <li>I-94 record (print from <a href="https://i94.cbp.dhs.gov/" target="_blank">i94.cbp.dhs.gov</a>)</li>
-                        <li>Visa-specific docs (I-797 for H1B, I-20 + OPT EAD for F1, DS-2019 for J1, I-766 EAD card)</li>
-                        <li>Proof of work/study authorization (offer letter, DSO endorsement, sponsor letter)</li>
-                    </ul>
-                </li>
-                <li><strong>Start with OSSNAP:</strong> Go to <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank">SSA OSSNAP</a> to begin online and schedule an in-person appointment (highly recommended).</li>
-                <li><strong>Visit SSA Office:</strong> Bring completed Form SS-5 (<a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank">download here</a>), all originals, and OSSNAP confirmation. No fee — appointment required for most.</li>
-                <li><strong>Processing Time:</strong> Card mailed in 7–14 business days (sometimes faster). Track status by calling 1-800-772-1213 if delayed.</li>
-            </ol>
-
-            <p><strong>Important Notes:</strong></p>
-            <ul>
-                <li>No SSN just for bank accounts or driver's licenses — must have work/study authorization.</li>
-                <li>F-1/J-1 students: Get DSO/sponsor approval first (on-campus work, CPT/OPT, or J-1 work category).</li>
-                <li>If denied or ineligible: SSA may issue a denial letter (useful for ITIN or other needs).</li>
-            </ul>
-
-            <h3>Replacement Scenarios Examples</h3>
-            <div class="examples">
-                <div class="example"><h4>Online (Simple Loss)</h4><p>Citizen logs in, verifies ID—card mailed in ~10 days.</p></div>
-                <div class="example"><h4>Mail (Name Change)</h4><p>Form SS-5 + marriage cert/passport mailed — arrives 10–14 days.</p></div>
-                <div class="example"><h4>Lost Everything / Non-Citizen</h4><p>In-person with passport, visa/EAD/I-94 — appointment needed.</p></div>
+            <div class="topic-box">
+                <h3>Let's Get Started Now</h3>
+                <p style="text-align:center;">
+                    <a href="https://www.ssa.gov/number-card/replace-card" target="_blank" class="cta-button">Replace Card at SSA.gov</a>
+                    <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank" class="cta-button">Schedule Appointment</a>
+                    <a href="https://www.ssa.gov/myaccount/" target="_blank" class="cta-button">Create/Login my Social Security</a>
+                </p>
             </div>
 
-            <h4>Replacement Limits (2026)</h4>
-            <div class="pie-chart">3/year</div>
-            <div class="pie-legend">
-                <span><i class="fas fa-square" style="color:#d3d3d3;"></i> 3 per year</span>
-                <span style="margin-left:1.5rem;"><i class="fas fa-square" style="color:#d1e8ff;"></i> Up to 10 lifetime</span>
-            </div>
-            <p style="text-align:center;">All replacements are free — beware of scam sites charging fees.</p>
+            <div class="topic-box">
+                <h3>Non-Citizen / Immigrant Replacement Guide (H1B, F1, J1, EAD)</h3>
+                <p>Most non-citizens must apply in-person. Follow these steps:</p>
+                <ol>
+                    <li>Gather docs (passport, I-94, visa/USCIS proof).</li>
+                    <li>Start at <a href="https://secure.ssa.gov/ossnap/public/landingOSsnap" target="_blank">OSSNAP</a> to schedule appointment.</li>
+                    <li>Attend SSA office with Form SS-5 & originals.</li>
+                    <li>Card mailed in 7–14 days.</li>
+                </ol>
 
-            <h3>Documents Needed (Citizens & Non-Citizens)</h3>
-            <p>Originals or certified copies required (no photocopies):</p>
-            <table class="doc-table">
-                <thead><tr><th>Proof Of</th><th>Examples</th></tr></thead>
-                <tbody>
-                    <tr><td>Identity</td><td>U.S. driver’s license, passport, state ID</td></tr>
-                    <tr><td>U.S. Citizenship (if needed)</td><td>Birth certificate, U.S. passport</td></tr>
-                    <tr><td>Work Authorization (non-citizens)</td><td>EAD, I-94, visa, Green Card</td></tr>
-                </tbody>
-            </table>
-            <p><strong>Tip:</strong> Call 1-800-772-1213 if unsure about acceptable ID.</p>
-
-            <div class="image-container">
-                <img src="images/ss5-form-sample.png" alt="Form SS-5 Sample for SSN Card Replacement" class="screenshot">
-                <p>Sample Form SS-5 — <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank">Download PDF</a></p>
-            </div>
-            <div class="image-container">
-                <img src="images/ss-card-sample.png" alt="Sample Social Security Card for Replacement Guide" class="screenshot">
-                <p>New replacement card appearance (redacted example).</p>
+                <h4>Required USCIS Documents by Visa Type</h4>
+                <table class="doc-table">
+                    <thead><tr><th>Visa Type</th><th>Required (Plus Passport & I-94)</th></tr></thead>
+                    <tbody>
+                        <tr><td>EAD</td><td>I-766 card, I-797 (if applicable)</td></tr>
+                        <tr><td>F1</td><td>I-20, SEVIS receipt, OPT/CPT docs</td></tr>
+                        <tr><td>J1</td><td>DS-2019, sponsor letter</td></tr>
+                        <tr><td>H1B</td><td>I-797 approval, LCA</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>Tip:</strong> Check I-94 status at <a href="https://i94.cbp.dhs.gov/" target="_blank">cbp.dhs.gov</a>. No fees — avoid scams.</p>
             </div>
 
-            <h3>Frequently Asked Questions</h3>
-            <div class="faq">
-                <p><strong>Can I replace online?</strong> Yes for eligible U.S. citizens (18+, no changes) via my Social Security. Start here: <a href="https://www.ssa.gov/ssnumber/" target="_blank">ssa.gov/ssnumber</a>.</p>
-                <p><strong>How long?</strong> Usually 5–10 business days by mail. No expedited service.</p>
-                <p><strong>Need proof fast?</strong> Use my Social Security for instant benefit verification letter.</p>
-                <p><strong>Non-citizen / visa holder?</strong> In-person typically required; schedule via OSSNAP or call.</p>
-                <p><strong>First-time applicant?</strong> Same in-person process — bring job offer or school letter if needed.</p>
+            <div class="topic-box">
+                <h3>First-Time SSN Applicants (Never Had an SSN)</h3>
+                <p>For new immigrants/visa holders who never received an SSN before:</p>
+                <ul>
+                    <li><strong>Who qualifies:</strong> Authorized to work/study (H1B, F1+OPT, J1, EAD holders, etc.)</li>
+                    <li><strong>Wait:</strong> 10+ days after U.S. entry for records to update</li>
+                    <li><strong>Documents:</strong> Passport, I-94, visa/USCIS proof (I-797, I-20, DS-2019, I-766), job offer/school letter</li>
+                    <li><strong>Process:</strong> Start at OSSNAP → schedule in-person → submit Form SS-5 + originals</li>
+                    <li><strong>Time:</strong> Card mailed in 7–14 days. No online option for most non-citizens.</li>
+                </ul>
+                <p><strong>Key:</strong> SSN only for work/study authorization — not for bank accounts or driver's licenses alone.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Replacement Scenarios Examples</h3>
+                <div class="examples">
+                    <div class="example"><h4>Online (Simple Loss)</h4><p>Citizen logs in, verifies ID—card mailed in ~10 days.</p></div>
+                    <div class="example"><h4>Mail (Name Change)</h4><p>Form SS-5 + marriage cert/passport mailed — arrives 10–14 days.</p></div>
+                    <div class="example"><h4>Non-Citizen / First-Time</h4><p>In-person with passport, visa/USCIS docs — appointment required.</p></div>
+                </div>
+            </div>
+
+            <div class="topic-box">
+                <h4>Replacement Limits (2026)</h4>
+                <div class="pie-chart">3/year</div>
+                <div class="pie-legend">
+                    <span><i class="fas fa-square" style="color:#d3d3d3;"></i> 3 per year</span>
+                    <span style="margin-left:1.5rem;"><i class="fas fa-square" style="color:#d1e8ff;"></i> Up to 10 lifetime</span>
+                </div>
+                <p style="text-align:center;">All replacements are free — beware of scam sites charging fees.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Documents Needed (Citizens & Non-Citizens)</h3>
+                <p>Originals or certified copies required (no photocopies):</p>
+                <table class="doc-table">
+                    <thead><tr><th>Proof Of</th><th>Examples</th></tr></thead>
+                    <tbody>
+                        <tr><td>Identity</td><td>U.S. driver’s license, passport, state ID</td></tr>
+                        <tr><td>U.S. Citizenship (if needed)</td><td>Birth certificate, U.S. passport</td></tr>
+                        <tr><td>Work Authorization (non-citizens)</td><td>EAD, I-94, visa, Green Card</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>Tip:</strong> Call 1-800-772-1213 if unsure about acceptable ID.</p>
+            </div>
+
+            <div class="topic-box">
+                <div class="image-container">
+                    <img src="images/ss5-form-sample.png" alt="Form SS-5 Sample for SSN Card Replacement" class="screenshot">
+                    <p>Sample Form SS-5 — <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank">Download PDF</a></p>
+                </div>
+                <div class="image-container">
+                    <img src="images/ss-card-sample.png" alt="Sample Social Security Card for Replacement Guide" class="screenshot">
+                    <p>New replacement card appearance (redacted example).</p>
+                </div>
+            </div>
+
+            <div class="topic-box">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq">
+                    <p><strong>Can I replace online?</strong> Yes for eligible U.S. citizens (18+, no changes) via my Social Security. Start here: <a href="https://www.ssa.gov/ssnumber/" target="_blank">ssa.gov/ssnumber</a>.</p>
+                    <p><strong>How long?</strong> Usually 5–10 business days by mail. No expedited service.</p>
+                    <p><strong>Need proof fast?</strong> Use my Social Security for instant benefit verification letter.</p>
+                    <p><strong>Non-citizen / visa holder?</strong> In-person typically required; schedule via OSSNAP or call.</p>
+                    <p><strong>First-time applicant?</strong> Same in-person process — bring job offer or school letter if needed.</p>
+                </div>
             </div>
 
             <div class="ad-container">
