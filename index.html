@@ -76,226 +76,48 @@
         .tagline { font-size: 1.3rem; margin: 0.5rem 0; }
         .sign { color: #ffd700; }
 
-        /* Navigation */
+        /* Simple Navigation - No dropdowns, boxed style */
         .main-nav {
             background: var(--light);
             border-bottom: 1px solid var(--gray);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem;
+            padding: 1.5rem 0;
+            text-align: center;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-list {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-item { position: relative; }
-
-        .nav-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.8rem 1.2rem;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .nav-link:hover {
-            background: var(--primary);
-            color: white;
-            border-radius: 6px;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 240px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border-radius: 6px;
-            overflow: hidden;
-            z-index: 10;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: var(--transition);
-        }
-
-        .nav-item:hover .dropdown-menu {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .dropdown-item {
-            display: block;
-            padding: 0.9rem 1.4rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .dropdown-item:hover {
-            background: #e9f1ff;
-            color: var(--primary);
-        }
-
-        .dropdown-arrow {
-            margin-left: 6px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .nav-item:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Hamburger for mobile */
-        .hamburger {
-            display: none;
-            font-size: 1.8rem;
-            color: var(--primary);
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        #mobile-toggle {
-            display: none;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        #mobile-toggle:checked ~ .mobile-menu {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu-content {
-            position: absolute;
-            top: 0; right: 0;
-            width: 85%;
-            max-width: 340px;
-            height: 100%;
-            background: white;
-            padding: 2rem 1.5rem 4rem;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            transform: translateX(100%);
-            transition: var(--transition);
-        }
-
-        #mobile-toggle:checked ~ .mobile-menu .mobile-menu-content {
-            transform: translateX(0);
-        }
-
-        .mobile-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            color: var(--primary);
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .mobile-nav-list {
-            list-style: none;
-            margin-top: 3rem;
-        }
-
-        .mobile-nav-item {
-            margin: 0.8rem 0;
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 0.8rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--gray);
-        }
-
-        .mobile-dropdown {
-            margin-left: 1rem;
-            display: none;
-            padding-left: 0.8rem;
-            border-left: 3px solid var(--primary);
-        }
-
-        .mobile-dropdown-toggle:checked ~ .mobile-dropdown {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .nav-list { display: none; }
-            .hamburger { display: block; }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-menu { display: none !important; }
-        }
-
-        /* Boxed section design */
-        .topic-box {
+        .nav-box {
             background: var(--box-bg);
             border: 2px solid var(--box-border);
             border-radius: 10px;
-            padding: 1.5rem 2rem;
-            margin: 2rem 0;
+            padding: 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 900px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 2rem;
+        }
+
+        .nav-list li a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.15rem;
+            padding: 0.6rem 1.2rem;
             transition: var(--transition);
         }
 
-        .topic-box:hover {
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-            transform: translateY(-4px);
-        }
-
-        .topic-box h3, .topic-box h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .topic-box ol, .topic-box ul {
-            padding-left: 1.8rem;
-            margin: 1rem 0;
-        }
-
-        .topic-box table {
-            margin: 1.2rem 0;
+        .nav-list li a:hover,
+        .nav-list li a.active {
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
         }
 
         /* Content styles */
@@ -310,6 +132,26 @@
         }
 
         .content-section { margin: 2.5rem 0; }
+
+        .topic-box {
+            background: var(--box-bg);
+            border: 2px solid var(--box-border);
+            border-radius: 10px;
+            padding: 1.8rem 2.2rem;
+            margin: 2.2rem 0;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .topic-box:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+
+        .topic-box h2, .topic-box h3, .topic-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
 
         .replacement-steps {
             display: flex;
@@ -426,119 +268,27 @@
     </header>
 
     <nav class="main-nav">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">SSA Answers</a>
-
-            <label for="mobile-toggle" class="hamburger" aria-label="Open menu">
-                <i class="fas fa-bars"></i>
-            </label>
-
+        <div class="nav-box">
             <ul class="nav-list">
-                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-
-                <li class="nav-item">
-                    <a href="/news.html" class="nav-link">
-                        News <i class="fas fa-chevron-down dropdown-arrow"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/news.html" class="dropdown-item">Latest SSA Updates</a></li>
-                        <li><a href="/cola-2026.html" class="dropdown-item">2026 COLA Announcement</a></li>
-                        <li><a href="/policy-changes.html" class="dropdown-item">Policy Changes 2026</a></li>
-                        <li><a href="/scam-alerts.html" class="dropdown-item">Fraud & Scam Alerts</a></li>
-                        <li><a href="/ssa-news-archive.html" class="dropdown-item">News Archive</a></li>
-                        <li><a href="/monthly-updates.html" class="dropdown-item">Monthly Benefits News</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/retirement.html" class="nav-link">
-                        Retirement <i class="fas fa-chevron-down dropdown-arrow"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/retirement.html" class="dropdown-item">Retirement Benefits Overview</a></li>
-                        <li><a href="/full-retirement-age.html" class="dropdown-item">Full Retirement Age</a></li>
-                        <li><a href="/early-retirement.html" class="dropdown-item">Early Retirement Rules</a></li>
-                        <li><a href="/delayed-retirement.html" class="dropdown-item">Delayed Retirement Credits</a></li>
-                        <li><a href="/spousal-benefits.html" class="dropdown-item">Spousal & Survivor Benefits</a></li>
-                        <li><a href="/retirement-calculator.html" class="dropdown-item">Retirement Calculator</a></li>
-                        <li><a href="/working-while-retired.html" class="dropdown-item">Working While Receiving Benefits</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item"><a href="/replacement.html" class="nav-link active">Card Replacement</a></li>
-                <li class="nav-item"><a href="/medicare.html" class="nav-link">Medicare</a></li>
-                <li class="nav-item"><a href="/disability.html" class="nav-link">Disability</a></li>
-                <li class="nav-item"><a href="/survivor.html" class="nav-link">Survivor</a></li>
-                <li class="nav-item"><a href="/tax.html" class="nav-link">Tax</a></li>
-                <li class="nav-item"><a href="/medicaid.html" class="nav-link">Medicaid</a></li>
-                <li class="nav-item"><a href="/housing.html" class="nav-link">Housing</a></li>
-                <li class="nav-item"><a href="/faq.html" class="nav-link">FAQ</a></li>
-                <li class="nav-item"><a href="/fraud.html" class="nav-link">Fraud</a></li>
-                <li class="nav-item"><a href="/ssi.html" class="nav-link">SSI</a></li>
-                <li class="nav-item"><a href="/shelter.html" class="nav-link">Shelter</a></li>
-                <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="/calculator.html" class="nav-link">Calculator</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/news.html"><strong>News</strong></a></li>
+                <li><a href="/replacement.html" class="active"><strong>Card Replacement</strong></a></li>
+                <li><a href="/retirement.html"><strong>Retirement</strong></a></li>
+                <li><a href="/medicare.html"><strong>Medicare</strong></a></li>
+                <li><a href="/disability.html"><strong>Disability</strong></a></li>
+                <li><a href="/survivor.html"><strong>Survivor</strong></a></li>
+                <li><a href="/tax.html"><strong>Tax</strong></a></li>
+                <li><a href="/medicaid.html"><strong>Medicaid</strong></a></li>
+                <li><a href="/housing.html"><strong>Housing</strong></a></li>
+                <li><a href="/faq.html"><strong>FAQ</strong></a></li>
+                <li><a href="/fraud.html"><strong>Fraud</strong></a></li>
+                <li><a href="/ssi.html"><strong>SSI</strong></a></li>
+                <li><a href="/shelter.html"><strong>Shelter</strong></a></li>
+                <li><a href="/about.html"><strong>About</strong></a></li>
+                <li><a href="/calculator.html"><strong>Calculator</strong></a></li>
             </ul>
         </div>
     </nav>
-
-    <!-- Mobile Menu -->
-    <input type="checkbox" id="mobile-toggle" hidden>
-    <div class="mobile-menu">
-        <label for="mobile-toggle" class="mobile-close" aria-label="Close menu">
-            <i class="fas fa-times"></i>
-        </label>
-        <div class="mobile-menu-content">
-            <ul class="mobile-nav-list">
-                <li class="mobile-nav-item"><a href="/" class="mobile-nav-link">Home</a></li>
-
-                <li class="mobile-nav-item">
-                    <label for="mobile-news-toggle" class="mobile-nav-link">
-                        News <i class="fas fa-chevron-down"></i>
-                    </label>
-                    <input type="checkbox" id="mobile-news-toggle" hidden>
-                    <ul class="mobile-dropdown">
-                        <li><a href="/news.html" class="mobile-nav-link">Latest SSA Updates</a></li>
-                        <li><a href="/cola-2026.html" class="mobile-nav-link">2026 COLA Announcement</a></li>
-                        <li><a href="/policy-changes.html" class="mobile-nav-link">Policy Changes 2026</a></li>
-                        <li><a href="/scam-alerts.html" class="mobile-nav-link">Fraud & Scam Alerts</a></li>
-                        <li><a href="/ssa-news-archive.html" class="mobile-nav-link">News Archive</a></li>
-                        <li><a href="/monthly-updates.html" class="mobile-nav-link">Monthly Benefits News</a></li>
-                    </ul>
-                </li>
-
-                <li class="mobile-nav-item">
-                    <label for="mobile-retirement-toggle" class="mobile-nav-link">
-                        Retirement <i class="fas fa-chevron-down"></i>
-                    </label>
-                    <input type="checkbox" id="mobile-retirement-toggle" hidden>
-                    <ul class="mobile-dropdown">
-                        <li><a href="/retirement.html" class="mobile-nav-link">Retirement Benefits Overview</a></li>
-                        <li><a href="/full-retirement-age.html" class="mobile-nav-link">Full Retirement Age</a></li>
-                        <li><a href="/early-retirement.html" class="mobile-nav-link">Early Retirement Rules</a></li>
-                        <li><a href="/delayed-retirement.html" class="mobile-nav-link">Delayed Retirement Credits</a></li>
-                        <li><a href="/spousal-benefits.html" class="mobile-nav-link">Spousal & Survivor Benefits</a></li>
-                        <li><a href="/retirement-calculator.html" class="mobile-nav-link">Retirement Calculator</a></li>
-                        <li><a href="/working-while-retired.html" class="mobile-nav-link">Working While Receiving Benefits</a></li>
-                    </ul>
-                </li>
-
-                <li class="mobile-nav-item"><a href="/replacement.html" class="mobile-nav-link active">Card Replacement</a></li>
-                <li class="mobile-nav-item"><a href="/medicare.html" class="mobile-nav-link">Medicare</a></li>
-                <li class="mobile-nav-item"><a href="/disability.html" class="mobile-nav-link">Disability</a></li>
-                <li class="mobile-nav-item"><a href="/survivor.html" class="mobile-nav-link">Survivor</a></li>
-                <li class="mobile-nav-item"><a href="/tax.html" class="mobile-nav-link">Tax</a></li>
-                <li class="mobile-nav-item"><a href="/medicaid.html" class="mobile-nav-link">Medicaid</a></li>
-                <li class="mobile-nav-item"><a href="/housing.html" class="mobile-nav-link">Housing</a></li>
-                <li class="mobile-nav-item"><a href="/faq.html" class="mobile-nav-link">FAQ</a></li>
-                <li class="mobile-nav-item"><a href="/fraud.html" class="mobile-nav-link">Fraud</a></li>
-                <li class="mobile-nav-item"><a href="/ssi.html" class="mobile-nav-link">SSI</a></li>
-                <li class="mobile-nav-item"><a href="/shelter.html" class="mobile-nav-link">Shelter</a></li>
-                <li class="mobile-nav-item"><a href="/about.html" class="mobile-nav-link">About</a></li>
-                <li class="mobile-nav-item"><a href="/calculator.html" class="mobile-nav-link">Calculator</a></li>
-            </ul>
-        </div>
-    </div>
 
     <main>
         <div class="alert">
@@ -605,15 +355,15 @@
 
             <div class="topic-box">
                 <h3>First-Time SSN Applicants (Never Had an SSN)</h3>
-                <p>For new immigrants/visa holders who never received an SSN before:</p>
+                <p>For new immigrants/visa holders without prior SSN:</p>
                 <ul>
-                    <li><strong>Who qualifies:</strong> Authorized to work/study (H1B, F1+OPT, J1, EAD holders, etc.)</li>
-                    <li><strong>Wait:</strong> 10+ days after U.S. entry for records to update</li>
-                    <li><strong>Documents:</strong> Passport, I-94, visa/USCIS proof (I-797, I-20, DS-2019, I-766), job offer/school letter</li>
-                    <li><strong>Process:</strong> Start at OSSNAP → schedule in-person → submit Form SS-5 + originals</li>
-                    <li><strong>Time:</strong> Card mailed in 7–14 days. No online option for most non-citizens.</li>
+                    <li><strong>Eligible if:</strong> Authorized to work/study (H1B, F1+OPT, J1, EAD, etc.)</li>
+                    <li><strong>Wait:</strong> 10+ days after U.S. entry</li>
+                    <li><strong>Documents:</strong> Passport, I-94, visa/USCIS proof, job offer/school letter</li>
+                    <li><strong>Process:</strong> Start OSSNAP → in-person appointment → Form SS-5 + originals</li>
+                    <li><strong>Time:</strong> Card mailed in 7–14 days</li>
                 </ul>
-                <p><strong>Key:</strong> SSN only for work/study authorization — not for bank accounts or driver's licenses alone.</p>
+                <p><strong>Note:</strong> SSN only for work/study — not bank accounts or licenses alone.</p>
             </div>
 
             <div class="topic-box">
@@ -698,13 +448,6 @@
         });
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobile-toggle').checked = false;
-            });
         });
     </script>
 </body>
