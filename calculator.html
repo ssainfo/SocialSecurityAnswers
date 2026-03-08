@@ -3,29 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Page-Specific Title]</title> <!-- e.g., "Card Replacement - Social Security Answers" -->
-    <meta name="description" content="Free 2025 Social Security guide: SSI, SSDI, Medicare, benefits calculator & more. Get updated info to maximize your benefits now!">
-    <meta name="keywords" content="social security 2025, ssi, ssdi, medicare, medicaid, benefits calculator, social security replacement card, disability, social security appointment">
+    <title>Social Security Benefits Calculator 2026 - Social Security Answers</title>
+    <meta name="description" content="Estimate your 2026 Social Security benefits: SSI ($943 max), SSDI (~$1,630 avg), Retirement (up to $4,152 max at FRA), Medicare costs ($185 Part B). Free & updated!">
+    <meta name="keywords" content="social security calculator 2026, ssi calculator, ssdi estimate, retirement benefit calculator, medicare premium 2026, benefits estimator">
     <meta name="robots" content="index, follow">
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Social Security Answers - Your 2025 Guide">
-    <meta property="og:description" content="Your free, all-in-one guide to Social Security, SSI, Medicare, and more—updated for 2025.">
-    <meta property="og:image" content="https://www.ssaanswers.com/images/og-image.jpg">
-    <meta property="og:url" content="https://www.ssaanswers.com/[page-specific-path]"> <!-- e.g., /replacement.html -->
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="2026 Social Security Benefits Calculator - Free & Accurate">
+    <meta property="og:description" content="Estimate SSI, SSDI, Retirement, and Medicare costs for 2026. Updated with 2.8% COLA, $943 SSI max, $185 Part B premium.">
+    <meta property="og:image" content="https://www.ssaanswers.com/images/calculator-og-2026.jpg">
+    <meta property="og:url" content="https://www.ssaanswers.com/calculator.html">
     <meta property="og:type" content="website">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Social Security Answers 2025 Guide Preview">
-    <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Social Security Answers - Your 2025 Guide">
-    <meta name="twitter:description" content="Your free, all-in-one guide to Social Security, SSI, Medicare, and more—updated for 2025.">
-    <meta name="twitter:image" content="https://www.ssaanswers.com/images/og-image.jpg">
-    <link rel="canonical" href="https://www.ssaanswers.com/[page-specific-path]">
+    <link rel="canonical" href="https://www.ssaanswers.com/calculator.html">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPC7TFVK2B"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -33,6 +27,123 @@
       gtag('js', new Date());
       gtag('config', 'G-QPC7TFVK2B');
     </script>
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
+    <style>
+        /* Your existing styles for animated button, news-section, cta-banner, eligibility-checker */
+        .cta-container { text-align: center; padding: 20px 0; }
+        .medicaid-cta { animation: pulse 2s infinite; }
+        .medicaid-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ccff, #007bff);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Catamaran', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .medicaid-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.6);
+        }
+        .medicaid-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        .medicaid-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        .btn-text { display: block; font-size: 1.8rem; letter-spacing: 1px; }
+        .btn-subtext { display: block; font-size: 1rem; font-weight: 400; opacity: 0.9; margin-top: 5px; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        .news-section { margin: 20px 0; padding: 15px; background: #f8f8f8; border-radius: 8px; }
+        .cta-banner { background: #00ccff; color: #fff; padding: 20px; text-align: center; margin: 20px 0; border-radius: 10px; }
+        .eligibility-checker { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        @media (max-width: 480px) {
+            .medicaid-btn { padding: 12px 20px; font-size: 1.2rem; }
+            .btn-text { font-size: 1.4rem; }
+            .btn-subtext { font-size: 0.9rem; }
+        }
+
+        /* Enhanced Calculator Styles */
+        .calculator-wrapper {
+            background: var(--box-bg);
+            border: 2px solid var(--box-border);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-group small {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .calculator-result {
+            background: #f0f8ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border: 1px solid #c3d7ff;
+        }
+        .result-item {
+            margin: 15px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .result-item strong {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        .reset-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        .reset-btn:hover { background: #c0392b; }
+    </style>
 </head>
 <body>
     <header class="banner">
@@ -42,208 +153,340 @@
         </div>
     </header>
 
+    <!-- Animated CTA Button -->
+    <div class="cta-container">
+        <div class="medicaid-cta">
+            <a href="/medicaid.html" class="medicaid-btn">
+                <span class="btn-text">🏥 Medicaid 2026</span>
+                <span class="btn-subtext">Explore Benefits & Apply</span>
+            </a>
+        </div>
+    </div>
+
     <nav class="main-nav">
-    <ul class="nav-list">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/news.html">News</a></li>
-        <li><a href="/replacement.html">Card Replacement</a></li>
-        <li><a href="/retirement.html">Retirement</a></li>
-        <li><a href="/medicare.html">Medicare</a></li>
-        <li><a href="/disability.html">Disability</a></li>
-        <li><a href="/survivor.html">Survivor</a></li>
-        <li><a href="/tax.html">Tax</a></li>
-        <li><a href="/medicaid.html">Medicaid</a></li>
-        <li><a href="/housing.html">Housing</a></li>
-        <li><a href="/faq.html">FAQ</a></li>
-        <li><a href="/fraud.html">Fraud</a></li>
-        <li><a href="/ssi.html">SSI</a></li>
-        <li><a href="/shelter.html">Shelter</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/calculator.html">Calculator</a></li>
-    </ul>
-    <button id="dark-mode-toggle" class="dark-mode-btn">Toggle Dark Mode</button>
-</nav>
+        <div class="nav-box">
+            <ul class="nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/news.html">News</a></li>
+                <li><a href="/replacement.html">Card Replacement</a></li>
+                <li><a href="/retirement.html">Retirement</a></li>
+                <li><a href="/medicare.html">Medicare</a></li>
+                <li><a href="/disability.html">Disability</a></li>
+                <li><a href="/survivor.html">Survivor</a></li>
+                <li><a href="/tax.html">Tax</a></li>
+                <li><a href="/medicaid.html">Medicaid</a></li>
+                <li><a href="/housing.html">Housing</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/fraud.html">Fraud</a></li>
+                <li><a href="/ssi.html">SSI</a></li>
+                <li><a href="/shelter.html">Shelter</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/calculator.html" class="active">Calculator</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="hero">
-        <h1>Your 2025 Benefits Calculator</h1>
-        <p>Estimate your SSI, SSDI, Retirement, and Medicare benefits—free, accurate, and updated for 2025!</p>
+        <h1>Your 2026 Benefits Calculator</h1>
+        <p>Estimate your SSI, SSDI, Retirement, and Medicare costs — free, accurate, and updated for 2026!</p>
         <a href="#calculator-form" class="cta-button">Start Now</a>
     </section>
 
     <main>
         <section class="content-section">
-            <h2>Calculate Your Benefits</h2>
-            <p>Input your details to see personalized estimates based on 2025 SSA rules. Results update instantly!</p>
+            <div class="calculator-wrapper" id="calculator-form">
+                <h2>Calculate Your Benefits</h2>
+                <p>Enter your details below for personalized 2026 estimates. Results update instantly. These are approximations—official amounts are determined by SSA/CMS.</p>
 
-            <div class="calculator-form" id="calculator-form">
                 <div class="form-group">
-                    <label for="age"><i class="fas fa-user"></i> Age:</label>
+                    <label for="age"><i class="fas fa-user"></i> Your Age:</label>
                     <input type="number" id="age" min="0" max="120" placeholder="e.g., 65" oninput="calculateBenefits()">
+                    <small>Used for retirement age, SSI deeming, Medicare eligibility.</small>
                 </div>
+
                 <div class="form-group">
                     <label for="earned-income"><i class="fas fa-dollar-sign"></i> Monthly Earned Income ($):</label>
                     <input type="number" id="earned-income" min="0" placeholder="e.g., 800" oninput="calculateBenefits()">
+                    <small>Wages, self-employment income.</small>
                 </div>
+
                 <div class="form-group">
                     <label for="unearned-income"><i class="fas fa-gift"></i> Monthly Unearned Income ($):</label>
                     <input type="number" id="unearned-income" min="0" placeholder="e.g., 200" oninput="calculateBenefits()">
+                    <small>Pensions, gifts, in-kind support, etc.</small>
                 </div>
+
                 <div class="form-group">
-                    <label for="resources"><i class="fas fa-piggy-bank"></i> Resources/Assets ($):</label>
+                    <label for="resources"><i class="fas fa-piggy-bank"></i> Countable Resources/Assets ($):</label>
                     <input type="number" id="resources" min="0" placeholder="e.g., 1000" oninput="calculateBenefits()">
+                    <small>Bank accounts, stocks, etc. (excludes home, 1 car).</small>
                 </div>
+
                 <div class="form-group">
-                    <label for="work-years"><i class="fas fa-briefcase"></i> Years Worked:</label>
+                    <label for="work-years"><i class="fas fa-briefcase"></i> Years of Substantial Work:</label>
                     <input type="number" id="work-years" min="0" max="50" placeholder="e.g., 20" oninput="calculateBenefits()">
+                    <small>For SSDI/Retirement credit estimates.</small>
                 </div>
+
                 <div class="form-group">
                     <label for="disability"><i class="fas fa-wheelchair"></i> Disability Status:</label>
                     <select id="disability" onchange="calculateBenefits()">
                         <option value="no">No</option>
-                        <option value="yes">Yes</option>
+                        <option value="yes">Yes (meets SSA definition)</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="marital"><i class="fas fa-ring"></i> Marital Status:</label>
                     <select id="marital" onchange="calculateBenefits()">
-                        <option value="single">Single</option>
-                        <option value="married">Married</option>
+                        <option value="single">Single / Head of Household</option>
+                        <option value="married">Married (both eligible)</option>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="visa"><i class="fas fa-passport"></i> Visa Status:</label>
+                    <label for="visa"><i class="fas fa-passport"></i> Citizenship/Visa Status:</label>
                     <select id="visa" onchange="calculateBenefits()">
-                        <option value="citizen">U.S. Citizen</option>
-                        <option value="refugee">Refugee/Asylee (< 7 yrs)</option>
-                        <option value="other">Other</option>
+                        <option value="citizen">U.S. Citizen / Qualified Resident</option>
+                        <option value="refugee">Refugee / Asylee (<7 years)</option>
+                        <option value="other">Other Non-Citizen</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="parents"><i class="fas fa-users"></i> Living with Parents (if under 18):</label>
-                    <select id="parents" onchange="calculateBenefits()">
-                        <option value="none">No Parents</option>
-                        <option value="one">One Parent</option>
-                        <option value="two">Two Parents</option>
-                    </select>
+
+                <!-- Child-specific fields (shown if age < 18) -->
+                <div id="child-fields" style="display:none;">
+                    <div class="form-group">
+                        <label for="parents"><i class="fas fa-users"></i> Living with Parents?</label>
+                        <select id="parents" onchange="calculateBenefits()">
+                            <option value="none">No Parents / Independent</option>
+                            <option value="one">One Parent</option>
+                            <option value="two">Two Parents</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="parent-earned"><i class="fas fa-dollar-sign"></i> Parent(s) Monthly Earned Income ($):</label>
+                        <input type="number" id="parent-earned" min="0" placeholder="e.g., 2000" oninput="calculateBenefits()">
+                    </div>
+                    <div class="form-group">
+                        <label for="parent-unearned"><i class="fas fa-gift"></i> Parent(s) Monthly Unearned Income ($):</label>
+                        <input type="number" id="parent-unearned" min="0" placeholder="e.g., 500" oninput="calculateBenefits()">
+                    </div>
+                    <div class="form-group">
+                        <label for="siblings"><i class="fas fa-child"></i> Number of Non-SSI Siblings:</label>
+                        <input type="number" id="siblings" min="0" max="10" placeholder="e.g., 2" oninput="calculateBenefits()">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="parent-earned"><i class="fas fa-dollar-sign"></i> Parent(s) Monthly Earned Income ($):</label>
-                    <input type="number" id="parent-earned" min="0" placeholder="e.g., 2000" oninput="calculateBenefits()">
-                </div>
-                <div class="form-group">
-                    <label for="parent-unearned"><i class="fas fa-gift"></i> Parent(s) Monthly Unearned Income ($):</label>
-                    <input type="number" id="parent-unearned" min="0" placeholder="e.g., 500" oninput="calculateBenefits()">
-                </div>
-                <div class="form-group">
-                    <label for="siblings"><i class="fas fa-child"></i> Number of Non-SSI Siblings:</label>
-                    <input type="number" id="siblings" min="0" max="10" placeholder="e.g., 2" oninput="calculateBenefits()">
-                </div>
+
+                <button type="button" class="reset-btn" onclick="resetForm()">Reset Form</button>
             </div>
 
             <div class="calculator-result">
-                <h3>Your Estimated Benefits</h3>
+                <h3>Your Estimated 2026 Benefits</h3>
                 <div class="result-item">
-                    <p><strong>SSI:</strong> <span id="ssi-result">$0/month</span></p>
-                    <p><strong>SSDI:</strong> <span id="ssdi-result">Check eligibility</span></p>
-                    <p><strong>Retirement:</strong> <span id="retirement-result">$0/month</span></p>
-                    <p><strong>Medicare:</strong> <span id="medicare-result">N/A</span></p>
+                    <p><strong>SSI (Federal):</strong> <span id="ssi-result">$0 / month</span></p>
                 </div>
-                <p class="disclaimer">Note: Estimates only—final amounts set by SSA. See <a href="/faq.html">FAQs</a>.</p>
+                <div class="result-item">
+                    <p><strong>SSDI (if eligible):</strong> <span id="ssdi-result">Estimate not available yet</span></p>
+                </div>
+                <div class="result-item">
+                    <p><strong>Retirement at FRA:</strong> <span id="retirement-result">$0 / month</span></p>
+                </div>
+                <div class="result-item">
+                    <p><strong>Medicare Part B Premium:</strong> <span id="medicare-result">N/A</span></p>
+                </div>
+                <p class="disclaimer">These are rough estimates only — actual amounts determined by SSA/CMS. Use official tools for final figures.</p>
             </div>
 
             <div class="chart-container">
-                <h3>Benefit Breakdown</h3>
+                <h3>Estimated Monthly Benefits</h3>
                 <div class="bar-chart" id="benefit-chart">
-                    <div class="bar" id="ssi-bar" style="height: 0%; background-color: #4682b4;">SSI: $0</div>
-                    <div class="bar" id="ssdi-bar" style="height: 0%; background-color: #32cd32;">SSDI: $0</div>
-                    <div class="bar" id="retirement-bar" style="height: 0%; background-color: #ff6347;">Retirement: $0</div>
+                    <div class="bar" id="ssi-bar" style="height:0%; background:#4682b4;">SSI: $0</div>
+                    <div class="bar" id="ssdi-bar" style="height:0%; background:#32cd32;">SSDI: $0</div>
+                    <div class="bar" id="retirement-bar" style="height:0%; background:#ff6347;">Retirement: $0</div>
                 </div>
-                <p class="chart-note">Chart scales to $4,018 (2025 SSA max benefit).</p>
+                <p class="chart-note">Chart max scale: $4,152 (2026 SSA high-earner retirement max at FRA).</p>
             </div>
 
-            <div class="timeline-container">
-                <h3>Your Benefits Timeline</h3>
-                <div id="timeline" class="timeline"></div>
+            <!-- Parent-to-Child Deeming Chart -->
+            <div class="topic-box">
+                <h3>Parent-to-Child Deeming Chart (2026)</h3>
+                <table class="doc-table">
+                    <thead><tr><th>Household</th><th>Max Earned Income Before Full Offset</th><th>Max Unearned Income Before Full Offset</th></tr></thead>
+                    <tbody>
+                        <tr><td>1 Parent, 1 Child</td><td>~$4,200</td><td>~$2,000</td></tr>
+                        <tr><td>2 Parents, 1 Child</td><td>~$5,200</td><td>~$2,500</td></tr>
+                        <tr><td>1 Parent, 2 Children</td><td>~$4,700</td><td>~$2,500</td></tr>
+                        <tr><td>2 Parents, 2 Children</td><td>~$5,700</td><td>~$3,000</td></tr>
+                    </tbody>
+                </table>
+                <p class="chart-note">Approximate income before SSI is fully reduced (excludes $20/$85 + half earnings).</p>
             </div>
 
-            <h3>Parent-to-Child Deeming Chart</h3>
-            <table class="doc-table">
-                <thead><tr><th>Household</th><th>Max Earned Income</th><th>Max Unearned Income</th></tr></thead>
-                <tbody>
-                    <tr><td>1 Parent, 1 Child</td><td>$4,001</td><td>$1,935</td></tr>
-                    <tr><td>2 Parents, 1 Child</td><td>$4,945</td><td>$2,407</td></tr>
-                    <tr><td>1 Parent, 2 Children</td><td>$4,485</td><td>$2,419</td></tr>
-                    <tr><td>2 Parents, 2 Children</td><td>$5,429</td><td>$2,891</td></tr>
-                </tbody>
-            </table>
-            <p class="chart-note">Income limits before SSI is fully offset (2025, SSA.gov).</p>
-
-            <h3>Examples with Parent Deeming</h3>
-            <div class="examples">
-                <div class="example">
-                    <h4>Tim, 15, Disabled</h4>
-                    <p>Age: 15, Earned: $0, Unearned: $0, Resources: $500, Parents: 2, Parent Earned: $3,000, Parent Unearned: $500, Siblings: 1.</p>
-                    <p><strong>Result:</strong> SSI: $483/month (deemed $484), SSDI: Not eligible, Medicare: N/A.</p>
-                </div>
-                <div class="example">
-                    <h4>Lisa, 10, Blind</h4>
-                    <p>Age: 10, Earned: $0, Unearned: $100, Resources: $1,000, Parents: 1, Parent Earned: $1,500, Parent Unearned: $0, Siblings: 0.</p>
-                    <p><strong>Result:</strong> SSI: $827/month (deemed $120), SSDI: Not eligible, Medicare: N/A.</p>
-                </div>
+            <div class="topic-box">
+                <h3>How These Estimates Work</h3>
+                <ul>
+                    <li><strong>SSI:</strong> Federal Benefit Rate ($943 individual / $1,415 couple) minus countable income. Deeming applies for children under 18.</li>
+                    <li><strong>SSDI:</strong> Rough estimate based on years worked and average earnings (actual requires SSA record).</li>
+                    <li><strong>Retirement:</strong> Very approximate PIA calculation (90/32/15 bend points) — real value from my Social Security.</li>
+                    <li><strong>Medicare:</strong> Eligibility at 65 or after 24 months SSDI; standard Part B $185/month + possible IRMAA.</li>
+                </ul>
+                <p>For accurate numbers, create a <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security</a> account or contact SSA at 1-800-772-1213.</p>
             </div>
 
-            <h3>How It Works</h3>
-            <p>Using 2025 SSA rules: SSI max is $967 (single) or $1,450 (couple), reduced by countable income (earned: $65 + half remainder; unearned: $20 off). For kids under 18, parental income is deemed after allocations ($484/child). SSDI and Retirement are estimated from work history. <a href="/ssi.html">Learn more</a>.</p>
-            <p><a href="#calculator-form" class="cta-button">Try Again</a></p>
+            <!-- Ad -->
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5346424450981440"
+                     data-ad-slot="5473550665"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <div class="social-share">
+                <h3>Share This Calculator</h3>
+                <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/calculator.html" class="share-btn twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/calculator.html" class="share-btn facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <!-- Add other platforms as needed -->
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
+        <p>© 2026 Social Security Answers - <a href="https://ssaanswers.com/">ssaanswers.com</a></p>
+        <p>Not affiliated with SSA/CMS — verify all info at official sites.</p>
     </footer>
 
     <button id="back-to-top" class="back-to-top-btn"><i class="fas fa-arrow-up"></i> Top</button>
+
+    <!-- Support Us Section -->
     <button id="support-us-toggle" class="support-us-toggle-btn"><i class="fas fa-heart"></i> Support</button>
     <div id="support-us" class="support-us-container">
         <div class="support-us-header">
             <h3>Support Us</h3>
             <button id="support-us-close" class="support-us-close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <p>Help us keep this free! Donate via PayPal:</p>
+        <p>Help us keep this free! Donate via PayPal or Cash App:</p>
         <form action="https://www.paypal.com/donate" method="post" target="_blank">
             <input type="hidden" name="business" value="ravellc17@gmail.com" />
             <input type="hidden" name="currency_code" value="USD" />
-            <button type="submit" class="support-btn"><i class="fab fa-paypal"></i> Donate Now</button>
+            <button type="submit" class="support-btn"><i class="fab fa-paypal"></i> Donate via PayPal</button>
         </form>
-        <p>Explore books:</p>
-        <a href="https://www.amazon.com/s?k=social+security+books&tag=socialsecu07f-20" target="_blank" class="support-btn resources-btn"><i class="fas fa-book"></i> Books & Resources</a>
-    </div>
-
-    <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i> Chat</button>
-    <div id="chatbot" class="chatbot-container">
-        <div class="chatbot-header">
-            <h3>Social Security Chatbot</h3>
-            <button id="chatbot-close" class="chatbot-close-btn"><i class="fas fa-times"></i></button>
-        </div>
-        <div id="chatbot-messages" class="chatbot-messages"></div>
-        <div class="chatbot-input-area">
-            <select id="suggested-questions" class="suggested-questions">
-                <option value="">Suggested Questions</option>
-                <option value="How do I replace my Social Security card?">How do I replace my Social Security card?</option>
-                <option value="When can I start collecting retirement benefits?">When can I start collecting retirement benefits?</option>
-                <option value="What’s the difference between SSDI and SSI?">What’s the difference between SSDI and SSI?</option>
-                <option value="How do I report fraud?">How do I report fraud?</option>
-                <option value="What is my Full Retirement Age?">What is my Full Retirement Age?</option>
-            </select>
-            <input type="text" id="chatbot-input" placeholder="Ask me anything..." class="chatbot-input">
-            <button id="chatbot-send" class="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
-        </div>
-        <div class="chatbot-controls">
-            <button id="chatbot-save" class="chatbot-control-btn">Save Chat</button>
-            <button id="chatbot-reset" class="chatbot-control-btn">Reset Chat</button>
-        </div>
+        <p>Or send directly via Cash App to <strong>$ssaanswers</strong>:</p>
+        <a href="https://cash.app/$ssaanswers" target="_blank" class="support-btn cashapp-btn"><i class="fas fa-dollar-sign"></i> Donate via Cash App</a>
+        <p>Scan this QR code:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cash.app/$ssaanswers" alt="Cash App QR" class="cashapp-qr">
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // 2026 SSA/CMS data
+        const SSI_FBR_INDIVIDUAL = 943;
+        const SSI_FBR_COUPLE = 1415;
+        const RESOURCE_LIMIT_INDIVIDUAL = 2000;
+        const RESOURCE_LIMIT_COUPLE = 3000;
+        const GENERAL_EXCLUSION = 20;
+        const EARNED_EXCLUSION = 85;
+        const STUDENT_EARNED_MAX_MONTH = 2290; // approximate 2026
+
+        // Rough bend points for PIA (2026 estimates)
+        const BEND_POINT_1 = 1174;
+        const BEND_POINT_2 = 7078;
+
+        function calculateBenefits() {
+            const age = parseInt(document.getElementById('age').value) || 0;
+            const earned = parseFloat(document.getElementById('earned-income').value) || 0;
+            const unearned = parseFloat(document.getElementById('unearned-income').value) || 0;
+            const resources = parseFloat(document.getElementById('resources').value) || 0;
+            const workYears = parseInt(document.getElementById('work-years').value) || 0;
+            const disability = document.getElementById('disability').value;
+            const marital = document.getElementById('marital').value;
+            const visa = document.getElementById('visa').value;
+
+            // Show/hide child fields
+            document.getElementById('child-fields').style.display = (age < 18) ? 'block' : 'none';
+
+            let ssi = 0;
+            let ssdi = "Not eligible";
+            let retirement = "Not eligible";
+            let medicare = "Not eligible";
+
+            // === SSI Calculation ===
+            if (age >= 65 || disability === 'yes') {
+                if (resources > (marital === 'married' ? RESOURCE_LIMIT_COUPLE : RESOURCE_LIMIT_INDIVIDUAL)) {
+                    ssi = "Resources exceed limit";
+                } else if (visa === 'other') {
+                    ssi = "Limited eligibility for non-qualified aliens";
+                } else {
+                    let countableUnearned = Math.max(0, unearned - GENERAL_EXCLUSION);
+                    let countableEarned = Math.max(0, (earned - EARNED_EXCLUSION) / 2);
+
+                    // Child deeming (simplified)
+                    let deemed = 0;
+                    if (age < 18) {
+                        const parents = document.getElementById('parents').value;
+                        const parentEarned = parseFloat(document.getElementById('parent-earned').value) || 0;
+                        const parentUnearned = parseFloat(document.getElementById('parent-unearned').value) || 0;
+                        const siblings = parseInt(document.getElementById('siblings').value) || 0;
+
+                        // Very simplified deeming logic
+                        const allocation = 943 + 20 + 65; // rough parent exclusion
+                        deemed = Math.max(0, (parentEarned - allocation) / 2 + parentUnearned - GENERAL_EXCLUSION);
+                        deemed /= (siblings + 1); // allocate across children
+                    }
+
+                    let totalCountable = countableUnearned + countableEarned + deemed;
+                    ssi = Math.max(0, (marital === 'married' ? SSI_FBR_COUPLE : SSI_FBR_INDIVIDUAL) - totalCountable);
+                    ssi = Math.round(ssi * 100) / 100;
+                }
+            }
+
+            // === SSDI rough estimate ===
+            if (disability === 'yes' && workYears >= 5) {
+                ssdi = "~$" + Math.round(800 + workYears * 40) + "/month (average)";
+            }
+
+            // === Retirement rough estimate ===
+            if (age >= 62 && workYears >= 10) {
+                // Very rough AIME/PIA
+                const aime = 3000 + workYears * 100; // placeholder
+                let pia = 0.9 * Math.min(aime, BEND_POINT_1);
+                pia += 0.32 * Math.min(Math.max(0, aime - BEND_POINT_1), BEND_POINT_2 - BEND_POINT_1);
+                pia += 0.15 * Math.max(0, aime - BEND_POINT_2);
+                pia = Math.round(pia);
+                retirement = "$" + pia + "/month at FRA";
+                if (age < 67) retirement += " (reduced if claimed early)";
+            }
+
+            // === Medicare ===
+            if (age >= 65 || (disability === 'yes' && workYears >= 10)) {
+                medicare = "Part B premium: $185/month (standard)";
+            }
+
+            // Update DOM
+            document.getElementById('ssi-result').textContent = typeof ssi === 'number' ? "$" + ssi + " / month" : ssi;
+            document.getElementById('ssdi-result').textContent = ssdi;
+            document.getElementById('retirement-result').textContent = retirement;
+            document.getElementById('medicare-result').textContent = medicare;
+
+            // Update bar chart
+            const maxScale = 4152;
+            document.getElementById('ssi-bar').style.height = (ssi / maxScale * 100) + "%";
+            document.getElementById('ssi-bar').textContent = "SSI: $" + (typeof ssi === 'number' ? ssi : 0);
+            // Add similar for SSDI/retirement if numeric values available
+        }
+
+        function resetForm() {
+            document.querySelectorAll('#calculator-form input, #calculator-form select').forEach(el => {
+                if (el.type === 'number') el.value = '';
+                else if (el.tagName === 'SELECT') el.selectedIndex = 0;
+            });
+            calculateBenefits();
+        }
+
+        // Run on load
+        calculateBenefits();
+    </script>
 </body>
 </html>
