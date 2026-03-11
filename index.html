@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Social Security Answers - Replace SSN Card for Immigrants & Visa Holders (H1B, F1, J1, EAD) 2026 Guide</title>
     <meta name="description" content="Replace your Social Security card in 2026: Free guide for U.S. citizens, immigrants, visa holders (H1B, F1, J1), EAD holders. Steps, documents, appointment, USCIS links. International SSN replacement info.">
     <meta name="keywords" content="replace SSN card 2026, Social Security card replacement immigrants, H1B visa SSN, F1 student SSN replacement, J1 visa SSN, EAD card SSN, non-citizen SSN application, Form SS-5 international, SSA appointment, USCIS documents, social security for foreigners">
@@ -58,6 +58,8 @@
             line-height: 1.6;
             color: var(--text);
             background: #fff;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 220px;
         }
         .banner {
             background: var(--primary);
@@ -159,6 +161,9 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+        @media (max-width: 768px) {
+            iframe { height: 300px; }
+        }
         .examples { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; }
         .example {
             flex: 1 1 320px;
@@ -225,98 +230,111 @@
             display: none;
             z-index: 999;
         }
-        /* Support & Chatbot styles (added from shelter.html) */
+        /* Support & Chatbot */
         .support-us-toggle-btn, .chatbot-toggle-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            right: 16px;
             background: var(--primary);
             color: white;
             border: none;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 1.6rem;
+            width: 56px;
+            height: 56px;
+            font-size: 1.5rem;
             cursor: pointer;
-            z-index: 999;
+            z-index: 1001;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .support-us-toggle-btn { bottom: 90px; }
         .chatbot-toggle-btn { bottom: 160px; }
         .support-us-container, .chatbot-container {
             display: none;
             position: fixed;
+            right: 16px;
             bottom: 90px;
-            right: 20px;
-            width: 340px;
+            width: 360px;
+            max-width: calc(100% - 32px);
+            height: 85vh;
+            max-height: 85vh;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             z-index: 1000;
             overflow: hidden;
+            flex-direction: column;
         }
-        .support-us-container.active, .chatbot-container.active { display: block; }
-        .support-us-header, .chatbot-header {
+        .support-us-container.active, .chatbot-container.active { display: flex; }
+        .chatbot-header, .support-us-header {
             background: var(--primary);
             color: white;
             padding: 14px 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
         }
-        .support-us-close-btn, .chatbot-close-btn {
+        .chatbot-close-btn, .support-us-close-btn {
             background: none;
             border: none;
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             cursor: pointer;
         }
         .chatbot-messages {
-            max-height: 280px;
-            overflow-y: auto;
             padding: 16px;
             background: #f9f9f9;
+            overflow-y: auto;
+            flex: 1;
         }
         .chatbot-messages p {
             margin: 8px 0;
             padding: 10px 14px;
             border-radius: 18px;
-            max-width: 80%;
+            max-width: 85%;
+            word-wrap: break-word;
         }
-        .chatbot-messages p:nth-child(odd) { background: #e3f2fd; align-self: flex-start; }
-        .chatbot-messages p:nth-child(even) { background: var(--primary); color: white; align-self: flex-end; margin-left: auto; }
+        .chatbot-messages p.user { background: #e3f2fd; align-self: flex-start; }
+        .chatbot-messages p.bot { background: var(--primary); color: white; align-self: flex-end; margin-left: auto; }
         .chatbot-input-area {
             display: flex;
+            flex-wrap: wrap;
             padding: 12px;
             border-top: 1px solid #ddd;
             background: white;
+            gap: 8px;
+            flex-shrink: 0;
         }
         .suggested-questions {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            margin-right: 8px;
-        }
-        .chatbot-input {
-            flex: 2;
+            flex: 1 1 100%;
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .chatbot-input {
+            flex: 1 1 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
         }
         .chatbot-send-btn {
             background: var(--primary);
             color: white;
             border: none;
             padding: 10px 16px;
-            margin-left: 8px;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 1rem;
         }
         .chatbot-controls {
             padding: 10px;
-            text-align: center;
             background: #f1f1f1;
+            text-align: center;
+            flex-shrink: 0;
         }
         .chatbot-control-btn {
             background: var(--primary);
@@ -327,28 +345,28 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        /* Mobile fixes */
-        @media (max-width: 400px) {
-            .support-us-container, .chatbot-container {
-                width: calc(100% - 40px);
-                right: 20px;
+        @media (max-width: 480px) {
+            .chatbot-container, .support-us-container {
+                width: 100%;
+                right: 0;
+                border-radius: 16px 16px 0 0;
+                height: 90vh;
+                max-height: 90vh;
+                bottom: 0 !important;
             }
             .chatbot-toggle-btn {
                 bottom: 20px;
+                right: 80px;
             }
             .support-us-toggle-btn {
                 bottom: 90px;
+                right: 20px;
             }
             .back-to-top-btn {
                 bottom: 160px;
             }
-            .chatbot-container.active {
-                bottom: 0;
-                height: 80vh;
-                border-radius: 12px 12px 0 0;
-            }
             .chatbot-messages {
-                max-height: 50vh;
+                padding: 12px;
             }
         }
     </style>
@@ -516,26 +534,29 @@
         <p>Information for education only — call 1-800-772-1213 for personal questions.</p>
     </footer>
     <button class="back-to-top-btn" id="back-to-top"><i class="fas fa-arrow-up"></i></button>
-    <!-- Support Us Toggle & Container (optional – keep if you want it here too) -->
+
+    <!-- Support Us -->
     <button id="support-us-toggle" class="support-us-toggle-btn"><i class="fas fa-heart"></i></button>
     <div id="support-us" class="support-us-container">
         <div class="support-us-header">
             <h3>Support Us</h3>
             <button id="support-us-close" class="support-us-close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <p>Help keep this resource free! Donate via PayPal or Cash App:</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_blank">
-            <input type="hidden" name="business" value="ravellc17@gmail.com" />
-            <input type="hidden" name="currency_code" value="USD" />
-            <button type="submit" class="support-btn"><i class="fab fa-paypal"></i> Donate via PayPal</button>
-        </form>
-        <p>Or send directly via Cash App to <strong>$ssaanswers</strong>:</p>
-        <a href="https://cash.app/$ssaanswers" target="_blank" class="support-btn cashapp-btn"><i class="fas fa-dollar-sign"></i> Donate via Cash App</a>
-        <p>Scan this QR code with your Cash App:</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cash.app/$ssaanswers" alt="Cash App QR Code" class="cashapp-qr">
+        <div style="padding: 20px; text-align: center;">
+            <p>Help keep this resource free!</p>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank" style="margin: 15px 0;">
+                <input type="hidden" name="business" value="ravellc17@gmail.com" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <button type="submit" style="background:#0070ba; color:white; padding:12px 20px; border:none; border-radius:8px; font-size:1.1rem; cursor:pointer; width:100%;"><i class="fab fa-paypal"></i> Donate via PayPal</button>
+            </form>
+            <p>Or send directly via Cash App to <strong>$ssaanswers</strong></p>
+            <a href="https://cash.app/$ssaanswers" target="_blank" style="display:inline-block; background:#00c4b4; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-size:1.1rem; margin:15px 0; width:100%;"><i class="fas fa-dollar-sign"></i> Donate via Cash App</a>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cash.app/$ssaanswers" alt="Cash App QR Code" style="max-width:180px; margin:10px auto; display:block;">
+        </div>
     </div>
-    <!-- Chatbot (added from shelter.html) -->
-    <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i> Chat</button>
+
+    <!-- Chatbot -->
+    <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i></button>
     <div id="chatbot" class="chatbot-container">
         <div class="chatbot-header">
             <h3>SSN & Immigration Chatbot</h3>
@@ -544,19 +565,19 @@
         <div id="chatbot-messages" class="chatbot-messages"></div>
         <div class="chatbot-input-area">
             <select id="suggested-questions" class="suggested-questions">
-                <option value="">Suggested Questions</option>
+                <option value="">Pick a question or type below...</option>
                 <option value="Can I replace my SSN card online?">Can I replace my SSN card online?</option>
                 <option value="What documents do I need as a non-citizen?">What documents do I need as a non-citizen?</option>
+                <option value="What documents do U.S. citizens need?">What documents do U.S. citizens need?</option>
                 <option value="How do I schedule an SSA appointment?">How do I schedule an SSA appointment?</option>
-                <option value="Do H1B or F1 visa holders need an SSN?">Do H1B or F1 visa holders need an SSN?</option>
                 <option value="What is the replacement limit?">What is the replacement limit?</option>
-                <option value="How long does it take to get a replacement card?">How long does it take to get a replacement card?</option>
-                <option value="What documents are needed for citizens?">What documents are needed for citizens?</option>
-                <option value="Can I apply for a first-time SSN as an immigrant?">Can I apply for a first-time SSN as an immigrant?</option>
+                <option value="How long does it take to get the card?">How long does it take to get the card?</option>
+                <option value="Is replacing the SSN card free?">Is replacing the SSN card free?</option>
+                <option value="Do H1B, F1, J1 or EAD holders need an SSN?">Do H1B, F1, J1 or EAD holders need an SSN?</option>
+                <option value="How to apply for a first-time SSN as an immigrant?">How to apply for a first-time SSN as an immigrant?</option>
                 <option value="What if I need to change my name on the card?">What if I need to change my name on the card?</option>
-                <option value="Is there a fee for replacement?">Is there a fee for replacement?</option>
             </select>
-            <input type="text" id="chatbot-input" placeholder="Ask about SSN cards..." class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Ask about SSN cards, documents, appointments..." class="chatbot-input">
             <button id="chatbot-send" class="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
         </div>
         <div class="chatbot-controls">
@@ -564,99 +585,105 @@
             <button id="chatbot-reset" class="chatbot-control-btn">Reset Chat</button>
         </div>
     </div>
+
     <script>
-        // Back to top smooth scroll
+        // Back to top
         const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
             backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
         });
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Support toggle
+        document.getElementById('support-us-toggle').addEventListener('click', () => {
+            document.getElementById('support-us').classList.toggle('active');
         });
-        // Chatbot functionality (from shelter.html, adapted)
+        document.getElementById('support-us-close').addEventListener('click', () => {
+            document.getElementById('support-us').classList.remove('active');
+        });
+
+        // Chatbot
         document.addEventListener('DOMContentLoaded', () => {
-            const chatbotToggle = document.getElementById('chatbot-toggle');
-            const chatbot = document.getElementById('chatbot');
-            const chatbotClose = document.getElementById('chatbot-close');
-            const chatbotInput = document.getElementById('chatbot-input');
-            const chatbotSend = document.getElementById('chatbot-send');
-            const chatbotMessages = document.getElementById('chatbot-messages');
-            const suggestedQuestions = document.getElementById('suggested-questions');
-            const chatbotReset = document.getElementById('chatbot-reset');
-            const chatbotSave = document.getElementById('chatbot-save');
-            // Toggle chatbot visibility
-            chatbotToggle.addEventListener('click', () => {
-                chatbot.classList.toggle('active');
-            });
-            chatbotClose.addEventListener('click', () => {
-                chatbot.classList.remove('active');
-            });
-            // Send message on button click
-            chatbotSend.addEventListener('click', sendMessage);
-            chatbotInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
+            const toggle = document.getElementById('chatbot-toggle');
+            const container = document.getElementById('chatbot');
+            const close = document.getElementById('chatbot-close');
+            const input = document.getElementById('chatbot-input');
+            const send = document.getElementById('chatbot-send');
+            const messages = document.getElementById('chatbot-messages');
+            const suggested = document.getElementById('suggested-questions');
+            const reset = document.getElementById('chatbot-reset');
+            const save = document.getElementById('chatbot-save');
+
+            toggle.addEventListener('click', () => container.classList.toggle('active'));
+            close.addEventListener('click', () => container.classList.remove('active'));
+
+            function addMessage(sender, text) {
+                const p = document.createElement('p');
+                p.className = sender.toLowerCase();
+                p.innerHTML = `<strong>${sender}:</strong> ${text}`;
+                messages.appendChild(p);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
             function sendMessage() {
-                const message = chatbotInput.value.trim();
-                if (!message) return;
-                // Add user message
-                addMessage('You', message);
-                chatbotInput.value = '';
-                // Enhanced bot responses based on official SSA.gov information (as of 2026)
+                const msg = input.value.trim();
+                if (!msg) return;
+                addMessage('You', msg);
+                input.value = '';
+
                 setTimeout(() => {
-                    let response = "I'm here to help with SSN card questions! For the most accurate info, visit https://www.ssa.gov/number-card/replace-card. Try asking something specific.";
-                    const lowerMsg = message.toLowerCase();
-                    if (lowerMsg.includes('online') || lowerMsg.includes('replace online')) {
-                        response = "Yes, you can apply for a replacement card online if you're a U.S. citizen age 18 or older with a U.S. mailing address, not requesting any changes (like name), and in a state that allows online requests. Use your my Social Security account at https://www.ssa.gov/myaccount/. Non-citizens or those needing changes must start online and complete in-person. Source: https://www.ssa.gov/number-card/replace-card.";
-                    } else if (lowerMsg.includes('document') || lowerMsg.includes('documents') || lowerMsg.includes('need') && lowerMsg.includes('non-citizen')) {
-                        response = "For non-citizens: Provide original documents proving identity (e.g., passport), U.S. citizenship or lawful status if born outside U.S. (e.g., I-94, visa, EAD/I-766, Green Card). Specifics vary by visa type: H1B needs I-797; F1 needs I-20; J1 needs DS-2019. Originals or certified copies only—no photocopies. See https://www.ssa.gov/ssnumber/ss5doc.htm for full list.";
-                    } else if (lowerMsg.includes('appointment') || lowerMsg.includes('schedule') || lowerMsg.includes('ossnap') || lowerMsg.includes('icon')) {
-                        response = "Start your application at https://www.ssa.gov/number-card/replace-card. If in-person is needed, self-schedule an appointment using the ICON tool at https://secure.ssa.gov/ICON/main.jsp. OSSNAP is a legacy system; ICON is the current one. Call 1-800-772-1213 if you need help. Appointments are required for local offices or Card Centers.";
-                    } else if (lowerMsg.includes('h1b') || lowerMsg.includes('f1') || lowerMsg.includes('j1') || lowerMsg.includes('ead') || lowerMsg.includes('visa') || lowerMsg.includes('immigrant')) {
-                        response = "Non-citizens like H1B, F1, J1, or EAD holders can replace or apply for an SSN if authorized to work or study. Typically, in-person verification is required with original DHS/USCIS documents (passport, I-94, visa docs). Start online at https://www.ssa.gov/number-card, then schedule appointment if prompted. For first-time, wait 10 days after U.S. entry.";
-                    } else if (lowerMsg.includes('limit') || lowerMsg.includes('how many')) {
-                        response = "You can receive up to 3 replacement cards per year and 10 in a lifetime. Changes to name, citizenship, or work authorization don't count toward these limits. Replacements are always free. Source: https://www.ssa.gov/forms/ss-5.pdf.";
-                    } else if (lowerMsg.includes('how long') || lowerMsg.includes('time') || lowerMsg.includes('receive')) {
-                        response = "Replacement cards are typically mailed within 10 business days after approval. If applying in-person, it may take 7-14 days. No expedited service is available. Track via my Social Security or call 1-800-772-1213 if delayed beyond 3 weeks.";
-                    } else if (lowerMsg.includes('document') || lowerMsg.includes('documents') || lowerMsg.includes('need') && lowerMsg.includes('citizen')) {
-                        response = "For U.S. citizens: One document proving identity (e.g., driver's license, U.S. passport, state ID). If born outside the U.S., also prove citizenship (birth certificate or passport). For changes like name, provide supporting docs (e.g., marriage certificate). See https://www.ssa.gov/ssnumber/ss5doc.htm.";
-                    } else if (lowerMsg.includes('first-time') || lowerMsg.includes('never had') || lowerMsg.includes('new ssn')) {
-                        response = "For first-time SSN applicants (e.g., new immigrants): Eligible if work/study authorized. Provide at least two docs for age, identity, citizenship/status (passport, I-94, job offer/school letter). Apply in-person after starting online. Wait ~10 days post-entry. More at https://www.ssa.gov/number-card.";
-                    } else if (lowerMsg.includes('change name') || lowerMsg.includes('name change')) {
-                        response = "To change your name on your SSN record, provide docs proving identity, the name change event (e.g., marriage/divorce certificate), and reason. Recent docs preferred. Start at https://www.ssa.gov/life-events/change-name. This doesn't count toward replacement limits.";
-                    } else if (lowerMsg.includes('fee') || lowerMsg.includes('cost')) {
-                        response = "Replacing your Social Security card is always free. Beware of scam sites that charge fees—only use official SSA.gov resources.";
+                    let reply = "I'm here to help with SSN questions! Always verify at ssa.gov.";
+                    const lower = msg.toLowerCase();
+
+                    if (lower.includes('online')) {
+                        reply = "U.S. citizens 18+ with U.S. mailing address and no record changes can usually replace online via my Social Security at https://www.ssa.gov/myaccount/. Non-citizens or changes → start online then in-person.";
+                    } else if (lower.includes('document') && lower.includes('non-citizen')) {
+                        reply = "Originals required: passport (ID) + status docs (I-94, visa, EAD I-766, I-797 H1B, I-20 F1, DS-2019 J1). Full list: https://www.ssa.gov/ssnumber/ss5doc.htm";
+                    } else if (lower.includes('document') && (lower.includes('citizen') || lower.includes('u.s.'))) {
+                        reply = "Usually one ID (driver’s license, passport, state ID). Citizenship proof if needed (birth cert, U.S. passport). See: https://www.ssa.gov/ssnumber/ss5doc.htm";
+                    } else if (lower.includes('appointment') || lower.includes('schedule')) {
+                        reply = "Start at https://www.ssa.gov/number-card/replace-card → self-schedule via ICON https://secure.ssa.gov/ICON/main.jsp if required. Call 1-800-772-1213 for help.";
+                    } else if (lower.includes('limit')) {
+                        reply = "3 replacements per year, 10 lifetime. Name/work auth changes don't count. Always free.";
+                    } else if (lower.includes('long') || lower.includes('time') || lower.includes('receive')) {
+                        reply = "Typically mailed in 7–14 business days (~10 days average). No expedited option.";
+                    } else if (lower.includes('free') || lower.includes('fee')) {
+                        reply = "Replacement is **always free** via official SSA. Avoid scam sites charging money.";
+                    } else if (lower.includes('h1b') || lower.includes('f1') || lower.includes('j1') || lower.includes('ead')) {
+                        reply = "Yes if authorized to work/study. Usually in-person with original DHS/USCIS documents. Start online first.";
+                    } else if (lower.includes('first-time') || lower.includes('new ssn')) {
+                        reply = "Eligible with work/study authorization. Bring passport, I-94, visa/docs, school/job letter. In-person after online start. Wait ~10 days post-entry.";
+                    } else if (lower.includes('name') || lower.includes('change name')) {
+                        reply = "Provide legal name change proof (marriage cert, court order) + ID. Doesn't count toward limits. https://www.ssa.gov/life-events/change-name";
                     }
-                    addMessage('Bot', response);
+
+                    addMessage('Bot', reply);
                 }, 800);
             }
-            function addMessage(sender, text) {
-                const msgDiv = document.createElement('div');
-                msgDiv.className = sender === 'You' ? 'user-message' : 'bot-message';
-                msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-                chatbotMessages.appendChild(msgDiv);
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-            }
-            // Populate suggested question into input
-            suggestedQuestions.addEventListener('change', () => {
-                if (suggestedQuestions.value) {
-                    chatbotInput.value = suggestedQuestions.value;
-                    suggestedQuestions.value = '';
+
+            send.addEventListener('click', sendMessage);
+            input.addEventListener('keypress', e => e.key === 'Enter' && sendMessage());
+
+            suggested.addEventListener('change', () => {
+                if (suggested.value) {
+                    input.value = suggested.value;
+                    suggested.value = '';
+                    sendMessage();
                 }
             });
-            // Reset chat
-            chatbotReset.addEventListener('click', () => {
-                chatbotMessages.innerHTML = '';
-            });
-            // Save chat (simple download)
-            chatbotSave.addEventListener('click', () => {
-                const chatText = Array.from(chatbotMessages.querySelectorAll('div')).map(div => div.textContent).join('\n');
-                const blob = new Blob([chatText], { type: 'text/plain' });
+
+            reset.addEventListener('click', () => messages.innerHTML = '');
+
+            save.addEventListener('click', () => {
+                const text = Array.from(messages.children).map(p => p.textContent).join('\n');
+                const blob = new Blob([text], {type: 'text/plain'});
                 const a = document.createElement('a');
                 a.href = URL.createObjectURL(blob);
-                a.download = 'chat_history.txt';
+                a.download = 'ssa-chat.txt';
                 a.click();
             });
+
+            addMessage('Bot', 'Hi! Ask about SSN replacement, documents, appointments, limits, visas (H1B/F1/J1/EAD), name changes, etc. Always confirm at ssa.gov.');
         });
     </script>
 </body>
