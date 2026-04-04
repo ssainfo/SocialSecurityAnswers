@@ -230,8 +230,8 @@
             display: none;
             z-index: 999;
         }
-        /* Support & Chatbot */
-        .support-us-toggle-btn, .chatbot-toggle-btn {
+        /* Support, Chatbot & Share Buttons */
+        .support-us-toggle-btn, .chatbot-toggle-btn, .share-toggle-btn {
             position: fixed;
             right: 16px;
             background: var(--primary);
@@ -250,7 +250,8 @@
         }
         .support-us-toggle-btn { bottom: 90px; }
         .chatbot-toggle-btn { bottom: 160px; }
-        .support-us-container, .chatbot-container {
+        .share-toggle-btn { bottom: 230px; }
+        .support-us-container, .chatbot-container, .share-container {
             display: none;
             position: fixed;
             right: 16px;
@@ -266,8 +267,9 @@
             overflow: hidden;
             flex-direction: column;
         }
-        .support-us-container.active, .chatbot-container.active { display: flex; }
-        .chatbot-header, .support-us-header {
+        .share-container { height: auto; max-height: 420px; bottom: 230px; }
+        .support-us-container.active, .chatbot-container.active, .share-container.active { display: flex; }
+        .chatbot-header, .support-us-header, .share-header {
             background: var(--primary);
             color: white;
             padding: 14px 18px;
@@ -276,7 +278,7 @@
             align-items: center;
             flex-shrink: 0;
         }
-        .chatbot-close-btn, .support-us-close-btn {
+        .chatbot-close-btn, .support-us-close-btn, .share-close-btn {
             background: none;
             border: none;
             color: white;
@@ -345,8 +347,31 @@
             border-radius: 6px;
             cursor: pointer;
         }
+        .share-options {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+        }
+        .share-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 8px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            transition: var(--transition);
+        }
+        .share-btn:hover {
+            background: #f0f4ff;
+            transform: translateY(-2px);
+        }
+        .share-btn i { font-size: 2rem; }
         @media (max-width: 480px) {
-            .chatbot-container, .support-us-container {
+            .chatbot-container, .support-us-container, .share-container {
                 width: 100%;
                 right: 0;
                 border-radius: 16px 16px 0 0;
@@ -388,7 +413,7 @@
     </nav>
     <main>
         <div class="alert">
-            <p><strong>Important:</strong> If you need to visit a Social Security office, start your application online and self-schedule an appointment at <a href="https://secure.ssa.gov/ICON/main.jsp" target="_blank">ssa.gov/ICON</a> (OSSNAP is legacy; current process uses ICON tool).</p>
+            <p><strong>Important:</strong> If you need to visit a Social Security office, start your application online and self-schedule an appointment at <a href="https://secure.ssa.gov/ICON/main.jsp" target="_blank" rel="noopener">ssa.gov/ICON</a> (OSSNAP is legacy; current process uses ICON tool).</p>
         </div>
         <div class="alert">
             <p><strong>March 07, 2026 Update:</strong> Many U.S. citizens can replace cards online via my Social Security if no record changes. Non-citizens usually require in-person with DHS/USCIS docs. Free, 3/year & 10 lifetime limit still applies (exceptions for name/work auth changes).</p>
@@ -397,8 +422,7 @@
         <section class="content-section">
             <h2>Social Security Card Replacement in 2026</h2>
             <p>Lost, stolen or damaged card? Replacement is free through SSA. You usually don't need the physical card if you know your SSN — but here's the current process.</p>
-            
-            <!-- All your original content boxes, steps, video, tables, etc. -->
+
             <div class="topic-box">
                 <h3>Replacement Process for Adults</h3>
                 <p>Limits: 3 per year, 10 lifetime. Processing: ~10 business days by mail.</p>
@@ -409,22 +433,125 @@
                 </div>
             </div>
 
-            <!-- Video -->
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/inlRpg9nCKY" title="How to Replace Your Social Security Card - Official Guide 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <p>Official step-by-step guide (updated 2026).</p>
             </div>
 
-            <!-- All other topic boxes, tables, FAQs from your original file remain here -->
-            <!-- (I kept them exactly as you provided) -->
-
             <div class="topic-box">
-                <h3>Non-Citizen / Immigrant Replacement Guide (H1B, F1, J1, EAD)</h3>
-                <p>Most non-citizens must verify original DHS/USCIS documents in person (or hybrid: start online → appointment).</p>
-                <!-- ... rest of your content ... -->
+                <h3>Let's Get Started Now</h3>
+                <p style="text-align:center;">
+                    <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank" rel="noopener" class="cta-button">Download Form SS-5 (PDF)</a>
+                    <a href="https://www.ssa.gov/number-card/replace-card" target="_blank" rel="noopener" class="cta-button">Replace Card at SSA.gov</a>
+                    <a href="https://secure.ssa.gov/ICON/main.jsp" target="_blank" rel="noopener" class="cta-button">Schedule Appointment</a>
+                </p>
             </div>
 
-            <!-- Ad placeholder -->
+            <!-- Enhanced Non-Citizen / Immigrant Guide with many more examples -->
+            <div class="topic-box">
+                <h3>Non-Citizen / Immigrant Replacement Guide (H1B, F1, J1, EAD &amp; More)</h3>
+                <p>Most non-citizens must verify original DHS/USCIS documents in person (or hybrid process). Here are detailed real-life examples for common visa types:</p>
+                
+                <h4>✅ H-1B Visa Holder Example</h4>
+                <ol>
+                    <li>Start online at ssa.gov → system prompts appointment</li>
+                    <li>Gather: Passport, I-94, I-797 approval notice, LCA</li>
+                    <li>Attend ICON-scheduled appointment</li>
+                    <li>Card mailed in 7–14 days</li>
+                </ol>
+
+                <h4>✅ F-1 Student (with OPT/CPT) Example</h4>
+                <ol>
+                    <li>Wait 10 days after U.S. entry for SEVIS update</li>
+                    <li>Gather: Passport, I-20, SEVIS receipt, EAD card (if OPT)</li>
+                    <li>Apply online or in-person with school letter</li>
+                    <li>Card arrives in ~10 business days</li>
+                </ol>
+
+                <h4>✅ J-1 Exchange Visitor Example</h4>
+                <ol>
+                    <li>Gather: Passport, DS-2019, sponsor letter</li>
+                    <li>Submit Form SS-5 + originals</li>
+                    <li>Appointment usually required</li>
+                </ol>
+
+                <h4>✅ EAD / Work Authorization Example</h4>
+                <ol>
+                    <li>Gather: I-766 EAD card + I-797</li>
+                    <li>Apply online first → follow instructions</li>
+                </ol>
+
+                <h4>✅ New Arrival / First-Time SSN Example</h4>
+                <ol>
+                    <li>Enter U.S. → wait ~10 days</li>
+                    <li>Gather job offer / school letter + all immigration docs</li>
+                    <li>Start at ssa.gov → schedule appointment</li>
+                </ol>
+
+                <p><strong>Tip:</strong> Always use original documents only. Check your I-94 status first at <a href="https://i94.cbp.dhs.gov/" target="_blank" rel="noopener">i94.cbp.dhs.gov</a>.</p>
+                
+                <h4>Community Tip from Reddit</h4>
+                <p>Many immigrants share their exact experiences here: <a href="https://www.reddit.com/r/SocialSecurity/" target="_blank" rel="noopener">r/SocialSecurity on Reddit</a> (real stories, timelines, and document checklists).</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Replacement Scenarios Examples (Expanded)</h3>
+                <div class="examples">
+                    <div class="example"><h4>Online (Simple Loss – U.S. Citizen)</h4><p>Citizen logs in, verifies ID—card mailed in ~10 days.</p></div>
+                    <div class="example"><h4>Mail (Name Change – Any Status)</h4><p>Form SS-5 + marriage cert/passport mailed — arrives 10–14 days.</p></div>
+                    <div class="example"><h4>H1B In-Person</h4><p>Start online → ICON appointment with I-797 + passport.</p></div>
+                    <div class="example"><h4>F1 OPT Student</h4><p>Bring I-20 + EAD → appointment required.</p></div>
+                    <div class="example"><h4>J1 First-Time</h4><p>DS-2019 + sponsor letter → 10-day wait after arrival.</p></div>
+                    <div class="example"><h4>EAD Holder</h4><p>I-766 card is key document. Hybrid online + verification.</p></div>
+                </div>
+            </div>
+
+            <div class="topic-box">
+                <h4>Replacement Limits (2026)</h4>
+                <div class="pie-chart">3/year</div>
+                <div class="pie-legend">
+                    <span><i class="fas fa-square" style="color:#d3d3d3;"></i> 3 per year</span>
+                    <span style="margin-left:1.5rem;"><i class="fas fa-square" style="color:#d1e8ff;"></i> Up to 10 lifetime (exceptions apply)</span>
+                </div>
+                <p style="text-align:center;">All replacements are free — beware of scam sites charging fees.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Documents Needed (Citizens &amp; Non-Citizens)</h3>
+                <p>Originals or certified copies required (no photocopies):</p>
+                <table class="doc-table">
+                    <thead><tr><th>Proof Of</th><th>Examples</th></tr></thead>
+                    <tbody>
+                        <tr><td>Identity</td><td>U.S. driver’s license, passport, state ID</td></tr>
+                        <tr><td>U.S. Citizenship (if needed)</td><td>Birth certificate, U.S. passport</td></tr>
+                        <tr><td>Work Authorization (non-citizens)</td><td>EAD, I-94, visa, Green Card</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>Tip:</strong> Call 1-800-772-1213 if unsure about acceptable ID.</p>
+            </div>
+
+            <div class="topic-box">
+                <div class="image-container">
+                    <img src="images/ss5-form-sample.png" alt="Form SS-5 Sample for SSN Card Replacement" class="screenshot">
+                    <p>Sample Form SS-5 — <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank" rel="noopener">Download PDF</a></p>
+                </div>
+                <div class="image-container">
+                    <img src="images/ss-card-sample.png" alt="Sample Social Security Card for Replacement Guide" class="screenshot">
+                    <p>New replacement card appearance (redacted example).</p>
+                </div>
+            </div>
+
+            <div class="topic-box">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq">
+                    <p><strong>Can I replace online?</strong> Yes for eligible U.S. citizens (18+, no changes) via my Social Security. Start here: <a href="https://www.ssa.gov/ssnumber/" target="_blank" rel="noopener">ssa.gov/ssnumber</a>.</p>
+                    <p><strong>How long?</strong> Usually 10 business days by mail. No expedited service.</p>
+                    <p><strong>Need proof fast?</strong> Use my Social Security for instant benefit verification letter.</p>
+                    <p><strong>Non-citizen / visa holder?</strong> In-person typically required; start online and schedule appointment.</p>
+                    <p><strong>First-time applicant?</strong> Same in-person process — bring job offer or school letter if needed.</p>
+                </div>
+            </div>
+
             <div class="ad-container">
                 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5346424450981440" data-ad-slot="5473550665" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -458,7 +585,25 @@
         </div>
     </div>
 
-    <!-- ==================== ENHANCED CHATBOT ==================== -->
+    <!-- Share This Guide -->
+    <button id="share-toggle" class="share-toggle-btn"><i class="fas fa-share-alt"></i></button>
+    <div id="share-panel" class="share-container">
+        <div class="share-header">
+            <h3>Share This Guide</h3>
+            <button id="share-close" class="share-close-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="share-options">
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fssaanswers.com&text=Free%202026%20SSN%20Replacement%20Guide%20for%20Immigrants%20%26%20Visa%20Holders" target="_blank" class="share-btn"><i class="fab fa-x-twitter" style="color:#000;"></i><span>X</span></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fssaanswers.com" target="_blank" class="share-btn"><i class="fab fa-facebook-f" style="color:#1877F2;"></i><span>Facebook</span></a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fssaanswers.com" target="_blank" class="share-btn"><i class="fab fa-linkedin-in" style="color:#0A66C2;"></i><span>LinkedIn</span></a>
+            <a href="https://wa.me/?text=Check%20this%20free%202026%20SSN%20guide%20for%20immigrants%3A%20https%3A%2F%2Fssaanswers.com" target="_blank" class="share-btn"><i class="fab fa-whatsapp" style="color:#25D366;"></i><span>WhatsApp</span></a>
+            <a href="mailto:?subject=2026%20SSN%20Replacement%20Guide&body=Check%20out%20this%20helpful%20guide%3A%20https%3A%2F%2Fssaanswers.com" class="share-btn"><i class="fas fa-envelope" style="color:#EA4335;"></i><span>Email</span></a>
+            <button onclick="copyLink()" class="share-btn"><i class="fas fa-copy"></i><span>Copy Link</span></button>
+        </div>
+        <p style="text-align:center; font-size:0.9rem; padding:0 20px 20px;">Help other immigrants &amp; visa holders find this free resource!</p>
+    </div>
+
+    <!-- Enhanced Chatbot (kept from previous enhancement) -->
     <button id="chatbot-toggle" class="chatbot-toggle-btn"><i class="fas fa-comment"></i></button>
     <div id="chatbot" class="chatbot-container">
         <div class="chatbot-header">
@@ -502,16 +647,29 @@
             document.getElementById('support-us').classList.remove('active');
         });
 
-        // ==================== ENHANCED SSA CHATBOT ====================
+        // Share Panel
+        function copyLink() {
+            navigator.clipboard.writeText('https://ssaanswers.com').then(() => {
+                alert('✅ Link copied to clipboard!');
+            });
+        }
+        document.getElementById('share-toggle').addEventListener('click', () => {
+            document.getElementById('share-panel').classList.toggle('active');
+        });
+        document.getElementById('share-close').addEventListener('click', () => {
+            document.getElementById('share-panel').classList.remove('active');
+        });
+
+        // Enhanced Chatbot (same as previous version)
         const ssaFaqs = [
-            { keywords: ["online", "replace"], answer: "U.S. citizens (18+) with no changes to their record can replace their SSN card online via my Social Security account." },
-            { keywords: ["non-citizen", "immigrant", "document"], answer: "Non-citizens need original passport + immigration documents (I-94, visa, EAD, I-797, I-20, DS-2019 etc.)." },
-            { keywords: ["h1b"], answer: "H-1B visa holders are eligible. Bring I-797 approval notice, passport, and I-94." },
-            { keywords: ["f1", "student"], answer: "F-1 students qualify for SSN only with approved CPT or OPT/EAD." },
-            { keywords: ["limit", "3", "10"], answer: "You can replace your card up to 3 times per year and 10 times in a lifetime (exceptions apply)." },
-            { keywords: ["long", "time", "take"], answer: "Replacement cards are usually mailed in 7–14 business days." },
-            { keywords: ["free"], answer: "Yes, official SSN card replacement is always free." },
-            { keywords: ["appointment", "schedule"], answer: "Start online first, then self-schedule an appointment using the ICON tool at secure.ssa.gov/ICON if required." }
+            { keywords: ["online", "replace"], answer: "U.S. citizens (18+) with no changes can replace online via my Social Security." },
+            { keywords: ["non-citizen", "immigrant", "document"], answer: "Original passport + I-94, visa, EAD, I-797, I-20, or DS-2019 required." },
+            { keywords: ["h1b"], answer: "H-1B: I-797 + passport + I-94. Appointment usually needed." },
+            { keywords: ["f1", "student"], answer: "F-1 needs CPT/OPT EAD or school letter." },
+            { keywords: ["limit", "3", "10"], answer: "3 per year, 10 lifetime (exceptions for name/work changes)." },
+            { keywords: ["long", "time", "take"], answer: "Usually mailed in 7–14 business days." },
+            { keywords: ["free"], answer: "Yes — always free through official SSA." },
+            { keywords: ["appointment", "schedule"], answer: "Start online → self-schedule at https://secure.ssa.gov/ICON/main.jsp" }
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -539,14 +697,11 @@
             function sendMessage() {
                 const msg = input.value.trim();
                 if (!msg) return;
-
                 addMessage('user', msg);
                 input.value = '';
-
                 setTimeout(() => {
-                    let reply = "I can help with SSN replacement, documents, visas, and more. Always verify the latest info at <a href='https://www.ssa.gov' target='_blank'>ssa.gov</a>.";
+                    let reply = "I'm here to help! Always double-check at <a href='https://www.ssa.gov' target='_blank'>ssa.gov</a>.";
                     const lowerMsg = msg.toLowerCase();
-
                     for (let faq of ssaFaqs) {
                         if (faq.keywords.some(kw => lowerMsg.includes(kw))) {
                             reply = faq.answer;
@@ -578,8 +733,7 @@
                 a.click();
             });
 
-            // Welcome message
-            addMessage('bot', 'Hello! Ask me anything about SSN card replacement, required documents for immigrants, H1B/F1/J1/EAD, appointments, or benefits.');
+            addMessage('bot', 'Hi! Ask me about SSN replacement, H1B/F1/J1/EAD documents, appointments, or limits.');
         });
     </script>
 </body>
