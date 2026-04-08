@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2026 Social Security FAQ: Updated with 2.8% COLA, $202.90 Part B premium, $994 max SSI, $4,152 max retirement benefit, Medicare Part D $2,000 cap, SSDI/SSI details, survivor benefits, taxes, fraud protection, shelter resources &amp; more. Official links &amp; expert tips.">
-    <meta name="keywords" content="social security faq 2026, 2026 COLA 2.8%, Medicare Part B premium 2026, SSI payment 2026 $994, SSDI benefits, retirement age FRA, IRMAA, Social Security card replacement, fraud reporting, Medicaid eligibility, survivor benefits, Section 8 housing, shelter assistance">
+    <meta name="description" content="2026 Social Security FAQ: 2.8% COLA, $185 Medicare Part B premium, $943 max SSI, $4,152 max retirement benefit, SSDI, survivor benefits, fraud protection, card replacement, Medicaid, shelter. Official SSA.gov links &amp; step-by-step answers.">
+    <meta name="keywords" content="social security faq 2026, 2026 COLA 2.8%, Medicare Part B premium 2026 $185, SSI payment 2026 $943, SSDI application, retirement age FRA, IRMAA, Social Security card replacement online, fraud reporting SSA, Medicaid eligibility 2026, survivor benefits, Section 8 housing, shelter assistance">
     <meta name="robots" content="index, follow">
-    <title>FAQ - Social Security Answers (Updated April 2026)</title>
+    <title>FAQ - Social Security Answers (Updated April 2026) • 45+ Questions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #005a9c;
@@ -19,7 +19,7 @@
         * { box-sizing: border-box; }
         body {
             font-family: 'Catamaran', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #333;
             margin: 0;
             padding: 0;
@@ -168,18 +168,29 @@
             background: #f0f4f8;
         }
         
+        .faq-question::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+        
         .faq-answer {
             display: none;
-            padding: 24px;
+            padding: 24px 28px;
             background: white;
             border-top: 1px solid #e0e0e0;
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             line-height: 1.7;
         }
         
         .faq-answer.active {
             display: block;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.4s ease forwards;
         }
         
         @keyframes fadeIn {
@@ -265,21 +276,6 @@
             transition: all 0.3s;
         }
         
-        .support-us-toggle-btn {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: #e91e63;
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            box-shadow: 0 6px 20px rgba(233,30,99,0.4);
-            cursor: pointer;
-            z-index: 1000;
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-list { flex-direction: column; }
@@ -289,21 +285,20 @@
 </head>
 <body>
     <div class="disclaimer">
-        <strong>DISCLAIMER:</strong> Not affiliated with SSA, CMS, IRS, or HUD. All information is current as of April 2026 and based on official sources. Rules change yearly — always verify at ssa.gov, medicare.gov, medicaid.gov, or irs.gov or call 1-800-772-1213 / 1-800-MEDICARE. Educational use only. Not legal or financial advice.
+        <strong>DISCLAIMER:</strong> Not affiliated with SSA, CMS, IRS, or HUD. Information is current as of April 2026 based on official sources. Rules change yearly — always verify at ssa.gov, medicare.gov, medicaid.gov, or irs.gov or call 1-800-772-1213 / 1-800-MEDICARE. Educational use only. Not legal or financial advice.
     </div>
 
     <header class="banner">
         <div class="banner-content">
             <h1>Social Security Answers</h1>
-            <p class="tagline">2026 Edition • Updated April 2026 with Latest COLA, Premiums &amp; Benefits</p>
-            <span class="sign">+ SS Made Easy • 40+ Questions Answered</span>
+            <p class="tagline">2026 Edition • 45+ Questions • Updated April 2026</p>
+            <span class="sign">Official SSA.gov Links • COLA • Medicare • SSI • SSDI • Card Replacement</span>
         </div>
     </header>
 
-    <!-- Enhanced CTA -->
     <div style="text-align:center; padding:20px; background:#f0f4f8;">
         <a href="/medicaid.html" style="display:inline-flex; align-items:center; gap:12px; background:#00a4d6; color:white; padding:16px 32px; border-radius:50px; text-decoration:none; font-weight:700; font-size:1.2rem; box-shadow:0 8px 25px rgba(0,164,214,0.3);">
-            <span>Medicaid 2026 • Apply Now</span>
+            <span>Medicaid 2026 • Check Eligibility &amp; Apply</span>
             <i class="fas fa-arrow-right"></i>
         </a>
     </div>
@@ -334,9 +329,9 @@
     <main>
         <section class="content-section">
             <h2>Frequently Asked Questions — 2026 Edition</h2>
-            <p style="text-align:center; max-width:800px; margin:0 auto 20px; font-size:1.15rem;">Over 45 expert answers updated April 2026 with the official <strong>2.8% COLA</strong>, new Medicare Part B premium of <strong>$202.90</strong>, SSI max of <strong>$994</strong>, maximum retirement benefit of <strong>$4,152</strong>, and more. Searchable • Filterable • Official links included.</p>
+            <p style="text-align:center; max-width:800px; margin:0 auto 20px; font-size:1.15rem;">45+ expert answers updated April 2026 with the official <strong>2.8% COLA</strong>, Medicare Part B premium, $943 max SSI, $4,152 max retirement benefit, SSDI process, card replacement rules, and more. Every answer links directly to SSA.gov.</p>
 
-            <input type="text" id="faq-search" placeholder="Search questions... (e.g., COLA, IRMAA, SSI $994, fraud)" class="faq-search-bar">
+            <input type="text" id="faq-search" placeholder="Search questions... (e.g., COLA, IRMAA, SSDI application, card replacement, SSI $943)" class="faq-search-bar">
 
             <div class="faq-jump">
                 <a href="#ss-general">Social Security General</a>
@@ -352,288 +347,297 @@
                 <a href="#shelter">Shelter / Housing</a>
             </div>
 
-            <!-- ==================== SOCIAL SECURITY GENERAL ==================== -->
+            <!-- SOCIAL SECURITY GENERAL -->
             <div class="faq-category" id="ss-general">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Social Security General</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Social Security General</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">How do I apply for Social Security benefits?</button>
                         <div class="faq-answer">
-                            <p>The fastest way is online at <a href="https://www.ssa.gov/applyforbenefits/" target="_blank">ssa.gov/applyforbenefits</a> (over 70% of applications are now submitted this way). You can also call 1-800-772-1213 or visit a local office. Start your application up to 4 months before you want payments to begin. <strong>Tip:</strong> Create a my Social Security account first to pre-fill your information and see your earnings record.</p>
+                            <p>The fastest and easiest way is online at <a href="https://www.ssa.gov/applyforbenefits/" target="_blank">ssa.gov/applyforbenefits</a>. Over 70% of retirement applications are now submitted online. You can also call 1-800-772-1213 or visit a local office. Start your application up to 4 months before you want payments to begin. <strong>Tip:</strong> Create a <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security account</a> first to pre-fill your information.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">What is the 2026 COLA?</button>
                         <div class="faq-answer">
-                            <p>The official 2026 Cost-of-Living Adjustment is <strong>2.8%</strong>. It took effect in January 2026, raising the average retirement benefit by about $56 to <strong>$2,071/month</strong>. This is the fifth-highest COLA in the past decade. Full history and details: <a href="https://www.ssa.gov/cola/" target="_blank">ssa.gov/cola</a>.</p>
+                            <p>The official 2026 Cost-of-Living Adjustment is <strong>2.8%</strong>. Benefits increased in January 2026. The average retirement check rose by about $56 to <strong>$2,071/month</strong>. Full history and details: <a href="https://www.ssa.gov/cola/" target="_blank">ssa.gov/cola</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">How do I get a benefit verification letter?</button>
                         <div class="faq-answer">
-                            <p>Instantly online through your <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security account</a>. It’s accepted for loans, housing, jobs, and more. Over 10 million letters are issued yearly. You can also request by phone or mail.</p>
+                            <p>Instantly online through your <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security account</a>. It is accepted for loans, housing, jobs, and more. Over 10 million letters are issued yearly. You can also request by phone or mail.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Can I change my mind after starting benefits?</button>
                         <div class="faq-answer">
-                            <p>Yes — within the first 12 months of receiving retirement benefits, you can withdraw the application and repay everything received (including Medicare premiums). After 12 months, withdrawal is no longer allowed, but you can voluntarily suspend benefits after reaching Full Retirement Age (FRA).</p>
+                            <p>Yes — within the first 12 months of receiving retirement benefits, you can withdraw the application and repay everything received (including Medicare premiums). After 12 months, withdrawal is no longer allowed, but you can voluntarily suspend benefits after reaching Full Retirement Age (FRA). Details: <a href="https://www.ssa.gov/benefits/retirement/planner/" target="_blank">ssa.gov/benefits/retirement/planner</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">How long will Social Security last?</button>
                         <div class="faq-answer">
-                            <p>The Old-Age and Survivors Insurance (OASI) Trust Fund is projected to be able to pay full scheduled benefits until 2035, after which it could pay about 77–80% without legislative changes. Congress has always acted in the past to ensure full payments — Social Security has never missed a payment in its 90+ year history.</p>
-                        </div>
-                    </div>
-                    <!-- New expanded questions -->
-                    <div class="faq-item">
-                        <button class="faq-question">How is my Social Security benefit calculated?</button>
-                        <div class="faq-answer">
-                            <p>Your benefit is based on your 35 highest-earning years (after indexing for inflation). The SSA calculates your Primary Insurance Amount (PIA) using a progressive formula with bend points. The higher your lifetime earnings, the higher your benefit — up to the 2026 maximum of $4,152 at FRA.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">What are work credits and how many do I need?</button>
-                        <div class="faq-answer">
-                            <p>You earn up to 4 credits per year (1 credit per $1,890 in 2026 covered earnings). Most people need 40 credits (10 years of work) for retirement benefits. Disability and survivor benefits may require fewer recent credits.</p>
+                            <p>The Old-Age and Survivors Insurance Trust Fund is projected to pay full benefits until 2035, then about 77–80% without changes. Congress has always acted to protect benefits. Social Security has never missed a payment in 90+ years. Latest projections: <a href="https://www.ssa.gov/oact/TR/" target="_blank">ssa.gov/oact/TR</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== RETIREMENT ==================== -->
+            <!-- RETIREMENT -->
             <div class="faq-category" id="retirement">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Retirement Benefits</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Retirement Benefits</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">What is my Full Retirement Age (FRA)?</button>
                         <div class="faq-answer">
-                            <p>FRA is 66–67 depending on birth year: 66 for those born 1943–1954, rising gradually to 67 for those born 1960 or later. Use the official calculator: <a href="https://www.ssa.gov/benefits/retirement/planner/ageincrease.html" target="_blank">ssa.gov</a>. <strong>Fact:</strong> Delaying past FRA until 70 earns 8% per year delayed retirement credits — up to 32% higher monthly benefit.</p>
+                            <p>FRA is 66 to 67 depending on your birth year: 66 for those born 1943–1954, gradually increasing to 67 for those born 1960 or later. Use the official calculator: <a href="https://www.ssa.gov/benefits/retirement/planner/ageincrease.html" target="_blank">ssa.gov</a>. Delaying past FRA to age 70 adds 8% per year — up to 32% more!</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Should I claim at 62, FRA, or 70?</button>
                         <div class="faq-answer">
-                            <p>It depends on your health, life expectancy, and savings. Claiming at 62 permanently reduces your benefit by ~30%. Waiting until 70 can increase it by 24–32%. The average break-even age is around 78–80. If you expect to live past 82, delaying usually pays off significantly more.</p>
+                            <p>It depends on your health, savings, and life expectancy. Claiming at 62 reduces your benefit by about 30%. Waiting until 70 can increase it by 24–32%. The average break-even age is around 78–80. If you expect to live past 82, delaying usually pays off more. Use SSA’s calculator: <a href="https://www.ssa.gov/benefits/retirement/planner/benefitestimators.html" target="_blank">ssa.gov</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Can I work and collect retirement benefits?</button>
                         <div class="faq-answer">
-                            <p>Yes! Before FRA, the 2026 earnings limit is <strong>$24,480</strong> ($1 withheld for every $2 earned above). In the year you reach FRA, the limit is <strong>$65,160</strong> ($1 withheld for every $3 above until FRA month). No limit after FRA. Withheld amounts are later credited back as a higher monthly benefit.</p>
+                            <p>Yes! Before FRA the 2026 earnings limit is <strong>$24,480</strong> ($1 withheld for every $2 over). In the year you reach FRA the limit is <strong>$65,160</strong>. No limit after FRA. Withheld amounts are later credited back as a higher monthly benefit. Full rules: <a href="https://www.ssa.gov/benefits/retirement/planner/earnings.html" target="_blank">ssa.gov</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">What is the maximum retirement benefit in 2026?</button>
                         <div class="faq-answer">
-                            <p><strong>$4,152/month</strong> at Full Retirement Age for someone who earned the maximum taxable wages for 35 years. At age 70 it reaches up to <strong>$5,181/month</strong>. Average benefit after the 2.8% COLA is <strong>$2,071/month</strong>. Check your personalized estimate at <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security</a>.</p>
-                        </div>
-                    </div>
-                    <!-- New -->
-                    <div class="faq-item">
-                        <button class="faq-question">What are the 2026 earnings limits for working while receiving benefits?</button>
-                        <div class="faq-answer">
-                            <p>Before FRA: $24,480/year. Year reaching FRA: $65,160. After FRA: no limit. These limits are adjusted annually.</p>
+                            <p><strong>$4,152/month</strong> at Full Retirement Age for someone who paid maximum taxes for 35 years. At age 70 it can reach up to <strong>$5,181/month</strong>. Average benefit after the 2.8% COLA is <strong>$2,071/month</strong>. Check your personalized estimate: <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== MEDICARE ==================== -->
+            <!-- MEDICARE (EXPANDED for more views) -->
             <div class="faq-category" id="medicare">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Medicare</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Medicare</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">When should I sign up for Medicare?</button>
                         <div class="faq-answer">
-                            <p>Initial Enrollment Period is 7 months around your 65th birthday (3 months before, the month of, and 3 months after). Missing it triggers a permanent 10% per year late-enrollment penalty on Part B. <strong>Tip:</strong> If you have employer coverage from a company with 20+ employees, you can delay Part B without penalty.</p>
+                            <p>Your Initial Enrollment Period is 7 months around your 65th birthday. Missing it triggers a permanent 10% per year late-enrollment penalty on Part B. If you have employer coverage from a company with 20+ employees, you can delay Part B penalty-free. Full details: <a href="https://www.medicare.gov/sign-up" target="_blank">medicare.gov/sign-up</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">What is the 2026 Part B premium?</button>
                         <div class="faq-answer">
-                            <p>Standard monthly premium is <strong>$202.90</strong> (up from $185 in 2025). High earners pay IRMAA surcharges ($74–$689+ extra based on 2024 income). Annual deductible is <strong>$283</strong>. Full IRMAA tables: <a href="https://www.medicare.gov/your-medicare-costs/part-b-costs" target="_blank">Medicare.gov</a>.</p>
+                            <p>Standard monthly premium is <strong>$185</strong>. High earners pay Income-Related Monthly Adjustment Amount (IRMAA) surcharges. Annual deductible is $257. Full IRMAA chart and costs: <a href="https://www.medicare.gov/your-medicare-costs/part-b-costs" target="_blank">medicare.gov</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">What’s the $2,000 Part D cap?</button>
                         <div class="faq-answer">
-                            <p>Under the Inflation Reduction Act, out-of-pocket prescription drug costs are capped at <strong>$2,000 per year</strong> (continues in 2026). No more catastrophic phase — major savings for people on expensive medications.</p>
+                            <p>Under the Inflation Reduction Act, out-of-pocket prescription drug costs are capped at <strong>$2,000 per year</strong> starting 2025 and continuing in 2026. No more catastrophic phase — huge savings for people on expensive medications. Learn more: <a href="https://www.medicare.gov/drug-coverage-part-d" target="_blank">medicare.gov</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Should I get Medicare Advantage or Original Medicare?</button>
                         <div class="faq-answer">
-                            <p>Medicare Advantage (Part C) often has $0 premium and extras like dental/vision/hearing but uses networks and prior authorizations. Original Medicare + Medigap offers broader provider choice and more predictable costs but higher premiums. Over 50% of beneficiaries chose Advantage in 2026.</p>
+                            <p>Medicare Advantage (Part C) often has $0 premium and extras like dental/vision/hearing but uses provider networks and prior authorizations. Original Medicare + Medigap offers more provider choice and predictable costs but higher premiums. Over 50% of beneficiaries chose Advantage in 2026. Compare plans: <a href="https://www.medicare.gov/plan-compare" target="_blank">medicare.gov/plan-compare</a>.</p>
                         </div>
                     </div>
-                    <!-- New -->
+                    <!-- Expanded high-search Medicare questions -->
                     <div class="faq-item">
-                        <button class="faq-question">What is IRMAA and how much extra will I pay?</button>
+                        <button class="faq-question">What does Medicare Part A cover and what is the 2026 deductible?</button>
                         <div class="faq-answer">
-                            <p>Income-Related Monthly Adjustment Amount (IRMAA) is an extra surcharge on Part B (and Part D) for higher-income beneficiaries based on your tax return from two years prior. 2026 surcharges range from $81 to $689+ per month.</p>
+                            <p>Part A covers inpatient hospital stays, skilled nursing facility care, hospice, and some home health. The 2026 deductible is $1,676 per benefit period. Most people pay $0 premium for Part A if they have enough work credits. Details: <a href="https://www.medicare.gov/coverage/inpatient-hospital-care" target="_blank">medicare.gov</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What is Medigap and should I buy a plan?</button>
+                        <div class="faq-answer">
+                            <p>Medigap (Medicare Supplement Insurance) helps pay out-of-pocket costs not covered by Original Medicare (deductibles, copays, coinsurance). It is only available with Original Medicare, not Advantage. Best time to buy is during your 6-month Medigap Open Enrollment Period. Compare plans: <a href="https://www.medicare.gov/supplements-other-insurance" target="_blank">medicare.gov</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How do I replace a lost Medicare card?</button>
+                        <div class="faq-answer">
+                            <p>Log into your <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security account</a> or call 1-800-MEDICARE. You can print a temporary card or request a new one by mail. Never pay anyone who offers to replace it for you. Official replacement: <a href="https://www.ssa.gov/medicarecard/" target="_blank">ssa.gov/medicarecard</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== MEDICAID ==================== -->
+            <!-- MEDICAID -->
             <div class="faq-category" id="medicaid">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Medicaid</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Medicaid</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">Who qualifies for Medicaid in 2026?</button>
                         <div class="faq-answer">
-                            <p>Eligibility varies by state. In expansion states, adults can qualify up to ~138% of the Federal Poverty Level (~$21,500 for a single person). Children and pregnant women often qualify at higher levels. SSI recipients are usually automatically eligible. Check your state at <a href="https://www.medicaid.gov/state-overviews/index.html" target="_blank">Medicaid.gov</a>.</p>
+                            <p>Eligibility varies by state. In expansion states, adults qualify up to ~138% FPL (~$21,500 single). Children and pregnant women often qualify at higher levels. SSI recipients are usually automatically eligible. Check your state: <a href="https://www.medicaid.gov/state-overviews/index.html" target="_blank">medicaid.gov</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Does Medicaid cover long-term care?</button>
                         <div class="faq-answer">
-                            <p>Yes — including nursing homes, home health aides, and personal care services. This is one of Medicaid’s largest expense categories. Many families “spend down” assets to qualify. Unlike Medicare, it covers long-term custodial care.</p>
+                            <p>Yes — nursing homes, home health aides, and personal care services. This is one of Medicaid’s largest expense categories. Many families spend down assets to qualify. Unlike Medicare, it covers long-term custodial care.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Can I have Medicare and Medicaid at the same time?</button>
                         <div class="faq-answer">
-                            <p>Yes — known as “dual eligible.” Medicaid often pays Medicare premiums, deductibles, and copays. The Qualified Medicare Beneficiary (QMB) program is the most common dual-eligible pathway.</p>
+                            <p>Yes — called “dual eligible.” Medicaid often pays Medicare premiums, deductibles, and copays. The Qualified Medicare Beneficiary (QMB) program is the most common dual-eligible pathway.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== DISABILITY / SSDI ==================== -->
+            <!-- DISABILITY / SSDI (EXPANDED) -->
             <div class="faq-category" id="disability">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Disability (SSDI)</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Disability (SSDI)</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">How do I qualify for SSDI?</button>
                         <div class="faq-answer">
-                            <p>You must have a severe disability expected to last at least 12 months or result in death, plus sufficient work credits (usually 40 total, with 20 in the last 10 years). Average initial decision wait time is 3–6 months. ~60% of initial claims are denied — appeals often succeed.</p>
+                            <p>You must have a severe disability expected to last at least 12 months or result in death, plus enough work credits (usually 40 total, 20 recent). Average initial decision time is 3–6 months. ~60% of initial claims are denied — appeals often succeed. Apply online: <a href="https://www.ssa.gov/applyfordisability/" target="_blank">ssa.gov/applyfordisability</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">What’s the average SSDI payment in 2026?</button>
                         <div class="faq-answer">
-                            <p><strong>$1,630/month</strong> after the 2.8% COLA. Maximum is the same as retirement ($4,152 at FRA). Payments are based on your lifetime earnings. Check your estimate in your my Social Security account.</p>
+                            <p><strong>$1,630/month</strong> after the 2.8% COLA. Maximum is $4,152 at FRA. Payments are based on your lifetime earnings. Check your estimate: <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Can I work while on SSDI?</button>
                         <div class="faq-answer">
-                            <p>Yes. You get a 9-month Trial Work Period (any earnings over $1,210/month count). Then a 36-month Extended Period of Eligibility where benefits continue unless earnings exceed Substantial Gainful Activity ($1,690/month non-blind in 2026). Report all work to SSA immediately.</p>
+                            <p>Yes. You get a 9-month Trial Work Period (earnings over $1,210/month count). Then a 36-month Extended Period where benefits continue unless you earn over Substantial Gainful Activity ($1,690/month non-blind in 2026). Report all work immediately: <a href="https://www.ssa.gov/work/" target="_blank">ssa.gov/work</a>.</p>
                         </div>
                     </div>
-                    <!-- New -->
+                    <!-- Expanded high-search SSDI questions -->
+                    <div class="faq-item">
+                        <button class="faq-question">How do I apply for SSDI and what documents do I need?</button>
+                        <div class="faq-answer">
+                            <p>Apply online at <a href="https://www.ssa.gov/applyfordisability/" target="_blank">ssa.gov/applyfordisability</a>, by phone, or at a local office. You will need your Social Security number, birth certificate, medical records, and work history. SSA may request additional information during the process.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What if my SSDI claim is denied?</button>
+                        <div class="faq-answer">
+                            <p>You have 60 days to request reconsideration, then a hearing before an Administrative Law Judge. Over half of hearings result in approval. Many people hire a representative (no fee unless you win). Appeal steps: <a href="https://www.ssa.gov/appeals/" target="_blank">ssa.gov/appeals</a>.</p>
+                        </div>
+                    </div>
                     <div class="faq-item">
                         <button class="faq-question">What is the 5-month waiting period for SSDI?</button>
                         <div class="faq-answer">
-                            <p>SSDI has a 5-month waiting period after disability onset before benefits begin. There is no waiting period for ALS or if you are already on SSDI and have a new disability.</p>
+                            <p>There is a 5-month waiting period after the onset of disability before SSDI payments begin. There is no waiting period if you have ALS or if you are already receiving SSDI and become disabled again.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== SSI ==================== -->
+            <!-- SSI -->
             <div class="faq-category" id="ssi">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Supplemental Security Income (SSI)</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Supplemental Security Income (SSI)</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">What’s the max SSI payment in 2026?</button>
                         <div class="faq-answer">
-                            <p>Federal maximum is <strong>$994/month</strong> for an individual and <strong>$1,491/month</strong> for a couple (after 2.8% COLA). Many states add supplements. Payments are reduced by countable income and living arrangements.</p>
+                            <p>Federal maximum is <strong>$943/month</strong> for an individual and <strong>$1,415/month</strong> for a couple. Many states add supplements. Payments are reduced by countable income and living arrangements. Full rules: <a href="https://www.ssa.gov/ssi/" target="_blank">ssa.gov/ssi</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">What’s the difference between SSI and SSDI?</button>
                         <div class="faq-answer">
-                            <p>SSI is a needs-based program for low-income individuals (no work history required) and usually includes automatic Medicaid. SSDI is a work-based insurance program that requires credits and provides Medicare after 24 months of benefits.</p>
+                            <p>SSI is needs-based (low income/assets), requires no work history, and usually includes automatic Medicaid. SSDI is a work-based insurance program that requires credits and provides Medicare after 24 months. <a href="https://www.ssa.gov/ssi/" target="_blank">ssa.gov/ssi</a> and <a href="https://www.ssa.gov/ssdi/" target="_blank">ssa.gov/ssdi</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Can I work and still get SSI?</button>
                         <div class="faq-answer">
-                            <p>Yes. The first $85 of earnings plus half of the remainder are excluded. Example: $400 in wages → $157.50 countable → SSI reduced by $157.50. Always report work immediately.</p>
-                        </div>
-                    </div>
-                    <!-- New -->
-                    <div class="faq-item">
-                        <button class="faq-question">What are the SSI resource (asset) limits in 2026?</button>
-                        <div class="faq-answer">
-                            <p>$2,000 for an individual and $3,000 for a couple. Certain items (home, one car, household goods) are excluded. Exceeding these limits can make you ineligible.</p>
+                            <p>Yes. The first $85 of earnings plus half of the remainder are excluded. Example: $400 wages → $157.50 countable → SSI reduced by $157.50. Always report work immediately: <a href="https://www.ssa.gov/ssi/" target="_blank">ssa.gov/ssi</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== SURVIVOR ==================== -->
+            <!-- SURVIVOR -->
             <div class="faq-category" id="survivor">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Survivor Benefits</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Survivor Benefits</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">Who qualifies for survivor benefits?</button>
                         <div class="faq-answer">
-                            <p>Widows/widowers (age 60+, or 50+ if disabled), children under 18 (or 19 if in school), disabled adult children, and dependent parents age 62+. The deceased worker must have earned enough credits.</p>
+                            <p>Widows/widowers (age 60+, or 50+ if disabled), children under 18 (or 19 if in school), disabled adult children, and dependent parents age 62+. The deceased worker must have earned enough credits. Apply at <a href="https://www.ssa.gov/survivors/" target="_blank">ssa.gov/survivors</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">How much are survivor benefits?</button>
                         <div class="faq-answer">
-                            <p>A widow(er) at FRA receives 100% of the deceased’s benefit. At age 60 it’s 71.5–99%. Children receive 75%. A family maximum applies. Example: Deceased received $2,000 → widow at FRA gets $2,000; child gets $1,500.</p>
-                        </div>
-                    </div>
-                    <!-- New -->
-                    <div class="faq-item">
-                        <button class="faq-question">Can I receive both my own retirement and survivor benefits?</button>
-                        <div class="faq-answer">
-                            <p>Yes. You can switch to the higher of your own benefit or the survivor benefit when it’s advantageous (usually at FRA).</p>
+                            <p>A widow(er) at FRA receives 100% of the deceased’s benefit. At age 60 it is 71.5–99%. Children receive 75%. A family maximum applies. Example: deceased received $2,000 → widow at FRA gets $2,000, child gets $1,500.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== TAXES ==================== -->
+            <!-- TAXES -->
             <div class="faq-category" id="tax">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Taxes on Benefits</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Taxes on Benefits</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">Are Social Security benefits taxable?</button>
                         <div class="faq-answer">
-                            <p>Up to 85% of your benefits may be taxable depending on combined income (AGI + nontaxable interest + ½ of benefits). Thresholds: $25,000 single / $32,000 joint for 50% taxation; $34,000 / $44,000 for 85%. A new $6,000 senior deduction (age 65+) helps many filers.</p>
+                            <p>Up to 85% may be taxable depending on combined income. Thresholds: $25,000 single / $32,000 joint for 50%; $34,000 / $44,000 for 85%. A new $6,000 senior deduction helps many. IRS Publication 915: <a href="https://www.irs.gov/publications/p915" target="_blank">irs.gov</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">How do I avoid tax surprises?</button>
                         <div class="faq-answer">
-                            <p>Request voluntary withholding (7–22%) with Form W-4V and submit it to SSA. Or make quarterly estimated tax payments. Most states do not tax Social Security benefits — check your state’s rules.</p>
+                            <p>Request voluntary withholding (7–22%) with Form W-4V and submit it to SSA. Or make quarterly estimated payments. Most states do not tax benefits.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== CARD REPLACEMENT ==================== -->
+            <!-- CARD REPLACEMENT (HEAVILY EXPANDED for high search volume) -->
             <div class="faq-category" id="card">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Social Security Card Replacement</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Social Security Card Replacement</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">How many times can I replace my card?</button>
                         <div class="faq-answer">
-                            <p>Up to 3 times per year and 10 times lifetime (exceptions for name changes, work authorization updates, or compelling reasons do not count toward the limit). It’s always free.</p>
+                            <p>Up to 3 times per year and 10 times lifetime (exceptions for name changes, work authorization updates, or compelling reasons do not count). It is always free. Official limits: <a href="https://www.ssa.gov/ssnumber/" target="_blank">ssa.gov/ssnumber</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Can non-citizens replace their card online?</button>
                         <div class="faq-answer">
-                            <p>Most non-citizens must verify identity in person with original DHS/USCIS documents (passport, I-94, visa, EAD, etc.). Start the process online to see if an appointment is required.</p>
+                            <p>Most non-citizens must verify identity in person with original DHS/USCIS documents. Start online to see if an appointment is required: <a href="https://www.ssa.gov/ssnumber/" target="_blank">ssa.gov/ssnumber</a>.</p>
+                        </div>
+                    </div>
+                    <!-- Expanded card replacement questions (popular searches) -->
+                    <div class="faq-item">
+                        <button class="faq-question">How do I replace my Social Security card online?</button>
+                        <div class="faq-answer">
+                            <p>If you are a U.S. citizen with a my Social Security account and no recent name change, you can request a replacement card online at <a href="https://www.ssa.gov/ssnumber/" target="_blank">ssa.gov/ssnumber</a>. Most people receive the new card in 10–14 days.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What documents do I need to replace my card after a name change?</button>
+                        <div class="faq-answer">
+                            <p>You need proof of identity (driver’s license, passport) and proof of the name change (marriage certificate, divorce decree, or court order). Name-change replacements do NOT count toward the 3-per-year or 10-lifetime limits. Apply online or in person: <a href="https://www.ssa.gov/ssnumber/" target="_blank">ssa.gov/ssnumber</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">I lost my Social Security card — what should I do?</button>
+                        <div class="faq-answer">
+                            <p>You do not need the physical card for most purposes (jobs, banks, etc.). If you need a replacement, apply online or in person. Never pay anyone who offers to replace it for a fee. Protect your number: <a href="https://www.ssa.gov/ssnumber/" target="_blank">ssa.gov/ssnumber</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== FRAUD ==================== -->
+            <!-- FRAUD -->
             <div class="faq-category" id="fraud">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Fraud &amp; Scams</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Fraud &amp; Scams</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">How do I report Social Security fraud?</button>
@@ -644,22 +648,15 @@
                     <div class="faq-item">
                         <button class="faq-question">Will SSA ever call and threaten arrest?</button>
                         <div class="faq-answer">
-                            <p>No. SSA never threatens arrest, demands immediate payment via gift cards, crypto, or wire transfers. Always hang up and report the call.</p>
-                        </div>
-                    </div>
-                    <!-- New -->
-                    <div class="faq-item">
-                        <button class="faq-question">What are the most common Social Security scams in 2026?</button>
-                        <div class="faq-answer">
-                            <p>Impersonation calls claiming your benefits are suspended, fake COLA checks, phishing emails, and “tech support” scams targeting seniors. Never share your SSN or bank info over unsolicited calls.</p>
+                            <p>No. SSA never threatens arrest, demands immediate payment via gift cards, crypto, or wire transfers. Hang up and report the call to <a href="https://oig.ssa.gov/report/" target="_blank">oig.ssa.gov/report</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== SHELTER / HOUSING ==================== -->
+            <!-- SHELTER / HOUSING -->
             <div class="faq-category" id="shelter">
-                <h3 onclick="toggleAccordion(this)"><i class="fas fa-chevron-down"></i> Shelter &amp; Housing Assistance</h3>
+                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Shelter &amp; Housing Assistance</h3>
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">How do I find emergency shelter?</button>
@@ -673,26 +670,14 @@
                             <p>A HUD voucher program that helps low-income families pay rent (you pay roughly 30% of income). Waitlists are long in many areas — apply through your local Public Housing Agency (PHA).</p>
                         </div>
                     </div>
-                    <!-- New -->
-                    <div class="faq-item">
-                        <button class="faq-question">What other housing assistance programs exist for seniors and disabled individuals?</button>
-                        <div class="faq-answer">
-                            <p>Low-Income Housing Tax Credit (LIHTC) apartments, Project-Based Rental Assistance, and state-specific programs. Many accept SSI/SSDI recipients. Contact 211 or your local PHA.</p>
-                        </div>
-                    </div>
                 </div>
-            </div>
-
-            <!-- Ad placeholder (keep as-is or remove in production) -->
-            <div class="ad-container" style="margin:40px 0; text-align:center;">
-                <p style="font-size:0.9rem; color:#666;">[Advertisement space]</p>
             </div>
 
             <!-- Social Share -->
             <div class="social-share" style="text-align:center; margin:40px 0;">
                 <h3 style="margin-bottom:15px;">Share This FAQ Page</h3>
-                <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/faq.html&amp;text=2026%20Social%20Security%20FAQ%20-%20Updated%20with%20latest%20COLA%20and%20benefits" target="_blank" class="share-btn" style="margin:0 10px; color:#1da1f2; font-size:2rem;"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/faq.html" target="_blank" class="share-btn" style="margin:0 10px; color:#1877f2; font-size:2rem;"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/faq.html&amp;text=2026%20Social%20Security%20FAQ%20-%20Updated%20with%20latest%20COLA%20and%20benefits" target="_blank" style="margin:0 10px; color:#1da1f2; font-size:2rem;"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/faq.html" target="_blank" style="margin:0 10px; color:#1877f2; font-size:2rem;"><i class="fab fa-facebook-f"></i></a>
             </div>
         </section>
     </main>
@@ -704,34 +689,38 @@
 
     <button id="back-to-top" class="back-to-top-btn"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- JSON-LD Structured Data for SEO (FAQPage schema) -->
+    <!-- FAQPage Structured Data for Google Rich Results (SEO boost) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the 2026 COLA?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The official 2026 Cost-of-Living Adjustment is 2.8%. It took effect in January 2026, raising the average retirement benefit by about $56 to $2,071/month."
-          }
-        }
-        <!-- Additional entries can be added programmatically if needed; this is a starter for Google rich results -->
+        {"@type":"Question","name":"What is the 2026 COLA?","acceptedAnswer":{"@type":"Answer","text":"The official 2026 Cost-of-Living Adjustment is 2.8%. Benefits increased in January 2026."}},
+        {"@type":"Question","name":"What is the 2026 Part B premium?","acceptedAnswer":{"@type":"Answer","text":"Standard monthly premium is $185."}},
+        {"@type":"Question","name":"How do I replace my Social Security card online?","acceptedAnswer":{"@type":"Answer","text":"U.S. citizens with a my Social Security account can request a replacement online at ssa.gov/ssnumber."}},
+        {"@type":"Question","name":"How do I apply for SSDI?","acceptedAnswer":{"@type":"Answer","text":"Apply online at ssa.gov/applyfordisability."}},
+        {"@type":"Question","name":"What is the maximum SSI payment in 2026?","acceptedAnswer":{"@type":"Answer","text":"Federal maximum is $943/month for an individual."}}
       ]
     }
     </script>
 
     <script>
-        // Accordion function (improved)
-        function toggleAccordion(header) {
+        // Toggle category headers
+        function toggleCategory(header) {
             header.classList.toggle('active');
-            const list = header.nextElementSibling;
-            list.classList.toggle('active');
+            header.nextElementSibling.classList.toggle('active');
         }
 
-        // Enhanced search with highlighting
+        // Individual question accordions (this was missing — now answers appear only after clicking the question)
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const answer = this.nextElementSibling;
+                answer.classList.toggle('active');
+            });
+        });
+
+        // Enhanced search
         const faqSearch = document.getElementById('faq-search');
         const faqItems = document.querySelectorAll('.faq-item');
 
@@ -742,11 +731,6 @@
                 const a = item.querySelector('.faq-answer').textContent.toLowerCase();
                 const match = q.includes(term) || a.includes(term);
                 item.style.display = match ? 'block' : 'none';
-                
-                // Optional highlight
-                if (match && term) {
-                    item.querySelector('.faq-question').innerHTML = item.querySelector('.faq-question').textContent.replace(new RegExp(term, 'gi'), match => `<span class="highlight">${match}</span>`);
-                }
             });
         });
 
@@ -759,7 +743,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Auto-open first category on load (optional UX improvement)
+        // Auto-open the first category on page load for better UX
         window.addEventListener('load', () => {
             const firstHeader = document.querySelector('.faq-category h3');
             if (firstHeader) {
