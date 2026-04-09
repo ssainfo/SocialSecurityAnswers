@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2026 Social Security FAQ: 2.8% COLA, $185 Medicare Part B premium, $943 max SSI, full SSDI appeal process, IRMAA appeals, overpayments, back pay, spousal benefits, card replacement &amp; more. Top Reddit r/SocialSecurity questions answered with official SSA.gov links.">
+    <meta name="description" content="2026 Social Security FAQ: 2.8% COLA, $185 Medicare Part B premium, $943 max SSI, SSDI appeal process, IRMAA appeals, overpayments, back pay, spousal benefits, card replacement &amp; more. Top Reddit r/SocialSecurity questions answered with official SSA.gov links.">
     <meta name="keywords" content="social security faq 2026, 2026 COLA 2.8%, Medicare Part B premium 2026 $185, SSI $943, SSDI appeal process, IRMAA appeal SSA-44, SSDI back pay, Social Security overpayment, spousal benefits, card replacement, r/socialsecurityanswers">
     <meta name="robots" content="index, follow">
-    <title>FAQ - Social Security Answers (Updated April 2026) • 55+ Questions • Top Reddit Answers</title>
+    <title>FAQ - Social Security Answers (Updated April 2026) • 65+ Questions • Top Reddit Answers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Google AdSense -->
@@ -82,6 +82,7 @@
             background: #cc3700;
         }
         
+        /* ==================== MOBILE-FRIENDLY NAV ==================== */
         .main-nav {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -90,13 +91,21 @@
             z-index: 100;
         }
         
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
         .nav-list {
             display: flex;
             flex-wrap: wrap;
             list-style: none;
             margin: 0;
             padding: 0;
-            justify-content: center;
             gap: 8px;
         }
         
@@ -106,12 +115,74 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            font-size: 1rem;
         }
         
         .nav-list li a:hover, .nav-list li a.active {
             background: var(--primary);
             color: white;
             border-radius: 8px;
+        }
+        
+        /* Hamburger for mobile */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        /* Mobile menu styles */
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+                padding: 15px 20px;
+                gap: 5px;
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-list li a {
+                padding: 12px 15px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .banner-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .faq-jump {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+            
+            .faq-jump a {
+                padding: 8px 16px;
+                font-size: 0.95rem;
+            }
+            
+            .faq-question {
+                font-size: 1.1rem;
+                padding: 18px 20px;
+            }
         }
         
         .content-section {
@@ -273,12 +344,6 @@
             transform: translateY(-2px);
         }
         
-        .highlight {
-            background: #fff3cd;
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-        
         .ad-container {
             margin: 40px 0;
             text-align: center;
@@ -314,10 +379,10 @@
             transition: all 0.3s;
         }
         
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-list { flex-direction: column; }
-            .banner-content h1 { font-size: 2.2rem; }
+        /* Extra mobile polish */
+        @media (max-width: 480px) {
+            .faq-question { font-size: 1.05rem; padding: 16px 18px; }
+            .faq-answer { font-size: 1.05rem; padding: 20px 22px; }
         }
     </style>
 </head>
@@ -329,7 +394,7 @@
     <header class="banner">
         <div class="banner-content">
             <h1>Social Security Answers</h1>
-            <p class="tagline">2026 Edition • 55+ Questions • Updated April 2026</p>
+            <p class="tagline">2026 Edition • 65+ Questions • Updated April 2026</p>
             <span class="sign">Official SSA.gov Links • Top r/SocialSecurity Questions Answered</span>
         </div>
     </header>
@@ -349,9 +414,13 @@
         </a>
     </div>
 
+    <!-- IMPROVED MOBILE NAV -->
     <nav class="main-nav">
-        <div style="max-width:1100px; margin:auto; padding:0 20px;">
-            <ul class="nav-list">
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list" id="nav-list">
                 <li><a href="/">Home</a></li>
                 <li><a href="/news.html">News</a></li>
                 <li><a href="/replacement.html">Card Replacement</a></li>
@@ -375,7 +444,7 @@
     <main>
         <section class="content-section">
             <h2>Frequently Asked Questions — 2026 Edition</h2>
-            <p style="text-align:center; max-width:800px; margin:0 auto 20px; font-size:1.15rem;">55+ expert answers updated April 2026 with the official <strong>2.8% COLA</strong>, Medicare Part B $185 premium, $943 max SSI, full SSDI appeal process, IRMAA appeals, overpayments, back pay, spousal benefits, and the most-asked questions straight from r/SocialSecurity. Every answer includes official SSA.gov links.</p>
+            <p style="text-align:center; max-width:800px; margin:0 auto 20px; font-size:1.15rem;">65+ expert answers updated April 2026 with the official <strong>2.8% COLA</strong>, Medicare Part B $185 premium, $943 max SSI, full SSDI appeal process, IRMAA appeals, overpayments, back pay, spousal benefits, and the most-asked questions straight from r/SocialSecurity. Every answer includes official SSA.gov links and practical tips.</p>
 
             <input type="text" id="faq-search" placeholder="Search questions... (e.g., COLA, IRMAA appeal, SSDI back pay, overpayment, spousal benefits)" class="faq-search-bar">
 
@@ -400,7 +469,7 @@
                     <div class="faq-item">
                         <button class="faq-question">How do I apply for Social Security benefits?</button>
                         <div class="faq-answer">
-                            <p>The fastest way is online at <a href="https://www.ssa.gov/applyforbenefits/" target="_blank">ssa.gov/applyforbenefits</a>. Over 70% of applications are now submitted online. You can also call 1-800-772-1213 or visit a local office. Start up to 4 months before you want payments. Create a <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security account</a> first.</p>
+                            <p>The fastest way is online at <a href="https://www.ssa.gov/applyforbenefits/" target="_blank">ssa.gov/applyforbenefits</a>. Over 70% of applications are now submitted online. You can also call 1-800-772-1213 or visit a local office. Start up to 4 months before you want payments. Create a <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security account</a> first to pre-fill your info.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -428,17 +497,16 @@
                             <p>Yes! 2026 earnings limit before FRA is <strong>$24,480</strong>. Year you reach FRA: <strong>$65,160</strong>. No limit after FRA. Full rules: <a href="https://www.ssa.gov/benefits/retirement/planner/earnings.html" target="_blank">ssa.gov</a>.</p>
                         </div>
                     </div>
-                    <!-- New Reddit-popular Spousal Benefits -->
                     <div class="faq-item">
-                        <button class="faq-question">How do spousal benefits work? (Most-asked on Reddit)</button>
+                        <button class="faq-question">How do spousal benefits work? (Top Reddit question)</button>
                         <div class="faq-answer">
-                            <p>You can receive up to 50% of your spouse’s Full Retirement Age benefit if you are at least 62 and your spouse is receiving benefits. You must be married for at least one year (or meet exceptions). Divorced spouses may qualify after 10 years of marriage. Apply at <a href="https://www.ssa.gov/benefits/retirement/planner/applying7.html" target="_blank">ssa.gov</a>. You automatically get the higher of your own or spousal benefit.</p>
+                            <p>You can receive up to 50% of your spouse’s Full Retirement Age benefit if you are at least 62 and your spouse is receiving benefits. You must be married for at least one year (exceptions apply). Divorced spouses may qualify after 10 years of marriage. You automatically get the higher of your own or spousal benefit. Apply at <a href="https://www.ssa.gov/benefits/retirement/planner/applying7.html" target="_blank">ssa.gov</a>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- MEDICARE (Expanded with more Reddit IRMAA questions) -->
+            <!-- MEDICARE -->
             <div class="faq-category" id="medicare">
                 <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Medicare</h3>
                 <div class="faq-list">
@@ -457,7 +525,7 @@
                     <div class="faq-item">
                         <button class="faq-question">How do I appeal an IRMAA determination? (Top Reddit question)</button>
                         <div class="faq-answer">
-                            <p>File Form SSA-44 within 60 days for a “life-changing event” (retirement, divorce, death of spouse, etc.). Provide proof of reduced income. Many Reddit users succeed with retirement as the reason. Appeal details and form: <a href="https://www.ssa.gov/forms/ssa-44.html" target="_blank">ssa.gov/forms/ssa-44</a>.</p>
+                            <p>File Form SSA-44 within 60 days for a “life-changing event” (retirement, divorce, death of spouse, reduced work hours, etc.). Many Reddit users succeed with retirement as the reason. Provide proof of income change. Form and instructions: <a href="https://www.ssa.gov/forms/ssa-44.html" target="_blank">ssa.gov/forms/ssa-44</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -469,20 +537,7 @@
                 </div>
             </div>
 
-            <!-- MEDICAID -->
-            <div class="faq-category" id="medicaid">
-                <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Medicaid</h3>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question">Who qualifies for Medicaid in 2026?</button>
-                        <div class="faq-answer">
-                            <p>Varies by state. In expansion states: adults up to ~138% FPL (~$21,500 single). SSI recipients usually auto-eligible. Check your state: <a href="https://www.medicaid.gov/state-overviews/index.html" target="_blank">medicaid.gov</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DISABILITY / SSDI (Heavily expanded with Reddit FAQs) -->
+            <!-- DISABILITY / SSDI – Expanded with 10 new Reddit questions -->
             <div class="faq-category" id="disability">
                 <h3 onclick="toggleCategory(this)"><i class="fas fa-chevron-down"></i> Disability (SSDI) – Top Reddit Questions</h3>
                 <div class="faq-list">
@@ -493,21 +548,57 @@
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">What is the full SSDI appeal process if my claim is denied? (Very common on Reddit)</button>
+                        <button class="faq-question">What is the full SSDI appeal process if my claim is denied? (Reddit favorite)</button>
                         <div class="faq-answer">
                             <p>1. Reconsideration (60 days). 2. Hearing before an Administrative Law Judge (highest approval rate). 3. Appeals Council. 4. Federal court. Over 50% of hearings succeed. Full steps: <a href="https://www.ssa.gov/appeals/" target="_blank">ssa.gov/appeals</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">How much SSDI back pay can I expect and how long does it take? (Reddit mega-thread topic)</button>
+                        <button class="faq-question">How much SSDI back pay can I expect and how long does it take? (Huge Reddit thread topic)</button>
                         <div class="faq-answer">
                             <p>Back pay starts after the 5-month waiting period. Average processing is 3–6 months; appeals can take 12–24+ months. You may receive it in installments. Check status in your my Social Security account: <a href="https://www.ssa.gov/myaccount/" target="_blank">ssa.gov/myaccount</a>.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">I received an overpayment notice – what should I do? (Huge Reddit issue)</button>
+                        <button class="faq-question">I received an overpayment notice – what should I do? (Very common Reddit post)</button>
                         <div class="faq-answer">
                             <p>Appeal within 60 days or request a waiver if you were not at fault and repayment would cause hardship. Do NOT ignore it. File online or by phone. Many users successfully reduce or waive overpayments. Official guidance: <a href="https://www.ssa.gov/overpayments/" target="_blank">ssa.gov/overpayments</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How long does SSDI approval usually take? (Reddit’s #1 question)</button>
+                        <div class="faq-answer">
+                            <p>Initial decision: 3–6 months. If denied and you appeal, total time can be 12–24+ months. Many Reddit users report 18 months total with a hearing. You can check status anytime in your my Social Security account.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Can I receive both SSDI and SSI at the same time?</button>
+                        <div class="faq-answer">
+                            <p>Yes — if you qualify for both. SSI is needs-based and will be reduced by your SSDI amount. You usually get automatic Medicaid with SSI. Apply for both at the same time: <a href="https://www.ssa.gov/applyfordisability/" target="_blank">ssa.gov/applyfordisability</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What happens if my medical condition improves while on SSDI?</button>
+                        <div class="faq-answer">
+                            <p>SSA will review your case (Continuing Disability Review). If you are no longer disabled, benefits stop. You have appeal rights. Report improvements yourself to avoid overpayments. Details: <a href="https://www.ssa.gov/work/" target="_blank">ssa.gov/work</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Can I collect unemployment while on SSDI?</button>
+                        <div class="faq-answer">
+                            <p>Yes, but unemployment counts as earnings and may affect your Trial Work Period or Extended Period of Eligibility. Report all unemployment income immediately. Many Reddit users successfully continue both with proper reporting.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How do I change my direct deposit for SSDI or SSI?</button>
+                        <div class="faq-answer">
+                            <p>Log into your <a href="https://www.ssa.gov/myaccount/" target="_blank">my Social Security account</a>, go to “Direct Deposit,” or call 1-800-772-1213. You can also fill out Form SF-1199A at your bank. Changes usually take 1–2 months.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Do I need to report a change in address or living situation?</button>
+                        <div class="faq-answer">
+                            <p>Yes — report any move or change in living arrangements immediately, especially for SSI (which looks at in-kind support). Use your my Social Security account or call SSA. Failure to report can cause overpayments.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -632,19 +723,18 @@
 
     <button id="back-to-top" class="back-to-top-btn"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- Enhanced FAQPage Schema with new Reddit questions -->
+    <!-- Enhanced FAQPage Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {"@type":"Question","name":"What is the 2026 COLA?","acceptedAnswer":{"@type":"Answer","text":"The official 2026 Cost-of-Living Adjustment is 2.8%."}},
-        {"@type":"Question","name":"How do I appeal an IRMAA determination?","acceptedAnswer":{"@type":"Answer","text":"File Form SSA-44 within 60 days for a life-changing event like retirement."}},
+        {"@type":"Question","name":"How do I appeal an IRMAA determination?","acceptedAnswer":{"@type":"Answer","text":"File Form SSA-44 within 60 days for a life-changing event."}},
         {"@type":"Question","name":"What is the full SSDI appeal process?","acceptedAnswer":{"@type":"Answer","text":"Reconsideration → Hearing → Appeals Council → Federal Court."}},
-        {"@type":"Question","name":"How much SSDI back pay can I expect?","acceptedAnswer":{"@type":"Answer","text":"Back pay starts after the 5-month waiting period and can take 12+ months if appealed."}},
-        {"@type":"Question","name":"I received an overpayment notice – what should I do?","acceptedAnswer":{"@type":"Answer","text":"Appeal within 60 days or request a waiver. See ssa.gov/overpayments."}},
-        {"@type":"Question","name":"How do spousal benefits work?","acceptedAnswer":{"@type":"Answer","text":"Up to 50% of spouse’s benefit if married at least one year."}},
-        {"@type":"Question","name":"How do I replace my Social Security card online?","acceptedAnswer":{"@type":"Answer","text":"U.S. citizens can request it at ssa.gov/ssnumber."}}
+        {"@type":"Question","name":"How much SSDI back pay can I expect?","acceptedAnswer":{"@type":"Answer","text":"Back pay starts after the 5-month waiting period."}},
+        {"@type":"Question","name":"I received an overpayment notice – what should I do?","acceptedAnswer":{"@type":"Answer","text":"Appeal within 60 days or request a waiver."}},
+        {"@type":"Question","name":"How long does SSDI approval usually take?","acceptedAnswer":{"@type":"Answer","text":"Initial decision 3–6 months; appeals can take 12–24+ months."}}
       ]
     }
     </script>
@@ -685,6 +775,20 @@
         });
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile hamburger menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navList = document.getElementById('nav-list');
+        
+        mobileBtn.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            // Toggle icon between bars and X
+            if (navList.classList.contains('active')) {
+                mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
         });
 
         // Auto-open first category
