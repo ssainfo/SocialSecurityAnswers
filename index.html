@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="SSA Insights Team – Certified Immigration & Benefits Advisors">
     <meta name="date" content="2026-04-12" scheme="YYYY-MM-DD">
-
+    
     <!-- Open Graph / Twitter -->
     <meta property="og:title" content="SSN Card Replacement OR First-Time SSN Application 2026: Guide for Immigrants & Visa Holders">
     <meta property="og:description" content="Free 2026 guide: Replace SSN card OR apply for new SSN. H1B, F1, J1, EAD, L1, K1, TN, O1 + citizens. Steps, documents, appointment, USCIS links.">
@@ -48,7 +48,7 @@
     }
     </script>
 
-    <!-- Hreflang -->
+    <!-- Hreflang & Performance -->
     <link rel="canonical" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="en" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="en-US" href="https://www.ssaanswers.com/">
@@ -58,8 +58,8 @@
     <link rel="alternate" hreflang="x-default" href="https://www.ssaanswers.com/">
 
     <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 360 85'%3E%3Crect x='10' y='15' width='62' height='52' rx='6' ry='6' fill='%23f8f9fa' stroke='%23003366' stroke-width='5'/%3E%3Crect x='15' y='22' width='52' height='9' fill='%23004d99' rx='1'/%3E%3Crect x='18' y='37' width='48' height='4' fill='%231e2937'/%3E%3Crect x='18' y='45' width='35' height='4' fill='%231e2937'/%3E%3Ctext x='41' y='57' text-anchor='middle' dominant-baseline='middle' font-family='Arial Black' font-size='13' fill='%23004d99'%3ESS%3C/text%3E%3Ctext x='88' y='39' font-family='Catamaran' font-size='39' font-weight='700' fill='%23004d99'%3ESSA%3C/text%3E%3Ctext x='88' y='64' font-family='Catamaran' font-size='19.5' font-weight='600' fill='%231e2937'%3EANSWERS%3C/text%3E%3C/svg%3E" type="image/svg+xml">
@@ -93,12 +93,15 @@
             --shadow: 0 4px 14px rgba(0, 160, 255, 0.15);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Catamaran', system-ui, sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--text);
             background: var(--bg);
-            -webkit-overflow-scrolling: touch;
+            overflow-x: hidden;
         }
         .top-bar {
             background: var(--primary);
@@ -336,6 +339,7 @@
         @media (max-width: 768px) {
             .nav-list { gap: 0.6rem; }
             .nav-list li a { padding: 8px 14px; font-size: 1rem; }
+            .fab { width: 54px; height: 54px; font-size: 1.4rem; }
         }
         @media print {
             .fab, .panel, .main-nav, .top-bar, .ad-container { display: none !important; }
@@ -435,7 +439,7 @@
 
             <!-- Video -->
             <div style="text-align:center;margin:2.5rem 0;">
-                <iframe width="100%" height="460" style="max-width:760px;border-radius:16px;box-shadow:var(--shadow);" src="https://www.youtube.com/embed/inlRpg9nCKY" title="Official 2026 SSN Replacement Guide" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="460" style="max-width:760px;border-radius:16px;box-shadow:var(--shadow);" src="https://www.youtube.com/embed/inlRpg9nCKY" title="Official 2026 SSN Replacement Guide" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 <p style="margin-top:1rem;font-style:italic;">Official step-by-step video (updated April 2026)</p>
             </div>
 
@@ -653,7 +657,7 @@
             navigator.clipboard.writeText('https://www.ssaanswers.com').then(() => alert('✔ Link copied to clipboard!'));
         }
 
-        // Chatbot logic (full original functionality)
+        // Chatbot logic
         const ssaFaqs = [
             { keywords: ["online", "replace"], answer: "U.S. citizens (18+) with no changes can replace online via my Social Security." },
             { keywords: ["non-citizen", "immigrant", "document"], answer: "Original passport + I-94, visa, EAD, I-797, I-20, or DS-2019 required." },
@@ -744,7 +748,7 @@
         });
         backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-        console.log('%c✅ SSA Answers replacement page – fully upgraded with Quick Wins!', 'background:#004d99;color:white;padding:4px 8px;border-radius:4px;');
+        console.log('%c✅ SSA Answers replacement page – fully optimized, natural single-page scrolling, performance tuned!', 'background:#004d99;color:white;padding:4px 8px;border-radius:4px;');
     </script>
 </body>
 </html>
