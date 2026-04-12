@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="SSA Insights Team – Certified Immigration & Benefits Advisors">
     <meta name="date" content="2026-04-12" scheme="YYYY-MM-DD">
-    
+
     <!-- Open Graph / Twitter -->
     <meta property="og:title" content="SSN Card Replacement OR First-Time SSN Application 2026: Guide for Immigrants & Visa Holders">
     <meta property="og:description" content="Free 2026 guide: Replace SSN card OR apply for new SSN. H1B, F1, J1, EAD, L1, K1, TN, O1 + citizens. Steps, documents, appointment, USCIS links.">
@@ -48,7 +48,7 @@
     }
     </script>
 
-    <!-- Hreflang & Performance -->
+    <!-- Hreflang -->
     <link rel="canonical" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="en" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="en-US" href="https://www.ssaanswers.com/">
@@ -78,7 +78,7 @@
             --box-bg: #f9fcff;
             --box-border: #c3d7ff;
             --shadow: 0 4px 14px rgba(0, 77, 153, 0.12);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         [data-theme="dark"] {
             --primary: #00a0ff;
@@ -93,9 +93,7 @@
             --shadow: 0 4px 14px rgba(0, 160, 255, 0.15);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Catamaran', system-ui, sans-serif;
             line-height: 1.75;
@@ -103,6 +101,8 @@
             background: var(--bg);
             overflow-x: hidden;
         }
+
+        /* Only the search bar stays sticky – everything else scrolls naturally */
         .top-bar {
             background: var(--primary);
             color: white;
@@ -138,13 +138,12 @@
             font-weight: 700;
             cursor: pointer;
         }
+
         .banner {
             background: linear-gradient(135deg, var(--primary), #002b55);
             color: white;
             text-align: center;
             padding: 3rem 1rem 2.5rem;
-            position: relative;
-            overflow: hidden;
         }
         .banner-content {
             display: flex;
@@ -159,13 +158,12 @@
         .logo-svg:hover { transform: rotate(8deg) scale(1.08); }
         .tagline { font-size: clamp(1.15rem, 3.5vw, 1.45rem); font-weight: 600; margin-top: 0.4rem; opacity: 0.95; }
         .sign { color: #ffd700; }
+
+        /* Navigation now scrolls naturally with the page */
         .main-nav {
             background: var(--light);
             border-bottom: 3px solid var(--accent);
             padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         .nav-box {
@@ -205,6 +203,7 @@
             color: white;
             transform: translateY(-2px);
         }
+
         .alert {
             background: #fff3cd;
             border: 1px solid #ffeeba;
@@ -221,11 +220,14 @@
             color: #ffe066;
             border-color: #ffe066;
         }
+
         .content-section {
             margin: 3rem auto;
             max-width: 1100px;
             padding: 0 1rem;
         }
+
+        /* Scroll animations */
         .topic-box {
             background: var(--box-bg);
             border: 2px solid var(--box-border);
@@ -233,9 +235,15 @@
             padding: 2rem;
             margin: 2.5rem 0;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .topic-box:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,77,153,0.18); }
+        .topic-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .timeline {
             position: relative;
             padding-left: 50px;
@@ -273,6 +281,7 @@
             font-size: 1.3rem;
             box-shadow: 0 4px 12px rgba(0,77,153,0.3);
         }
+
         .accordion {
             border-radius: 12px;
             overflow: hidden;
@@ -296,6 +305,7 @@
             transition: max-height 0.4s ease, padding 0.4s ease;
         }
         .accordion-content.open { max-height: 500px; padding: 1.2rem 1.5rem; }
+
         .fab {
             position: fixed;
             right: 20px;
@@ -319,6 +329,7 @@
         #chatbot-fab { bottom: 180px; }
         #share-fab { bottom: 260px; }
         #dark-toggle { bottom: 340px; background: #111827; }
+
         .panel {
             display: none;
             position: fixed;
@@ -336,19 +347,19 @@
         }
         [data-theme="dark"] .panel { background: #1e2937; color: #e2e8f0; }
         .panel.active { display: flex; }
+
         @media (max-width: 768px) {
             .nav-list { gap: 0.6rem; }
             .nav-list li a { padding: 8px 14px; font-size: 1rem; }
-            .fab { width: 54px; height: 54px; font-size: 1.4rem; }
         }
         @media print {
-            .fab, .panel, .main-nav, .top-bar, .ad-container { display: none !important; }
+            .fab, .panel, .top-bar { display: none !important; }
         }
     </style>
 </head>
 <body data-theme="light">
 
-    <!-- Top Search Bar -->
+    <!-- Top Search Bar (only sticky element) -->
     <div class="top-bar">
         <form id="site-search" class="search-form">
             <input type="text" id="search-input" placeholder="Search SSN guides, visas, benefits..." aria-label="Search the site">
@@ -377,7 +388,7 @@
         </div>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navigation – now scrolls naturally with the page -->
     <nav class="main-nav">
         <div class="nav-box">
             <ul class="nav-list">
@@ -575,12 +586,12 @@
             <button onclick="closePanel('share-panel')" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;">×</button>
         </div>
         <div style="padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:15px;">
-            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.ssaanswers.com&amp;text=Free%202026%20SSN%20Replacement%20%26%20New%20Application%20Guide%20for%20Immigrants" target="_blank" class="share-btn" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">X</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ssaanswers.com" target="_blank" class="share-btn" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Facebook</a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ssaanswers.com" target="_blank" class="share-btn" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">LinkedIn</a>
-            <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fwww.ssaanswers.com&amp;title=Free%202026%20SSN%20Replacement%20%26%20New%20Application%20Guide%20for%20Immigrants" target="_blank" class="share-btn" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Reddit</a>
-            <a href="https://wa.me/?text=Check%20this%20free%202026%20SSN%20guide%20for%20immigrants%3A%20https%3A%2F%2Fwww.ssaanswers.com" target="_blank" class="share-btn" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">WhatsApp</a>
-            <button onclick="copyLink()" class="share-btn" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Copy Link</button>
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.ssaanswers.com&amp;text=Free%202026%20SSN%20Replacement%20%26%20New%20Application%20Guide%20for%20Immigrants" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">X</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ssaanswers.com" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Facebook</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ssaanswers.com" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">LinkedIn</a>
+            <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fwww.ssaanswers.com&amp;title=Free%202026%20SSN%20Replacement%20%26%20New%20Application%20Guide%20for%20Immigrants" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Reddit</a>
+            <a href="https://wa.me/?text=Check%20this%20free%202026%20SSN%20guide%20for%20immigrants%3A%20https%3A%2F%2Fwww.ssaanswers.com" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">WhatsApp</a>
+            <button onclick="copyLink()" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Copy Link</button>
         </div>
     </div>
 
@@ -657,7 +668,7 @@
             navigator.clipboard.writeText('https://www.ssaanswers.com').then(() => alert('✔ Link copied to clipboard!'));
         }
 
-        // Chatbot logic
+        // Chatbot logic (unchanged)
         const ssaFaqs = [
             { keywords: ["online", "replace"], answer: "U.S. citizens (18+) with no changes can replace online via my Social Security." },
             { keywords: ["non-citizen", "immigrant", "document"], answer: "Original passport + I-94, visa, EAD, I-797, I-20, or DS-2019 required." },
@@ -733,7 +744,6 @@
             a.click();
         });
 
-        // Initial chatbot greeting
         window.addEventListener('load', () => {
             addMessage('bot', 'Hi! Ask me about SSN replacement, first-time SSN application, H1B/F1/J1/EAD/L1/K1 documents, appointments, or limits.');
         });
@@ -748,7 +758,23 @@
         });
         backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-        console.log('%c✅ SSA Answers replacement page – fully optimized, natural single-page scrolling, performance tuned!', 'background:#004d99;color:white;padding:4px 8px;border-radius:4px;');
+        // Scroll animations – fade in each topic box as you scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.topic-box').forEach(box => {
+            observer.observe(box);
+        });
+
+        console.log('%c✅ SSA Answers – Natural full-page scrolling with smooth fade-in animations!', 'background:#004d99;color:white;padding:4px 8px;border-radius:4px;');
     </script>
 </body>
 </html>
