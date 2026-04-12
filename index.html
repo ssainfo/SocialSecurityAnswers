@@ -102,43 +102,6 @@
             overflow-x: hidden;
         }
 
-        /* Only the search bar stays sticky – everything else scrolls naturally */
-        .top-bar {
-            background: var(--primary);
-            color: white;
-            padding: 0.6rem 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        .search-form {
-            max-width: 420px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.2);
-            border-radius: 9999px;
-            padding: 4px;
-            display: flex;
-        }
-        .search-form input {
-            flex: 1;
-            border: none;
-            background: transparent;
-            color: white;
-            padding: 10px 18px;
-            font-size: 1.05rem;
-            outline: none;
-        }
-        .search-form button {
-            background: white;
-            color: var(--primary);
-            border: none;
-            border-radius: 9999px;
-            padding: 8px 24px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
         .banner {
             background: linear-gradient(135deg, var(--primary), #002b55);
             color: white;
@@ -159,7 +122,6 @@
         .tagline { font-size: clamp(1.15rem, 3.5vw, 1.45rem); font-weight: 600; margin-top: 0.4rem; opacity: 0.95; }
         .sign { color: #ffd700; }
 
-        /* Navigation now scrolls naturally with the page */
         .main-nav {
             background: var(--light);
             border-bottom: 3px solid var(--accent);
@@ -227,7 +189,6 @@
             padding: 0 1rem;
         }
 
-        /* Scroll animations */
         .topic-box {
             background: var(--box-bg);
             border: 2px solid var(--box-border);
@@ -306,6 +267,35 @@
         }
         .accordion-content.open { max-height: 500px; padding: 1.2rem 1.5rem; }
 
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .example-card {
+            background: var(--box-bg);
+            border: 2px solid var(--box-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .example-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,77,153,0.18);
+        }
+        .example-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        .poms-link {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .poms-link:hover { text-decoration: underline; }
+
         .fab {
             position: fixed;
             right: 20px;
@@ -353,19 +343,11 @@
             .nav-list li a { padding: 8px 14px; font-size: 1rem; }
         }
         @media print {
-            .fab, .panel, .top-bar { display: none !important; }
+            .fab, .panel { display: none !important; }
         }
     </style>
 </head>
 <body data-theme="light">
-
-    <!-- Top Search Bar (only sticky element) -->
-    <div class="top-bar">
-        <form id="site-search" class="search-form">
-            <input type="text" id="search-input" placeholder="Search SSN guides, visas, benefits..." aria-label="Search the site">
-            <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
 
     <!-- Hero Banner -->
     <header class="banner">
@@ -388,7 +370,7 @@
         </div>
     </header>
 
-    <!-- Navigation – now scrolls naturally with the page -->
+    <!-- Navigation – scrolls naturally -->
     <nav class="main-nav">
         <div class="nav-box">
             <ul class="nav-list">
@@ -463,6 +445,122 @@
                 <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank" rel="noopener" style="background:#fff;color:#00a651;margin:0.5rem;padding:14px 28px;border-radius:9999px;font-weight:700;display:inline-block;"><i class="fas fa-print"></i> Printable Checklist</a>
             </div>
 
+            <!-- New Real-World Examples Section -->
+            <div class="topic-box">
+                <h3>10 Real-World Examples: Documents Required (per SSA POMS)</h3>
+                <p style="margin-bottom:1.5rem;">All examples are based on official SSA Program Operations Manual System (POMS) rules. Always bring <strong>original documents only</strong>. Latest POMS reference: <a href="https://secure.ssa.gov/poms.nsf/Home?ReadForm" target="_blank" rel="noopener" class="poms-link">secure.ssa.gov/poms.nsf</a></p>
+                
+                <div class="examples-grid">
+                    <!-- Example 1 -->
+                    <div class="example-card">
+                        <h4>1. U.S. Citizen – Lost SSN Card</h4>
+                        <p><strong>POMS RM 00203.020 &amp; RM 00203.030</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid U.S. driver’s license or state ID</li>
+                            <li>Passport or birth certificate (if no photo ID)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 2 -->
+                    <div class="example-card">
+                        <h4>2. U.S. Citizen – Name Change (Marriage/Divorce)</h4>
+                        <p><strong>POMS RM 00203.030</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Marriage certificate or divorce decree</li>
+                            <li>Current photo ID (driver’s license or passport)</li>
+                            <li>Birth certificate (if needed)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 3 -->
+                    <div class="example-card">
+                        <h4>3. New H-1B Visa Holder (First-Time SSN)</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport with H-1B visa stamp</li>
+                            <li>I-94 record printout</li>
+                            <li>I-797 approval notice + LCA</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 4 -->
+                    <div class="example-card">
+                        <h4>4. F-1 Student with OPT/CPT</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>I-20 with OPT/CPT endorsement</li>
+                            <li>Form I-94 + EAD card (if OPT)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 5 -->
+                    <div class="example-card">
+                        <h4>5. J-1 Exchange Visitor</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>DS-2019 form</li>
+                            <li>Sponsor letter</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 6 -->
+                    <div class="example-card">
+                        <h4>6. EAD / Work Authorization Holder</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>I-766 EAD card</li>
+                            <li>I-797 approval notice</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 7 -->
+                    <div class="example-card">
+                        <h4>7. L-1 Intracompany Transferee</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>I-94 record</li>
+                            <li>I-797 L-1 approval notice</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 8 -->
+                    <div class="example-card">
+                        <h4>8. K-1 Fiancé(e) / K-3 Spouse</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>I-94 record</li>
+                            <li>K-1/K-3 visa stamp + I-797</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 9 -->
+                    <div class="example-card">
+                        <h4>9. TN Visa (USMCA)</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>I-94 record</li>
+                            <li>TN letter from employer + proof of citizenship</li>
+                        </ul>
+                    </div>
+
+                    <!-- Example 10 -->
+                    <div class="example-card">
+                        <h4>10. Green Card / Permanent Resident</h4>
+                        <p><strong>POMS RM 00203.100</strong></p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Green Card (I-551)</li>
+                            <li>Valid passport</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- Visa Guide -->
             <div class="topic-box">
                 <h3>Non-Citizen / Visa Holder Guide (H-1B, F-1, J-1, EAD, L-1, K-1, TN, O-1…)</h3>
@@ -502,7 +600,7 @@
                 <p>All services are <strong>free</strong> — beware of scam sites charging fees.</p>
             </div>
 
-            <!-- Documents -->
+            <!-- Documents Table -->
             <div class="topic-box">
                 <h3>Documents Needed (Originals Only)</h3>
                 <table style="width:100%;border-collapse:collapse;margin:1.5rem 0;">
@@ -625,13 +723,6 @@
     </div>
 
     <script>
-        // Site Search
-        document.getElementById('site-search').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const query = document.getElementById('search-input').value.trim();
-            if (query) window.open(`https://www.google.com/search?q=site:ssaanswers.com+${encodeURIComponent(query)}`, '_blank');
-        });
-
         // Dark Mode
         const toggle = document.getElementById('dark-toggle');
         const body = document.body;
@@ -668,7 +759,7 @@
             navigator.clipboard.writeText('https://www.ssaanswers.com').then(() => alert('✔ Link copied to clipboard!'));
         }
 
-        // Chatbot logic (unchanged)
+        // Chatbot logic
         const ssaFaqs = [
             { keywords: ["online", "replace"], answer: "U.S. citizens (18+) with no changes can replace online via my Social Security." },
             { keywords: ["non-citizen", "immigrant", "document"], answer: "Original passport + I-94, visa, EAD, I-797, I-20, or DS-2019 required." },
@@ -758,23 +849,20 @@
         });
         backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-        // Scroll animations – fade in each topic box as you scroll
+        // Scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        });
+        }, { threshold: 0.15 });
 
         document.querySelectorAll('.topic-box').forEach(box => {
             observer.observe(box);
         });
 
-        console.log('%c✅ SSA Answers – Natural full-page scrolling with smooth fade-in animations!', 'background:#004d99;color:white;padding:4px 8px;border-radius:4px;');
+        console.log('%c✅ SSA Answers – Full natural scrolling + 10 real-world POMS examples added!', 'background:#004d99;color:white;padding:4px 8px;border-radius:4px;');
     </script>
 </body>
 </html>
