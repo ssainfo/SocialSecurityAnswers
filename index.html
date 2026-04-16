@@ -135,33 +135,19 @@
             overflow-x: hidden;
         }
 
-        /* HERO BANNER - Enhanced mobile padding */
         .banner {
             background: linear-gradient(135deg, var(--primary), #002b55);
             color: white;
             text-align: center;
             padding: 2.5rem 1rem 2rem;
         }
-        @media (max-width: 480px) {
-            .banner { padding: 2rem 0.75rem 1.5rem; }
-        }
-        .banner-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+        @media (max-width: 480px) { .banner { padding: 2rem 0.75rem 1.5rem; } }
+        .banner-content { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
         .logo-svg { transition: var(--transition); width: 280px; }
-        @media (max-width: 480px) {
-            .logo-svg { width: 240px; }
-        }
+        @media (max-width: 480px) { .logo-svg { width: 240px; } }
         .logo-svg:hover { transform: rotate(8deg) scale(1.08); }
         .tagline { font-size: clamp(1.1rem, 3.8vw, 1.4rem); font-weight: 600; margin-top: 0.3rem; opacity: 0.95; }
 
-        /* NAVIGATION - Fully responsive with hamburger */
         .main-nav {
             background: var(--light);
             border-bottom: 3px solid var(--accent);
@@ -217,13 +203,7 @@
             padding: 8px;
         }
         @media (max-width: 768px) {
-            .nav-list {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                gap: 0.4rem;
-                padding: 1rem 0;
-            }
+            .nav-list { display: none; flex-direction: column; width: 100%; gap: 0.4rem; padding: 1rem 0; }
             .nav-list.active { display: flex; }
             .hamburger { display: block; }
             .nav-box { flex-direction: column; align-items: stretch; }
@@ -253,9 +233,7 @@
             max-width: 1100px;
             padding: 0 1rem;
         }
-        @media (max-width: 480px) {
-            .content-section { margin: 1.5rem auto; padding: 0 0.75rem; }
-        }
+        @media (max-width: 480px) { .content-section { margin: 1.5rem auto; padding: 0 0.75rem; } }
 
         .topic-box {
             background: var(--box-bg);
@@ -268,21 +246,14 @@
             transform: translateY(30px);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @media (max-width: 480px) {
-            .topic-box { padding: 1.25rem; margin: 1.5rem 0; }
-        }
-        .topic-box.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        @media (max-width: 480px) { .topic-box { padding: 1.25rem; margin: 1.5rem 0; } }
+        .topic-box.visible { opacity: 1; transform: translateY(0); }
 
         .timeline {
             position: relative;
             padding-left: 48px;
         }
-        @media (max-width: 480px) {
-            .timeline { padding-left: 38px; }
-        }
+        @media (max-width: 480px) { .timeline { padding-left: 38px; } }
         .timeline::before {
             content: '';
             position: absolute;
@@ -316,15 +287,9 @@
             font-size: 1.2rem;
             box-shadow: 0 4px 12px rgba(0,77,153,0.3);
         }
-        @media (max-width: 480px) {
-            .timeline-item::before { left: -38px; width: 34px; height: 34px; font-size: 1.1rem; }
-        }
+        @media (max-width: 480px) { .timeline-item::before { left: -38px; width: 34px; height: 34px; font-size: 1.1rem; } }
 
-        .accordion {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--gray);
-        }
+        .accordion { border-radius: 12px; overflow: hidden; border: 1px solid var(--gray); }
         .accordion-item { border-bottom: 1px solid var(--gray); }
         .accordion-item:last-child { border-bottom: none; }
         .accordion-header {
@@ -337,9 +302,7 @@
             align-items: center;
             font-size: 1.05rem;
         }
-        @media (max-width: 480px) {
-            .accordion-header { padding: 0.9rem 1rem; font-size: 1rem; }
-        }
+        @media (max-width: 480px) { .accordion-header { padding: 0.9rem 1rem; font-size: 1rem; } }
         .accordion-content {
             padding: 0 1.25rem;
             max-height: 0;
@@ -354,9 +317,7 @@
             gap: 1.25rem;
             margin: 1.75rem 0;
         }
-        @media (max-width: 480px) {
-            .examples-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 480px) { .examples-grid { grid-template-columns: 1fr; } }
         .example-card {
             background: var(--box-bg);
             border: 2px solid var(--box-border);
@@ -375,18 +336,12 @@
             font-size: 1rem;
             margin: 4px;
         }
-        .visa-tab.active {
-            background: var(--primary);
-            color: white;
-        }
-        @media (max-width: 480px) {
-            .visa-tab { padding: 9px 14px; font-size: 0.95rem; }
-        }
+        .visa-tab.active { background: var(--primary); color: white; }
+        @media (max-width: 480px) { .visa-tab { padding: 9px 14px; font-size: 0.95rem; } }
 
         .poms-link { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
         .poms-link:hover { text-decoration: underline; }
 
-        /* FABs - Smaller & better positioned on mobile */
         .fab {
             position: fixed;
             right: 16px;
@@ -452,6 +407,21 @@
             background: #1e2937 !important;
             border-color: #334155 !important;
         }
+
+        /* CHARTS – Fixed conic-gradient circles (the "charts" you couldn't see) */
+        .limit-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 2.2rem;
+            margin: 0 auto;
+            box-shadow: 0 8px 20px rgba(0,77,153,0.3);
+        }
     </style>
 </head>
 <body data-theme="light">
@@ -477,7 +447,7 @@
         </div>
     </header>
 
-    <!-- Navigation with improved mobile hamburger -->
+    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-box">
             <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
@@ -556,21 +526,47 @@
                 <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank" rel="noopener" style="background:#fff;color:#00a651;margin:0.5rem;padding:12px 24px;border-radius:9999px;font-weight:700;display:inline-block;"><i class="fas fa-print"></i> Printable Checklist</a>
             </div>
 
-            <!-- 10 Real-World Examples -->
+            <!-- CHARTS: Fixed & Enhanced Limits Section (this was the missing "charts") -->
+            <div class="topic-box" style="text-align:center;">
+                <h4>Replacement Limits (2026)</h4>
+                <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin:2rem 0;">
+                    <!-- Chart 1: 3 per year -->
+                    <div style="text-align:center;">
+                        <div class="limit-circle" style="background:conic-gradient(#00a651 0% 30%, #004d99 30% 100%);">3/year</div>
+                        <p style="margin-top:1rem;">per year</p>
+                    </div>
+                    <!-- Chart 2: 10 lifetime -->
+                    <div style="text-align:center;">
+                        <div class="limit-circle" style="background:conic-gradient(#004d99 0% 70%, #00a651 70% 100%);">10</div>
+                        <p style="margin-top:1rem;">lifetime (exceptions apply)</p>
+                    </div>
+                </div>
+                <p>All services are <strong>free</strong> — beware of scam sites charging fees.</p>
+            </div>
+
+            <!-- 13 Real-World Examples (original 10 + 3 new) -->
             <div class="topic-box">
-                <h3>10 Real-World Examples: Documents Required (per SSA POMS)</h3>
+                <h3>13 Real-World Examples: Documents Required (per SSA POMS)</h3>
                 <p style="margin-bottom:1.5rem;">All examples are based on official SSA Program Operations Manual System (POMS) rules. Always bring <strong>original documents only</strong>. Latest POMS reference: <a href="https://secure.ssa.gov/poms.nsf/Home?ReadForm" target="_blank" rel="noopener" class="poms-link">secure.ssa.gov/poms.nsf</a></p>
                 <div class="examples-grid">
-                    <!-- All 10 example cards from original document (unchanged) -->
                     <div class="example-card"><h4>1. U.S. Citizen – Lost SSN Card</h4><p><strong>POMS RM 00203.020 &amp; RM 00203.030</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid U.S. driver’s license or state ID</li><li>Passport or birth certificate (if no photo ID)</li></ul></div>
-                    <div class="example-card"><h4>2. U.S. Citizen – Name Change</h4><p><strong>POMS RM 00203.030</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Marriage certificate or divorce decree</li><li>Current photo ID</li><li>Birth certificate (if needed)</li></ul></div>
-                    <div class="example-card"><h4>3. New H-1B Visa Holder</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport with H-1B visa stamp</li><li>I-94 record printout</li><li>I-797 approval notice + LCA</li></ul></div>
-                    <!-- ... (remaining 7 cards follow the exact same pattern as in previous full code) ... -->
+                    <div class="example-card"><h4>2. U.S. Citizen – Name Change (Marriage/Divorce)</h4><p><strong>POMS RM 00203.030</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Marriage certificate or divorce decree</li><li>Current photo ID (driver’s license or passport)</li><li>Birth certificate (if needed)</li></ul></div>
+                    <div class="example-card"><h4>3. New H-1B Visa Holder (First-Time SSN)</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport with H-1B visa stamp</li><li>I-94 record printout</li><li>I-797 approval notice + LCA</li></ul></div>
+                    <div class="example-card"><h4>4. F-1 Student with OPT/CPT</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-20 with OPT/CPT endorsement</li><li>Form I-94 + EAD card (if OPT)</li></ul></div>
+                    <div class="example-card"><h4>5. J-1 Exchange Visitor</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>DS-2019 form</li><li>Sponsor letter</li></ul></div>
+                    <div class="example-card"><h4>6. EAD / Work Authorization Holder</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-766 EAD card</li><li>I-797 approval notice</li></ul></div>
+                    <div class="example-card"><h4>7. L-1 Intracompany Transferee</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-94 record</li><li>I-797 L-1 approval notice</li></ul></div>
+                    <div class="example-card"><h4>8. K-1 Fiancé(e) / K-3 Spouse</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-94 record</li><li>K-1/K-3 visa stamp + I-797</li></ul></div>
+                    <div class="example-card"><h4>9. TN Visa (USMCA)</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-94 record</li><li>TN letter from employer + proof of citizenship</li></ul></div>
                     <div class="example-card"><h4>10. Green Card / Permanent Resident</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Green Card (I-551)</li><li>Valid passport</li></ul></div>
+                    <!-- NEW EXTRA EXAMPLES -->
+                    <div class="example-card"><h4>11. O-1 Extraordinary Ability Visa</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-94 record</li><li>I-797 O-1 approval notice</li></ul></div>
+                    <div class="example-card"><h4>12. K-1 Fiancé(e) Dependent</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-94 record</li><li>K-1 visa stamp + I-797 + marriage proof (if applicable)</li></ul></div>
+                    <div class="example-card"><h4>13. Green Card Dependent (Spouse/Child)</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Green Card (I-551) or I-797</li><li>Valid passport</li><li>Proof of relationship</li></ul></div>
                 </div>
             </div>
 
-            <!-- NEW DETAILED VISA GUIDES -->
+            <!-- Detailed Visa Guides -->
             <div class="topic-box">
                 <h3 style="margin-bottom:1.5rem;">📋 Detailed Visa-Specific SSN Guides (2026)</h3>
                 <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:1.75rem;" id="visa-tabs">
@@ -611,17 +607,41 @@
                 </div>
             </div>
 
-            <!-- Reddit, Limits, Documents Table, FAQ, Ad (all original content retained) -->
-            <!-- Reddit box, Limits circles, Documents table, FAQ accordion, Ad container are identical to previous full version -->
-
+            <!-- Reddit -->
             <div class="topic-box" style="background:linear-gradient(135deg,#FF4500,#FF8C00);color:white;border-color:#FF4500;">
                 <h3 style="color:white;margin-bottom:0.5rem;"><i class="fab fa-reddit-alien" style="font-size:2.8rem;vertical-align:middle;margin-right:12px;"></i>Have a Question About Your SSN?</h3>
-                <p style="font-size:1.3rem;max-width:700px;margin:0 auto 1.5rem;">Join <strong>r/socialsecurityanswers</strong> — real immigrants &amp; experts ready to help.</p>
+                <p style="font-size:1.3rem;max-width:700px;margin:0 auto 1.5rem;">Join <strong>r/socialsecurityanswers</strong> — real immigrants &amp; experts ready to help with visas, documents &amp; timelines.</p>
                 <a href="https://www.reddit.com/r/socialsecurityanswers/" target="_blank" rel="noopener" style="background:#fff;color:#FF4500;padding:1rem 3rem;border-radius:9999px;font-size:1.4rem;font-weight:700;display:inline-flex;align-items:center;gap:12px;box-shadow:0 8px 20px rgba(255,69,0,0.4);">POST YOUR QUESTION ON REDDIT</a>
             </div>
 
-            <!-- Limits, Documents Table, FAQ Accordion, Ad, Footer remain fully intact from previous version -->
+            <!-- FAQ Accordion -->
+            <div class="topic-box">
+                <h3>Frequently Asked Questions</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-toggle="accordion"><span>Can I replace my SSN card online?</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="accordion-content">Yes — eligible U.S. citizens (18+, no record changes) can replace instantly via <a href="https://www.ssa.gov/ssnumber/" target="_blank" rel="noopener">my Social Security</a>.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-toggle="accordion"><span>What documents do I need as a non-citizen?</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="accordion-content">Original passport + I-94 + visa/EAD/I-797/I-20/DS-2019. Photocopies are not accepted.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-toggle="accordion"><span>How long does it take?</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="accordion-content">Usually 7–14 business days by mail. No expedited service.</div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-toggle="accordion"><span>First-time applicant?</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="accordion-content">Same in-person process — bring job offer or school letter if needed.</div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Ad -->
+            <div class="ad-container" style="margin:3rem 0;text-align:center;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5346424450981440" data-ad-slot="5473550665" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
         </section>
     </main>
 
@@ -636,8 +656,67 @@
     <button id="share-fab" class="fab" aria-label="Share"><i class="fas fa-share-alt"></i></button>
     <button id="dark-toggle" class="fab" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
 
-    <!-- Panels and full chatbot code (identical to previous full version) -->
-    <!-- Support, Share, Chatbot panels + all JavaScript (including new visa tab switcher and enhanced mobile hamburger) -->
+    <!-- Support Panel -->
+    <div id="support-panel" class="panel">
+        <div style="background:var(--primary);color:white;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;">
+            <h3>Support Us</h3>
+            <button onclick="closePanel('support-panel')" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;">×</button>
+        </div>
+        <div style="padding:2rem;text-align:center;">
+            <p>Help keep this resource 100% free and updated.</p>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank" style="margin:1.5rem 0;">
+                <input type="hidden" name="business" value="ravellc17@gmail.com">
+                <input type="hidden" name="currency_code" value="USD">
+                <button type="submit" style="background:#0070ba;color:white;padding:16px 32px;border:none;border-radius:9999px;font-size:1.2rem;width:100%;cursor:pointer;">Donate via PayPal</button>
+            </form>
+            <a href="https://cash.app/$ssaanswers" target="_blank" style="display:block;background:#00c4b4;color:white;padding:16px 32px;border-radius:9999px;text-decoration:none;font-size:1.2rem;margin-top:1rem;">Cash App • $ssaanswers</a>
+        </div>
+    </div>
+
+    <!-- Share Panel -->
+    <div id="share-panel" class="panel">
+        <div style="background:var(--primary);color:white;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;">
+            <h3>Share This Guide</h3>
+            <button onclick="closePanel('share-panel')" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;">×</button>
+        </div>
+        <div style="padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:15px;">
+            <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.ssaanswers.com&amp;text=Free%202026%20SSN%20Replacement%20%26%20New%20Application%20Guide%20for%20Immigrants" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">X</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ssaanswers.com" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Facebook</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ssaanswers.com" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">LinkedIn</a>
+            <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fwww.ssaanswers.com&amp;title=Free%202026%20SSN%20Replacement%20%26%20New%20Application%20Guide%20for%20Immigrants" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Reddit</a>
+            <a href="https://wa.me/?text=Check%20this%20free%202026%20SSN%20guide%20for%20immigrants%3A%20https%3A%2F%2Fwww.ssaanswers.com" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">WhatsApp</a>
+            <button onclick="copyLink()" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #ddd;border-radius:10px;text-decoration:none;color:var(--text);">Copy Link</button>
+        </div>
+    </div>
+
+    <!-- Chatbot Panel -->
+    <div id="chatbot-panel" class="panel">
+        <div style="background:var(--primary);color:white;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;">
+            <h3>SSA Answers Chatbot</h3>
+            <button onclick="closePanel('chatbot-panel')" style="background:none;border:none;color:white;font-size:1.8rem;cursor:pointer;">×</button>
+        </div>
+        <div id="chatbot-messages" style="padding:16px;background:#f9f9f9;overflow-y:auto;flex:1;"></div>
+        <div style="padding:12px;border-top:1px solid #ddd;background:white;display:flex;flex-wrap:wrap;gap:8px;">
+            <select id="suggested-questions" style="flex:1 1 100%;padding:10px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
+                <option value="">Pick a question or type below...</option>
+                <option value="Can I replace my SSN card online?">Can I replace my SSN card online?</option>
+                <option value="What documents do I need as a non-citizen?">What documents do I need as a non-citizen?</option>
+                <option value="H1B visa SSN requirements">H1B visa SSN requirements</option>
+                <option value="F1 student SSN">F1 student SSN</option>
+                <option value="J1 exchange SSN">J1 exchange SSN</option>
+                <option value="How long does SSN replacement take?">How long does replacement take?</option>
+                <option value="Is replacing the SSN card free?">Is replacing the SSN card free?</option>
+                <option value="How do I schedule an SSA appointment?">How do I schedule an SSA appointment?</option>
+            </select>
+            <input type="text" id="chatbot-input" placeholder="Ask about SSN cards, visas, benefits.." style="flex:1 1 100%;padding:10px;border:1px solid #ccc;border-radius:8px;font-size:1rem;">
+            <button id="chatbot-send" style="background:var(--primary);color:white;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-size:1rem;"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div style="padding:10px;background:#f1f1f1;text-align:center;">
+            <button id="chatbot-save" style="background:var(--primary);color:white;border:none;padding:8px 16px;margin:0 6px;border-radius:6px;cursor:pointer;">Save Chat</button>
+            <button id="chatbot-reset" style="background:var(--primary);color:white;border:none;padding:8px 16px;margin:0 6px;border-radius:6px;cursor:pointer;">Reset Chat</button>
+            <button onclick="window.open('https://www.reddit.com/r/socialsecurityanswers/','_blank')" style="background:#FF4500;color:white;border:none;padding:8px 16px;margin:0 6px;border-radius:6px;cursor:pointer;">Ask on Reddit →</button>
+        </div>
+    </div>
 
     <script>
         // Dark Mode
@@ -683,7 +762,7 @@
             navigator.clipboard.writeText('https://www.ssaanswers.com').then(() => alert('✔ Link copied to clipboard!'));
         }
 
-        // Chatbot with enhanced visa support
+        // Chatbot
         const ssaFaqs = [
             { keywords: ["online", "replace"], answer: "U.S. citizens (18+) with no changes can replace online via my Social Security." },
             { keywords: ["non-citizen", "immigrant", "document"], answer: "Original passport + I-94, visa, EAD, I-797, I-20, or DS-2019 required." },
@@ -743,7 +822,11 @@
         sendBtn.addEventListener('click', sendMessage);
         input.addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
         suggested.addEventListener('change', () => {
-            if (suggested.value) { input.value = suggested.value; suggested.value = ''; sendMessage(); }
+            if (suggested.value) {
+                input.value = suggested.value;
+                suggested.value = '';
+                sendMessage();
+            }
         });
         resetBtn.addEventListener('click', () => { messages.innerHTML = ''; });
         saveBtn.addEventListener('click', () => {
@@ -759,7 +842,7 @@
             addMessage('bot', 'Hi! Ask me about SSN replacement, first-time SSN, or specific visas (H1B, F1, J1).');
         });
 
-        // Back to top + scroll animations
+        // Back to top
         const backToTop = document.createElement('button');
         backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
         backToTop.style.cssText = 'position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:var(--primary);color:white;border:none;border-radius:50%;font-size:1.6rem; box-shadow:0 8px 20px rgba(0,77,153,0.3); z-index:1200; display:none;';
@@ -769,6 +852,7 @@
         });
         backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
+        // Scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -787,7 +871,7 @@
             });
         });
 
-        console.log('%c✅ SSA Answers – Fully responsive mobile + Enhanced hamburger + Visa guides + Improved touch targets!', 'background:#00a651; color:white; padding:6px 12px; border-radius:9999px; font-weight:700;');
+        console.log('%c✅ SSA Answers – FULL CODE with FIXED CHARTS (conic-gradient circles now visible), 13 examples, enhanced mobile responsiveness, and all sections complete!', 'background:#00a651; color:white; padding:6px 12px; border-radius:9999px; font-weight:700;');
     </script>
 
     <!-- Google Translate -->
