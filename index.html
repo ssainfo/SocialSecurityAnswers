@@ -22,7 +22,7 @@
     <meta name="geo.placename" content="United States">
     <meta name="theme-color" content="#004d99">
 
-    <!-- Open Graph / Twitter (enhanced with more languages) -->
+    <!-- Open Graph / Twitter -->
     <meta property="og:title" content="SSN Card Replacement OR First-Time SSN Application 2026 Guide | 11 Languages">
     <meta property="og:description" content="Free 2026 SSA guide in English, Español, 中文, हिन्दी, العربية, Français, Português, Русский, Deutsch, 日本語, 한국어: Replace SSN or first-time application for H1B, F1, J1, EAD & all immigrants.">
     <meta property="og:image" content="https://www.ssaanswers.com/images/ssa-answers-modern-logo.png">
@@ -48,7 +48,7 @@
     <meta name="twitter:image" content="https://www.ssaanswers.com/images/ssa-answers-modern-logo.png">
     <meta name="twitter:site" content="@ssaanswers">
 
-    <!-- Enhanced Structured Data (more steps + FAQ) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -75,7 +75,7 @@
     }
     </script>
 
-    <!-- Enhanced Hreflang (top 10 languages) -->
+    <!-- Hreflang -->
     <link rel="canonical" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="en" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="es" href="https://www.ssaanswers.com/?lang=es">
@@ -99,7 +99,7 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
 
-    <!-- GOOGLE TRANSLATE WIDGET – NOW TOP 10 LANGUAGES -->
+    <!-- GOOGLE TRANSLATE -->
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({
@@ -139,39 +139,25 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; height: 100%; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Catamaran', system-ui, sans-serif;
             line-height: 1.75;
             color: var(--text);
             background: var(--bg);
             overflow-x: hidden;
-            overflow-y: auto; /* FIXED: prevents stuck scrolling */
+            overflow-y: auto;
         }
 
-        /* MOBILE IMPROVEMENTS – NATURAL SCROLLING FIXED */
+        /* MOBILE IMPROVEMENTS – NATURAL SCROLLING */
         @media (max-width: 768px) {
             body { overflow-y: auto; }
-            .main-nav { position: sticky; top: 0; z-index: 1000; }
+            .main-nav { position: relative; } /* Removed sticky so entire page scrolls naturally */
             .nav-box { flex-direction: column; align-items: stretch; padding: 0.8rem; }
-            #google_translate_element { 
-                margin-top: 0.75rem; 
-                width: 100%; 
-                text-align: center; 
-                order: -1; 
-            }
+            #google_translate_element { margin-top: 0.75rem; width: 100%; text-align: center; order: -1; }
             .content-section { padding-top: 1rem; }
             .topic-box { margin: 1.25rem 0; }
-            .visa-tab { font-size: 0.9rem; padding: 8px 12px; }
-            #visa-tabs { 
-                flex-wrap: nowrap; 
-                overflow-x: auto; 
-                padding-bottom: 8px; 
-                gap: 6px; 
-                scrollbar-width: thin;
-                touch-action: pan-x; /* CRITICAL FIX: horizontal tabs only – vertical page scroll passes through naturally */
-                -webkit-overflow-scrolling: touch; /* smooth native mobile scrolling */
-            }
+            #visa-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; gap: 6px; scrollbar-width: thin; touch-action: pan-x; -webkit-overflow-scrolling: touch; }
         }
 
         .banner { background: linear-gradient(135deg, var(--primary), #002b55); color: white; text-align: center; padding: 2.5rem 1rem 2rem; }
@@ -182,7 +168,7 @@
         .logo-svg:hover { transform: rotate(8deg) scale(1.08); }
         .tagline { font-size: clamp(1.1rem, 3.8vw, 1.4rem); font-weight: 600; margin-top: 0.3rem; opacity: 0.95; }
 
-        .main-nav { background: var(--light); border-bottom: 3px solid var(--accent); padding: 0.8rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
+        .main-nav { background: var(--light); border-bottom: 3px solid var(--accent); padding: 0.8rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
         .nav-box { background: var(--box-bg); border: 2px solid var(--box-border); border-radius: 16px; padding: 0.8rem 1rem; margin: 0 auto; max-width: 1180px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
         .nav-list { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1rem; margin: 0; padding: 0; flex: 1; }
         .nav-list li a { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 1.05rem; padding: 8px 16px; border-radius: 9999px; transition: var(--transition); white-space: nowrap; }
@@ -221,7 +207,7 @@
 
         .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin: 1.75rem 0; }
         @media (max-width: 480px) { .examples-grid { grid-template-columns: 1fr; } }
-        .example-card { background: var(--box-bg); border: 2px solid var(--box-border); border-radius: 12px; padding: 1.25rem; box-shadow: var(--shadow); transition: var(--transition); }
+        .example-card { background: var(--box-bg); border: 2px solid var(--box-border); border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow); transition: var(--transition); }
 
         .visa-tab { cursor: pointer; padding: 10px 18px; border-radius: 9999px; transition: all 0.3s; font-weight: 600; font-size: 1rem; margin: 4px; }
         .visa-tab.active { background: var(--primary); color: white; }
@@ -250,7 +236,7 @@
 
         @media print { .fab, .panel { display: none !important; } }
 
-        /* Google Translate – improved mobile visibility */
+        /* Google Translate */
         #google_translate_element .goog-te-gadget-simple { background: var(--box-bg) !important; border: 2px solid var(--box-border) !important; border-radius: 9999px !important; padding: 5px 12px !important; font-size: 0.95rem !important; box-shadow: var(--shadow) !important; }
         #google_translate_element .goog-te-gadget-simple .goog-te-gadget-icon { display: none !important; }
         [data-theme="dark"] #google_translate_element .goog-te-gadget-simple { background: #1e2937 !important; border-color: #334155 !important; }
@@ -281,7 +267,7 @@
         </div>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navigation – NOW SCROLLS WITH PAGE (no sticky) -->
     <nav class="main-nav">
         <div class="nav-box">
             <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
@@ -361,7 +347,7 @@
                 <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank" rel="noopener" style="background:#fff;color:#00a651;margin:0.5rem;padding:12px 24px;border-radius:9999px;font-weight:700;display:inline-block;"><i class="fas fa-print"></i> Printable Checklist</a>
             </div>
 
-            <!-- CHARTS: Fixed & Enhanced Limits Section -->
+            <!-- Limits -->
             <div class="topic-box" style="text-align:center;">
                 <h4>Replacement Limits (2026)</h4>
                 <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin:2rem 0;">
@@ -377,20 +363,66 @@
                 <p>All services are <strong>free</strong> — beware of scam sites charging fees.</p>
             </div>
 
-            <!-- 5 Real-World Examples (UPDATED – only the best 5) -->
+            <!-- 5 Refined Real-World Examples with detailed POMS explanations -->
             <div class="topic-box">
                 <h3>5 Real-World Examples: Documents Required (per SSA POMS)</h3>
-                <p style="margin-bottom:1.5rem;">All examples are based on official SSA Program Operations Manual System (POMS) rules. Always bring <strong>original documents only</strong>. Latest POMS reference: <a href="https://secure.ssa.gov/poms.nsf/Home?ReadForm" target="_blank" rel="noopener" class="poms-link">secure.ssa.gov/poms.nsf</a></p>
+                <p style="margin-bottom:1.5rem;">POMS (Program Operations Manual System) is the official SSA policy manual that governs exactly which documents are acceptable for SSN issuance. The references below (RM 00203 series) detail the evidence rules for identity, citizenship/immigration status, and work authorization. Always bring <strong>original unexpired documents only</strong> — photocopies are never accepted. Latest official POMS: <a href="https://secure.ssa.gov/poms.nsf/Home?ReadForm" target="_blank" rel="noopener" class="poms-link">secure.ssa.gov/poms.nsf</a></p>
                 <div class="examples-grid">
-                    <div class="example-card"><h4>1. U.S. Citizen – Lost SSN Card</h4><p><strong>POMS RM 00203.020 &amp; RM 00203.030</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid U.S. driver’s license or state ID</li><li>Passport or birth certificate (if no photo ID)</li></ul></div>
-                    <div class="example-card"><h4>2. H-1B Visa Holder – First-Time SSN</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport with H-1B visa stamp</li><li>I-94 arrival record</li><li>I-797 approval notice</li><li>Labor Condition Application (LCA)</li></ul></div>
-                    <div class="example-card"><h4>3. F-1 Student (OPT/CPT)</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>I-20 with SSN endorsement from DSO</li><li>I-94</li><li>EAD card (for OPT)</li><li>School letter confirming SSN requirement</li></ul></div>
-                    <div class="example-card"><h4>4. Green Card / Permanent Resident</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Green Card (Form I-551)</li><li>Valid passport</li></ul></div>
-                    <div class="example-card"><h4>5. EAD / Employment Authorization Holder</h4><p><strong>POMS RM 00203.100</strong></p><ul style="padding-left:1.2rem;line-height:1.6;"><li>Valid passport</li><li>Employment Authorization Document (I-766 EAD)</li><li>I-797 (if applicable)</li></ul></div>
+                    <div class="example-card">
+                        <h4>1. U.S. Citizen – Lost or Stolen SSN Card</h4>
+                        <p><strong>POMS RM 00203.020 &amp; RM 00203.030</strong> – These sections cover evidence of U.S. citizenship and identity for replacement cards.</p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid U.S. driver’s license, state ID, or passport (primary photo ID)</li>
+                            <li>Birth certificate or U.S. passport (if no photo ID available)</li>
+                        </ul>
+                        <p><em>Why these? POMS requires proof of identity + citizenship. One document can satisfy both if it contains photo + U.S. birth/citizenship info.</em></p>
+                    </div>
+                    <div class="example-card">
+                        <h4>2. H-1B Specialty Occupation Visa – First-Time SSN</h4>
+                        <p><strong>POMS RM 00203.100</strong> – Evidence of non-citizen immigration status and work authorization for H visas.</p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport with H-1B visa stamp</li>
+                            <li>I-94 arrival record (electronic or paper)</li>
+                            <li>Form I-797 approval notice</li>
+                            <li>Labor Condition Application (LCA)</li>
+                        </ul>
+                        <p><em>Why these? RM 00203.100 specifically lists I-797 + LCA as required for H-1B work-authorized SSN issuance.</em></p>
+                    </div>
+                    <div class="example-card">
+                        <h4>3. F-1 Student (OPT/CPT)</h4>
+                        <p><strong>POMS RM 00203.100</strong> – Student visa evidence rules requiring school verification of SSN need.</p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>Form I-20 with DSO SSN endorsement</li>
+                            <li>I-94 record</li>
+                            <li>EAD card (for OPT)</li>
+                            <li>School letter confirming SSN is required for employment or banking</li>
+                        </ul>
+                        <p><em>Why these? POMS mandates the I-20 endorsement + school letter to confirm the SSN is needed for authorized F-1 activity.</em></p>
+                    </div>
+                    <div class="example-card">
+                        <h4>4. Green Card / Permanent Resident</h4>
+                        <p><strong>POMS RM 00203.100</strong> – Lawful permanent resident (LPR) evidence requirements.</p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Green Card (Form I-551)</li>
+                            <li>Valid passport</li>
+                        </ul>
+                        <p><em>Why these? RM 00203.100 accepts the I-551 Green Card as primary proof of immigration status and work authorization.</em></p>
+                    </div>
+                    <div class="example-card">
+                        <h4>5. EAD / Employment Authorization Holder</h4>
+                        <p><strong>POMS RM 00203.100</strong> – Employment Authorization Document rules for non-immigrant categories.</p>
+                        <ul style="padding-left:1.2rem;line-height:1.6;">
+                            <li>Valid passport</li>
+                            <li>Form I-766 EAD card</li>
+                            <li>I-797 (if the EAD was based on a pending application)</li>
+                        </ul>
+                        <p><em>Why these? POMS RM 00203.100 treats the I-766 EAD as definitive proof of work authorization for SSN issuance.</em></p>
+                    </div>
                 </div>
             </div>
 
-            <!-- ENHANCED: Detailed Visa-Specific SSN Guides (now 10 visas) -->
+            <!-- Visa-Specific Guides -->
             <div class="topic-box">
                 <h3 style="margin-bottom:1.5rem;">☐ Detailed Visa-Specific SSN Guides (2026 – 10 Visas)</h3>
                 <div style="display:flex; flex-wrap:nowrap; overflow-x:auto; gap:8px; justify-content:flex-start; margin-bottom:1.75rem; padding-bottom:8px;" id="visa-tabs">
@@ -514,7 +546,7 @@
                 <a href="https://www.reddit.com/r/socialsecurityanswers/" target="_blank" rel="noopener" style="background:#fff;color:#FF4500;padding:1rem 3rem;border-radius:9999px;font-size:1.4rem;font-weight:700;display:inline-flex;align-items:center;gap:12px;box-shadow:0 8px 20px rgba(255,69,0,0.4);">POST YOUR QUESTION ON REDDIT</a>
             </div>
 
-            <!-- FAQ Accordion -->
+            <!-- FAQ -->
             <div class="topic-box">
                 <h3>Frequently Asked Questions</h3>
                 <div class="accordion">
@@ -656,7 +688,7 @@
             navigator.clipboard.writeText('https://www.ssaanswers.com').then(() => alert('✔ Link copied to clipboard!'));
         }
 
-        // ENHANCED Chatbot
+        // Chatbot
         const ssaFaqs = [
             { keywords: ["online", "replace"], answer: "U.S. citizens (18+) with no changes can replace online via my Social Security." },
             { keywords: ["non-citizen", "immigrant", "document"], answer: "Original passport + I-94, visa, EAD, I-797, I-20, or DS-2019 required." },
@@ -742,7 +774,7 @@
             addMessage('bot', 'Hi! Ask me about SSN replacement, first-time SSN, or any visa (H1B, F1, J1, L1, K1, TN, O1, EAD, Green Card). The page now supports 11 languages!');
         });
 
-        // Scroll animations, Back to top, Visa Tab Switcher
+        // Scroll animations & Back to top
         const backToTop = document.createElement('button');
         backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
         backToTop.style.cssText = 'position:fixed;bottom:20px;right:20px;width:56px;height:56px;background:var(--primary);color:white;border:none;border-radius:50%;font-size:1.6rem; box-shadow:0 8px 20px rgba(0,77,153,0.3); z-index:1200; display:none; align-items:center;justify-content:center;';
@@ -770,7 +802,7 @@
             });
         });
 
-        console.log('%c✓ SSA Answers – FULLY UPDATED 2026: 11 languages, natural scrolling fixed on visa tabs, reduced to 5 best examples, enhanced mobile experience!', 'background:#00a651; color:white; padding:6px 12px; border-radius:9999px; font-weight:700;');
+        console.log('%c✓ SSA Answers – FULLY UPDATED 2026: Navigation now scrolls naturally with page, refined 5 example cards with detailed POMS explanations', 'background:#00a651; color:white; padding:6px 12px; border-radius:9999px; font-weight:700;');
     </script>
 
     <!-- Google Translate -->
