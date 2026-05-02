@@ -4,83 +4,95 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+<!-- Updated on May 1, 2026 - Added dedicated Spanish, Mandarin & Hindi SSN pages -->
 <url>
   <loc>https://ssaanswers.com/</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/replacement.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
-  <priority>0.80</priority>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://ssaanswers.com/index-es.html</loc>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
+  <priority>0.95</priority>
+</url>
+<url>
+  <loc>https://ssaanswers.com/index-zh.html</loc>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
+  <priority>0.95</priority>
+</url>
+<url>
+  <loc>https://ssaanswers.com/index-hi.html</loc>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
+  <priority>0.95</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/retirement.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/medicare.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/disability.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/survivor.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/tax.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/medicaid.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/housing.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/faq.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/fraud.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/ssi.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/calculator.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/index.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ssaanswers.com/news.html</loc>
-  <lastmod>2025-03-13T13:05:18+00:00</lastmod>
+  <lastmod>2026-05-01T23:59:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-
 </urlset>
