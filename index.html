@@ -782,7 +782,36 @@
         window.addEventListener('load', () => {
             addMessage('bot', 'Hi! Ask me about SSN replacement, first-time SSN, or any visa (H1B, F1, J1, L1, K1, TN, O1, EAD, Green Card). The page now supports 11 languages!');
         });
+        <!-- === VISA TABS SWITCHER === -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const tabs = document.querySelectorAll('.visa-tab');
+                const guides = document.querySelectorAll('.visa-guide');
 
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        // 1. Remove active from all tabs
+                        tabs.forEach(t => t.classList.remove('active'));
+
+                        // 2. Add active to the clicked tab
+                        tab.classList.add('active');
+
+                        // 3. Hide all guide panels
+                        guides.forEach(guide => {
+                            guide.style.display = 'none';
+                        });
+
+                        // 4. Show the matching guide
+                        const visaType = tab.getAttribute('data-visa');
+                        const targetGuide = document.getElementById(`guide-${visaType}`);
+                        
+                        if (targetGuide) {
+                            targetGuide.style.display = 'block';
+                        }
+                    });
+                });
+            });
+        </script>
         // Scroll animations & Back to top
         const backToTop = document.createElement('button');
         backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
