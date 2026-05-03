@@ -782,22 +782,7 @@
         window.addEventListener('load', () => {
             addMessage('bot', 'Hi! Ask me about SSN replacement, first-time SSN, or any visa (H1B, F1, J1, L1, K1, TN, O1, EAD, Green Card). The page now supports 11 languages!');
         });
-<!-- AI BOT PROMPT POP-UP -->
-<div id="ai-prompt-modal" style="display:none; position:fixed; top:30px; right:20px; background:var(--box-bg); border:3px solid var(--accent); border-radius:20px; box-shadow:var(--shadow); padding:24px; max-width:340px; z-index:99999; color:var(--text);">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h3 style="margin:0; font-size:1.3rem;">💬 Have a question about Social Security?</h3>
-        <button onclick="closePromptModal()" style="background:none; border:none; font-size:1.8rem; cursor:pointer; color:#999;">×</button>
-    </div>
-    <p style="margin:0 0 20px 0; line-height:1.5;">Ask our smart bot anything — SSN cards, retirement, Medicare, disability, SSI, taxes, fraud, or visa-related benefits.</p>
-    <button onclick="openChatbotFromPrompt()" 
-            style="background:var(--primary); color:white; border:none; padding:16px 24px; border-radius:9999px; width:100%; font-weight:700; font-size:1.1rem;">
-        Ask the Bot Now →
-    </button>
-    <button onclick="closePromptModal()" 
-            style="margin-top:12px; background:none; border:2px solid var(--gray); color:var(--text); padding:12px; border-radius:9999px; width:100%; font-weight:600;">
-        Maybe later
-    </button>
-</div>
+
         // Scroll animations & Back to top
         const backToTop = document.createElement('button');
         backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
