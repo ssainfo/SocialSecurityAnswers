@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Security Tax Calculator 2026 - How Much of Your Benefits Are Taxable?</title>
+    <meta name="description" content="Free 2026 Social Security Tax Calculator. Instantly estimate how much of your Social Security benefits (retirement, SSDI, survivors) are taxable based on combined income thresholds. Updated for current IRS rules.">
+    <meta name="keywords" content="Social Security tax calculator 2026, taxable Social Security benefits, combined income calculator, how much of Social Security is taxable, SS tax estimator">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://www.ssaanswers.com/tax-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Social Security Tax Calculator 2026 - Free & Accurate">
+    <meta property="og:description" content="Estimate the taxable portion of your Social Security benefits in seconds. Uses 2026 IRS combined income thresholds.">
+    <meta property="og:url" content="https://www.ssaanswers.com/tax-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.ssaanswers.com/images/ss-tax-calculator-2026.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPC7TFVK2B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QPC7TFVK2B');
+    </script>
+
+    <!-- Google Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.ssaanswers.com/#organization",
+          "name": "Social Security Answers",
+          "url": "https://www.ssaanswers.com"
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Social Security Tax Calculator 2026",
+          "url": "https://www.ssaanswers.com/tax-calculator.html",
+          "description": "Free calculator that estimates how much of your Social Security benefits are taxable under 2026 IRS rules using combined income.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "publisher": { "@id": "https://www.ssaanswers.com/#organization" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ssaanswers.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Tax Guide", "item": "https://www.ssaanswers.com/tax.html" },
+            { "@type": "ListItem", "position": 3, "name": "Tax Calculator", "item": "https://www.ssaanswers.com/tax-calculator.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        #google_translate_element {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            padding: 4px 8px;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+            font-size: 13px;
+        }
+        .goog-te-gadget { font-family: inherit !important; }
+        .goog-te-gadget-simple { border: none !important; background: transparent !important; }
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0 !important; }
+
+        /* Calculator specific styles */
+        .calculator-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .calc-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            color: #1e293b;
+        }
+        .calc-form input, .calc-form select {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 1.1rem;
+            background: #fff;
+        }
+        .calc-form input:focus, .calc-form select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+        }
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .calc-grid { grid-template-columns: 1fr; }
+        }
+        .calc-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .calc-btn:hover { background: #1d4ed8; }
+        .results-box {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 10px;
+        }
+        .results-box.visible { display: block; }
+        .result-main {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #065f46;
+            margin: 0.5rem 0 1rem;
+        }
+        .result-detail {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+        .result-detail strong { color: #1e293b; }
+        .note-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="disclaimer">
+        <strong>DISCLAIMER:</strong> This calculator provides estimates only. It is not affiliated with the SSA or IRS. Always verify with official sources or a tax professional. Rules can change.
+    </div>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'es,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Social Security Answers</h1>
+            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-box">
+            <ul class="nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/news.html">News</a></li>
+                <li><a href="/replacement.html">Card Replacement</a></li>
+                <li><a href="/retirement.html">Retirement</a></li>
+                <li><a href="/medicare.html">Medicare</a></li>
+                <li><a href="/disability.html">Disability</a></li>
+                <li><a href="/survivor.html">Survivor</a></li>
+                <li><a href="/tax.html">Tax</a></li>
+                <li><a href="/medicaid.html">Medicaid</a></li>
+                <li><a href="/housing.html">Housing</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/fraud.html">Fraud</a></li>
+                <li><a href="/ssi.html">SSI</a></li>
+                <li><a href="/shelter.html">Shelter</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/calculator.html">Calculator</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="alert">
+            <strong>2026 Rules:</strong> Thresholds remain $25,000 / $34,000 (single) and $32,000 / $44,000 (married filing jointly). This calculator uses the official combined-income method.
+        </div>
+
+        <section class="content-section">
+            <h2>Social Security Tax Calculator 2026</h2>
+            <p>Instantly estimate how much of your Social Security benefits may be taxable this year. Enter your numbers below — results update based on current IRS combined-income rules.</p>
+
+            <div class="calculator-box">
+                <form id="ss-tax-form" class="calc-form" onsubmit="return false;">
+                    <div class="calc-grid">
+                        <div>
+                            <label for="filingStatus">Filing Status</label>
+                            <select id="filingStatus">
+                                <option value="single">Single / Head of Household</option>
+                                <option value="joint">Married Filing Jointly</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="ssBenefits">Annual Social Security Benefits ($)</label>
+                            <input type="number" id="ssBenefits" placeholder="e.g. 24000" min="0" step="100">
+                        </div>
+                    </div>
+
+                    <div class="calc-grid">
+                        <div>
+                            <label for="otherIncome">Other Taxable Income / AGI ($)</label>
+                            <input type="number" id="otherIncome" placeholder="Wages, pensions, IRA withdrawals, etc." min="0" step="100">
+                        </div>
+                        <div>
+                            <label for="nontaxableInterest">Nontaxable Interest ($)</label>
+                            <input type="number" id="nontaxableInterest" placeholder="Usually 0 or tax-free bond interest" min="0" step="50" value="0">
+                        </div>
+                    </div>
+
+                    <button type="button" class="calc-btn" onclick="calculateTaxableSS()">
+                        <i class="fas fa-calculator"></i> Calculate Taxable Amount
+                    </button>
+                </form>
+
+                <div id="results" class="results-box">
+                    <h3 style="margin-top:0; color:#065f46;">Your Results</h3>
+                    <div class="result-main" id="taxableAmount">—</div>
+                    <div id="taxablePercent" style="font-size:1.15rem; font-weight:600; color:#047857;"></div>
+                    
+                    <div class="result-detail" id="breakdown"></div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <strong>Important:</strong> This tool estimates the <em>taxable portion</em> of your benefits (the amount added to your taxable income). The actual tax you pay depends on your overall tax bracket and deductions (including the temporary $6,000 senior deduction for those 65+).
+            </div>
+
+            <div class="topic-box">
+                <h3>How This Calculator Works</h3>
+                <p>It follows the official IRS method:</p>
+                <ol>
+                    <li><strong>Combined Income</strong> = Other Income (AGI) + Nontaxable Interest + ½ of Social Security benefits</li>
+                    <li>Compares combined income to the 2026 thresholds</li>
+                    <li>Applies the correct “lesser of” formula for the 50% or 85% tier</li>
+                </ol>
+                <p>For a full explanation, see our <a href="/tax.html">Social Security Tax Guide</a>.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Quick Threshold Reference (2026)</h3>
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Filing Status</th>
+                            <th>0% Taxable</th>
+                            <th>Up to 50%</th>
+                            <th>Up to 85%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Single / HoH</td>
+                            <td>Under $25,000</td>
+                            <td>$25,000 – $34,000</td>
+                            <td>Over $34,000</td>
+                        </tr>
+                        <tr>
+                            <td>Married Filing Jointly</td>
+                            <td>Under $32,000</td>
+                            <td>$32,000 – $44,000</td>
+                            <td>Over $44,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="topic-box" style="text-align:center;">
+                <h3>Need More Help?</h3>
+                <p>
+                    <a href="/tax.html" class="cta-button">Full Tax Guide</a>
+                    <a href="https://www.ssa.gov/myaccount/" target="_blank" rel="noopener" class="cta-button">my Social Security</a>
+                    <a href="https://www.irs.gov/taxtopics/tc423" target="_blank" rel="noopener" class="cta-button">IRS Topic 423</a>
+                </p>
+            </div>
+
+            <!-- Google Ads -->
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5346424450981440"
+                     data-ad-slot="5473550665"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Social Security Answers | Not affiliated with SSA or IRS | Educational estimates only</p>
+        <p>Last updated: August 2026</p>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+
+    <script>
+        function formatCurrency(num) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(num);
+        }
+
+        function calculateTaxableSS() {
+            const filingStatus = document.getElementById('filingStatus').value;
+            const ssBenefits = parseFloat(document.getElementById('ssBenefits').value) || 0;
+            const otherIncome = parseFloat(document.getElementById('otherIncome').value) || 0;
+            const nontaxableInterest = parseFloat(document.getElementById('nontaxableInterest').value) || 0;
+
+            if (ssBenefits <= 0) {
+                alert('Please enter your annual Social Security benefits.');
+                return;
+            }
+
+            // Combined Income
+            const halfSS = ssBenefits / 2;
+            const combinedIncome = otherIncome + nontaxableInterest + halfSS;
+
+            // Thresholds
+            let base1, base2;
+            if (filingStatus === 'single') {
+                base1 = 25000;
+                base2 = 34000;
+            } else {
+                base1 = 32000;
+                base2 = 44000;
+            }
+
+            let taxable = 0;
+            let tier = '0%';
+            let explanation = '';
+
+            if (combinedIncome <= base1) {
+                taxable = 0;
+                tier = '0%';
+                explanation = `Your combined income of ${formatCurrency(combinedIncome)} is at or below the ${formatCurrency(base1)} threshold. None of your Social Security benefits are taxable.`;
+            } 
+            else if (combinedIncome <= base2) {
+                // 50% tier
+                const excess = combinedIncome - base1;
+                taxable = Math.min(ssBenefits * 0.5, excess * 0.5);
+                tier = 'Up to 50%';
+                explanation = `You are in the 50% tier. Combined income: ${formatCurrency(combinedIncome)}.<br>
+                Taxable amount is the lesser of 50% of benefits (${formatCurrency(ssBenefits * 0.5)}) or 50% of the excess over ${formatCurrency(base1)} (${formatCurrency(excess * 0.5)}).`;
+            } 
+            else {
+                // 85% tier
+                const excessOverBase2 = combinedIncome - base2;
+                const amountFrom50Tier = Math.min(ssBenefits * 0.5, (base2 - base1) * 0.5);
+                const additional = excessOverBase2 * 0.85;
+                taxable = Math.min(ssBenefits * 0.85, amountFrom50Tier + additional);
+                tier = 'Up to 85%';
+                explanation = `You are in the 85% tier. Combined income: ${formatCurrency(combinedIncome)}.<br>
+                The calculation takes the amount from the 50% rules plus 85% of the income above ${formatCurrency(base2)}, then limits the result to 85% of your total benefits.`;
+            }
+
+            // Display results
+            document.getElementById('taxableAmount').textContent = formatCurrency(taxable) + ' taxable';
+            document.getElementById('taxablePercent').textContent = 
+                `Approximately ${((taxable / ssBenefits) * 100).toFixed(1)}% of your benefits (${tier} tier)`;
+
+            document.getElementById('breakdown').innerHTML = `
+                <p><strong>Annual Social Security Benefits:</strong> ${formatCurrency(ssBenefits)}</p>
+                <p><strong>Other Income (AGI):</strong> ${formatCurrency(otherIncome)}</p>
+                <p><strong>Nontaxable Interest:</strong> ${formatCurrency(nontaxableInterest)}</p>
+                <p><strong>Combined Income:</strong> ${formatCurrency(combinedIncome)}</p>
+                <hr style="margin: 0.8rem 0; border: none; border-top: 1px solid #d1d5db;">
+                <p>${explanation}</p>
+                <p style="margin-top:1rem;"><strong>Note:</strong> This is the amount added to your taxable income. Your actual tax depends on your tax bracket and deductions (including the temporary extra $6,000 senior deduction if you are 65 or older).</p>
+            `;
+
+            document.getElementById('results').classList.add('visible');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Allow Enter key to calculate
+        document.getElementById('ss-tax-form').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                calculateTaxableSS();
+            }
+        });
+    </script>
+</body>
+</html>
