@@ -3,14 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSI Guide 2026 - Social Security Answers</title>
-    <meta name="description" content="Comprehensive 2026 guide to Supplemental Security Income (SSI): eligibility, $943 max payment, application, income/resource rules, and real examples.">
-    <meta name="keywords" content="ssi 2026, supplemental security income, ssi benefits, eligibility, application, $943 ssi payment">
-    <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="styles.css">
+    
+    <title>SSI Guide 2026 – Supplemental Security Income Eligibility, Payments & Application</title>
+    
+    <meta name="description" content="Complete 2026 SSI guide: Eligibility, $943 individual / $1,415 couple payments, income & resource limits, application process, refugee & asylee rules, and how SSI compares to SSDI.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Social Security Answers">
+    <meta name="theme-color" content="#004d99">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SSI Guide 2026 – Supplemental Security Income">
+    <meta property="og:description" content="Clear 2026 guide to SSI eligibility, payment amounts, income/resource limits, and application. Includes rules for refugees and asylees.">
+    <meta property="og:url" content="https://www.ssaanswers.com/ssi.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Social Security Answers">
+
+    <!-- Canonical + Hreflang -->
+    <link rel="canonical" href="https://www.ssaanswers.com/ssi.html">
+    <link rel="alternate" hreflang="en" href="https://www.ssaanswers.com/ssi.html">
+    <link rel="alternate" hreflang="es" href="https://www.ssaanswers.com/ssi.html?lang=es">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.ssaanswers.com/ssi.html?lang=zh">
+    <link rel="alternate" hreflang="x-default" href="https://www.ssaanswers.com/ssi.html">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.ssaanswers.com/#organization",
+          "name": "Social Security Answers",
+          "url": "https://www.ssaanswers.com"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://www.ssaanswers.com/ssi.html",
+          "name": "SSI Guide 2026 – Supplemental Security Income",
+          "description": "Complete guide to Supplemental Security Income (SSI) in 2026 including eligibility, payment amounts, income and resource limits, and application process.",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the maximum SSI payment in 2026?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The federal maximum SSI payment in 2026 is $943 per month for an individual and $1,415 per month for an eligible couple."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the SSI resource limits in 2026?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The resource limit is $2,000 for an individual and $3,000 for a couple. Your home, one vehicle, and certain other items are excluded."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can refugees and asylees get SSI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Refugees and asylees can generally receive SSI for up to 7 years from the date they obtained that status, if they meet the other eligibility requirements."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPC7TFVK2B"></script>
     <script>
@@ -19,228 +87,420 @@
         gtag('js', new Date());
         gtag('config', 'G-QPC7TFVK2B');
     </script>
+
     <!-- Google Ads -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary: #004d99;
+            --accent: #00a651;
+            --bg: #ffffff;
+            --text: #1e2937;
+            --box-bg: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 12px rgba(0,77,153,0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Catamaran', system-ui, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+        .banner {
+            background: linear-gradient(135deg, #004d99, #002b55);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .banner h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); margin-bottom: 0.3rem; }
+        .tagline { font-size: 1.15rem; opacity: 0.95; }
+
+        .nav {
+            background: #f1f5f9;
+            border-bottom: 3px solid var(--accent);
+            padding: 0.7rem 1rem;
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            align-items: center;
+        }
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: 0.97rem;
+        }
+        .nav a:hover, .nav a.active { background: var(--primary); color: white; }
+
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem;
+        }
+
+        .alert {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            color: #92400e;
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            margin: 1.2rem 0;
+            text-align: center;
+        }
+
+        .topic-box {
+            background: var(--box-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.6rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.1rem;
+        }
+        .help-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .help-card i {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .help-card h4 { margin-bottom: 0.4rem; font-size: 1.05rem; }
+        .help-card p { font-size: 0.9rem; color: #64748b; margin-bottom: 0.8rem; }
+        .help-card a {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: 0.97rem;
+        }
+        th, td {
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+        th { background: var(--primary); color: white; }
+
+        .cta-bar {
+            background: linear-gradient(135deg, #004d99, #00a651);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 1.8rem 0;
+        }
+        .cta-bar a {
+            display: inline-block;
+            background: white;
+            color: #004d99;
+            font-weight: 700;
+            padding: 0.65rem 1.3rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            margin: 0.35rem;
+        }
+
+        footer {
+            background: #f1f5f9;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 3px solid var(--accent);
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
-    <div class="disclaimer">
-        <strong>DISCLAIMER:</strong> This site is NOT affiliated with the Social Security Administration (SSA). SSI rules can change — always verify directly at <a href="https://www.ssa.gov/ssi/" target="_blank">ssa.gov/ssi</a> or call 1-800-772-1213. Information is educational only.
-    </div>
 
+    <!-- Header -->
     <header class="banner">
-        <div class="banner-content">
-            <h1>Social Security Answers</h1>
-            <p class="tagline">Your Guide to Benefits, Simplified <span class="sign">✨ SS Made Easy</span></p>
-        </div>
+        <h1>Social Security Answers</h1>
+        <p class="tagline">Your Guide to Benefits, Simplified ✦ SS Made Easy ✦</p>
     </header>
 
-    <nav class="main-nav">
-        <div class="nav-box">
-            <ul class="nav-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/news.html">News</a></li>
-                <li><a href="/replacement.html">Card Replacement</a></li>
-                <li><a href="/retirement.html">Retirement</a></li>
-                <li><a href="/medicare.html">Medicare</a></li>
-                <li><a href="/disability.html">Disability</a></li>
-                <li><a href="/survivor.html">Survivor</a></li>
-                <li><a href="/tax.html">Tax</a></li>
-                <li><a href="/medicaid.html">Medicaid</a></li>
-                <li><a href="/housing.html">Housing</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/fraud.html">Fraud</a></li>
-                <li><a href="/ssi.html" class="active">SSI</a></li>
-                <li><a href="/shelter.html">Shelter</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/calculator.html">Calculator</a></li>
-            </ul>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/">Home</a>
+            <a href="/replacement.html">Card Replacement</a>
+            <a href="/retirement.html">Retirement</a>
+            <a href="/tax.html">Tax</a>
+            <a href="/ssi.html" class="active">SSI</a>
+            <a href="/calculator.html">Calculator</a>
+            <a href="/disability.html">Disability</a>
+            <a href="/medicare.html">Medicare</a>
+            <a href="/housing.html">Housing</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/about.html">About</a>
         </div>
     </nav>
 
-    <main>
-        <div class="alert">
-            <strong>March 2026 Update:</strong> SSI federal benefit rate is now $943/month for individuals and $1,415 for couples (after 2.8% COLA). Resource limits unchanged ($2,000 individual / $3,000 couple). Apply or check status at <a href="https://www.ssa.gov/ssi/" target="_blank">ssa.gov/ssi</a>.
+    <main class="content">
+
+        <!-- Language Switcher -->
+        <div style="text-align:center; margin-bottom:1.3rem; padding:1rem; background:#f0f9ff; border-radius:10px;">
+            <strong>Language / Idioma / 语言:</strong><br><br>
+            <a href="/ssi.html" style="margin:4px;padding:8px 16px;background:#004d99;color:white;border-radius:9999px;text-decoration:none;font-weight:600;">English</a>
+            <a href="/ssi.html?lang=es" style="margin:4px;padding:8px 16px;background:#00a651;color:white;border-radius:9999px;text-decoration:none;font-weight:600;">Español</a>
+            <a href="/ssi.html?lang=zh" style="margin:4px;padding:8px 16px;background:#dc2626;color:white;border-radius:9999px;text-decoration:none;font-weight:600;">中文</a>
         </div>
 
-        <section class="content-section">
-            <h2>Supplemental Security Income (SSI) in 2026</h2>
-            <p>SSI provides monthly cash payments to people with limited income and resources who are <strong>disabled</strong>, <strong>blind</strong>, or <strong>65 or older</strong>. Unlike SSDI (work-based), SSI is needs-based and helps millions, including children, adults with disabilities, and seniors. In 2026, the maximum federal payment is $943 for individuals and $1,415 for couples (plus state supplements in many areas). <a href="https://www.ssa.gov/ssi/" target="_blank">Official info at SSA.gov</a>.</p>
+        <div class="alert">
+            <strong>August 2026 Update:</strong> Federal SSI maximum is <strong>$943/month</strong> for an individual and <strong>$1,415/month</strong> for a couple (after the 2.8% COLA). Resource limits remain $2,000 (individual) / $3,000 (couple).
+        </div>
 
-            <div class="topic-box">
-                <h3>What is SSI?</h3>
-                <p>SSI is a needs-based program — not tied to work history. It supports:</p>
-                <ul>
-                    <li>Disabled children and adults</li>
-                    <li>People 65 or older with low income/resources</li>
-                    <li>Some immigrants (e.g., refugees/asylees within 7 years, if disabled)</li>
-                </ul>
-                <p><strong>2026 Max Payments:</strong> $943 (individual), $1,415 (couple). Many states add supplements (e.g., California adds ~$200–$300).</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Who Qualifies for SSI?</h3>
-                <p>Three main requirements:</p>
-                <ol>
-                    <li><strong>Category</strong>: Disabled (condition lasts 12+ months or is fatal), blind (vision 20/200 or worse), or 65+.</li>
-                    <li><strong>Income</strong>: Countable income below $943 (individual) or $1,415 (couple).</li>
-                    <li><strong>Resources</strong>: $2,000 (individual) or $3,000 (couple) — excludes home, one car, personal items, $1,500 burial funds, ABLE accounts up to $100,000.</li>
-                </ol>
-                <p><strong>Example:</strong> Maria, 68, has $300 pension and $1,200 savings — qualifies for ~$643 SSI ($943 - $300 countable).</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Income & Resource Exclusions (2026)</h3>
-                <h4>Income Exclusions</h4>
-                <ul>
-                    <li>$20 of any income (general exclusion).</li>
-                    <li>$65 of earned income + $1 excluded for every $2 earned after.</li>
-                    <li>Up to ~$2,290/month for students under 22.</li>
-                    <li>Food stamps, home energy assistance, most home-based support.</li>
-                </ul>
-                <h4>Resource Exclusions</h4>
-                <ul>
-                    <li>Your home and land it’s on</li>
-                    <li>One vehicle (regardless of value)</li>
-                    <li>Personal/household goods</li>
-                    <li>$1,500 burial funds per person</li>
-                    <li>ABLE account balance up to $100,000</li>
-                </ul>
-            </div>
-
-            <div class="topic-box">
-                <h3>SSI Payments in 2026</h3>
-                <table class="doc-table">
-                    <thead><tr><th>Category</th><th>Federal Max Payment</th></tr></thead>
-                    <tbody>
-                        <tr><td>Individual</td><td>$943</td></tr>
-                        <tr><td>Couple (both eligible)</td><td>$1,415</td></tr>
-                        <tr><td>Essential Person (living with eligible individual)</td><td>$472 extra</td></tr>
-                        <tr><td>In another’s household (with food/shelter provided)</td><td>$629 (2/3 reduction)</td></tr>
-                    </tbody>
-                </table>
-                <p>State supplements vary — check <a href="https://www.ssa.gov/ssi/text-benefits-ussi.htm" target="_blank">SSA.gov</a> for your state.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>How SSI Adjusts for Income</h3>
-                <ul>
-                    <li><strong>Unearned income</strong>: $1 reduction per $1 after $20 exclusion.</li>
-                    <li><strong>Earned income</strong>: $1 reduction per $2 after $85 exclusion ($65 + $20 general).</li>
-                </ul>
-                <p><strong>Example:</strong> Tom earns $400/month wages → countable = $400 - $85 = $315 → SSI = $943 - $315 = $628.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Application Process</h3>
-                <ol>
-                    <li>Gather ID, income proof, medical records, bank statements.</li>
-                    <li>Apply online (65+ only) at <a href="https://secure.ssa.gov/iClaim/SSI" target="_blank">ssa.gov</a>, call 1-800-772-1213, or visit local office.</li>
-                    <li>Complete interview (phone/in-person).</li>
-                    <li>Decision usually in 3–5 months; back payments from application date if approved.</li>
-                </ol>
-                <p><strong>Tip:</strong> Apply even if unsure — SSA helps determine category and exclusions.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>SSI vs. SSDI</h3>
-                <table class="doc-table">
-                    <thead><tr><th>Aspect</th><th>SSI</th><th>SSDI</th></tr></thead>
-                    <tbody>
-                        <tr><td>Basis</td><td>Low income/resources</td><td>Work credits</td></tr>
-                        <tr><td>Max 2026</td><td>$943</td><td>~$1,600+ average</td></tr>
-                        <tr><td>Health Insurance</td><td>Medicaid (usually immediate)</td><td>Medicare (after 24 months)</td></tr>
-                        <tr><td>Work Impact</td><td>Reduces benefit gradually</td><td>Trial Work Period allowed</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="topic-box">
-                <h3>Frequently Asked Questions</h3>
-                <div class="faq">
-                    <h4>Can I work and get SSI?</h4><p>Yes — earnings reduce benefits gradually ($1 for every $2 after exclusions). Report all work to SSA.</p>
-                    <h4>Does SSI affect other benefits?</h4><p>Often links to Medicaid, SNAP, housing aid. Some states reduce SSI if you get other help.</p>
-                    <h4>What if denied?</h4><p>Appeal within 60 days — reconsideration, then hearing (many win at hearing with representation).</p>
+        <!-- TOP Need Help Section -->
+        <section class="topic-box">
+            <h3>Need Help with SSI?</h3>
+            <div class="help-grid">
+                <div class="help-card">
+                    <i class="fas fa-landmark"></i>
+                    <h4>Official SSI Rules</h4>
+                    <p>Read the complete rules directly from SSA.</p>
+                    <a href="https://www.ssa.gov/ssi/" target="_blank" rel="noopener">SSA.gov/SSI</a>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>Schedule Appointment</h4>
+                    <p>Book a phone or in-person appointment.</p>
+                    <a href="https://www.ssa.gov/manage-benefits/make-an-appointment" target="_blank" rel="noopener">Make Appointment</a>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-notes-medical"></i>
+                    <h4>Medicaid</h4>
+                    <p>Most SSI recipients also qualify for Medicaid.</p>
+                    <a href="/medicaid.html">Medicaid Guide</a>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-home"></i>
+                    <h4>Housing Help</h4>
+                    <p>Information about housing assistance programs.</p>
+                    <a href="/housing.html">Housing Guide</a>
+                </div>
+                <div class="help-card">
+                    <i class="fab fa-reddit"></i>
+                    <h4>Reddit Community</h4>
+                    <p>Ask questions in the large Social Security community.</p>
+                    <a href="https://www.reddit.com/r/SocialSecurity/" target="_blank" rel="noopener">r/SocialSecurity</a>
+                </div>
+                <div class="help-card">
+                    <i class="fab fa-youtube"></i>
+                    <h4>YouTube Videos</h4>
+                    <p>Watch explanations of SSI eligibility and application.</p>
+                    <a href="https://www.youtube.com/results?search_query=ssi+supplemental+security+income+explained+2026" target="_blank" rel="noopener">Watch Videos</a>
                 </div>
             </div>
-
-            <div class="topic-box" style="text-align:center;">
-                <h3>Get Started with SSI</h3>
-                <p>
-                    <a href="https://www.ssa.gov/ssi/" target="_blank" class="cta-button">Official SSI Info</a>
-                    <a href="https://secure.ssa.gov/iClaim/SSI" target="_blank" class="cta-button">Apply Online (65+)</a>
-                    <a href="https://www.ssa.gov/locator/" target="_blank" class="cta-button">Find Local Office</a>
-                </p>
-                <p>Call 1-800-772-1213 (TTY 1-800-325-0778)</p>
-            </div>
-
-            <!-- Google Ads -->
-            <div class="ad-container">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-5346424450981440"
-                     data-ad-slot="5473550665"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
-
-            <!-- Social Share -->
-            <div class="social-share">
-                <h3>Share This Guide</h3>
-                <a href="https://twitter.com/intent/tweet?url=https://ssaanswers.com/ssi.html" class="share-btn twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://ssaanswers.com/ssi.html" class="share-btn facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <!-- Add other platforms as needed -->
-            </div>
         </section>
+
+        <h2 style="text-align:center; font-size:1.85rem; margin:1.8rem 0 0.8rem;">
+            Supplemental Security Income (SSI) in 2026
+        </h2>
+
+        <!-- What is SSI + Limits -->
+        <section class="topic-box">
+            <h3>What is SSI?</h3>
+            <p>Supplemental Security Income (SSI) is a <strong>needs-based</strong> federal program that provides monthly cash payments to people who have limited income and resources and who are:</p>
+            <ul style="padding-left:1.3rem; margin:0.8rem 0;">
+                <li>Age 65 or older, <strong>or</strong></li>
+                <li>Blind, <strong>or</strong></li>
+                <li>Disabled (the condition must be expected to last at least 12 months or result in death)</li>
+            </ul>
+            <p>Unlike Social Security Disability Insurance (SSDI), SSI is <strong>not</strong> based on your work history.</p>
+
+            <h4 style="margin-top:1.4rem;">2026 Federal Payment Amounts</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Maximum Federal Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Individual</td>
+                        <td><strong>$943</strong> per month</td>
+                    </tr>
+                    <tr>
+                        <td>Eligible Couple</td>
+                        <td><strong>$1,415</strong> per month</td>
+                    </tr>
+                    <tr>
+                        <td>Essential Person</td>
+                        <td>+$472 extra</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Many states add a state supplement on top of the federal amount.</p>
+
+            <h4 style="margin-top:1.4rem;">Income & Resource Limits (2026)</h4>
+            <ul style="padding-left:1.3rem;">
+                <li><strong>Resource limit:</strong> $2,000 for an individual / $3,000 for a couple</li>
+                <li><strong>Excluded resources:</strong> Your home, one vehicle, household goods, $1,500 burial funds, and ABLE accounts (up to $100,000)</li>
+                <li><strong>Income:</strong> Countable income must be below the maximum payment amount</li>
+            </ul>
+        </section>
+
+        <!-- Who Qualifies -->
+        <section class="topic-box">
+            <h3>Who Qualifies for SSI?</h3>
+            <p>You must meet all three of these requirements:</p>
+            <ol style="padding-left:1.3rem; margin:0.8rem 0;">
+                <li><strong>Category</strong> — Disabled, blind, or age 65+</li>
+                <li><strong>Limited Income</strong> — Countable income below the federal benefit rate</li>
+                <li><strong>Limited Resources</strong> — Under the $2,000 / $3,000 limits</li>
+            </ol>
+
+            <h4 style="margin-top:1.3rem;">Important Rules for Refugees and Asylees</h4>
+            <p>Refugees, asylees, and certain other humanitarian immigrants can receive SSI if they meet the disability, income, and resource rules.</p>
+            <ul style="padding-left:1.3rem; margin:0.7rem 0;">
+                <li>Eligibility is generally limited to the first <strong>7 years</strong> after the date you were granted refugee or asylee status.</li>
+                <li>After 7 years, you usually must become a U.S. citizen to continue receiving SSI (some exceptions exist).</li>
+                <li>You still must meet the medical disability (or age 65+) and financial requirements.</li>
+            </ul>
+            <p><strong>Example:</strong> A refugee who arrived in 2022 and was granted status the same year can generally receive SSI until 2029 if they remain eligible under the other rules.</p>
+        </section>
+
+        <!-- Income Rules -->
+        <section class="topic-box">
+            <h3>How Income Affects SSI</h3>
+            <p>SSA does not count all income. Important exclusions include:</p>
+            <ul style="padding-left:1.3rem; margin:0.8rem 0;">
+                <li>$20 of most unearned income</li>
+                <li>$65 of earned income + half of the remaining earned income</li>
+                <li>SNAP (food stamps), most housing assistance, and energy assistance</li>
+            </ul>
+
+            <p><strong>Example – Earned Income:</strong><br>
+            Tom earns $400 in wages.<br>
+            Countable income = $400 − $85 = $315<br>
+            SSI payment = $943 − $315 = <strong>$628</strong></p>
+
+            <p><strong>Example – Unearned Income:</strong><br>
+            Maria receives a $300 pension.<br>
+            Countable income = $300 − $20 = $280<br>
+            SSI payment = $943 − $280 = <strong>$663</strong></p>
+        </section>
+
+        <!-- Application Process -->
+        <section class="topic-box">
+            <h3>How to Apply for SSI</h3>
+            <ol style="padding-left:1.3rem; margin:0.8rem 0;">
+                <li>Gather documents (ID, immigration papers, medical records, bank statements, proof of income).</li>
+                <li>Apply online (available for age 65+), by phone at 1-800-772-1213, or at a local SSA office.</li>
+                <li>Complete an interview (phone or in-person).</li>
+                <li>SSA reviews your case. Decisions often take 3–5 months. If approved, back payments usually start from the application date.</li>
+            </ol>
+            <p><strong>Tip:</strong> Apply even if you are not sure you qualify. SSA will help determine whether you meet the rules.</p>
+        </section>
+
+        <!-- SSI vs SSDI -->
+        <section class="topic-box">
+            <h3>SSI vs. SSDI – Quick Comparison</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>SSI</th>
+                        <th>SSDI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Based on</td>
+                        <td>Low income & resources</td>
+                        <td>Work credits</td>
+                    </tr>
+                    <tr>
+                        <td>2026 Maximum</td>
+                        <td>$943 (individual)</td>
+                        <td>Higher (based on earnings)</td>
+                    </tr>
+                    <tr>
+                        <td>Health Coverage</td>
+                        <td>Usually Medicaid right away</td>
+                        <td>Medicare after 24 months</td>
+                    </tr>
+                    <tr>
+                        <td>Work Rules</td>
+                        <td>Earnings reduce payment gradually</td>
+                        <td>Trial Work Period available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-bar">
+            <h3 style="color:white; margin-bottom:0.9rem;">Ready to Apply or Check Status?</h3>
+            <a href="https://www.ssa.gov/ssi/" target="_blank" rel="noopener">Official SSI Information</a>
+            <a href="https://secure.ssa.gov/iClaim/SSI" target="_blank" rel="noopener">Apply Online (65+)</a>
+            <a href="https://www.ssa.gov/manage-benefits/make-an-appointment" target="_blank" rel="noopener">Schedule Appointment</a>
+        </div>
+
+        <!-- FAQ -->
+        <section class="topic-box">
+            <h3>Frequently Asked Questions</h3>
+
+            <h4 style="margin-top:1.3rem;">Can I work while receiving SSI?</h4>
+            <p>Yes. Earnings reduce your SSI payment gradually ($1 for every $2 after exclusions). You must report all work to SSA.</p>
+
+            <h4 style="margin-top:1.3rem;">Does SSI help me get Medicaid?</h4>
+            <p>In most states, receiving SSI automatically qualifies you for Medicaid.</p>
+
+            <h4 style="margin-top:1.3rem;">What if my SSI application is denied?</h4>
+            <p>You can appeal within 60 days. Many people win at the hearing level, especially with representation.</p>
+
+            <h4 style="margin-top:1.3rem;">Can refugees and asylees get SSI?</h4>
+            <p>Yes, for up to 7 years after receiving that status, as long as they meet the disability (or age) and financial requirements.</p>
+        </section>
+
+        <!-- Google Ads -->
+        <div style="margin: 2.5rem 0; text-align: center;">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5346424450981440"
+                 data-ad-slot="5473550665"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
     </main>
 
     <footer>
-        <p>© 2026 Social Security Answers | Not affiliated with SSA | Verify at <a href="https://www.ssa.gov/ssi/" target="_blank">ssa.gov/ssi</a></p>
-        <p>Last updated: March 2026 | Educational only</p>
+        <p>© 2026 Social Security Answers</p>
+        <p>Not affiliated with the Social Security Administration. Always verify information at <a href="https://www.ssa.gov/ssi/" target="_blank" rel="noopener">ssa.gov/ssi</a>.</p>
+        <p style="margin-top:0.5rem;">Free educational resource • Updated August 2026</p>
     </footer>
 
-    <button id="back-to-top" class="back-to-top-btn"><i class="fas fa-arrow-up"></i></button>
-
-    <!-- Support Us Section -->
-    <button id="support-us-toggle" class="support-us-toggle-btn"><i class="fas fa-heart"></i> Support</button>
-    <div id="support-us" class="support-us-container">
-        <div class="support-us-header">
-            <h3>Support Us</h3>
-            <button id="support-us-close" class="support-us-close-btn"><i class="fas fa-times"></i></button>
-        </div>
-        <p>Help us keep this resource free! Donate via PayPal or Cash App:</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_blank">
-            <input type="hidden" name="business" value="ravellc17@gmail.com" />
-            <input type="hidden" name="currency_code" value="USD" />
-            <button type="submit" class="support-btn"><i class="fab fa-paypal"></i> Donate via PayPal</button>
-        </form>
-        <p>Or send directly via Cash App to <strong>$ssaanswers</strong>:</p>
-        <a href="https://cash.app/$ssaanswers" target="_blank" class="support-btn cashapp-btn"><i class="fas fa-dollar-sign"></i> Donate via Cash App</a>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cash.app/$ssaanswers" alt="Cash App QR Code" class="cashapp-qr">
-        <p>Explore helpful books and resources:</p>
-        <a href="https://www.amazon.com/s?k=social+security+books&tag=socialsecu07f-20" target="_blank" class="support-btn resources-btn"><i class="fas fa-book"></i> Books & Resources</a>
-    </div>
-
-    <script src="script.js"></script>
-    <script>
-        // Back to top
-        const backToTop = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
-        });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // Social share URLs
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentUrl = encodeURIComponent(window.location.href);
-            const shareButtons = document.querySelectorAll('.share-btn');
-            shareButtons.forEach(btn => {
-                const baseHref = btn.getAttribute('href');
-                if (!baseHref.includes('youtube.com') && !baseHref.includes('instagram.com')) {
-                    btn.setAttribute('href', baseHref + currentUrl);
-                }
-            });
-        });
-    </script>
 </body>
 </html>
