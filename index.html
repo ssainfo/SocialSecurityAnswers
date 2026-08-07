@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Optimized Title for Home Page -->
     <title>Social Security Answers 2026 | Free Guides for SSN Cards, Retirement, Disability, SSI & Taxes</title>
     
-    <!-- Strong Meta Description -->
     <meta name="description" content="Welcome to Social Security Answers — the free, clear, and immigrant-friendly guide to Social Security. Replace your SSN card, estimate retirement benefits, understand disability, SSI, Medicare, and taxes. Updated for 2026.">
     
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -32,10 +30,8 @@
     <meta name="twitter:title" content="Social Security Answers – Free Guides for 2026">
     <meta name="twitter:description" content="Clear, free guides for SSN card replacement, retirement, disability, SSI, Medicare and taxes. Made for immigrants and citizens.">
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://www.ssaanswers.com/">
 
-    <!-- Hreflang -->
     <link rel="alternate" hreflang="en" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="es" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="zh-CN" href="https://www.ssaanswers.com/">
@@ -43,7 +39,6 @@
     <link rel="alternate" hreflang="fa" href="https://www.ssaanswers.com/">
     <link rel="alternate" hreflang="x-default" href="https://www.ssaanswers.com/">
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -60,7 +55,8 @@
           "description": "Independent free educational guides about Social Security card replacement, first-time SSN applications, benefits, and taxes for U.S. citizens and immigrants.",
           "sameAs": [
             "https://twitter.com/ssaanswers",
-            "https://www.reddit.com/r/socialsecurityanswers/"
+            "https://www.reddit.com/r/socialsecurityanswers/",
+            "https://www.reddit.com/r/SocialSecurity/"
           ]
         },
         {
@@ -89,17 +85,12 @@
     }
     </script>
 
-    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
     <link rel="icon" href="https://www.ssaanswers.com/favicon.ico" type="image/x-icon">
 
-    <!-- Google Ads -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346424450981440" crossorigin="anonymous"></script>
 
-    <!-- Google Translate -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -117,6 +108,8 @@
             --primary: #004d99;
             --primary-dark: #003366;
             --accent: #00a651;
+            --reddit: #FF4500;
+            --reddit-dark: #e03d00;
             --light: #f8f9fa;
             --text: #1e2937;
             --bg: #ffffff;
@@ -133,7 +126,6 @@
             background: var(--bg);
         }
 
-        /* Welcome Banner */
         .welcome-banner {
             background: linear-gradient(135deg, #004d99, #002b55);
             color: white;
@@ -172,7 +164,6 @@
             position: relative;
         }
 
-        /* Translator */
         .translate-bar {
             background: #f0f9ff;
             padding: 0.9rem 1rem;
@@ -188,7 +179,6 @@
             font-size: 0.95rem !important;
         }
 
-        /* Main content */
         .content {
             max-width: 980px;
             margin: 0 auto;
@@ -211,7 +201,6 @@
             color: #334155;
         }
 
-        /* Big Radio / Option Cards */
         .options-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -283,7 +272,7 @@
             color: var(--primary);
         }
 
-        /* Special highlight for the main SSN card */
+        /* Featured SSN card */
         .option-card.featured {
             border-color: var(--accent);
             background: linear-gradient(to right, #f0fdf4, #ffffff);
@@ -295,7 +284,32 @@
             background: var(--accent);
         }
 
-        /* Other section */
+        /* Reddit special styling */
+        .option-card.reddit {
+            border-color: var(--reddit);
+            background: linear-gradient(to right, #fff5f0, #ffffff);
+        }
+        .option-card.reddit .radio {
+            border-color: var(--reddit);
+        }
+        .option-card.reddit:hover {
+            border-color: var(--reddit-dark);
+            background: #fff0eb;
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.15);
+        }
+        .option-card.reddit:hover .radio {
+            border-color: var(--reddit-dark);
+        }
+        .option-card.reddit:hover .radio::after {
+            background: var(--reddit);
+        }
+        .option-card.reddit .text strong {
+            color: #c2410c;
+        }
+        .option-card.reddit:hover .arrow {
+            color: var(--reddit);
+        }
+
         .other-section {
             background: var(--box-bg);
             border: 1px solid var(--box-border);
@@ -323,7 +337,6 @@
             background: var(--primary-dark);
         }
 
-        /* CTA bar */
         .cta-bar {
             background: linear-gradient(135deg, #004d99, #00a651);
             color: white;
@@ -384,14 +397,12 @@
 </head>
 <body>
 
-    <!-- Strong Welcome Banner -->
     <header class="welcome-banner">
         <h1>Welcome to Social Security Answers</h1>
         <p class="tagline">We simplify Social Security — clear answers for everyone.</p>
         <p class="sub">Free, up-to-date guides for U.S. citizens and immigrants. No jargon. No confusion. Just the steps you need.</p>
     </header>
 
-    <!-- Google Translate -->
     <div class="translate-bar">
         <strong>Translate this page / Traducir / 翻译 / 번역 / ترجمه:</strong><br>
         <div id="google_translate_element"></div>
@@ -404,7 +415,6 @@
             <p>Choose one of the big options below. Each link takes you to a clear, step-by-step guide written in plain language.</p>
         </div>
 
-        <!-- Big Radio-Style Options -->
         <div class="options-grid">
 
             <!-- Featured: SSN Card Replacement -->
@@ -471,16 +481,34 @@
                 <div class="arrow"><i class="fas fa-chevron-right"></i></div>
             </a>
 
+            <!-- NEW: News -->
+            <a href="news.html" class="option-card">
+                <div class="radio"></div>
+                <div class="text">
+                    <strong>Latest News & Updates</strong>
+                    <span>2026 COLA, rule changes, and important SSA announcements</span>
+                </div>
+                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <!-- NEW: Reddit (largest Social Security subreddit) -->
+            <a href="https://www.reddit.com/r/SocialSecurity/" target="_blank" rel="noopener" class="option-card reddit">
+                <div class="radio"></div>
+                <div class="text">
+                    <strong>Ask on Reddit</strong>
+                    <span>Join the largest Social Security community (130k+ members)</span>
+                </div>
+                <div class="arrow"><i class="fab fa-reddit-alien"></i></div>
+            </a>
+
         </div>
 
-        <!-- Other Important Information -->
         <div class="other-section">
             <h3>Other Important Information</h3>
             <p>Looking for FAQs, document examples, visa-specific guides, or the full SSN card replacement process?</p>
             <a href="replacement.html">Go to Main Guides →</a>
         </div>
 
-        <!-- Quick CTA -->
         <div class="cta-bar">
             <h3>Ready to get started?</h3>
             <a href="https://www.ssa.gov/forms/ss-5.pdf" target="_blank" rel="noopener">Download Form SS-5</a>
@@ -488,7 +516,6 @@
             <a href="replacement.html">SSN Card Guide</a>
         </div>
 
-        <!-- Small trust line -->
         <p style="text-align:center; color:#64748b; font-size:0.95rem; margin-top:1.5rem;">
             Free educational resource • Updated for 2026 • Written for both citizens and immigrants
         </p>
